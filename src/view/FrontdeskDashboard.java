@@ -124,7 +124,9 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setFocusable(false);
-        setMinimumSize(new java.awt.Dimension(800, 530));
+        setMinimumSize(new java.awt.Dimension(810, 535));
+        setPreferredSize(null);
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
