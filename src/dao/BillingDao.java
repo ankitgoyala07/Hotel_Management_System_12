@@ -22,7 +22,7 @@ public class BillingDao {
     public BillingModel getBillingForRoom(String roomNumber) {
         Connection conn = mysql.Openconnection();
         if (conn == null) {
-            return new BillingModel("", roomNumber, "", 0, 0.0, 0.0, 0.0, "");
+            return new BillingModel("", roomNumber, "", 0, 0.0, 0.0, 0.0, "", "None");
         }
 
         try {
@@ -38,9 +38,10 @@ public class BillingDao {
             String roomType = "";
             double foodOrders = 0.0;
             double roomService = 0.0;
+            String discountDeal = "None";
 
             // 1. Query guest stay info
-            String guestSql = "SELECT guest_id, full_name, room_type, check_in_date, check_out_date "
+            String guestSql = "SELECT guest_id, full_name, room_type, check_in_date, check_out_date, discount_deal "
                             + "FROM guest_details WHERE room_no = ? ORDER BY guest_id DESC LIMIT 1";
             try (PreparedStatement pstm = conn.prepareStatement(guestSql)) {
                 pstm.setInt(1, roomNum);
@@ -48,6 +49,10 @@ public class BillingDao {
                     if (rs.next()) {
                         guestId = String.valueOf(rs.getInt("guest_id"));
                         roomType = rs.getString("room_type");
+                        discountDeal = rs.getString("discount_deal");
+                        if (discountDeal == null || discountDeal.trim().isEmpty()) {
+                            discountDeal = "None";
+                        }
                         java.sql.Date checkIn = rs.getDate("check_in_date");
                         java.sql.Date checkOut = rs.getDate("check_out_date");
                         if (checkIn != null && checkOut != null) {
@@ -119,14 +124,14 @@ public class BillingDao {
                 }
             }
 
-            return new BillingModel(guestId, roomNumber, stayPeriod, nights, roomRate, roomService, foodOrders, roomType);
+            return new BillingModel(guestId, roomNumber, stayPeriod, nights, roomRate, roomService, foodOrders, roomType, discountDeal);
         } catch (Exception e) {
             System.out.println("Error getting billing from database: " + e.getMessage());
         } finally {
             mysql.closeConnection(conn);
         }
 
-        return new BillingModel("", roomNumber, "", 0, 0.0, 0.0, 0.0, "");
+        return new BillingModel("", roomNumber, "", 0, 0.0, 0.0, 0.0, "", "None");
     }
 
     /**
@@ -138,7 +143,7 @@ public class BillingDao {
     public BillingModel getBillingForGuest(String guestIdStr) {
         Connection conn = mysql.Openconnection();
         if (conn == null) {
-            return new BillingModel(guestIdStr, "", "", 0, 0.0, 0.0, 0.0, "");
+            return new BillingModel(guestIdStr, "", "", 0, 0.0, 0.0, 0.0, "", "None");
         }
 
         try {
@@ -154,9 +159,10 @@ public class BillingDao {
             String roomType = "";
             double foodOrders = 0.0;
             double roomService = 0.0;
+            String discountDeal = "None";
 
             // 1. Query guest stay info by guest_id
-            String guestSql = "SELECT guest_id, room_no, room_type, check_in_date, check_out_date "
+            String guestSql = "SELECT guest_id, room_no, room_type, check_in_date, check_out_date, discount_deal "
                             + "FROM guest_details WHERE guest_id = ? LIMIT 1";
             try (PreparedStatement pstm = conn.prepareStatement(guestSql)) {
                 pstm.setInt(1, guestId);
@@ -164,6 +170,10 @@ public class BillingDao {
                     if (rs.next()) {
                         roomNumber = String.valueOf(rs.getInt("room_no"));
                         roomType = rs.getString("room_type");
+                        discountDeal = rs.getString("discount_deal");
+                        if (discountDeal == null || discountDeal.trim().isEmpty()) {
+                            discountDeal = "None";
+                        }
                         java.sql.Date checkIn = rs.getDate("check_in_date");
                         java.sql.Date checkOut = rs.getDate("check_out_date");
                         if (checkIn != null && checkOut != null) {
@@ -242,14 +252,14 @@ public class BillingDao {
                 }
             }
 
-            return new BillingModel(guestIdStr, roomNumber, stayPeriod, nights, roomRate, roomService, foodOrders, roomType);
+            return new BillingModel(guestIdStr, roomNumber, stayPeriod, nights, roomRate, roomService, foodOrders, roomType, discountDeal);
         } catch (Exception e) {
             System.out.println("Error getting billing for guest from database: " + e.getMessage());
         } finally {
             mysql.closeConnection(conn);
         }
 
-        return new BillingModel(guestIdStr, "", "", 0, 0.0, 0.0, 0.0, "");
+        return new BillingModel(guestIdStr, "", "", 0, 0.0, 0.0, 0.0, "", "None");
     }
 
     /**

@@ -17,23 +17,7 @@ public class BookRoomDao {
         this.conn = conn;
     }
 
-    // DDL: Create table if not present in the database
-    public void createTableIfNotExists() {
-        String sql = "CREATE TABLE IF NOT EXISTS room_categories ("
-                   + "id INT AUTO_INCREMENT PRIMARY KEY, "
-                   + "room_type VARCHAR(255) NOT NULL, "
-                   + "price DOUBLE NOT NULL, "
-                   + "room_size VARCHAR(50), "
-                   + "bed_type VARCHAR(100), "
-                   + "description TEXT"
-                   + ")";
-        try (Statement st = conn.createStatement()) {
-            st.executeUpdate(sql);
-            System.out.println("Table 'room_categories' verified/created successfully.");
-        } catch (SQLException e) {
-            System.out.println("Error creating room_categories table: " + e.getMessage());
-        }
-    }
+
 
     // Insert a room category
     public boolean insertRoom(BookRoomModel room) {
