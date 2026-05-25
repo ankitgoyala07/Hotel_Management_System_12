@@ -4,9 +4,7 @@
  */
 package view;
 
-import javax.swing.JOptionPane;
-import dao.userDao;
-import model.userModel;
+import controller.LoginController;
 
 /**
  *
@@ -15,13 +13,71 @@ import model.userModel;
 public class loginpage extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(loginpage.class.getName());
-    private final userDao dao = new userDao();
+    private final LoginController controller = new LoginController();
+    private javax.swing.ImageIcon originalIcon = null;
 
     /**
      * Creates new form loginpage
      */
     public loginpage() {
         initComponents();
+        if (jLabel7.getIcon() instanceof javax.swing.ImageIcon) {
+            originalIcon = (javax.swing.ImageIcon) jLabel7.getIcon();
+        }
+        setSize(820, 540);
+        setMinimumSize(new java.awt.Dimension(820, 540));
+        setLocationRelativeTo(null); // Center on screen
+        setResizable(true); // Allow resizing and maximizing
+        
+        // Listen for resize events to adjust component bounds and image scaling
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            @Override
+            public void componentResized(java.awt.event.ComponentEvent e) {
+                adjustLayout();
+            }
+        });
+    }
+
+    private void adjustLayout() {
+        int width = getContentPane().getWidth();
+        int height = getContentPane().getHeight();
+        int P = 10; // Padding
+
+        int availW = width - 3 * P;
+        int availH = height - 2 * P;
+
+        // Scale cover image on the left (takes ~53% of available width)
+        int imgW = (int) (availW * 0.53);
+        int imgH = availH;
+        if (imgW > 0 && imgH > 0) {
+            jLabel7.setBounds(P, P, imgW, imgH);
+            scaleCoverImage(imgW, imgH);
+        }
+
+        // Center login panel on the right (fixed size 360 x 480)
+        int formAreaW = availW - imgW;
+        int panelX = 2 * P + imgW + (formAreaW - 360) / 2;
+        int panelY = P + (availH - 480) / 2;
+        jPanel3.setBounds(panelX, panelY, 360, 480);
+        
+        getContentPane().revalidate();
+        getContentPane().repaint();
+    }
+
+    private void scaleCoverImage(int width, int height) {
+        if (originalIcon != null && width > 0 && height > 0) {
+            java.awt.Image img = originalIcon.getImage();
+            java.awt.image.BufferedImage resizedImg = new java.awt.image.BufferedImage(
+                width, height, java.awt.image.BufferedImage.TYPE_INT_ARGB
+            );
+            java.awt.Graphics2D g2 = resizedImg.createGraphics();
+            g2.setRenderingHint(java.awt.RenderingHints.KEY_INTERPOLATION, java.awt.RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+            g2.setRenderingHint(java.awt.RenderingHints.KEY_RENDERING, java.awt.RenderingHints.VALUE_RENDER_QUALITY);
+            g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.drawImage(img, 0, 0, width, height, null);
+            g2.dispose();
+            jLabel7.setIcon(new javax.swing.ImageIcon(resizedImg));
+        }
     }
 
     /**
@@ -176,19 +232,12 @@ public class loginpage extends javax.swing.JFrame {
         String username = jTextField1.getText().trim();
         String password = new String(jPasswordField1.getPassword());
 
-        if (username.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter both username and password.", "Validation Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        userModel user = dao.authenticateUser(username, password);
-        if (user != null) {
-            JOptionPane.showMessageDialog(this, "Login successful! Welcome, " + user.getName() + ".", "Success", JOptionPane.INFORMATION_MESSAGE);
+        boolean loggedIn = controller.handleLogin(this, username, password);
+        if (loggedIn) {
+            // Success logic (e.g. open main menu / dispose current window)
             // In the future:
             // new dashboard().setVisible(true);
             // this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(this, "Invalid username or password.", "Login Failed", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
