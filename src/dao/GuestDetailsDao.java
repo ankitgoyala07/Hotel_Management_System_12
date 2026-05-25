@@ -17,30 +17,6 @@ public class GuestDetailsDao {
         this.conn = conn;
     }
 
-    // DDL: Create table if not present in the database
-    public void createTableIfNotExists() {
-        String sql = "CREATE TABLE IF NOT EXISTS guest_details ("
-                   + "guest_id INT AUTO_INCREMENT PRIMARY KEY, "
-                   + "full_name VARCHAR(255) NOT NULL, "
-                   + "phone_number VARCHAR(50), "
-                   + "email_address VARCHAR(255), "
-                   + "home_address VARCHAR(255), "
-                   + "room_no INT, "
-                   + "guest_no INT, "
-                   + "room_type VARCHAR(255), "
-                   + "check_in_date DATE, "
-                   + "check_out_date DATE, "
-                   + "discount_deal VARCHAR(50), "
-                   + "status VARCHAR(50) DEFAULT 'Checked In'"
-                   + ")";
-        try (Statement st = conn.createStatement()) {
-            st.executeUpdate(sql);
-            System.out.println("Table 'guest_details' verified/created successfully.");
-        } catch (SQLException e) {
-            System.out.println("Error creating guest_details table: " + e.getMessage());
-        }
-    }
-
     // Find the first available room number matching a room type
     public int findAvailableRoomNo(String roomType) {
         // Normalize room type format from JComboBox or previous screens
@@ -199,5 +175,19 @@ public class GuestDetailsDao {
             System.out.println("Error fetching guest details list: " + e.getMessage());
         }
         return guests;
+    }
+
+    // Update users table email and phone based on logged in username
+    public boolean updateUserContactDetails(String username, String email, String phone) {
+        String sql = "UPDATE users SET email = ?, phone = ? WHERE username = ?";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, email);
+            ps.setString(2, phone);
+            ps.setString(3, username);
+            return ps.executeUpdate() > 0;
+        } catch (SQLException e) {
+            System.out.println("Error updating user contact details: " + e.getMessage());
+            return false;
+        }
     }
 }

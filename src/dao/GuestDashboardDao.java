@@ -13,25 +13,7 @@ public class GuestDashboardDao {
         this.conn = conn;
     }
 
-    // DDL: Create table if not present in the database
-    public void createTableIfNotExists() {
-        String sql = "CREATE TABLE IF NOT EXISTS guest_dashboard_data ("
-                   + "id INT AUTO_INCREMENT PRIMARY KEY, "
-                   + "name VARCHAR(255), "
-                   + "email VARCHAR(255), "
-                   + "roomType VARCHAR(255), "
-                   + "checkIn DATE, "
-                   + "checkOut DATE, "
-                   + "guestsCount INT DEFAULT 1, "
-                   + "expenses DOUBLE DEFAULT 0.0"
-                   + ")";
-        try (Statement st = conn.createStatement()) {
-            st.executeUpdate(sql);
-            System.out.println("Table 'guest_dashboard_data' verified/created successfully.");
-        } catch (SQLException e) {
-            System.out.println("Error creating table: " + e.getMessage());
-        }
-    }
+
 
     // Insert new guest
     public boolean insertGuest(GuestDashboardModel guest) {
