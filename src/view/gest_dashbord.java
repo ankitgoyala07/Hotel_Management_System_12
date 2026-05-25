@@ -65,6 +65,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jButton2.setText("Book Room");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
         getContentPane().add(jButton2);
         jButton2.setBounds(20, 117, 121, 32);
 
@@ -119,7 +120,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         jButton5.setText("Order Food ");
         jButton5.addActionListener(this::jButton5ActionPerformed);
         getContentPane().add(jButton5);
-        jButton5.setBounds(550, 120, 158, 23);
+        jButton5.setBounds(570, 120, 158, 23);
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Gourmet dining delivered ");
@@ -172,6 +173,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         jLabel18.setBounds(432, 234, 86, 16);
 
         jButton8.setText("Dashboard");
+        jButton8.addActionListener(this::jButton8ActionPerformed);
         getContentPane().add(jButton8);
         jButton8.setBounds(20, 70, 120, 30);
 
@@ -223,6 +225,14 @@ public class gest_dashbord extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
