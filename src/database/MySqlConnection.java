@@ -14,9 +14,10 @@ public class MySqlConnection implements Database {
 @Override
     public Connection Openconnection(){
         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
             String password = "1234";
             String username = "root";
-            String database = "shop";
+            String database = "hotel_management";
                Connection connection;
 
             connection = DriverManager.getConnection(
@@ -46,7 +47,7 @@ public class MySqlConnection implements Database {
 
             
 
-        }catch(Exception e){
+        }catch(SQLException e){
 
             System.out.println(e);
         }
@@ -64,7 +65,7 @@ public class MySqlConnection implements Database {
 
        
 
-       }catch (Exception e){
+       }catch (SQLException e){
 
            System.out.println(e);
 
@@ -85,7 +86,7 @@ public class MySqlConnection implements Database {
 
           
 
-      }catch(Exception e){
+      }catch(SQLException e){
 
           System.out.println(e);
 
