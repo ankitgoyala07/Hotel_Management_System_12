@@ -4,6 +4,27 @@
  */
 package view;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Insets;
+import java.awt.RenderingHints;
+import java.awt.geom.RoundRectangle2D;
+import java.net.URL;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.AbstractBorder;
+
 /**
  *
  * @author pratikjungsinghthakuri
@@ -17,6 +38,8 @@ public class SignupPage extends javax.swing.JFrame {
      */
     public SignupPage() {
         initComponents();
+        customizeUI();
+        new controller.UserController(this);
     }
 
     /**
@@ -88,7 +111,7 @@ public class SignupPage extends javax.swing.JFrame {
         jTextArea2.setColumns(20);
         jTextArea2.setFont(new java.awt.Font("Shree Devanagari 714", 0, 12)); // NOI18N
         jTextArea2.setRows(5);
-        jTextArea2.setText("Enter  your password");
+        jTextArea2.setText("Create a password");
         jScrollPane2.setViewportView(jTextArea2);
 
         jLabel8.setFont(new java.awt.Font("Sinhala MN", 1, 13)); // NOI18N
@@ -117,7 +140,7 @@ public class SignupPage extends javax.swing.JFrame {
                     .addComponent(jScrollPane2)
                     .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 144, Short.MAX_VALUE)
+                        .addGap(0, 6, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -137,7 +160,7 @@ public class SignupPage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(195, 195, 195))
+                .addGap(100, 100, 100))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,12 +195,12 @@ public class SignupPage extends javax.swing.JFrame {
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/WhatsApp Image 2026-05-24 at 7.55.10 PM.jpeg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/hotelpic.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -268,4 +291,256 @@ public class SignupPage extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getSignupButton() {
+        return jButton1;
+    }
+
+    public javax.swing.JComboBox<String> getRoleComboBox() {
+        return jComboBox2;
+    }
+
+    public javax.swing.JTextField getFullNameField() {
+        return jTextField1;
+    }
+
+    public javax.swing.JTextField getEmailField() {
+        return jTextField2;
+    }
+
+    public javax.swing.JTextField getPhoneField() {
+        return jTextField3;
+    }
+
+    public javax.swing.JTextArea getPasswordField() {
+        return jTextArea2;
+    }
+
+    private void customizeUI() {
+        // Set frame properties
+        setTitle("Hotel Management System - Sign Up");
+        getContentPane().setBackground(Color.WHITE);
+        getContentPane().setLayout(new BorderLayout());
+        
+        // Remove NetBeans-generated layout components
+        getContentPane().removeAll();
+        
+        // Main container with 20px padding and horizontal alignment
+        JPanel mainContainer = new JPanel();
+        mainContainer.setBackground(Color.WHITE);
+        mainContainer.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        mainContainer.setLayout(new BoxLayout(mainContainer, BoxLayout.X_AXIS));
+        
+        // Left Panel: Bedroom Image with Rounded Corners
+        URL imgUrl = getClass().getResource("/view/WhatsApp Image 2026-05-24 at 7.55.10 PM.jpeg");
+        Image img = (imgUrl != null) ? new ImageIcon(imgUrl).getImage() : null;
+        RoundedImagePanel leftPanel = new RoundedImagePanel(img, 30);
+        leftPanel.setPreferredSize(new Dimension(465, 550));
+        leftPanel.setMinimumSize(new Dimension(465, 550));
+        leftPanel.setMaximumSize(new Dimension(465, 1000));
+        
+        // Right Panel: Form with Rounded Corners and Light Background
+        JPanel rightPanel = new RoundedPanel(30, new Color(240, 242, 252));
+        rightPanel.setPreferredSize(new Dimension(450, 550));
+        rightPanel.setMinimumSize(new Dimension(400, 550));
+        rightPanel.setMaximumSize(new Dimension(500, 1000));
+        rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
+        rightPanel.setBorder(BorderFactory.createEmptyBorder(30, 40, 30, 40));
+        
+        // Form Header
+        JPanel headerPanel = new JPanel();
+        headerPanel.setOpaque(false);
+        headerPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 0, 0));
+        headerPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        
+        JLabel headerIcon = new JLabel("🏨  👤⁺  ");
+        headerIcon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 24));
+        headerIcon.setForeground(new Color(63, 61, 202));
+        
+        JLabel headerText = new JLabel("Sign up");
+        headerText.setFont(new Font("Inter", Font.BOLD, 28));
+        headerText.setForeground(new Color(17, 24, 39));
+        
+        headerPanel.add(headerIcon);
+        headerPanel.add(headerText);
+        
+        rightPanel.add(headerPanel);
+        rightPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+        
+        // Inputs
+        jTextField1.setText("Enter your full name ");
+        JPanel nameField = createModernField("Full Name", "👤", jTextField1);
+        rightPanel.add(nameField);
+        rightPanel.add(Box.createRigidArea(new Dimension(0, 15)));
+        
+        jTextField2.setText("Enter your email address");
+        JPanel emailField = createModernField("Email", "✉", jTextField2);
+        rightPanel.add(emailField);
+        rightPanel.add(Box.createRigidArea(new Dimension(0, 15)));
+        
+        jTextField3.setText("Enter your phone number");
+        JPanel phoneField = createModernField("Phone", "📞", jTextField3);
+        rightPanel.add(phoneField);
+        rightPanel.add(Box.createRigidArea(new Dimension(0, 15)));
+        
+        jTextArea2.setRows(1);
+        jTextArea2.setLineWrap(false);
+        jTextArea2.setText("Create a password");
+        JPanel passwordField = createModernField("Password", "🔒", jTextArea2);
+        rightPanel.add(passwordField);
+        rightPanel.add(Box.createRigidArea(new Dimension(0, 15)));
+        
+        jComboBox2.setBorder(null);
+        jComboBox2.setBackground(Color.WHITE);
+        JPanel roleField = createModernField("Role", "👤", jComboBox2);
+        rightPanel.add(roleField);
+        rightPanel.add(Box.createRigidArea(new Dimension(0, 25)));
+        
+        // Submit Button wrapped in a rounded panel
+        jButton1.setBackground(new Color(63, 61, 202));
+        jButton1.setForeground(Color.WHITE);
+        jButton1.setFont(new Font("Inter", Font.BOLD, 16));
+        jButton1.setFocusPainted(false);
+        jButton1.setOpaque(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setBorder(BorderFactory.createEmptyBorder(12, 24, 12, 24));
+        jButton1.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));
+        
+        JPanel buttonContainer = new RoundedPanel(12, new Color(63, 61, 202)) {
+            @Override
+            public Dimension getMaximumSize() {
+                return new Dimension(Short.MAX_VALUE, 45);
+            }
+            @Override
+            public Dimension getPreferredSize() {
+                return new Dimension(350, 45);
+            }
+        };
+        buttonContainer.setLayout(new BorderLayout());
+        buttonContainer.add(jButton1, BorderLayout.CENTER);
+        buttonContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+        
+        rightPanel.add(buttonContainer);
+        
+        // Assemble Main Container
+        mainContainer.add(leftPanel);
+        mainContainer.add(Box.createRigidArea(new Dimension(20, 0))); // Gap between left & right panels
+        mainContainer.add(rightPanel);
+        
+        getContentPane().add(mainContainer, BorderLayout.CENTER);
+        
+        // Set window sizing and center
+        setSize(980, 630);
+        setLocationRelativeTo(null);
+    }
+    
+    private JPanel createModernField(String labelText, String iconUnicode, JComponent inputComponent) {
+        JPanel fieldPanel = new JPanel();
+        fieldPanel.setOpaque(false);
+        fieldPanel.setLayout(new BoxLayout(fieldPanel, BoxLayout.Y_AXIS));
+        fieldPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        
+        JLabel label = new JLabel(labelText);
+        label.setFont(new Font("Inter", Font.BOLD, 14));
+        label.setForeground(new Color(55, 65, 81));
+        label.setAlignmentX(Component.LEFT_ALIGNMENT);
+        fieldPanel.add(label);
+        fieldPanel.add(Box.createRigidArea(new Dimension(0, 6)));
+        
+        JPanel inputContainer = new JPanel();
+        inputContainer.setBackground(Color.WHITE);
+        inputContainer.setLayout(new BoxLayout(inputContainer, BoxLayout.X_AXIS));
+        inputContainer.setBorder(BorderFactory.createCompoundBorder(
+            new RoundedBorder(8, new Color(209, 213, 219)),
+            BorderFactory.createEmptyBorder(8, 12, 8, 12)
+        ));
+        inputContainer.setAlignmentX(Component.LEFT_ALIGNMENT);
+        inputContainer.setMaximumSize(new Dimension(Short.MAX_VALUE, 42));
+        inputContainer.setPreferredSize(new Dimension(350, 42));
+        
+        JLabel iconLabel = new JLabel(iconUnicode);
+        iconLabel.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 16));
+        iconLabel.setForeground(new Color(156, 163, 175));
+        inputContainer.add(iconLabel);
+        inputContainer.add(Box.createRigidArea(new Dimension(10, 0)));
+        
+        inputComponent.setBorder(null);
+        inputComponent.setFont(new Font("Inter", Font.PLAIN, 14));
+        inputComponent.setForeground(new Color(55, 65, 81));
+        inputComponent.setBackground(Color.WHITE);
+        
+        inputContainer.add(inputComponent);
+        fieldPanel.add(inputContainer);
+        
+        return fieldPanel;
+    }
+    
+    private static class RoundedBorder extends AbstractBorder {
+        private final int radius;
+        private final Color color;
+        
+        public RoundedBorder(int radius, Color color) {
+            this.radius = radius;
+            this.color = color;
+        }
+        
+        @Override
+        public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+            Graphics2D g2d = (Graphics2D) g.create();
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2d.setColor(color);
+            g2d.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
+            g2d.dispose();
+        }
+        
+        @Override
+        public Insets getBorderInsets(Component c) {
+            return new Insets(1, 1, 1, 1);
+        }
+    }
+    
+    private static class RoundedPanel extends JPanel {
+        private final int radius;
+        private final Color bgColor;
+        
+        public RoundedPanel(int radius, Color bgColor) {
+            this.radius = radius;
+            this.bgColor = bgColor;
+            setOpaque(false);
+        }
+        
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Graphics2D g2 = (Graphics2D) g.create();
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.setColor(bgColor);
+            g2.fillRoundRect(0, 0, getWidth(), getHeight(), radius, radius);
+            g2.dispose();
+        }
+    }
+    
+    private static class RoundedImagePanel extends JPanel {
+        private final Image image;
+        private final int radius;
+        
+        public RoundedImagePanel(Image image, int radius) {
+            this.image = image;
+            this.radius = radius;
+            setOpaque(false);
+        }
+        
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            if (image != null) {
+                Graphics2D g2 = (Graphics2D) g.create();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+                RoundRectangle2D roundedRect = new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), radius, radius);
+                g2.clip(roundedRect);
+                g2.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+                g2.dispose();
+            }
+        }
+    }
 }

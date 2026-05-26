@@ -17,6 +17,13 @@ public class loginpage extends javax.swing.JFrame {
      */
     public loginpage() {
         initComponents();
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            @Override
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                new SignupPage().setVisible(true);
+                dispose();
+            }
+        });
     }
 
     /**
@@ -170,7 +177,7 @@ public class loginpage extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(423, 6, 360, 480);
+        jPanel3.setBounds(423, 6, 452, 481);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/hotelpic.png"))); // NOI18N
         getContentPane().add(jLabel7);
