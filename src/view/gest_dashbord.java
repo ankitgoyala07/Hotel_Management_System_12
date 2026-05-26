@@ -51,15 +51,15 @@ public class gest_dashbord extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -125,7 +125,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Gourmet dining delivered ");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(550, 140, 198, 24);
+        jLabel10.setBounds(580, 140, 130, 24);
 
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton7.setText("Room Service");
@@ -177,10 +177,6 @@ public class gest_dashbord extends javax.swing.JFrame {
         getContentPane().add(jButton8);
         jButton8.setBounds(20, 70, 120, 30);
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(2, 3, 170, 520);
-
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(153, 153, 153));
         jLabel19.setText("  Dashboard Overview");
@@ -192,24 +188,32 @@ public class gest_dashbord extends javax.swing.JFrame {
         jLabel20.setText("Guest");
         getContentPane().add(jLabel20);
         jLabel20.setBounds(625, 20, 92, 32);
-
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(200, 22, 520, 30);
         getContentPane().add(jTextField3);
         jTextField3.setBounds(541, 192, 220, 80);
 
         jTextField4.setBackground(new java.awt.Color(51, 51, 51));
         getContentPane().add(jTextField4);
         jTextField4.setBounds(540, 102, 220, 80);
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(190, 80, 600, 400);
 
-        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
-        getContentPane().add(jTextField6);
-        jTextField6.setBounds(180, 72, 620, 420);
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(170, 0, 670, 530);
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 160, 500);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(190, 80, 580, 380);
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(180, 70, 600, 400);
+
+        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(jPanel4);
+        jPanel4.setBounds(200, 20, 560, 30);
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel5);
+        jPanel5.setBounds(160, 0, 640, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -285,12 +289,12 @@ public class gest_dashbord extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }

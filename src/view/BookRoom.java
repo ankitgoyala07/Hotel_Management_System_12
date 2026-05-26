@@ -30,30 +30,231 @@ public class BookRoom extends javax.swing.JFrame {
 
         jButton8 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
 
         jButton8.setText("Dashboard");
         jButton8.addActionListener(this::jButton8ActionPerformed);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Dashboard");
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+        getContentPane().add(jButton1);
+        jButton1.setBounds(25, 69, 111, 31);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(649, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(455, Short.MAX_VALUE))
-        );
+        jButton2.setText("Book Room");
+        getContentPane().add(jButton2);
+        jButton2.setBounds(25, 118, 111, 31);
+
+        jButton3.setText("Feedback");
+        getContentPane().add(jButton3);
+        jButton3.setBounds(25, 216, 111, 31);
+
+        jButton4.setText("Order Food");
+        getContentPane().add(jButton4);
+        jButton4.setBounds(25, 167, 111, 31);
+
+        jButton5.setText("Logout");
+        getContentPane().add(jButton5);
+        jButton5.setBounds(25, 265, 111, 31);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 153, 255));
+        jLabel1.setText("      HMS");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(45, 15, 71, 25);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("Room Browsing");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(170, 20, 200, 32);
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel3.setText("Available Accommodation");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(170, 79, 239, 35);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/vip.jpg"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(170, 118, 225, 173);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/doble.jpg"))); // NOI18N
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(410, 130, 209, 165);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/singal.jpg"))); // NOI18N
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(630, 130, 349, 156);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel6.setText("VIP");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(180, 290, 37, 24);
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel8.setText("Double Bed Room");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(410, 290, 106, 24);
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel9.setText("Single Bed Room");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(630, 290, 97, 16);
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setText("$899");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(330, 290, 54, 20);
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel11.setText("$499");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(570, 280, 54, 37);
+
+        jLabel13.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel13.setText("PER NIGHT");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(330, 310, 65, 16);
+
+        jLabel14.setText("Our pinnacle of luxury featuring a");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(170, 352, 219, 16);
+
+        jLabel15.setText("private lounge, marble bathroom");
+        getContentPane().add(jLabel15);
+        jLabel15.setBounds(170, 374, 181, 16);
+
+        jLabel17.setText("with a soaking tub, and priority");
+        getContentPane().add(jLabel17);
+        jLabel17.setBounds(170, 396, 181, 16);
+
+        jLabel18.setText("concierge access.");
+        getContentPane().add(jLabel18);
+        jLabel18.setBounds(170, 418, 181, 16);
+
+        jLabel19.setText("Perfect for families or business");
+        getContentPane().add(jLabel19);
+        jLabel19.setBounds(407, 352, 193, 16);
+
+        jLabel20.setText("associates, offering spacious ");
+        getContentPane().add(jLabel20);
+        jLabel20.setBounds(407, 374, 193, 16);
+
+        jLabel21.setText("layouts and a fully equipped");
+        getContentPane().add(jLabel21);
+        jLabel21.setBounds(407, 396, 193, 16);
+
+        jLabel22.setText("ergonomic workspace.");
+        getContentPane().add(jLabel22);
+        jLabel22.setBounds(407, 418, 193, 16);
+
+        jLabel24.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel24.setText("PER NIGHT");
+        getContentPane().add(jLabel24);
+        jLabel24.setBounds(560, 310, 65, 16);
+
+        jLabel25.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel25.setText("PER NIGHT");
+        getContentPane().add(jLabel25);
+        jLabel25.setBounds(770, 310, 65, 16);
+
+        jLabel23.setText("An efficient and cozy space ");
+        getContentPane().add(jLabel23);
+        jLabel23.setBounds(654, 354, 185, 16);
+
+        jLabel26.setText("designed for the modern solo");
+        getContentPane().add(jLabel26);
+        jLabel26.setBounds(654, 376, 185, 16);
+
+        jLabel27.setText("traveler, prioritizing comfort and ");
+        getContentPane().add(jLabel27);
+        jLabel27.setBounds(654, 398, 185, 16);
+
+        jLabel28.setText("connectivity");
+        getContentPane().add(jLabel28);
+        jLabel28.setBounds(654, 418, 185, 16);
+
+        jButton6.setBackground(new java.awt.Color(0, 153, 255));
+        jButton6.setText("BOOK NOW");
+        getContentPane().add(jButton6);
+        jButton6.setBounds(201, 446, 94, 33);
+
+        jButton7.setBackground(new java.awt.Color(0, 153, 255));
+        jButton7.setText("BOOK NOW");
+        getContentPane().add(jButton7);
+        jButton7.setBounds(426, 446, 94, 33);
+
+        jButton9.setBackground(new java.awt.Color(0, 153, 255));
+        jButton9.setText("BOOK NOW");
+        getContentPane().add(jButton9);
+        jButton9.setBounds(682, 446, 94, 33);
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel29.setText("$299");
+        getContentPane().add(jLabel29);
+        jLabel29.setBounds(780, 290, 60, 20);
+
+        jLabel12.setText("Guest");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(760, 30, 30, 16);
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 150, 530);
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(160, 20, 690, 30);
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(160, 80, 690, 420);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel4);
+        jPanel4.setBounds(150, 0, 740, 530);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -61,6 +262,10 @@ public class BookRoom extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,6 +294,45 @@ public class BookRoom extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
