@@ -17,22 +17,7 @@ public class FeedbackDao {
         this.conn = conn;
     }
 
-    // DDL: Create table if not present in the database
-    public void createTableIfNotExists() {
-        String sql = "CREATE TABLE IF NOT EXISTS feedback ("
-                   + "id INT AUTO_INCREMENT PRIMARY KEY, "
-                   + "service_rating INT NOT NULL, "
-                   + "cleanliness_rating INT NOT NULL, "
-                   + "food_rating INT NOT NULL, "
-                   + "review_text TEXT"
-                   + ")";
-        try (Statement st = conn.createStatement()) {
-            st.executeUpdate(sql);
-            System.out.println("Table 'feedback' verified/created successfully.");
-        } catch (SQLException e) {
-            System.out.println("Error creating feedback table: " + e.getMessage());
-        }
-    }
+
 
     // Insert feedback
     public boolean insertFeedback(FeedbackModel feedback) {

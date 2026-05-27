@@ -94,8 +94,6 @@ public class OrderFoodDao {
      * @return true if save was successful
      */
     public boolean saveOrder(List<OrderFoodModel> orderedItems, String roomId, double total) {
-        createTableIfNotExists();
-        
         MySqlConnection mysql = new MySqlConnection();
         java.sql.Connection conn = mysql.Openconnection();
         if (conn == null) {
@@ -132,26 +130,4 @@ public class OrderFoodDao {
         }
     }
 
-    private void createTableIfNotExists() {
-        MySqlConnection mysql = new MySqlConnection();
-        java.sql.Connection conn = mysql.Openconnection();
-        if (conn == null) return;
-        
-        String sql = "CREATE TABLE IF NOT EXISTS food_orders ("
-                   + "id INT AUTO_INCREMENT PRIMARY KEY, "
-                   + "room_no INT NOT NULL, "
-                   + "item_name VARCHAR(255) NOT NULL, "
-                   + "quantity INT NOT NULL, "
-                   + "price DOUBLE NOT NULL, "
-                   + "order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
-                   + ")";
-        try (java.sql.Statement st = conn.createStatement()) {
-            st.executeUpdate(sql);
-            System.out.println("Table 'food_orders' verified/created successfully.");
-        } catch (java.sql.SQLException e) {
-            System.out.println("Error creating food_orders table: " + e.getMessage());
-        } finally {
-            mysql.closeConnection(conn);
-        }
-    }
 }

@@ -17,21 +17,7 @@ public class RoomServiceDao {
         this.conn = conn;
     }
 
-    // DDL: Create table if not present in the database
-    public void createTableIfNotExists() {
-        String sql = "CREATE TABLE IF NOT EXISTS room_service ("
-                   + "id INT AUTO_INCREMENT PRIMARY KEY, "
-                   + "service_type VARCHAR(255) NOT NULL, "
-                   + "room_no INT NOT NULL, "
-                   + "instructions TEXT"
-                   + ")";
-        try (Statement st = conn.createStatement()) {
-            st.executeUpdate(sql);
-            System.out.println("Table 'room_service' verified/created successfully.");
-        } catch (SQLException e) {
-            System.out.println("Error creating room_service table: " + e.getMessage());
-        }
-    }
+
 
     // Insert request
     public boolean insertRequest(RoomServiceModel request) {
