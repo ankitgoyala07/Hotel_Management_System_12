@@ -6,6 +6,8 @@ public class MealTime extends javax.swing.JFrame {
     private static final Logger logger = Logger.getLogger(MealTime.class.getName());
     private JPanel jPanelSidebar;
     private JPanel jPanelContent;
+    private JPanel jPanelHeader;
+    private JPanel jPanelCard;
     private JButton jButtonDashboard;
     private JButton jButtonRooms;
     private JButton jButtonBookings;
@@ -16,6 +18,8 @@ public class MealTime extends javax.swing.JFrame {
     private void initComponents() {
         jPanelSidebar = new JPanel();
         jPanelContent = new JPanel();
+        jPanelHeader = new JPanel();
+        jPanelCard = new JPanel();
         jButtonDashboard = new JButton();
         jButtonRooms = new JButton();
         jButtonBookings = new JButton();
