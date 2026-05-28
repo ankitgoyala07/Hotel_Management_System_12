@@ -43,12 +43,23 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
-        
-        
-        
-        
-        
-      </SubComponents>
+<Component class="javax.swing.JLabel" name="jLabelLogo">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="20" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e8" green="73" red="1a" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;font color=&apos;#1A73E8&apos;&gt;&lt;b&gt;&#x26a1; HMS&lt;/b&gt;&lt;/font&gt;&lt;/html&gt;"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="24" y="24" width="170" height="40"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+</SubComponents>
     </Container>
 
 <Container class="javax.swing.JPanel" name="jPanelMain">

@@ -45,12 +45,20 @@ public class Discount extends javax.swing.JFrame {
     private void initComponents() {
 jPanelSidebar = new javax.swing.JPanel();
 
+jLabelLogo = new javax.swing.JLabel();
+
 jPanelMain = new javax.swing.JPanel();
 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
         getContentPane().setLayout(null);
 jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
         jPanelSidebar.setLayout(null);
+
+jLabelLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabelLogo.setForeground(new java.awt.Color(26, 115, 232));
+        jLabelLogo.setText("<html><font color='#1A73E8'><b>⚡ HMS</b></font></html>");
+        jPanelSidebar.add(jLabelLogo);
+        jLabelLogo.setBounds(24, 24, 170, 40);
 
 getContentPane().add(jPanelSidebar);
         jPanelSidebar.setBounds(0, 0, 220, 700);
@@ -83,6 +91,8 @@ pack();
     }
 
     // Variables declaration - do not modify
+private javax.swing.JLabel jLabelLogo;
+
 private javax.swing.JPanel jPanelMain;
 
 private javax.swing.JPanel jPanelSidebar;
