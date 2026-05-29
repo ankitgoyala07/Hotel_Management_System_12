@@ -18,6 +18,9 @@ public class SignupPage extends javax.swing.JFrame {
      */
     public SignupPage() {
         initComponents();
+        setSize(820, 540);
+        setMinimumSize(new java.awt.Dimension(820, 540));
+        setLocationRelativeTo(null); // Center on screen
     }
 
     /**
@@ -105,6 +108,7 @@ public class SignupPage extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Sinhala MN", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Signup");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
         jPanel1.add(jButton2);
         jButton2.setBounds(130, 410, 90, 30);
 
@@ -148,6 +152,20 @@ public class SignupPage extends javax.swing.JFrame {
     private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        String email = jTextField7.getText().trim();
+        String username = jTextField8.getText().trim();
+        String phone = jTextField9.getText().trim();
+        String password = jTextField6.getText();
+        String role = jComboBox3.getSelectedItem().toString();
+
+        boolean success = controller.handleSignup(this, username, email, phone, password, role);
+        if (success) {
+            new loginpage().setVisible(true);
+            this.dispose();
+        }
+    }
 
     /**
      * @param args the command line arguments
