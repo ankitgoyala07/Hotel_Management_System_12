@@ -5,6 +5,8 @@
 package view;
 
 import controller.LoginController;
+import model.userModel;
+import view.SignupPage;
 
 /**
  *
@@ -137,6 +139,8 @@ public class loginpage extends javax.swing.JFrame {
 
         jCheckBox1.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
         jCheckBox1.setText("Remember me");
+        jCheckBox1.setBorder(null);
+        jCheckBox1.setRolloverEnabled(false);
         jCheckBox1.addActionListener(this::jCheckBox1ActionPerformed);
 
         jButton1.setBackground(new java.awt.Color(51, 51, 255));
@@ -160,6 +164,7 @@ public class loginpage extends javax.swing.JFrame {
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
+        jButton2.addActionListener(this::jButton2ActionPerformed);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -215,11 +220,11 @@ public class loginpage extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jButton2))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(430, 10, 360, 484);
+        jPanel3.setBounds(430, 10, 360, 480);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/hotelpic.png"))); // NOI18N
         getContentPane().add(jLabel7);
@@ -231,15 +236,19 @@ public class loginpage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String username = jTextField1.getText().trim();
         String password = new String(jPasswordField1.getPassword());
-
-        boolean loggedIn = controller.handleLogin(this, username, password);
-        if (loggedIn) {
-            // Success logic (e.g. open main menu / dispose current window)
-            // In the future:
-            // new dashboard().setVisible(true);
-            // this.dispose();
-        }
+           
+        model.userModel user = controller.handleLogin(this, username, password);
+    if (user != null) {
+        this.dispose();
+    }
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        new SignupPage().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:

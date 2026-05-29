@@ -59,7 +59,6 @@ public class gest_dashbord extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -125,7 +124,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Gourmet dining delivered ");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(550, 140, 198, 24);
+        jLabel10.setBounds(580, 140, 140, 24);
 
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton7.setText("Room Service");
@@ -172,30 +171,32 @@ public class gest_dashbord extends javax.swing.JFrame {
         getContentPane().add(jLabel18);
         jLabel18.setBounds(432, 234, 86, 16);
 
+        jButton8.setBackground(new java.awt.Color(81, 72, 242));
         jButton8.setText("Dashboard");
         jButton8.addActionListener(this::jButton8ActionPerformed);
         getContentPane().add(jButton8);
         jButton8.setBounds(20, 70, 120, 30);
 
         jTextField2.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField2.addActionListener(this::jTextField2ActionPerformed);
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(2, 3, 170, 520);
+        jTextField2.setBounds(0, 0, 170, 500);
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(153, 153, 153));
         jLabel19.setText("  Dashboard Overview");
         getContentPane().add(jLabel19);
-        jLabel19.setBounds(210, 20, 177, 32);
+        jLabel19.setBounds(190, 20, 177, 20);
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(153, 153, 153));
         jLabel20.setText("Guest");
         getContentPane().add(jLabel20);
-        jLabel20.setBounds(625, 20, 92, 32);
+        jLabel20.setBounds(680, 20, 50, 20);
 
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(200, 22, 520, 30);
+        jTextField1.setBounds(180, 10, 610, 40);
         getContentPane().add(jTextField3);
         jTextField3.setBounds(541, 192, 220, 80);
 
@@ -203,13 +204,11 @@ public class gest_dashbord extends javax.swing.JFrame {
         getContentPane().add(jTextField4);
         jTextField4.setBounds(540, 102, 220, 80);
         getContentPane().add(jTextField5);
-        jTextField5.setBounds(190, 80, 600, 400);
+        jTextField5.setBounds(190, 70, 590, 390);
 
         jTextField6.setBackground(new java.awt.Color(204, 204, 204));
         getContentPane().add(jTextField6);
-        jTextField6.setBounds(180, 72, 620, 420);
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(170, 0, 670, 530);
+        jTextField6.setBounds(180, 60, 610, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -233,6 +232,10 @@ public class gest_dashbord extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,6 +294,5 @@ public class gest_dashbord extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
 }
