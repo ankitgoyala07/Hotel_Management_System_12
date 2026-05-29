@@ -13,6 +13,7 @@ public class BillingModel {
     private double roomService;
     private double foodOrders;
     private String roomType;
+    private String discountDeal;
 
     public BillingModel() {
         this.guestId = "001";
@@ -23,10 +24,11 @@ public class BillingModel {
         this.roomService = 0.0;
         this.foodOrders = 0.0;
         this.roomType = "Single";
+        this.discountDeal = "None";
     }
 
     public BillingModel(String guestId, String roomId, String stayPeriod, int nights, double roomRate,
-                        double roomService, double foodOrders, String roomType) {
+                        double roomService, double foodOrders, String roomType, String discountDeal) {
         this.guestId = guestId;
         this.roomId = roomId;
         this.stayPeriod = stayPeriod;
@@ -35,6 +37,7 @@ public class BillingModel {
         this.roomService = roomService;
         this.foodOrders = foodOrders;
         this.roomType = roomType;
+        this.discountDeal = discountDeal;
     }
 
     public String getGuestId() { return guestId; }
@@ -61,12 +64,30 @@ public class BillingModel {
     public String getRoomType() { return roomType; }
     public void setRoomType(String roomType) { this.roomType = roomType; }
 
+    public String getDiscountDeal() { return discountDeal; }
+    public void setDiscountDeal(String discountDeal) { this.discountDeal = discountDeal; }
+
+    public boolean hasDiscount() {
+        return discountDeal != null && !discountDeal.trim().isEmpty() && !discountDeal.equalsIgnoreCase("None");
+    }
+
     public double getStayAmount() {
         return nights * roomRate;
     }
 
-    public double getSubtotal() {
+    public double getSubtotalBeforeDiscount() {
         return getStayAmount() + roomService + foodOrders;
+    }
+
+    public double getDiscountAmount() {
+        if (hasDiscount()) {
+            return getSubtotalBeforeDiscount() * 0.10;
+        }
+        return 0.0;
+    }
+
+    public double getSubtotal() {
+        return getSubtotalBeforeDiscount() - getDiscountAmount();
     }
 
     public double getTax() {
