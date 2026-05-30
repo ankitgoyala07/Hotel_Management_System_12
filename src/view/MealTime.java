@@ -12,6 +12,8 @@ public class MealTime extends javax.swing.JFrame {
     private JButton jButtonRooms;
     private JButton jButtonBookings;
     private JButton jButtonMealTime;
+    private JScrollPane jScrollPaneTable;
+    private JTable jTableSchedule;
     public MealTime() {
         initComponents();
     }
@@ -24,6 +26,8 @@ public class MealTime extends javax.swing.JFrame {
         jButtonRooms = new JButton();
         jButtonBookings = new JButton();
         jButtonMealTime = new JButton();
+        jScrollPaneTable = new JScrollPane();
+        jTableSchedule = new JTable();
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(900, 600);
     }
