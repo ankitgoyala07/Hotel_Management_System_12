@@ -175,15 +175,42 @@ public class BillingController {
             view.getLblRow2Amount().setText("$" + String.format("%.2f", model.getRoomService()));
         }
 
-        // Row 3: Food Orders
+        // Row 3: Discount Code
         if (view.getLblRow3Desc() != null) {
-            view.getLblRow3Desc().setText("Food orders");
+            if (model.hasDiscount()) {
+                view.getLblRow3Desc().setText("Offer: " + model.getDiscountDeal());
+            } else {
+                view.getLblRow3Desc().setText("Discount Code");
+            }
         }
         if (view.getLblRow3Qty() != null) {
-            view.getLblRow3Qty().setText(model.getFoodOrders() > 0 ? "1" : "0");
+            if (model.hasDiscount()) {
+                view.getLblRow3Qty().setText("-10%");
+            } else {
+                view.getLblRow3Qty().setText("0%");
+            }
         }
         if (view.getLblRow3Amount() != null) {
-            view.getLblRow3Amount().setText("$" + String.format("%.2f", model.getFoodOrders()));
+            if (model.hasDiscount()) {
+                view.getLblRow3Amount().setText("-$" + String.format("%.2f", model.getDiscountAmount()));
+            } else {
+                view.getLblRow3Amount().setText("$0.00");
+            }
+        }
+
+        // Row 3 (duplicate labels): Food Orders (using reflection)
+        javax.swing.JLabel lblRow3Desc1 = getPrivateLabel("lblRow3Desc1");
+        javax.swing.JLabel lblRow3Qty1 = getPrivateLabel("lblRow3Qty1");
+        javax.swing.JLabel lblRow3Amount1 = getPrivateLabel("lblRow3Amount1");
+
+        if (lblRow3Desc1 != null) {
+            lblRow3Desc1.setText("Food orders");
+        }
+        if (lblRow3Qty1 != null) {
+            lblRow3Qty1.setText(model.getFoodOrders() > 0 ? "1" : "0");
+        }
+        if (lblRow3Amount1 != null) {
+            lblRow3Amount1.setText("$" + String.format("%.2f", model.getFoodOrders()));
         }
 
         // Totals
@@ -203,6 +230,16 @@ public class BillingController {
             java.lang.reflect.Field field = view.getClass().getDeclaredField(name);
             field.setAccessible(true);
             return (javax.swing.JButton) field.get(view);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    private javax.swing.JLabel getPrivateLabel(String name) {
+        try {
+            java.lang.reflect.Field field = view.getClass().getDeclaredField(name);
+            field.setAccessible(true);
+            return (javax.swing.JLabel) field.get(view);
         } catch (Exception e) {
             return null;
         }

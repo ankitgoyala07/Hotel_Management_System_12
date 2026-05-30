@@ -33,7 +33,6 @@ public class BookRoomController {
             Connection conn = mysql.Openconnection();
             if (conn != null) {
                 this.dao = new BookRoomDao(conn);
-                this.dao.createTableIfNotExists();
             } else {
                 System.out.println("Warning: Database connection could not be established.");
             }
@@ -116,11 +115,19 @@ public class BookRoomController {
     }
 
     private void openOrderFood() {
+        if (!LoginController.hasBookedRoom()) {
+            JOptionPane.showMessageDialog(view, "Please book the room first.", "Access Denied", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         new OrderFood().setVisible(true);
         view.dispose();
     }
 
     private void openFeedback() {
+        if (!LoginController.hasBookedRoom()) {
+            JOptionPane.showMessageDialog(view, "Please book the room first.", "Access Denied", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         Feedback fbView = new Feedback();
         new FeedbackController(fbView);
         fbView.setVisible(true);
