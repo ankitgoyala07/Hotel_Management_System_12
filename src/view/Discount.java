@@ -47,6 +47,11 @@ jPanelSidebar = new javax.swing.JPanel();
 
 jLabelLogo = new javax.swing.JLabel();
 
+jButtonDashboard = new javax.swing.JButton();
+        jButtonRooms = new javax.swing.JButton();
+
+jButtonStaffs = new javax.swing.JButton();
+
 jPanelMain = new javax.swing.JPanel();
 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
@@ -59,6 +64,20 @@ jLabelLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabelLogo.setText("<html><font color='#1A73E8'><b>⚡ HMS</b></font></html>");
         jPanelSidebar.add(jLabelLogo);
         jLabelLogo.setBounds(24, 24, 170, 40);
+
+jButtonDashboard.setText("🏠  Dashboard");
+        jPanelSidebar.add(jButtonDashboard);
+        jButtonDashboard.setBounds(16, 100, 188, 40);
+
+        
+        
+        jButtonRooms.setText("🔑  Rooms");
+        jPanelSidebar.add(jButtonRooms);
+        jButtonRooms.setBounds(16, 150, 188, 40);
+
+jButtonStaffs.setText("👥  Staffs");
+        jPanelSidebar.add(jButtonStaffs);
+        jButtonStaffs.setBounds(16, 250, 188, 40);
 
 getContentPane().add(jPanelSidebar);
         jPanelSidebar.setBounds(0, 0, 220, 700);
@@ -91,6 +110,11 @@ pack();
     }
 
     // Variables declaration - do not modify
+private javax.swing.JButton jButtonDashboard;
+
+private javax.swing.JButton jButtonRooms;
+    private javax.swing.JButton jButtonStaffs;
+
 private javax.swing.JLabel jLabelLogo;
 
 private javax.swing.JPanel jPanelMain;
