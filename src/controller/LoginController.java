@@ -1,14 +1,14 @@
 package controller;
 
-import dao.userDao;
-import model.userModel;
+import dao.loginDao;
+import model.loginModel;
 import javax.swing.JOptionPane;
 import java.awt.Component;
 
 public class LoginController {
-    private final userDao dao = new userDao();
+    private final loginDao dao = new loginDao();
 
-    public userModel handleLogin(Component parent, String username, String password) {
+    public loginModel handleLogin(Component parent, String username, String password) {
 
         if (username.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(parent,
@@ -17,7 +17,7 @@ public class LoginController {
             return null;
         }
 
-        userModel user = dao.authenticateUser(username, password);
+        loginModel user = dao.authenticateUser(username, password);
 
         if (user == null) {
             JOptionPane.showMessageDialog(parent,
@@ -27,7 +27,7 @@ public class LoginController {
         }
 
         JOptionPane.showMessageDialog(parent,
-            "Welcome, " + user.getName() + "!",
+            "Welcome, " + user.getUsername() + "!",
             "Login Successful", JOptionPane.INFORMATION_MESSAGE);
 
         String role = user.getRole();

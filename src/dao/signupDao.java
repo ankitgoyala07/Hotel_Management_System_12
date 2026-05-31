@@ -1,16 +1,26 @@
 package dao;
 
 import database.MySqlConnection;
-import model.userModel;
+import model.signupModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class userDao {
+/**
+ * Data Access Object for handling signup-related database operations.
+ *
+ * @author i3
+ */
+public class signupDao {
     private final MySqlConnection mysql = new MySqlConnection();
 
-    // ── SIGNUP ──────────────────────────────────────────────────────────────
-    public boolean createUser(userModel user) {
+    /**
+     * Inserts a new user into the database using registration details.
+     *
+     * @param user the signupModel containing registration details
+     * @return true if creation is successful, false otherwise
+     */
+    public boolean createUser(signupModel user) {
         Connection conn = mysql.Openconnection();
         if (conn == null) {
             System.out.println("Connection failed.");
@@ -21,7 +31,7 @@ public class userDao {
                    + "VALUES (?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setString(1, user.getName());
+            pstm.setString(1, user.getUsername());
             pstm.setString(2, user.getEmail());
             pstm.setString(3, user.getPhone());
             pstm.setString(4, user.getPassword());
@@ -37,42 +47,12 @@ public class userDao {
         }
     }
 
-    // ── LOGIN ────────────────────────────────────────────────────────────────
-    public userModel authenticateUser(String username, String password) {
-        Connection conn = mysql.Openconnection();
-        if (conn == null) {
-            System.out.println("Connection failed.");
-            return null;
-        }
-
-        String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
-
-        try (PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setString(1, username);
-            pstm.setString(2, password);
-
-            try (ResultSet rs = pstm.executeQuery()) {
-                if (rs.next()) {
-                    userModel user = new userModel();
-                    user.setUserid(rs.getInt("user_id"));
-                    user.setUsername(rs.getString("username"));
-                    user.setEmail(rs.getString("email"));
-                    user.setPhone(rs.getString("phone"));
-                    user.setPassword(rs.getString("password"));
-                    user.setRole(rs.getString("role"));
-                    return user;
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error authenticating: " + e.getMessage());
-        } finally {
-            mysql.closeConnection(conn);
-        }
-        return null;
-    }
-
-    // ── CHECK DUPLICATES ─────────────────────────────────────────────────────
+    /**
+     * Checks if a username already exists.
+     *
+     * @param username the username to check
+     * @return true if exists, false otherwise
+     */
     public boolean usernameExists(String username) {
         Connection conn = mysql.Openconnection();
         if (conn == null) return false;
@@ -91,6 +71,12 @@ public class userDao {
         }
     }
 
+    /**
+     * Checks if an email already exists.
+     *
+     * @param email the email to check
+     * @return true if exists, false otherwise
+     */
     public boolean emailExists(String email) {
         Connection conn = mysql.Openconnection();
         if (conn == null) return false;

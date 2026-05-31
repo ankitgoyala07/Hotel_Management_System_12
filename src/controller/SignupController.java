@@ -1,7 +1,7 @@
 package controller;
 
-import dao.userDao;
-import model.userModel;
+import dao.signupDao;
+import model.signupModel;
 import javax.swing.JOptionPane;
 import java.awt.Component;
 
@@ -11,7 +11,7 @@ import java.awt.Component;
  * @author i3
  */
 public class SignupController {
-    private final userDao dao = new userDao();
+    private final signupDao dao = new signupDao();
 
     /**
      * Processes sign up request.
@@ -49,7 +49,7 @@ public class SignupController {
         }
 
         // Create the user model
-        userModel user = new userModel(username, email, phone, password, role);
+        signupModel user = new signupModel(username, email, phone, password, role);
         boolean success = dao.createUser(user);
 
         if (success) {

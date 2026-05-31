@@ -5,8 +5,17 @@
         <group>
             <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/database/MySqlConnection.java</file>
             <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/controller/SignupController.java</file>
-            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/BookRoom.java</file>
             <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/gest_dashbord.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/loginpage.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/hotel_management/Hotel_Management.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/controller/LoginController.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/SignupPage.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/SystemSetting.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/dao/systemDao.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/controller/systemController.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/model/systemModel.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/dao/loginDao.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/dao/signupDao.java</file>
         </group>
     </open-files>
 </project-private>

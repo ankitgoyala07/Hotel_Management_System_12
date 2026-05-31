@@ -5,7 +5,7 @@
 package view;
 
 import controller.LoginController;
-import model.userModel;
+import model.loginModel;
 import view.SignupPage;
 
 /**
@@ -237,7 +237,7 @@ public class loginpage extends javax.swing.JFrame {
         String username = jTextField1.getText().trim();
         String password = new String(jPasswordField1.getPassword());
            
-        model.userModel user = controller.handleLogin(this, username, password);
+        model.loginModel user = controller.handleLogin(this, username, password);
     if (user != null) {
         this.dispose();
     }
