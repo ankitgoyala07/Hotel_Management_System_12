@@ -26,12 +26,14 @@ public class loginpage extends javax.swing.JFrame {
         if (jLabel7.getIcon() instanceof javax.swing.ImageIcon) {
             originalIcon = (javax.swing.ImageIcon) jLabel7.getIcon();
         }
-        setSize(820, 540);
-        setMinimumSize(new java.awt.Dimension(820, 540));
+        setSize(800, 500);
+        setMinimumSize(new java.awt.Dimension(800, 500));
         setLocationRelativeTo(null); // Center on screen
-        setResizable(true); // Allow resizing and maximizing
+        setResizable(false); // Keep strict ratio
         
-        // Listen for resize events to adjust component bounds and image scaling
+        applyPremiumStyles();
+        
+        // Listen for resize/initial layout events to adjust component bounds
         addComponentListener(new java.awt.event.ComponentAdapter() {
             @Override
             public void componentResized(java.awt.event.ComponentEvent e) {
@@ -43,24 +45,27 @@ public class loginpage extends javax.swing.JFrame {
     private void adjustLayout() {
         int width = getContentPane().getWidth();
         int height = getContentPane().getHeight();
-        int P = 10; // Padding
+        int P = 12; // Premium Padding
 
         int availW = width - 3 * P;
         int availH = height - 2 * P;
 
-        // Scale cover image on the left (takes ~53% of available width)
-        int imgW = (int) (availW * 0.53);
+        // Scale cover image on the left (takes ~52% of available width)
+        int imgW = (int) (availW * 0.52);
         int imgH = availH;
         if (imgW > 0 && imgH > 0) {
             jLabel7.setBounds(P, P, imgW, imgH);
             scaleCoverImage(imgW, imgH);
         }
 
-        // Center login panel on the right (fixed size 360 x 480)
+        // Center login panel on the right (dynamically sized)
         int formAreaW = availW - imgW;
-        int panelX = 2 * P + imgW + (formAreaW - 360) / 2;
-        int panelY = P + (availH - 480) / 2;
-        jPanel3.setBounds(panelX, panelY, 360, 480);
+        int panelW = Math.min(350, formAreaW);
+        int panelH = Math.min(430, availH);
+        
+        int panelX = 2 * P + imgW + (formAreaW - panelW) / 2;
+        int panelY = P + (availH - panelH) / 2;
+        jPanel3.setBounds(panelX, panelY, panelW, panelH);
         
         getContentPane().revalidate();
         getContentPane().repaint();
@@ -80,6 +85,89 @@ public class loginpage extends javax.swing.JFrame {
             g2.dispose();
             jLabel7.setIcon(new javax.swing.ImageIcon(resizedImg));
         }
+    }
+
+    private void applyPremiumStyles() {
+        java.awt.Color bgLight = new java.awt.Color(248, 250, 252); // Slate 50
+        java.awt.Color cardBg = java.awt.Color.WHITE;
+        java.awt.Color primaryBlue = new java.awt.Color(37, 99, 235); // Blue 600
+        java.awt.Color primaryHover = new java.awt.Color(29, 78, 216); // Blue 700
+        java.awt.Color textDark = new java.awt.Color(15, 23, 42); // Slate 900
+        java.awt.Color textMuted = new java.awt.Color(100, 116, 139); // Slate 500
+        java.awt.Color borderCol = new java.awt.Color(226, 232, 240); // Slate 200
+
+        // Background color of content pane
+        getContentPane().setBackground(bgLight);
+
+        // Styling the login card jPanel3
+        jPanel3.setOpaque(false);
+        jPanel3.setBorder(new RoundedBorder(24, borderCol, cardBg, new java.awt.Insets(24, 24, 24, 24)));
+
+        // Welcome / Title Labels
+        jLabel2.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 28));
+        jLabel2.setForeground(textDark);
+        jLabel2.setText("Welcome");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        jLabel1.setForeground(textMuted);
+        jLabel1.setText("Hotel Management System");
+
+        // Username Label and Field
+        jLabel4.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 13));
+        jLabel4.setForeground(textDark);
+        jLabel4.setText("Username");
+
+        jTextField1.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 13));
+        jTextField1.setOpaque(false);
+        jTextField1.setBorder(new RoundedBorder(16, borderCol, cardBg, new java.awt.Insets(6, 12, 6, 12)));
+        jTextField1.setForeground(textDark);
+
+        // Password Label and Field
+        jLabel3.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 13));
+        jLabel3.setForeground(textDark);
+        jLabel3.setText("Password");
+
+        jPasswordField1.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 13));
+        jPasswordField1.setOpaque(false);
+        jPasswordField1.setBorder(new RoundedBorder(16, borderCol, cardBg, new java.awt.Insets(6, 12, 6, 12)));
+        jPasswordField1.setForeground(textDark);
+
+        // Checkbox & Forgot Password
+        jCheckBox1.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        jCheckBox1.setForeground(textMuted);
+        jCheckBox1.setOpaque(false);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12));
+        jLabel5.setForeground(primaryBlue);
+        jLabel5.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));
+
+        // Login Button
+        jButton1.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14));
+        jButton1.setForeground(java.awt.Color.WHITE);
+        jButton1.setOpaque(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setBorder(new RoundedBorder(16, primaryBlue, primaryBlue, new java.awt.Insets(6, 12, 6, 12)));
+        jButton1.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));
+        
+        // Add hover effects dynamically to the Login Button
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1.setBorder(new RoundedBorder(16, primaryHover, primaryHover, new java.awt.Insets(6, 12, 6, 12)));
+            }
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1.setBorder(new RoundedBorder(16, primaryBlue, primaryBlue, new java.awt.Insets(6, 12, 6, 12)));
+            }
+        });
+
+        // "Don't have an account?" & Signup button
+        jLabel6.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 12));
+        jLabel6.setForeground(textMuted);
+
+        jButton2.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 12));
+        jButton2.setForeground(primaryBlue);
+        jButton2.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));
     }
 
     /**
@@ -304,4 +392,48 @@ public class loginpage extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    public static class RoundedBorder implements javax.swing.border.Border {
+        private final int radius;
+        private final java.awt.Color borderColor;
+        private final java.awt.Color backgroundColor;
+        private final java.awt.Insets insets;
+
+        public RoundedBorder(int radius, java.awt.Color borderColor, java.awt.Color backgroundColor, java.awt.Insets insets) {
+            this.radius = radius;
+            this.borderColor = borderColor;
+            this.backgroundColor = backgroundColor;
+            this.insets = insets;
+        }
+
+        @Override
+        public java.awt.Insets getBorderInsets(java.awt.Component c) {
+            return insets;
+        }
+
+        @Override
+        public boolean isBorderOpaque() {
+            return false;
+        }
+
+        @Override
+        public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
+            java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
+            g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
+            
+            // Paint filled background
+            if (backgroundColor != null) {
+                g2.setColor(backgroundColor);
+                g2.fillRoundRect(x, y, width - 1, height - 1, radius, radius);
+            }
+            
+            // Paint border outline
+            if (borderColor != null) {
+                g2.setColor(borderColor);
+                g2.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
+            }
+            
+            g2.dispose();
+        }
+    }
 }
