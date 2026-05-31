@@ -22,13 +22,16 @@ public class MealTime extends javax.swing.JFrame {
         jPanelContent = new JPanel();
         jPanelHeader = new JPanel();
         jPanelCard = new JPanel();
-        jButtonDashboard = new JButton();
-        jButtonRooms = new JButton();
-        jButtonBookings = new JButton();
-        jButtonMealTime = new JButton();
+        jButtonDashboard = new JButton("Dashboard");
+        jButtonRooms = new JButton("Rooms");
+        jButtonBookings = new JButton("Bookings");
+        jButtonMealTime = new JButton("Meal Time");
         jScrollPaneTable = new JScrollPane();
         jTableSchedule = new JTable();
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(900, 600);
+        getContentPane().setLayout(null);
+        jPanelSidebar.setBounds(0, 0, 200, 600);
+        getContentPane().add(jPanelSidebar);
     }
 }
