@@ -50,7 +50,13 @@ jLabelLogo = new javax.swing.JLabel();
 jButtonDashboard = new javax.swing.JButton();
         jButtonRooms = new javax.swing.JButton();
 
+jButtonDiscount = new javax.swing.JButton();
+
 jButtonStaffs = new javax.swing.JButton();
+
+jButtonSystemSetting = new javax.swing.JButton();
+        jButtonReports = new javax.swing.JButton();
+        jButtonLogout = new javax.swing.JButton();
 
 jPanelMain = new javax.swing.JPanel();
 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,19 +71,43 @@ jLabelLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jPanelSidebar.add(jLabelLogo);
         jLabelLogo.setBounds(24, 24, 170, 40);
 
+
+jButtonDashboard.setBackground(new java.awt.Color(255, 255, 255));
 jButtonDashboard.setText("🏠  Dashboard");
         jPanelSidebar.add(jButtonDashboard);
         jButtonDashboard.setBounds(16, 100, 188, 40);
-
-        
-        
-        jButtonRooms.setText("🔑  Rooms");
+jButtonRooms.setBackground(new java.awt.Color(255, 255, 255));
+jButtonRooms.setText("🔑  Rooms");
         jPanelSidebar.add(jButtonRooms);
         jButtonRooms.setBounds(16, 150, 188, 40);
 
+jButtonDiscount.setText("🏷️  Discount & Offers");
+        jPanelSidebar.add(jButtonDiscount);
+        jButtonDiscount.setBounds(16, 200, 188, 40);
+
+
+jButtonStaffs.setBackground(new java.awt.Color(255, 255, 255));
 jButtonStaffs.setText("👥  Staffs");
         jPanelSidebar.add(jButtonStaffs);
         jButtonStaffs.setBounds(16, 250, 188, 40);
+
+jButtonSystemSetting.setBackground(new java.awt.Color(255, 255, 255));
+        
+        jButtonSystemSetting.setText("⚙️  System Setting");
+        jPanelSidebar.add(jButtonSystemSetting);
+        jButtonSystemSetting.setBounds(16, 300, 188, 40);
+
+        jButtonReports.setBackground(new java.awt.Color(255, 255, 255));
+        
+        jButtonReports.setText("📊  Reports");
+        jPanelSidebar.add(jButtonReports);
+        jButtonReports.setBounds(16, 350, 188, 40);
+
+        jButtonLogout.setBackground(new java.awt.Color(255, 255, 255));
+        
+        jButtonLogout.setText("🚪  Logout");
+        jPanelSidebar.add(jButtonLogout);
+        jButtonLogout.setBounds(16, 600, 188, 40);
 
 getContentPane().add(jPanelSidebar);
         jPanelSidebar.setBounds(0, 0, 220, 700);
@@ -112,8 +142,14 @@ pack();
     // Variables declaration - do not modify
 private javax.swing.JButton jButtonDashboard;
 
+private javax.swing.JButton jButtonDiscount;
+    private javax.swing.JButton jButtonLogout;
+
 private javax.swing.JButton jButtonRooms;
     private javax.swing.JButton jButtonStaffs;
+
+private javax.swing.JButton jButtonSystemSetting;
+    private javax.swing.JButton jButtonReports;
 
 private javax.swing.JLabel jLabelLogo;
 
