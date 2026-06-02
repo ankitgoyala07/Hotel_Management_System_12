@@ -21,6 +21,7 @@ public class SignupPage extends javax.swing.JFrame {
         setSize(820, 540);
         setMinimumSize(new java.awt.Dimension(820, 540));
         setLocationRelativeTo(null); // Center on screen
+        setResizable(true);
     }
 
     /**
@@ -209,4 +210,5 @@ public class SignupPage extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
 }
