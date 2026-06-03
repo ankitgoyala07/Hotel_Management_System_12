@@ -73,10 +73,24 @@ jLabelLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
 
 
 jButtonDashboard.setBackground(new java.awt.Color(255, 255, 255));
+
+jButtonDashboard.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonDashboard.setForeground(new java.awt.Color(95, 99, 104));
+        jButtonDashboard.setBorderPainted(false);
+        jButtonDashboard.setContentAreaFilled(false);
+        jButtonDashboard.setFocusPainted(false);
+        jButtonDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 jButtonDashboard.setText("🏠  Dashboard");
         jPanelSidebar.add(jButtonDashboard);
         jButtonDashboard.setBounds(16, 100, 188, 40);
 jButtonRooms.setBackground(new java.awt.Color(255, 255, 255));
+
+jButtonRooms.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonRooms.setForeground(new java.awt.Color(95, 99, 104));
+        jButtonRooms.setBorderPainted(false);
+        jButtonRooms.setContentAreaFilled(false);
+        jButtonRooms.setFocusPainted(false);
+        jButtonRooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 jButtonRooms.setText("🔑  Rooms");
         jPanelSidebar.add(jButtonRooms);
         jButtonRooms.setBounds(16, 150, 188, 40);
@@ -87,25 +101,47 @@ jButtonDiscount.setText("🏷️  Discount & Offers");
 
 
 jButtonStaffs.setBackground(new java.awt.Color(255, 255, 255));
+
+jButtonStaffs.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonStaffs.setForeground(new java.awt.Color(95, 99, 104));
+        jButtonStaffs.setBorderPainted(false);
+        jButtonStaffs.setContentAreaFilled(false);
+        jButtonStaffs.setFocusPainted(false);
+        jButtonStaffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 jButtonStaffs.setText("👥  Staffs");
         jPanelSidebar.add(jButtonStaffs);
         jButtonStaffs.setBounds(16, 250, 188, 40);
 
 jButtonSystemSetting.setBackground(new java.awt.Color(255, 255, 255));
-        
-        jButtonSystemSetting.setText("⚙️  System Setting");
+jButtonSystemSetting.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonSystemSetting.setForeground(new java.awt.Color(95, 99, 104));
+        jButtonSystemSetting.setBorderPainted(false);
+        jButtonSystemSetting.setContentAreaFilled(false);
+        jButtonSystemSetting.setFocusPainted(false);
+        jButtonSystemSetting.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+jButtonSystemSetting.setText("⚙️  System Setting");
         jPanelSidebar.add(jButtonSystemSetting);
         jButtonSystemSetting.setBounds(16, 300, 188, 40);
 
         jButtonReports.setBackground(new java.awt.Color(255, 255, 255));
-        
-        jButtonReports.setText("📊  Reports");
+jButtonReports.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonReports.setForeground(new java.awt.Color(95, 99, 104));
+        jButtonReports.setBorderPainted(false);
+        jButtonReports.setContentAreaFilled(false);
+        jButtonReports.setFocusPainted(false);
+        jButtonReports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+jButtonReports.setText("📊  Reports");
         jPanelSidebar.add(jButtonReports);
         jButtonReports.setBounds(16, 350, 188, 40);
 
         jButtonLogout.setBackground(new java.awt.Color(255, 255, 255));
-        
-        jButtonLogout.setText("🚪  Logout");
+jButtonLogout.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonLogout.setForeground(new java.awt.Color(95, 99, 104));
+        jButtonLogout.setBorderPainted(false);
+        jButtonLogout.setContentAreaFilled(false);
+        jButtonLogout.setFocusPainted(false);
+        jButtonLogout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+jButtonLogout.setText("🚪  Logout");
         jPanelSidebar.add(jButtonLogout);
         jButtonLogout.setBounds(16, 600, 188, 40);
 
