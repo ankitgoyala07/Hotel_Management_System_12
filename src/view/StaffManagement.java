@@ -43,13 +43,12 @@ public class StaffManagement extends javax.swing.JFrame {
         lblRole = new javax.swing.JLabel();
         lblAvatar = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -162,64 +161,51 @@ public class StaffManagement extends javax.swing.JFrame {
         jPanel1.add(jSeparator1);
         jSeparator1.setBounds(0, 0, 10, 500);
 
-        jPanel2.setLayout(null);
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(null);
-
-        jButton2.setBackground(new java.awt.Color(51, 51, 255));
-        jButton2.setFont(new java.awt.Font("Aparajita", 1, 20)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Save");
-        jPanel3.add(jButton2);
-        jButton2.setBounds(450, 10, 90, 28);
-
-        jButton1.setBackground(new java.awt.Color(51, 51, 255));
-        jButton1.setFont(new java.awt.Font("Aparajita", 1, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Attendence");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-        jPanel3.add(jButton1);
-        jButton1.setBounds(0, 10, 107, 28);
-
-        jButton3.setBackground(new java.awt.Color(51, 51, 255));
-        jButton3.setFont(new java.awt.Font("Aparajita", 1, 20)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Save");
-        jPanel3.add(jButton3);
-        jButton3.setBounds(450, 10, 90, 28);
-
-        jPanel2.add(jPanel3);
-        jPanel3.setBounds(20, 20, 543, 40);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"H-101", "Ritesh Chand", "Chef", "9878965324", null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
+                {"H-101", "Ritesh Chand", "Chef", "9874563210", "Kathmandu"},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null}
             },
             new String [] {
-                "Staff ID", "Name", "Role", "Phone", "Options"
+                "Staff ID", "Name", "Role", "Phone", "Address"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane2.setViewportView(jTable2);
 
-        jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 70, 540, 220);
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(30, 160, 570, 280);
 
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(20, 110, 580, 320);
+        jPanel4.setLayout(null);
+
+        jButton2.setBackground(new java.awt.Color(51, 51, 255));
+        jButton2.setFont(new java.awt.Font("Sinhala MN", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Attendence");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
+        jPanel4.add(jButton2);
+        jButton2.setBounds(10, 10, 100, 30);
+
+        jButton4.setBackground(new java.awt.Color(51, 51, 255));
+        jButton4.setFont(new java.awt.Font("Sinhala MN", 1, 12)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("Delete");
+        jButton4.addActionListener(this::jButton4ActionPerformed);
+        jPanel4.add(jButton4);
+        jButton4.setBounds(480, 10, 90, 30);
+
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(20, 90, 580, 50);
+
+        jButton5.setBackground(new java.awt.Color(51, 51, 255));
+        jButton5.setFont(new java.awt.Font("Sinhala MN", 1, 12)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("Save");
+        jButton5.addActionListener(this::jButton5ActionPerformed);
+        jPanel1.add(jButton5);
+        jButton5.setBounds(510, 450, 90, 30);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(180, 0, 620, 500);
@@ -258,9 +244,17 @@ public class StaffManagement extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,17 +289,16 @@ public class StaffManagement extends javax.swing.JFrame {
     private javax.swing.JButton btnRooms;
     private javax.swing.JButton btnStaffs;
     private javax.swing.JButton btnSystemSetting;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JPanel jPanelSidebar;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblRole;

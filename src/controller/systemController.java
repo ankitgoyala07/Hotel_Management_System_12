@@ -27,7 +27,7 @@ public class systemController {
         view.setAddressText(model.getAddress());
         view.setPanNumberText(model.getPanNumber());
         view.setOwnerText(model.getOwner());
-        view.setEmailText(model.getEmail());
+        view.setQuickNoteText(model.getQuickNote());
         view.setPhoneText(model.getPhone());
         view.setWebsiteText(model.getWebsite());
     }
@@ -47,7 +47,7 @@ public class systemController {
         String address = view.getAddressText().trim();
         String panNumber = view.getPanNumberText().trim();
         String owner = view.getOwnerText().trim();
-        String email = view.getEmailText().trim();
+        String quickNote = view.getQuickNoteText().trim();
         String phone = view.getPhoneText().trim();
         String website = view.getWebsiteText().trim();
 
@@ -72,11 +72,8 @@ public class systemController {
             showError(view, "Owner cannot be empty.");
             return false;
         }
-        if (email.isEmpty()) {
-            showError(view, "Email cannot be empty.");
-            return false;
-        } else if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
-            showError(view, "Please enter a valid Email Address (e.g. info@hotel.com).");
+        if (quickNote.isEmpty()) {
+            showError(view, "Quick Note cannot be empty.");
             return false;
         }
         if (phone.isEmpty()) {
@@ -92,7 +89,7 @@ public class systemController {
         }
 
         // Create Model
-        systemModel model = new systemModel(hotelName, hotelId, address, panNumber, owner, email, phone, website);
+        systemModel model = new systemModel(hotelName, hotelId, address, panNumber, owner, quickNote, phone, website);
 
         // Persist using DAO
         boolean success = dao.updateSystemSettings(model);

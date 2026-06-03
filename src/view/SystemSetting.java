@@ -59,21 +59,26 @@ public class SystemSetting extends javax.swing.JFrame {
         txtOwner.setOpaque(false);
         txtOwner.setBorder(fieldBorder);
         
-        txtEmail.setOpaque(false);
-        txtEmail.setBorder(fieldBorder);
-        
         txtPhone.setOpaque(false);
         txtPhone.setBorder(fieldBorder);
         
         txtWebsite.setOpaque(false);
         txtWebsite.setBorder(fieldBorder);
 
-        // Apply 20px Rounded Corners to Card and Title Banner
-        jPanelCard.setOpaque(false);
-        jPanelCard.setBorder(new RoundedBorder(20, transparentColor, new java.awt.Color(217, 217, 217), new java.awt.Insets(0, 0, 0, 0)));
+        jScrollPane2.setOpaque(false);
+        jScrollPane2.getViewport().setOpaque(false);
+        jScrollPane2.setBorder(fieldBorder);
+        txtQuickNote.setOpaque(false);
 
-        jPanelTitleBanner.setOpaque(false);
-        jPanelTitleBanner.setBorder(new RoundedBorder(20, transparentColor, whiteColor, new java.awt.Insets(0, 0, 0, 0)));
+        // Apply 20px Rounded Corners to panels
+        jPanel1.setOpaque(false);
+        jPanel1.setBorder(new RoundedBorder(20, transparentColor, new java.awt.Color(248, 250, 252), new java.awt.Insets(0, 0, 0, 0)));
+
+        jPanel2.setOpaque(false);
+        jPanel2.setBorder(new RoundedBorder(20, transparentColor, new java.awt.Color(248, 250, 252), new java.awt.Insets(0, 0, 0, 0)));
+
+        jPanel3.setOpaque(false);
+        jPanel3.setBorder(new RoundedBorder(20, transparentColor, new java.awt.Color(248, 250, 252), new java.awt.Insets(0, 0, 0, 0)));
 
         // Apply 20px Rounded Corners to Header Bar
         jPanelHeader.setOpaque(false);
@@ -141,12 +146,12 @@ public class SystemSetting extends javax.swing.JFrame {
         txtOwner.setText(text);
     }
 
-    public String getEmailText() {
-        return txtEmail.getText();
+    public String getQuickNoteText() {
+        return txtQuickNote.getText();
     }
 
-    public void setEmailText(String text) {
-        txtEmail.setText(text);
+    public void setQuickNoteText(String text) {
+        txtQuickNote.setText(text);
     }
 
     public String getPhoneText() {
@@ -243,32 +248,32 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtHotelId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtAddress = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtHotelName = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
-        jTextField7 = new javax.swing.JTextField();
+        txtPanNumber = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtOwner = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        txtWebsite = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtQuickNote = new javax.swing.JTextArea();
         jSeparator6 = new javax.swing.JSeparator();
 
         jTextArea1.setColumns(20);
@@ -391,18 +396,18 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(10, 130, 70, 16);
 
-        jTextField1.addActionListener(this::jTextField1ActionPerformed);
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(10, 150, 260, 40);
+        txtHotelId.addActionListener(this::txtHotelIdActionPerformed);
+        jPanel1.add(txtHotelId);
+        txtHotelId.setBounds(10, 150, 260, 40);
 
         jLabel3.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
         jLabel3.setText("Property Adress");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(310, 60, 100, 16);
 
-        jTextField2.addActionListener(this::jTextField2ActionPerformed);
-        jPanel1.add(jTextField2);
-        jTextField2.setBounds(310, 80, 260, 110);
+        txtAddress.addActionListener(this::txtAddressActionPerformed);
+        jPanel1.add(txtAddress);
+        txtAddress.setBounds(310, 80, 260, 110);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Identity Details");
@@ -414,10 +419,10 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanel1.add(jLabel7);
         jLabel7.setBounds(10, 60, 70, 16);
 
-        jTextField4.setText("Ankit");
-        jTextField4.addActionListener(this::jTextField4ActionPerformed);
-        jPanel1.add(jTextField4);
-        jTextField4.setBounds(10, 80, 260, 40);
+        txtHotelName.setText("Ankit");
+        txtHotelName.addActionListener(this::txtHotelNameActionPerformed);
+        jPanel1.add(txtHotelName);
+        txtHotelName.setBounds(10, 80, 260, 40);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Identity Details");
@@ -431,9 +436,9 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanel2.add(jSeparator2);
         jSeparator2.setBounds(0, 40, 210, 10);
 
-        jTextField7.addActionListener(this::jTextField7ActionPerformed);
-        jPanel2.add(jTextField7);
-        jTextField7.setBounds(10, 130, 190, 30);
+        txtPanNumber.addActionListener(this::txtPanNumberActionPerformed);
+        jPanel2.add(txtPanNumber);
+        txtPanNumber.setBounds(10, 130, 190, 30);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Compliance");
@@ -445,9 +450,9 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanel2.add(jLabel12);
         jLabel12.setBounds(10, 50, 70, 16);
 
-        jTextField9.addActionListener(this::jTextField9ActionPerformed);
-        jPanel2.add(jTextField9);
-        jTextField9.setBounds(10, 70, 190, 30);
+        txtOwner.addActionListener(this::txtOwnerActionPerformed);
+        jPanel2.add(txtOwner);
+        txtOwner.setBounds(10, 70, 190, 30);
 
         jLabel13.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
         jLabel13.setText("PAN Number");
@@ -473,35 +478,36 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanel3.add(jLabel10);
         jLabel10.setBounds(220, 50, 70, 16);
 
-        jTextField6.addActionListener(this::jTextField6ActionPerformed);
-        jPanel3.add(jTextField6);
-        jTextField6.setBounds(10, 150, 190, 30);
+        txtPhone.addActionListener(this::txtPhoneActionPerformed);
+        jPanel3.add(txtPhone);
+        txtPhone.setBounds(10, 150, 190, 30);
 
         jLabel11.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
         jLabel11.setText("Support Hotline");
         jPanel3.add(jLabel11);
         jLabel11.setBounds(10, 130, 100, 16);
 
-        jTextField10.addActionListener(this::jTextField10ActionPerformed);
-        jPanel3.add(jTextField10);
-        jTextField10.setBounds(10, 70, 190, 50);
+        txtWebsite.addActionListener(this::txtWebsiteActionPerformed);
+        jPanel3.add(txtWebsite);
+        txtWebsite.setBounds(10, 70, 190, 50);
 
         jLabel14.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
         jLabel14.setText("Website");
         jPanel3.add(jLabel14);
         jLabel14.setBounds(10, 50, 70, 16);
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 255));
-        jButton1.setFont(new java.awt.Font("Aparajita", 1, 25)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Save");
-        jPanel3.add(jButton1);
-        jButton1.setBounds(230, 150, 100, 30);
+        btnSave.setBackground(new java.awt.Color(51, 51, 255));
+        btnSave.setFont(new java.awt.Font("Aparajita", 1, 25)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Save");
+        btnSave.addActionListener(this::btnSaveActionPerformed);
+        jPanel3.add(btnSave);
+        btnSave.setBounds(230, 150, 100, 30);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("We give the best\nexperience to our\ncustomers");
-        jScrollPane2.setViewportView(jTextArea2);
+        txtQuickNote.setColumns(20);
+        txtQuickNote.setRows(5);
+        txtQuickNote.setText("We give the best\nexperience to our\ncustomers");
+        jScrollPane2.setViewportView(txtQuickNote);
 
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(210, 70, 140, 60);
@@ -551,33 +557,37 @@ public class SystemSetting extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSystemSettingActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtHotelIdActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txtHotelNameActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void txtPanNumberActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void txtOwnerActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void txtWebsiteActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {
+        controller.saveSettings(this);
+    }
 
     /**
      * @param args the command line arguments
@@ -606,14 +616,14 @@ public class SystemSetting extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDashboard;
-    private javax.swing.JButton btnDiscounts;
-    private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnReports;
-    private javax.swing.JButton btnRooms;
-    private javax.swing.JButton btnStaffs;
-    private javax.swing.JButton btnSystemSetting;
-    private javax.swing.JButton jButton1;
+     private javax.swing.JButton btnDashboard;
+     private javax.swing.JButton btnDiscounts;
+     private javax.swing.JButton btnLogout;
+     private javax.swing.JButton btnReports;
+     private javax.swing.JButton btnRooms;
+     private javax.swing.JButton btnStaffs;
+     private javax.swing.JButton btnSystemSetting;
+     private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -641,15 +651,15 @@ public class SystemSetting extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextArea txtQuickNote;
+    private javax.swing.JTextField txtHotelId;
+    private javax.swing.JTextField txtWebsite;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtHotelName;
+    private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtPanNumber;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField txtOwner;
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblRole;

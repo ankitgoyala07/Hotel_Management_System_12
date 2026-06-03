@@ -11,7 +11,7 @@ public class systemModel {
     private String address;
     private String panNumber;
     private String owner;
-    private String email;
+    private String quickNote;
     private String phone;
     private String website;
 
@@ -20,13 +20,13 @@ public class systemModel {
 
     // Parameterized constructor
     public systemModel(String hotelName, String hotelId, String address, String panNumber,
-                       String owner, String email, String phone, String website) {
+                       String owner, String quickNote, String phone, String website) {
         this.hotelName = hotelName;
         this.hotelId = hotelId;
         this.address = address;
         this.panNumber = panNumber;
         this.owner = owner;
-        this.email = email;
+        this.quickNote = quickNote;
         this.phone = phone;
         this.website = website;
     }
@@ -72,12 +72,12 @@ public class systemModel {
         this.owner = owner;
     }
 
-    public String getEmail() {
-        return email;
+    public String getQuickNote() {
+        return quickNote;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setQuickNote(String quickNote) {
+        this.quickNote = quickNote;
     }
 
     public String getPhone() {

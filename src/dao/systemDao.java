@@ -44,7 +44,7 @@ public class systemDao {
         model.setAddress(props.getProperty("address", ""));
         model.setPanNumber(props.getProperty("panNumber", ""));
         model.setOwner(props.getProperty("owner", ""));
-        model.setEmail(props.getProperty("email", ""));
+        model.setQuickNote(props.getProperty("quickNote", ""));
         model.setPhone(props.getProperty("phone", ""));
         model.setWebsite(props.getProperty("website", ""));
 
@@ -64,7 +64,7 @@ public class systemDao {
         props.setProperty("address", model.getAddress() != null ? model.getAddress() : "");
         props.setProperty("panNumber", model.getPanNumber() != null ? model.getPanNumber() : "");
         props.setProperty("owner", model.getOwner() != null ? model.getOwner() : "");
-        props.setProperty("email", model.getEmail() != null ? model.getEmail() : "");
+        props.setProperty("quickNote", model.getQuickNote() != null ? model.getQuickNote() : "");
         props.setProperty("phone", model.getPhone() != null ? model.getPhone() : "");
         props.setProperty("website", model.getWebsite() != null ? model.getWebsite() : "");
 
