@@ -19,6 +19,32 @@ public class DatabaseSetup {
             stmt = conn.createStatement();
             System.out.println("Connected to hotel_management database.");
 
+            // Create system_settings table if it doesn't exist
+            String createTableSql = "CREATE TABLE IF NOT EXISTS system_settings ("
+                    + "id INT AUTO_INCREMENT PRIMARY KEY, "
+                    + "hotel_name VARCHAR(255), "
+                    + "hotel_id VARCHAR(100), "
+                    + "address VARCHAR(255), "
+                    + "pan_number VARCHAR(100), "
+                    + "owner VARCHAR(100), "
+                    + "quick_note TEXT, "
+                    + "phone VARCHAR(50), "
+                    + "website VARCHAR(100)"
+                    + ")";
+            stmt.executeUpdate(createTableSql);
+            System.out.println("Table 'system_settings' verified/created.");
+
+            // Seed default system settings if table is empty
+            String checkQuery = "SELECT COUNT(*) FROM system_settings";
+            java.sql.ResultSet rs = stmt.executeQuery(checkQuery);
+            if (rs.next() && rs.getInt(1) == 0) {
+                String seedSql = "INSERT INTO system_settings (hotel_name, hotel_id, address, pan_number, owner, quick_note, phone, website) "
+                        + "VALUES ('Ankit', 'GH-001', '123 Main Street', '123456789', 'Ankit Goyala', "
+                        + "'We give the best\\nexperience to our\\ncustomers', '+977-9843465098', 'www.grandhotel.com')";
+                stmt.executeUpdate(seedSql);
+                System.out.println("Default system settings seeded successfully.");
+            }
+
         } catch (ClassNotFoundException | SQLException e) {
             System.err.println("Database connection error: " + e.getMessage());
         } finally {

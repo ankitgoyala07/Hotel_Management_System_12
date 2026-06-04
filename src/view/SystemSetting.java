@@ -21,88 +21,116 @@ public class SystemSetting extends javax.swing.JFrame {
     public SystemSetting() {
         initComponents();
         
-        // Premium UI Polishing
+        // UI Sizing and Positioning
         setSize(800, 500);
         setMinimumSize(new java.awt.Dimension(800, 500));
         setLocationRelativeTo(null); // Center on screen
-        setResizable(false);
+        setResizable(true); // Allow resizing / maximizing
         
-        applyPremiumStyles();
+        // Listen for resize / maximize events to scale absolute layouts
+        this.addComponentListener(new java.awt.event.ComponentAdapter() {
+            @Override
+            public void componentResized(java.awt.event.ComponentEvent e) {
+                adjustLayout();
+            }
+        });
         
         // Load data into fields on startup
         controller.loadSettings(this);
+        
+        // Initially fields are read-only
+        setFieldsEditable(false);
     }
 
-    /**
-     * Applies rounded borders, paddings, and dynamic UI highlights.
-     */
-    private void applyPremiumStyles() {
-        java.awt.Color fieldBorderColor = new java.awt.Color(203, 213, 225); // Slate 200
-        java.awt.Color whiteColor = java.awt.Color.WHITE;
-        java.awt.Color transparentColor = null;
-
-        // Apply 20px Rounded Corners and Padding to TextFields
-        RoundedBorder fieldBorder = new RoundedBorder(20, fieldBorderColor, whiteColor, new java.awt.Insets(6, 12, 6, 12));
+    public void setFieldsEditable(boolean editable) {
+        txtHotelName.setEditable(editable);
+        txtHotelId.setEditable(editable);
+        txtAddress.setEditable(editable);
+        txtPanNumber.setEditable(editable);
+        txtOwner.setEditable(editable);
+        txtQuickNote.setEditable(editable);
+        txtPhone.setEditable(editable);
+        txtWebsite.setEditable(editable);
         
-        txtHotelName.setOpaque(false);
-        txtHotelName.setBorder(fieldBorder);
+        if (btnSave != null) {
+            btnSave.setEnabled(editable);
+        }
+        if (btnEdit != null) {
+            btnEdit.setEnabled(!editable);
+        }
+    }
+
+    private void adjustLayout() {
+        int width = getContentPane().getWidth();
+        int height = getContentPane().getHeight();
+        if (width < 800) width = 800;
+        if (height < 500) height = 500;
         
-        txtHotelId.setOpaque(false);
-        txtHotelId.setBorder(fieldBorder);
+        // Sidebar stays fixed width 180, stretches vertically
+        jPanelSidebar.setBounds(0, 0, 180, height);
         
-        txtAddress.setOpaque(false);
-        txtAddress.setBorder(fieldBorder);
+        // Main panel fills the rest
+        int mainWidth = width - 180;
+        jPanelMain.setBounds(180, 0, mainWidth, height);
         
-        txtPanNumber.setOpaque(false);
-        txtPanNumber.setBorder(fieldBorder);
+        // Inside main panel:
+        // jPanelHeader stretches horizontally
+        jPanelHeader.setBounds(20, 15, mainWidth - 40, 40);
         
-        txtOwner.setOpaque(false);
-        txtOwner.setBorder(fieldBorder);
+        int headerWidth = jPanelHeader.getWidth();
+        lblAvatar.setBounds(headerWidth - 50, 0, 40, 40);
+        lblRole.setBounds(headerWidth - 160, 5, 100, 30);
         
-        txtPhone.setOpaque(false);
-        txtPhone.setBorder(fieldBorder);
+        // jPanel1 stretches horizontally
+        jPanel1.setBounds(20, 80, mainWidth - 40, 200);
+        int p1Width = jPanel1.getWidth();
+        jSeparator1.setBounds(0, 40, p1Width, 10);
         
-        txtWebsite.setOpaque(false);
-        txtWebsite.setBorder(fieldBorder);
-
-        jScrollPane2.setOpaque(false);
-        jScrollPane2.getViewport().setOpaque(false);
-        jScrollPane2.setBorder(fieldBorder);
-        txtQuickNote.setOpaque(false);
-
-        // Apply 20px Rounded Corners to panels
-        jPanel1.setOpaque(false);
-        jPanel1.setBorder(new RoundedBorder(20, transparentColor, new java.awt.Color(248, 250, 252), new java.awt.Insets(0, 0, 0, 0)));
-
-        jPanel2.setOpaque(false);
-        jPanel2.setBorder(new RoundedBorder(20, transparentColor, new java.awt.Color(248, 250, 252), new java.awt.Insets(0, 0, 0, 0)));
-
-        jPanel3.setOpaque(false);
-        jPanel3.setBorder(new RoundedBorder(20, transparentColor, new java.awt.Color(248, 250, 252), new java.awt.Insets(0, 0, 0, 0)));
-
-        // Apply 20px Rounded Corners to Header Bar
-        jPanelHeader.setOpaque(false);
-        jPanelHeader.setBorder(new RoundedBorder(20, transparentColor, new java.awt.Color(232, 236, 239), new java.awt.Insets(0, 0, 0, 0)));
-
-        // Style the active Sidebar Highlight with 20px rounded corners
-        btnSystemSetting.setOpaque(false);
-        btnSystemSetting.setContentAreaFilled(false);
-        btnSystemSetting.setBorder(new RoundedBorder(20, transparentColor, new java.awt.Color(211, 228, 245), new java.awt.Insets(4, 16, 4, 16)));
-        btnSystemSetting.setForeground(new java.awt.Color(37, 99, 235));   // Vibrant primary blue
-
-        // Style other Sidebar Buttons (padding only)
-        javax.swing.border.Border menuPadding = new javax.swing.border.EmptyBorder(4, 16, 4, 16);
-        btnDashboard.setBorder(menuPadding);
-        btnRooms.setBorder(menuPadding);
-        btnDiscounts.setBorder(menuPadding);
-        btnStaffs.setBorder(menuPadding);
-        btnReports.setBorder(menuPadding);
-        btnLogout.setBorder(menuPadding);
-
-        // Style the Save Button with 20px rounded corners
-        btnSave.setOpaque(false);
-        btnSave.setContentAreaFilled(false);
-        btnSave.setBorder(new RoundedBorder(20, new java.awt.Color(37, 99, 235), new java.awt.Color(37, 99, 235), new java.awt.Insets(4, 15, 4, 15)));
+        int rightColX = p1Width / 2 + 10;
+        int rightColWidth = p1Width - rightColX - 20;
+        jLabel3.setBounds(rightColX, 60, 100, 16);
+        txtAddress.setBounds(rightColX, 80, rightColWidth, 40);
+        jLabel11.setBounds(rightColX, 130, 100, 16);
+        txtPhone.setBounds(rightColX, 150, rightColWidth, 40);
+        
+        // Bottom panels: jPanel2 and jPanel3
+        int bottomY = 290;
+        int bottomHeight = height - bottomY - 10;
+        
+        int gap = 20;
+        int availableWidth = mainWidth - 40;
+        int p2Width = (int) (availableWidth * 0.38);
+        int p3Width = availableWidth - p2Width - gap;
+        
+        jPanel2.setBounds(20, bottomY, p2Width, bottomHeight);
+        int p2WidthReal = jPanel2.getWidth();
+        jSeparator2.setBounds(0, 40, p2WidthReal, 10);
+        txtOwner.setBounds(10, 70, p2WidthReal - 20, 30);
+        txtPanNumber.setBounds(10, 130, p2WidthReal - 20, 30);
+        
+        jPanel3.setBounds(20 + p2Width + gap, bottomY, p3Width, bottomHeight);
+        int p3WidthReal = jPanel3.getWidth();
+        jSeparator3.setBounds(0, 40, 50, 10);
+        jSeparator4.setBounds(0, 40, p3WidthReal, 10);
+        
+        txtWebsite.setBounds(10, 70, p3WidthReal / 2 - 20, 50);
+        
+        int noteX = p3WidthReal / 2;
+        int noteWidth = p3WidthReal - noteX - 10;
+        jLabel10.setBounds(noteX + 10, 50, 70, 16);
+        jScrollPane2.setBounds(noteX, 70, noteWidth, 60);
+        
+        if (btnEdit != null) {
+            btnEdit.setBounds(noteX, 150, 100, 30);
+        }
+        if (btnSave != null) {
+            btnSave.setBounds(noteX + 110, 150, 100, 30);
+        }
+        
+        jSeparator6.setBounds(0, 0, 10, height);
+        
+        getContentPane().revalidate();
+        getContentPane().repaint();
     }
 
     // Getters and Setters for Controller binding
@@ -170,53 +198,7 @@ public class SystemSetting extends javax.swing.JFrame {
         txtWebsite.setText(text);
     }
 
-    /**
-     * A highly customizable Rounded Border implementation that paints both custom
-     * rounded backgrounds and solid rounded border outlines using Graphics2D antialiasing.
-     */
-    public static class RoundedBorder implements javax.swing.border.Border {
-        private final int radius;
-        private final java.awt.Color borderColor;
-        private final java.awt.Color backgroundColor;
-        private final java.awt.Insets insets;
 
-        public RoundedBorder(int radius, java.awt.Color borderColor, java.awt.Color backgroundColor, java.awt.Insets insets) {
-            this.radius = radius;
-            this.borderColor = borderColor;
-            this.backgroundColor = backgroundColor;
-            this.insets = insets;
-        }
-
-        @Override
-        public java.awt.Insets getBorderInsets(java.awt.Component c) {
-            return insets;
-        }
-
-        @Override
-        public boolean isBorderOpaque() {
-            return false;
-        }
-
-        @Override
-        public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
-            java.awt.Graphics2D g2 = (java.awt.Graphics2D) g.create();
-            g2.setRenderingHint(java.awt.RenderingHints.KEY_ANTIALIASING, java.awt.RenderingHints.VALUE_ANTIALIAS_ON);
-            
-            // Paint filled background
-            if (backgroundColor != null) {
-                g2.setColor(backgroundColor);
-                g2.fillRoundRect(x, y, width - 1, height - 1, radius, radius);
-            }
-            
-            // Paint border outline
-            if (borderColor != null) {
-                g2.setColor(borderColor);
-                g2.drawRoundRect(x, y, width - 1, height - 1, radius, radius);
-            }
-            
-            g2.dispose();
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -255,6 +237,8 @@ public class SystemSetting extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtHotelName = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        txtPhone = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jSeparator2 = new javax.swing.JSeparator();
         txtPanNumber = new javax.swing.JTextField();
@@ -267,13 +251,12 @@ public class SystemSetting extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
-        txtPhone = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         txtWebsite = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        btnSave = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtQuickNote = new javax.swing.JTextArea();
+        btnSave = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JSeparator();
 
         jTextArea1.setColumns(20);
@@ -387,9 +370,10 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanelMain.add(jPanelHeader);
         jPanelHeader.setBounds(20, 15, 580, 40);
 
+        jPanel1.setBackground(new java.awt.Color(211, 228, 245));
         jPanel1.setLayout(null);
         jPanel1.add(jSeparator1);
-        jSeparator1.setBounds(0, 40, 580, 10);
+        jSeparator1.setBounds(0, 40, 580, 3);
 
         jLabel2.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
         jLabel2.setText("Hotel ID");
@@ -407,7 +391,7 @@ public class SystemSetting extends javax.swing.JFrame {
 
         txtAddress.addActionListener(this::txtAddressActionPerformed);
         jPanel1.add(txtAddress);
-        txtAddress.setBounds(310, 80, 260, 110);
+        txtAddress.setBounds(310, 80, 260, 40);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Identity Details");
@@ -419,7 +403,6 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanel1.add(jLabel7);
         jLabel7.setBounds(10, 60, 70, 16);
 
-        txtHotelName.setText("Ankit");
         txtHotelName.addActionListener(this::txtHotelNameActionPerformed);
         jPanel1.add(txtHotelName);
         txtHotelName.setBounds(10, 80, 260, 40);
@@ -429,12 +412,22 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanel1.add(jLabel9);
         jLabel9.setBounds(10, 10, 130, 30);
 
+        txtPhone.addActionListener(this::txtPhoneActionPerformed);
+        jPanel1.add(txtPhone);
+        txtPhone.setBounds(310, 150, 250, 40);
+
+        jLabel11.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
+        jLabel11.setText("Hotel Phone");
+        jPanel1.add(jLabel11);
+        jLabel11.setBounds(310, 130, 100, 16);
+
         jPanelMain.add(jPanel1);
         jPanel1.setBounds(20, 80, 580, 200);
 
+        jPanel2.setBackground(new java.awt.Color(211, 228, 245));
         jPanel2.setLayout(null);
         jPanel2.add(jSeparator2);
-        jSeparator2.setBounds(0, 40, 210, 10);
+        jSeparator2.setBounds(0, 40, 210, 3);
 
         txtPanNumber.addActionListener(this::txtPanNumberActionPerformed);
         jPanel2.add(txtPanNumber);
@@ -462,6 +455,7 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanelMain.add(jPanel2);
         jPanel2.setBounds(20, 290, 210, 190);
 
+        jPanel3.setBackground(new java.awt.Color(211, 228, 245));
         jPanel3.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -469,7 +463,7 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanel3.add(jLabel1);
         jLabel1.setBounds(10, 10, 180, 30);
         jPanel3.add(jSeparator3);
-        jSeparator3.setBounds(0, 40, 50, 10);
+        jSeparator3.setBounds(0, 40, 0, 3);
         jPanel3.add(jSeparator4);
         jSeparator4.setBounds(0, 40, 360, 10);
 
@@ -477,15 +471,6 @@ public class SystemSetting extends javax.swing.JFrame {
         jLabel10.setText("Quick Note");
         jPanel3.add(jLabel10);
         jLabel10.setBounds(220, 50, 70, 16);
-
-        txtPhone.addActionListener(this::txtPhoneActionPerformed);
-        jPanel3.add(txtPhone);
-        txtPhone.setBounds(10, 150, 190, 30);
-
-        jLabel11.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
-        jLabel11.setText("Support Hotline");
-        jPanel3.add(jLabel11);
-        jLabel11.setBounds(10, 130, 100, 16);
 
         txtWebsite.addActionListener(this::txtWebsiteActionPerformed);
         jPanel3.add(txtWebsite);
@@ -496,13 +481,13 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanel3.add(jLabel14);
         jLabel14.setBounds(10, 50, 70, 16);
 
-        btnSave.setBackground(new java.awt.Color(51, 51, 255));
-        btnSave.setFont(new java.awt.Font("Aparajita", 1, 25)); // NOI18N
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
-        btnSave.setText("Save");
-        btnSave.addActionListener(this::btnSaveActionPerformed);
-        jPanel3.add(btnSave);
-        btnSave.setBounds(230, 150, 100, 30);
+        btnEdit.setBackground(new java.awt.Color(51, 51, 255));
+        btnEdit.setFont(new java.awt.Font("Aparajita", 1, 25)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setText("Edit");
+        btnEdit.addActionListener(this::btnEditActionPerformed);
+        jPanel3.add(btnEdit);
+        btnEdit.setBounds(100, 150, 100, 30);
 
         txtQuickNote.setColumns(20);
         txtQuickNote.setRows(5);
@@ -511,6 +496,13 @@ public class SystemSetting extends javax.swing.JFrame {
 
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(210, 70, 140, 60);
+
+        btnSave.setBackground(new java.awt.Color(51, 51, 255));
+        btnSave.setFont(new java.awt.Font("Aparajita", 1, 25)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Save");
+        jPanel3.add(btnSave);
+        btnSave.setBounds(230, 150, 100, 30);
 
         jPanelMain.add(jPanel3);
         jPanel3.setBounds(240, 290, 360, 190);
@@ -585,8 +577,15 @@ public class SystemSetting extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {
+        setFieldsEditable(true);
+    }
+
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {
-        controller.saveSettings(this);
+        boolean success = controller.saveSettings(this);
+        if (success) {
+            setFieldsEditable(false);
+        }
     }
 
     /**
@@ -616,14 +615,15 @@ public class SystemSetting extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-     private javax.swing.JButton btnDashboard;
-     private javax.swing.JButton btnDiscounts;
-     private javax.swing.JButton btnLogout;
-     private javax.swing.JButton btnReports;
-     private javax.swing.JButton btnRooms;
-     private javax.swing.JButton btnStaffs;
-     private javax.swing.JButton btnSystemSetting;
-     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnDashboard;
+    private javax.swing.JButton btnDiscounts;
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnReports;
+    private javax.swing.JButton btnRooms;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnStaffs;
+    private javax.swing.JButton btnSystemSetting;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -651,18 +651,18 @@ public class SystemSetting extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea txtQuickNote;
-    private javax.swing.JTextField txtHotelId;
-    private javax.swing.JTextField txtWebsite;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtHotelName;
-    private javax.swing.JTextField txtPhone;
-    private javax.swing.JTextField txtPanNumber;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField txtOwner;
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtHotelId;
+    private javax.swing.JTextField txtHotelName;
+    private javax.swing.JTextField txtOwner;
+    private javax.swing.JTextField txtPanNumber;
+    private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextArea txtQuickNote;
+    private javax.swing.JTextField txtWebsite;
     // End of variables declaration//GEN-END:variables
 }

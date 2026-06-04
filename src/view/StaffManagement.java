@@ -48,7 +48,6 @@ public class StaffManagement extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -176,7 +175,7 @@ public class StaffManagement extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(30, 160, 570, 280);
+        jScrollPane2.setBounds(30, 160, 560, 280);
 
         jPanel4.setLayout(null);
 
@@ -191,21 +190,13 @@ public class StaffManagement extends javax.swing.JFrame {
         jButton4.setBackground(new java.awt.Color(51, 51, 255));
         jButton4.setFont(new java.awt.Font("Sinhala MN", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Delete");
+        jButton4.setText("Add Staff");
         jButton4.addActionListener(this::jButton4ActionPerformed);
         jPanel4.add(jButton4);
         jButton4.setBounds(480, 10, 90, 30);
 
         jPanel1.add(jPanel4);
-        jPanel4.setBounds(20, 90, 580, 50);
-
-        jButton5.setBackground(new java.awt.Color(51, 51, 255));
-        jButton5.setFont(new java.awt.Font("Sinhala MN", 1, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Save");
-        jButton5.addActionListener(this::jButton5ActionPerformed);
-        jPanel1.add(jButton5);
-        jButton5.setBounds(510, 450, 90, 30);
+        jPanel4.setBounds(20, 90, 580, 380);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(180, 0, 620, 500);
@@ -252,10 +243,6 @@ public class StaffManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -291,7 +278,6 @@ public class StaffManagement extends javax.swing.JFrame {
     private javax.swing.JButton btnSystemSetting;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelHeader;

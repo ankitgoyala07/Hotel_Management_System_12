@@ -1,79 +1,111 @@
 package dao;
 
+import database.MySqlConnection;
 import model.systemModel;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Properties;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  * Data Access Object for handling system configuration persistence.
- * Since a full database connection is optional at this stage, this class
- * realisticly reads and writes settings to a local properties file: 'hotel_config.properties'.
+ * Connects to the MySQL database to read and write system configuration settings.
  *
  * @author i3
  */
 public class systemDao {
     private static final Logger logger = Logger.getLogger(systemDao.class.getName());
-    private static final String CONFIG_FILE_PATH = "hotel_config.properties";
+    private final MySqlConnection mysql = new MySqlConnection();
 
     /**
-     * Loads the current hotel settings from the local properties file.
-     * If the file does not exist, returns a systemModel with default empty values.
+     * Loads the current hotel settings from the MySQL database.
+     * If no records exist, returns a default systemModel.
      *
      * @return the loaded systemModel
      */
     public systemModel getSystemSettings() {
-        Properties props = new Properties();
-        File configFile = new File(CONFIG_FILE_PATH);
-
-        if (configFile.exists()) {
-            try (FileInputStream fis = new FileInputStream(configFile)) {
-                props.load(fis);
-            } catch (IOException e) {
-                logger.log(Level.SEVERE, "Failed to load system settings from property file.", e);
-            }
+        systemModel model = new systemModel();
+        Connection conn = mysql.Openconnection();
+        if (conn == null) {
+            logger.log(Level.SEVERE, "Database connection failed while loading settings.");
+            return model;
         }
 
-        systemModel model = new systemModel();
-        model.setHotelName(props.getProperty("hotelName", ""));
-        model.setHotelId(props.getProperty("hotelId", ""));
-        model.setAddress(props.getProperty("address", ""));
-        model.setPanNumber(props.getProperty("panNumber", ""));
-        model.setOwner(props.getProperty("owner", ""));
-        model.setQuickNote(props.getProperty("quickNote", ""));
-        model.setPhone(props.getProperty("phone", ""));
-        model.setWebsite(props.getProperty("website", ""));
+        String sql = "SELECT * FROM system_settings LIMIT 1";
+        try (PreparedStatement pstm = conn.prepareStatement(sql);
+             ResultSet rs = pstm.executeQuery()) {
+            if (rs.next()) {
+                model.setHotelName(rs.getString("hotel_name"));
+                model.setHotelId(rs.getString("hotel_id"));
+                model.setAddress(rs.getString("address"));
+                model.setPanNumber(rs.getString("pan_number"));
+                model.setOwner(rs.getString("owner"));
+                model.setQuickNote(rs.getString("quick_note"));
+                model.setPhone(rs.getString("phone"));
+                model.setWebsite(rs.getString("website"));
+            }
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Failed to load system settings from database.", e);
+        } finally {
+            mysql.closeConnection(conn);
+        }
 
         return model;
     }
 
     /**
-     * Saves the provided hotel settings to the local properties file.
+     * Saves the provided hotel settings to the MySQL database.
+     * Inserts settings if no settings exist, or updates the existing single row.
      *
      * @param model the systemModel containing updated settings
-     * @return true if save was successful, false otherwise
+     * @return true if save/update was successful, false otherwise
      */
     public boolean updateSystemSettings(systemModel model) {
-        Properties props = new Properties();
-        props.setProperty("hotelName", model.getHotelName() != null ? model.getHotelName() : "");
-        props.setProperty("hotelId", model.getHotelId() != null ? model.getHotelId() : "");
-        props.setProperty("address", model.getAddress() != null ? model.getAddress() : "");
-        props.setProperty("panNumber", model.getPanNumber() != null ? model.getPanNumber() : "");
-        props.setProperty("owner", model.getOwner() != null ? model.getOwner() : "");
-        props.setProperty("quickNote", model.getQuickNote() != null ? model.getQuickNote() : "");
-        props.setProperty("phone", model.getPhone() != null ? model.getPhone() : "");
-        props.setProperty("website", model.getWebsite() != null ? model.getWebsite() : "");
-
-        try (FileOutputStream fos = new FileOutputStream(CONFIG_FILE_PATH)) {
-            props.store(fos, "Hotel Management System - System Settings");
-            return true;
-        } catch (IOException e) {
-            logger.log(Level.SEVERE, "Failed to save system settings to property file.", e);
+        Connection conn = mysql.Openconnection();
+        if (conn == null) {
+            logger.log(Level.SEVERE, "Database connection failed while saving settings.");
             return false;
+        }
+
+        boolean exists = false;
+        String checkSql = "SELECT COUNT(*) FROM system_settings";
+        try (PreparedStatement checkPstm = conn.prepareStatement(checkSql);
+             ResultSet rs = checkPstm.executeQuery()) {
+            if (rs.next() && rs.getInt(1) > 0) {
+                exists = true;
+            }
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Failed to check existence of system settings.", e);
+        }
+
+        String sql;
+        if (exists) {
+            sql = "UPDATE system_settings SET hotel_name = ?, hotel_id = ?, address = ?, "
+                + "pan_number = ?, owner = ?, quick_note = ?, phone = ?, website = ? "
+                + "WHERE id = (SELECT id FROM (SELECT id FROM system_settings LIMIT 1) as temp)";
+        } else {
+            sql = "INSERT INTO system_settings (hotel_name, hotel_id, address, pan_number, "
+                + "owner, quick_note, phone, website) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        }
+
+        try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, model.getHotelName());
+            pstm.setString(2, model.getHotelId());
+            pstm.setString(3, model.getAddress());
+            pstm.setString(4, model.getPanNumber());
+            pstm.setString(5, model.getOwner());
+            pstm.setString(6, model.getQuickNote());
+            pstm.setString(7, model.getPhone());
+            pstm.setString(8, model.getWebsite());
+            
+            int rows = pstm.executeUpdate();
+            return rows > 0;
+        } catch (Exception e) {
+            logger.log(Level.SEVERE, "Failed to save system settings to database.", e);
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
         }
     }
 }
