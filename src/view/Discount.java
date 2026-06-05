@@ -95,6 +95,13 @@ jButtonRooms.setText("🔑  Rooms");
         jPanelSidebar.add(jButtonRooms);
         jButtonRooms.setBounds(16, 150, 188, 40);
 
+
+jButtonDiscount.setBackground(new java.awt.Color(232, 240, 254));
+        jButtonDiscount.setForeground(new java.awt.Color(26, 115, 232));
+        jButtonDiscount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonDiscount.setBorderPainted(false);
+        jButtonDiscount.setFocusPainted(false);
+        jButtonDiscount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 jButtonDiscount.setText("🏷️  Discount & Offers");
         jPanelSidebar.add(jButtonDiscount);
         jButtonDiscount.setBounds(16, 200, 188, 40);
