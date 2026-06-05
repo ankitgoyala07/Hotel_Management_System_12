@@ -9,17 +9,17 @@ import javax.swing.JOptionPane;
  * Controller class to handle business logic for the Manager/Admin Dashboard view.
  * Exposes database stats via getters and binds action listeners.
  */
-public class admindashboardController {
-    private final admindashboard view;
+public class admindashboardController extends BaseController<admindashboard> {
     private final admindashboardDAO dashboardDAO;
 
     public admindashboardController() {
-        this.view = new admindashboard();
+        super(new admindashboard());
         this.dashboardDAO = new admindashboardDAO();
         initController();
     }
 
-    private void initController() {
+    @Override
+    protected void initController() {
         // Load statistics from the database
         admindashboardModel data = dashboardDAO.getDashboardData();
 

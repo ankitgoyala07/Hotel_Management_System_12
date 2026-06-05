@@ -19,16 +19,16 @@ import java.util.stream.Collectors;
  *
  * @author i3
  */
-public class FrontdeskDeshboardControler {
-    private final FrontdeskDashboard view;
+public class FrontdeskDeshboardControler extends BaseController<FrontdeskDashboard> {
     private final FrontdeskDeshboardDao dao = new FrontdeskDeshboardDao();
 
     public FrontdeskDeshboardControler() {
-        this.view = new FrontdeskDashboard();
+        super(new FrontdeskDashboard());
         initController();
     }
 
-    private void initController() {
+    @Override
+    protected void initController() {
         try {
             // Set up room labels and load data
             setupRooms();
