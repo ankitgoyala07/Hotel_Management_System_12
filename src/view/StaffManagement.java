@@ -43,11 +43,11 @@ public class StaffManagement extends javax.swing.JFrame {
         lblRole = new javax.swing.JLabel();
         lblAvatar = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -160,23 +160,6 @@ public class StaffManagement extends javax.swing.JFrame {
         jPanel1.add(jSeparator1);
         jSeparator1.setBounds(0, 0, 10, 500);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"H-101", "Ritesh Chand", "Chef", "9874563210", "Kathmandu"},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Staff ID", "Name", "Role", "Phone", "Address"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(30, 160, 560, 280);
-
         jPanel4.setLayout(null);
 
         jButton2.setBackground(new java.awt.Color(51, 51, 255));
@@ -194,6 +177,23 @@ public class StaffManagement extends javax.swing.JFrame {
         jButton4.addActionListener(this::jButton4ActionPerformed);
         jPanel4.add(jButton4);
         jButton4.setBounds(480, 10, 90, 30);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"H-101", "Ritesh Chand", "9874563210", null, "Kathmandu", "Chef", null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Staff ID", "Name", "Phone", "Email", "Address", "Role", "Shift"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jPanel4.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 50, 560, 280);
 
         jPanel1.add(jPanel4);
         jPanel4.setBounds(20, 90, 580, 380);

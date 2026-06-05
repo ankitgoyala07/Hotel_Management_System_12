@@ -28,21 +28,310 @@ public class AddStaff extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jPanelSidebar = new javax.swing.JPanel();
+        lblLogo = new javax.swing.JLabel();
+        btnDashboard = new javax.swing.JButton();
+        btnRooms = new javax.swing.JButton();
+        btnDiscounts = new javax.swing.JButton();
+        btnStaffs = new javax.swing.JButton();
+        btnReports = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        btnSystemSetting = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jPanelHeader = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
+        lblRole = new javax.swing.JLabel();
+        lblAvatar = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel7 = new javax.swing.JLabel();
+        txtHotelName = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtHotelName1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtHotelName2 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtHotelName3 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtHotelName4 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        txtHotelName5 = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
+        btnSave1 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        txtHotelName6 = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSidebar.setLayout(null);
+
+        lblLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblLogo.setForeground(new java.awt.Color(37, 99, 235));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setText("HMS");
+        jPanelSidebar.add(lblLogo);
+        lblLogo.setBounds(10, 30, 140, 30);
+
+        btnDashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnDashboard.setText("  Dashboard");
+        btnDashboard.setBorderPainted(false);
+        btnDashboard.setContentAreaFilled(false);
+        btnDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnDashboard.addActionListener(this::btnDashboardActionPerformed);
+        jPanelSidebar.add(btnDashboard);
+        btnDashboard.setBounds(10, 80, 160, 35);
+
+        btnRooms.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnRooms.setText("  Rooms");
+        btnRooms.setBorderPainted(false);
+        btnRooms.setContentAreaFilled(false);
+        btnRooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRooms.addActionListener(this::btnRoomsActionPerformed);
+        jPanelSidebar.add(btnRooms);
+        btnRooms.setBounds(10, 120, 160, 35);
+
+        btnDiscounts.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnDiscounts.setText("  Discount & Offers");
+        btnDiscounts.setBorderPainted(false);
+        btnDiscounts.setContentAreaFilled(false);
+        btnDiscounts.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnDiscounts.addActionListener(this::btnDiscountsActionPerformed);
+        jPanelSidebar.add(btnDiscounts);
+        btnDiscounts.setBounds(10, 160, 160, 35);
+
+        btnStaffs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnStaffs.setText("  System Settings");
+        btnStaffs.setBorderPainted(false);
+        btnStaffs.setContentAreaFilled(false);
+        btnStaffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnStaffs.addActionListener(this::btnStaffsActionPerformed);
+        jPanelSidebar.add(btnStaffs);
+        btnStaffs.setBounds(10, 240, 160, 35);
+
+        btnReports.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnReports.setText("  Reports");
+        btnReports.setBorderPainted(false);
+        btnReports.setContentAreaFilled(false);
+        btnReports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnReports.addActionListener(this::btnReportsActionPerformed);
+        jPanelSidebar.add(btnReports);
+        btnReports.setBounds(10, 280, 160, 35);
+
+        btnLogout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnLogout.setText("  Logout");
+        btnLogout.setBorderPainted(false);
+        btnLogout.setContentAreaFilled(false);
+        btnLogout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnLogout.addActionListener(this::btnLogoutActionPerformed);
+        jPanelSidebar.add(btnLogout);
+        btnLogout.setBounds(10, 320, 160, 35);
+
+        btnSystemSetting.setBackground(new java.awt.Color(211, 228, 245));
+        btnSystemSetting.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnSystemSetting.setForeground(new java.awt.Color(37, 99, 235));
+        btnSystemSetting.setText("  Staffs");
+        btnSystemSetting.setBorderPainted(false);
+        btnSystemSetting.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnSystemSetting.addActionListener(this::btnSystemSettingActionPerformed);
+        jPanelSidebar.add(btnSystemSetting);
+        btnSystemSetting.setBounds(10, 200, 160, 35);
+
+        getContentPane().add(jPanelSidebar);
+        jPanelSidebar.setBounds(0, 0, 180, 500);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
+
+        jPanelHeader.setBackground(new java.awt.Color(211, 228, 245));
+        jPanelHeader.setLayout(null);
+
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(64, 64, 64));
+        lblTitle.setText("Add Staff");
+        jPanelHeader.add(lblTitle);
+        lblTitle.setBounds(10, 5, 180, 30);
+
+        lblRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblRole.setForeground(new java.awt.Color(64, 64, 64));
+        lblRole.setText("Manager");
+        lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanelHeader.add(lblRole);
+        lblRole.setBounds(420, 5, 100, 30);
+
+        lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/user (1).png"))); // NOI18N
+        jPanelHeader.add(lblAvatar);
+        lblAvatar.setBounds(530, 0, 40, 40);
+
+        jPanel1.add(jPanelHeader);
+        jPanelHeader.setBounds(20, 15, 580, 40);
+
+        jPanel2.setBackground(new java.awt.Color(211, 228, 245));
+        jPanel2.setLayout(null);
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setText("Staff Information");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(10, 10, 140, 30);
+        jPanel2.add(jSeparator2);
+        jSeparator2.setBounds(0, 40, 580, 3);
+
+        jLabel7.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
+        jLabel7.setText("Staff ID");
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(300, 60, 70, 16);
+
+        txtHotelName.addActionListener(this::txtHotelNameActionPerformed);
+        jPanel2.add(txtHotelName);
+        txtHotelName.setBounds(300, 80, 260, 30);
+
+        jLabel8.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
+        jLabel8.setText("Email");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(300, 130, 70, 16);
+
+        txtHotelName1.addActionListener(this::txtHotelName1ActionPerformed);
+        jPanel2.add(txtHotelName1);
+        txtHotelName1.setBounds(300, 220, 260, 30);
+
+        jLabel9.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
+        jLabel9.setText("Name");
+        jPanel2.add(jLabel9);
+        jLabel9.setBounds(10, 60, 70, 16);
+
+        txtHotelName2.addActionListener(this::txtHotelName2ActionPerformed);
+        jPanel2.add(txtHotelName2);
+        txtHotelName2.setBounds(10, 80, 260, 30);
+
+        jLabel10.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
+        jLabel10.setText("Role");
+        jPanel2.add(jLabel10);
+        jLabel10.setBounds(300, 200, 70, 16);
+
+        txtHotelName3.addActionListener(this::txtHotelName3ActionPerformed);
+        jPanel2.add(txtHotelName3);
+        txtHotelName3.setBounds(10, 290, 260, 30);
+
+        jLabel11.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
+        jLabel11.setText("Phone");
+        jPanel2.add(jLabel11);
+        jLabel11.setBounds(10, 130, 70, 16);
+
+        txtHotelName4.addActionListener(this::txtHotelName4ActionPerformed);
+        jPanel2.add(txtHotelName4);
+        txtHotelName4.setBounds(10, 150, 260, 30);
+
+        jLabel12.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
+        jLabel12.setText("Shift");
+        jPanel2.add(jLabel12);
+        jLabel12.setBounds(10, 270, 70, 16);
+
+        txtHotelName5.addActionListener(this::txtHotelName5ActionPerformed);
+        jPanel2.add(txtHotelName5);
+        txtHotelName5.setBounds(300, 150, 260, 30);
+
+        btnSave.setBackground(new java.awt.Color(51, 51, 255));
+        btnSave.setFont(new java.awt.Font("Aparajita", 1, 25)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Reset");
+        btnSave.addActionListener(this::btnSaveActionPerformed);
+        jPanel2.add(btnSave);
+        btnSave.setBounds(10, 340, 100, 30);
+
+        btnSave1.setBackground(new java.awt.Color(51, 51, 255));
+        btnSave1.setFont(new java.awt.Font("Aparajita", 1, 25)); // NOI18N
+        btnSave1.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave1.setText("Save");
+        jPanel2.add(btnSave1);
+        btnSave1.setBounds(460, 350, 100, 30);
+
+        jLabel13.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
+        jLabel13.setText("Address");
+        jPanel2.add(jLabel13);
+        jLabel13.setBounds(10, 200, 70, 16);
+
+        txtHotelName6.addActionListener(this::txtHotelName6ActionPerformed);
+        jPanel2.add(txtHotelName6);
+        txtHotelName6.setBounds(10, 220, 260, 30);
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(20, 80, 580, 400);
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator1);
+        jSeparator1.setBounds(0, 0, 10, 500);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(180, 0, 620, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
+        new view.gest_dashbord().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnDashboardActionPerformed
+
+    private void btnRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomsActionPerformed
+        new view.BookRoom().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRoomsActionPerformed
+
+    private void btnDiscountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiscountsActionPerformed
+        // Handled in other navigation sections
+    }//GEN-LAST:event_btnDiscountsActionPerformed
+
+    private void btnStaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffsActionPerformed
+        // Handled in other navigation sections
+    }//GEN-LAST:event_btnStaffsActionPerformed
+
+    private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
+        // Handled in other navigation sections
+    }//GEN-LAST:event_btnReportsActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        new view.loginpage().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSystemSettingActionPerformed
+
+    private void txtHotelNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHotelNameActionPerformed
+
+    private void txtHotelName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelName1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHotelName1ActionPerformed
+
+    private void txtHotelName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelName2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHotelName2ActionPerformed
+
+    private void txtHotelName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelName3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHotelName3ActionPerformed
+
+    private void txtHotelName4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelName4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHotelName4ActionPerformed
+
+    private void txtHotelName5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelName5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHotelName5ActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtHotelName6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelName6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHotelName6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -70,5 +359,39 @@ public class AddStaff extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDashboard;
+    private javax.swing.JButton btnDiscounts;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnReports;
+    private javax.swing.JButton btnRooms;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSave1;
+    private javax.swing.JButton btnStaffs;
+    private javax.swing.JButton btnSystemSetting;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanelHeader;
+    private javax.swing.JPanel jPanelSidebar;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lblAvatar;
+    private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblRole;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JTextField txtHotelName;
+    private javax.swing.JTextField txtHotelName1;
+    private javax.swing.JTextField txtHotelName2;
+    private javax.swing.JTextField txtHotelName3;
+    private javax.swing.JTextField txtHotelName4;
+    private javax.swing.JTextField txtHotelName5;
+    private javax.swing.JTextField txtHotelName6;
     // End of variables declaration//GEN-END:variables
 }
