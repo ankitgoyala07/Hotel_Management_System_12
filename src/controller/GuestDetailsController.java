@@ -11,6 +11,8 @@ import database.MySqlConnection;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  * Controller class for Guest Details page.
@@ -25,6 +27,7 @@ public class GuestDetailsController {
         initDatabase();
         bindListeners();
         preFillRoomType();
+        preFillUserDetails();
     }
 
     private void preFillRoomType() {
@@ -53,7 +56,6 @@ public class GuestDetailsController {
             Connection conn = mysql.Openconnection();
             if (conn != null) {
                 this.dao = new GuestDetailsDao(conn);
-                this.dao.createTableIfNotExists();
             } else {
                 System.out.println("Warning: Database connection could not be established.");
             }
@@ -87,11 +89,19 @@ public class GuestDetailsController {
     }
 
     private void openOrderFood() {
+        if (!LoginController.hasBookedRoom()) {
+            JOptionPane.showMessageDialog(view, "Please book the room first.", "Access Denied", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         new OrderFood().setVisible(true);
         view.dispose();
     }
 
     private void openFeedback() {
+        if (!LoginController.hasBookedRoom()) {
+            JOptionPane.showMessageDialog(view, "Please book the room first.", "Access Denied", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         Feedback fbView = new Feedback();
         new FeedbackController(fbView);
         fbView.setVisible(true);
@@ -185,11 +195,49 @@ public class GuestDetailsController {
         if (success) {
             // Update room status in the database to Occupied
             dao.updateRoomStatus(roomNo, "Occupied");
+            
+            // Sync user's contact details in 'users' table to match booking details
+            String username = LoginController.loggedInUsername;
+            if (username != null) {
+                dao.updateUserContactDetails(username, email, phoneStr);
+            }
+            
             JOptionPane.showMessageDialog(view, "Booking Confirmed. Your room number is: " + roomNo, "Success", JOptionPane.INFORMATION_MESSAGE);
             // Navigate back to guest dashboard on success
             openDashboard();
         } else {
             JOptionPane.showMessageDialog(view, "Failed to confirm booking. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void preFillUserDetails() {
+        String username = LoginController.loggedInUsername;
+        if (username != null) {
+            try {
+                MySqlConnection mysql = new MySqlConnection();
+                try (Connection conn = mysql.Openconnection()) {
+                    if (conn != null) {
+                        String userSql = "SELECT email, phone FROM users WHERE username = ?";
+                        try (PreparedStatement ps = conn.prepareStatement(userSql)) {
+                            ps.setString(1, username);
+                            try (ResultSet rs = ps.executeQuery()) {
+                                if (rs.next()) {
+                                    String email = rs.getString("email");
+                                    String phone = rs.getString("phone");
+                                    if (email != null && view.getTxtEmailAddress() != null) {
+                                        view.getTxtEmailAddress().setText(email);
+                                    }
+                                    if (phone != null && view.getTxtPhoneNumber() != null) {
+                                        view.getTxtPhoneNumber().setText(phone);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Error pre-filling user details: " + e.getMessage());
+            }
         }
     }
 }

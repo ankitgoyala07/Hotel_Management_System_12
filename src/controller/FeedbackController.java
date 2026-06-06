@@ -30,7 +30,6 @@ public class FeedbackController {
             Connection conn = mysql.Openconnection();
             if (conn != null) {
                 this.dao = new FeedbackDao(conn);
-                this.dao.createTableIfNotExists();
             } else {
                 System.out.println("Warning: Database connection could not be established.");
             }
@@ -64,6 +63,10 @@ public class FeedbackController {
     }
 
     private void openOrderFood() {
+        if (!LoginController.hasBookedRoom()) {
+            JOptionPane.showMessageDialog(view, "Please book the room first.", "Access Denied", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         new OrderFood().setVisible(true);
         view.dispose();
     }

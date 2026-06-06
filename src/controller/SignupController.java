@@ -1,6 +1,5 @@
 package controller;
 
-import dao.signupDao;
 import model.signupModel;
 import view.Signup;
 import javax.swing.JOptionPane;
@@ -15,9 +14,8 @@ import java.lang.reflect.Field;
  *
  * @author i3
  */
-public class SignupController {
-    private final Signup view;
-    private final signupDao dao = new signupDao();
+public class SignupController extends BaseController<Signup> {
+    private final AuthService authService;
 
     // UI text components retrieved via reflection
     private javax.swing.JTextField txtUsername;
@@ -28,7 +26,8 @@ public class SignupController {
     private javax.swing.JComboBox<String> comboRole;
 
     public SignupController() {
-        this.view = new Signup();
+        super(new Signup());
+        this.authService = new DatabaseAuthService();
         initFields();
         initController();
     }
@@ -42,10 +41,8 @@ public class SignupController {
         comboRole = view.getComboRole();
     }
 
-    /**
-     * Sets up placeholders, event listeners, and default operations for the Signup screen.
-     */
-    private void initController() {
+    @Override
+    protected void initController() {
         // Set placeholders for clean aesthetics
         setupPlaceholders();
 
@@ -135,75 +132,75 @@ public class SignupController {
             }
         }
 
-        // 1. Non-empty Validations
-        if (username.isEmpty()) {
-            showWarning("Username is required.");
+        // 1. Username Validation
+        try {
+            new RequiredFieldValidator("Username").validate(username);
+        } catch (ValidationException ex) {
+            showWarning(ex.getMessage());
             if (txtUsername != null) txtUsername.requestFocus();
             return;
         }
-        if (email.isEmpty()) {
-            showWarning("Email address is required.");
+
+        // 2. Email Validation
+        try {
+            new EmailValidator().validate(email);
+        } catch (ValidationException ex) {
+            showWarning(ex.getMessage());
             if (txtEmail != null) txtEmail.requestFocus();
             return;
         }
-        if (phone.isEmpty()) {
-            showWarning("Phone number is required.");
+
+        // 3. Phone Validation
+        try {
+            new PhoneValidator().validate(phone);
+        } catch (ValidationException ex) {
+            showWarning(ex.getMessage());
             if (txtPhone != null) txtPhone.requestFocus();
             return;
         }
-        if (password.isEmpty()) {
-            showWarning("Password is required.");
+
+        // 4. Password Validation
+        try {
+            new PasswordValidator().validate(password);
+        } catch (ValidationException ex) {
+            showWarning(ex.getMessage());
             if (txtPassword != null) txtPassword.requestFocus();
             return;
         }
-        if (role.isEmpty()) {
+
+        // 5. Role Validation
+        try {
+            new RequiredFieldValidator("Role").validate(role);
+        } catch (ValidationException ex) {
             showWarning("Please select a valid role.");
             if (comboRole != null) comboRole.requestFocus();
             return;
         }
-        if (securityAnswer.isEmpty()) {
-            showWarning("Security answer (primary school name) is required.");
+
+        // 6. Security Answer Validation
+        try {
+            new RequiredFieldValidator("Security answer (primary school name)").validate(securityAnswer);
+        } catch (ValidationException ex) {
+            showWarning(ex.getMessage());
             if (txtSecurityAnswer != null) txtSecurityAnswer.requestFocus();
             return;
         }
 
-        // 2. Email format validation
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-        if (!email.matches(emailRegex)) {
-            showWarning("Please enter a valid email address.");
-            if (txtEmail != null) txtEmail.requestFocus();
-            return;
-        }
-
-        // 3. Phone format validation (strictly 10 digits)
-        if (!phone.matches("\\d{10}")) {
-            showWarning("Phone number must be exactly 10 digits.");
-            if (txtPhone != null) txtPhone.requestFocus();
-            return;
-        }
-
-        // 4. Password length validation (at least 4 characters)
-        if (password.length() < 4) {
-            showWarning("Password must be at least 4 characters long.");
-            if (txtPassword != null) txtPassword.requestFocus();
-            return;
-        }
-
         // 5. Unique checks in the database
-        if (dao.usernameExists(username)) {
+        if (authService.usernameExists(username)) {
             showWarning("Username already exists. Please select a different username.");
             if (txtUsername != null) txtUsername.requestFocus();
             return;
         }
-        if (dao.emailExists(email)) {
+        if (authService.emailExists(email)) {
             showWarning("Email address already registered. Please use a different email.");
             if (txtEmail != null) txtEmail.requestFocus();
             return;
         }
 
-        // Save new user using DAO
+        // Save new user using AuthService
         signupModel user = new signupModel(username, email, phone, password, role, securityAnswer);
-        boolean success = dao.createUser(user);
+        boolean success = authService.register(user);
 
         if (success) {
             JOptionPane.showMessageDialog(view,

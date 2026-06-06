@@ -1,29 +1,73 @@
 package controller;
 
-import dao.loginDao;
 import model.loginModel;
 import view.login;
 import javax.swing.JOptionPane;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import database.MySqlConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  * Controller class to handle all logic and actions for the login process.
  *
  * @author i3
  */
-public class LoginController {
+public class LoginController extends BaseController<login> {
     public static String loggedInUsername = null;
-    private final login view;
-    private final loginDao dao = new loginDao();
+
+    public static boolean hasBookedRoom() {
+        if (loggedInUsername == null) return false;
+        
+        MySqlConnection mysql = new MySqlConnection();
+        Connection conn = mysql.Openconnection();
+        if (conn == null) {
+            return false;
+        }
+        
+        String userSql = "SELECT email, phone FROM users WHERE username = ?";
+        try (PreparedStatement ps = conn.prepareStatement(userSql)) {
+            ps.setString(1, loggedInUsername);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    String email = rs.getString("email");
+                    String phone = rs.getString("phone");
+                    
+                    if (email != null || phone != null) {
+                        String guestSql = "SELECT COUNT(*) FROM guest_details WHERE (email_address = ? OR phone_number = ?) LIMIT 1";
+                        try (PreparedStatement ps2 = conn.prepareStatement(guestSql)) {
+                            ps2.setString(1, email);
+                            ps2.setString(2, phone);
+                            try (ResultSet rs2 = ps2.executeQuery()) {
+                                if (rs2.next()) {
+                                    return rs2.getInt(1) > 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error checking if guest has booked room: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return false;
+    }
+
+    private final AuthService authService;
 
     public LoginController() {
-        this.view = new login();
+        super(new login());
+        this.authService = new DatabaseAuthService();
         initController();
     }
 
-    private void initController() {
+    @Override
+    protected void initController() {
         // Set placeholder colors and initial text focus behavior
         setupPlaceholders();
 
@@ -110,27 +154,14 @@ public class LoginController {
             return;
         }
 
-        // Create loginModel and validate with DAO
+        // Create loginModel and validate with AuthService
         loginModel credentials = new loginModel(username, password);
-        boolean success = dao.validateUser(credentials);
+        boolean success = authService.login(credentials);
 
         if (success) {
             loggedInUsername = username;
-            String role = credentials.getRole();
-            if (role != null) {
-                role = role.trim();
-                if (role.equalsIgnoreCase("Manager") || role.equalsIgnoreCase("Admin")) {
-                    new admindashboardController();
-                } else if (role.equalsIgnoreCase("Frontdesk Staff") || role.equalsIgnoreCase("Frontdesk")) {
-                    new FrontdeskDeshboardControler();
-                } else if (role.equalsIgnoreCase("Guest")) {
-                    new GuestDashboardController(new view.gest_dashbord());
-                } else {
-                    new FrontdeskDeshboardControler();
-                }
-            } else {
-                new FrontdeskDeshboardControler();
-            }
+            UserRole userRole = RoleFactory.getRole(credentials.getRole());
+            userRole.openDashboard();
             view.dispose();
         } else {
             JOptionPane.showMessageDialog(view,
