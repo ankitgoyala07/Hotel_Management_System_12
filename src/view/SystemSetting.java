@@ -533,7 +533,8 @@ public class SystemSetting extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDiscountsActionPerformed
 
     private void btnStaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffsActionPerformed
-        // Handled in other navigation sections
+        new view.StaffManagement().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnStaffsActionPerformed
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed

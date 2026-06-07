@@ -5,8 +5,14 @@
         <group>
             <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/AddStaff.java</file>
             <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/StaffManagement.java</file>
-            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/SystemSetting.java</file>
             <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/StaffAttendence.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/SystemSetting.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/dao/StaffManagementDao.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/model/StaffManagementModel.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/controller/StaffManagementController.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/dao/AddStaffDao.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/dao/StaffAttendenceDao.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/hotel_management/Hotel_Management.java</file>
         </group>
     </open-files>
 </project-private>

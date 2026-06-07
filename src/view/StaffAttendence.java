@@ -42,8 +42,9 @@ public class StaffAttendence extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblRole = new javax.swing.JLabel();
         lblAvatar = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        btnSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -151,7 +152,7 @@ public class StaffAttendence extends javax.swing.JFrame {
         jPanel1.add(jPanelHeader);
         jPanelHeader.setBounds(20, 15, 580, 40);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -159,13 +160,31 @@ public class StaffAttendence extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Staff_ID", "Name", "Today", "Percentage"
+                "Staff ID", "Name", "Total", "Today"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
 
-        jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(30, 140, 560, 330);
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTable2.setShowGrid(true);
+        jTable2.setShowHorizontalLines(true);
+        jTable2.setShowVerticalLines(true);
+        jScrollPane2.setViewportView(jTable2);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(20, 110, 570, 290);
+
+        btnSave.setBackground(new java.awt.Color(51, 51, 255));
+        btnSave.setFont(new java.awt.Font("Aparajita", 1, 25)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("Save");
+        jPanel1.add(btnSave);
+        btnSave.setBounds(490, 420, 100, 30);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(180, 0, 620, 500);
@@ -188,7 +207,8 @@ public class StaffAttendence extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDiscountsActionPerformed
 
     private void btnStaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffsActionPerformed
-        // Handled in other navigation sections
+        new view.SystemSetting().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnStaffsActionPerformed
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
@@ -201,7 +221,8 @@ public class StaffAttendence extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
-        // TODO add your handling code here:
+        new view.StaffManagement().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnSystemSettingActionPerformed
 
     /**
@@ -235,13 +256,14 @@ public class StaffAttendence extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnReports;
     private javax.swing.JButton btnRooms;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnStaffs;
     private javax.swing.JButton btnSystemSetting;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JPanel jPanelSidebar;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblRole;

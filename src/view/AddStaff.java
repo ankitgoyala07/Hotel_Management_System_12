@@ -11,12 +11,17 @@ package view;
 public class AddStaff extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddStaff.class.getName());
+    private final controller.AddStaffController controller = new controller.AddStaffController();
 
     /**
      * Creates new form AddStaff
      */
     public AddStaff() {
         initComponents();
+        setSize(800, 500);
+        setMinimumSize(new java.awt.Dimension(800, 500));
+        setLocationRelativeTo(null); // Center on screen
+        setResizable(true);
     }
 
     /**
@@ -245,6 +250,7 @@ public class AddStaff extends javax.swing.JFrame {
         btnSave1.setFont(new java.awt.Font("Aparajita", 1, 25)); // NOI18N
         btnSave1.setForeground(new java.awt.Color(255, 255, 255));
         btnSave1.setText("Save");
+        btnSave1.addActionListener(this::btnSave1ActionPerformed);
         jPanel2.add(btnSave1);
         btnSave1.setBounds(460, 350, 100, 30);
 
@@ -285,7 +291,8 @@ public class AddStaff extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDiscountsActionPerformed
 
     private void btnStaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffsActionPerformed
-        // Handled in other navigation sections
+        new view.SystemSetting().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnStaffsActionPerformed
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
@@ -298,7 +305,8 @@ public class AddStaff extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
-        // TODO add your handling code here:
+        new view.StaffManagement().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnSystemSettingActionPerformed
 
     private void txtHotelNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelNameActionPerformed
@@ -326,8 +334,30 @@ public class AddStaff extends javax.swing.JFrame {
     }//GEN-LAST:event_txtHotelName5ActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
+        txtHotelName.setText("");
+        txtHotelName1.setText("");
+        txtHotelName2.setText("");
+        txtHotelName3.setText("");
+        txtHotelName4.setText("");
+        txtHotelName5.setText("");
+        txtHotelName6.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnSave1ActionPerformed(java.awt.event.ActionEvent evt) {
+        String staffId = txtHotelName.getText().trim();
+        String role = txtHotelName1.getText().trim();
+        String name = txtHotelName2.getText().trim();
+        String shift = txtHotelName3.getText().trim();
+        String phone = txtHotelName4.getText().trim();
+        String email = txtHotelName5.getText().trim();
+        String address = txtHotelName6.getText().trim();
+
+        boolean success = controller.handleSaveStaff(this, staffId, name, phone, email, address, role, shift);
+        if (success) {
+            new view.StaffManagement().setVisible(true);
+            this.dispose();
+        }
+    }
 
     private void txtHotelName6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelName6ActionPerformed
         // TODO add your handling code here:

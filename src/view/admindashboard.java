@@ -151,6 +151,7 @@ public class admindashboard extends javax.swing.JFrame {
         jButton4.setBorderPainted(false);
         jButton4.setFocusPainted(false);
         jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton4.addActionListener(this::jButton4ActionPerformed);
         jPanel1.add(jButton4);
         jButton4.setBounds(20, 210, 160, 29);
 
@@ -159,6 +160,7 @@ public class admindashboard extends javax.swing.JFrame {
         jButton5.setBorderPainted(false);
         jButton5.setFocusPainted(false);
         jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton5.addActionListener(this::jButton5ActionPerformed);
         jPanel1.add(jButton5);
         jButton5.setBounds(20, 260, 160, 29);
 
@@ -167,6 +169,7 @@ public class admindashboard extends javax.swing.JFrame {
         jButton6.setBorderPainted(false);
         jButton6.setFocusPainted(false);
         jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton6.addActionListener(this::jButton6ActionPerformed);
         jPanel1.add(jButton6);
         jButton6.setBounds(20, 360, 160, 30);
 
@@ -585,12 +588,28 @@ public class admindashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        new view.BookRoom().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // Handled in other navigation sections
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+        new view.StaffManagement().setVisible(true);
+        this.dispose();
+    }
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+        new view.SystemSetting().setVisible(true);
+        this.dispose();
+    }
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
+        new view.loginpage().setVisible(true);
+        this.dispose();
+    }
 
     /**
      * @param args the command line arguments

@@ -11,12 +11,18 @@ package view;
 public class StaffManagement extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(StaffManagement.class.getName());
+    private final controller.StaffManagementController controller = new controller.StaffManagementController();
 
     /**
      * Creates new form StaffManagement
      */
     public StaffManagement() {
         initComponents();
+        setSize(800, 500);
+        setMinimumSize(new java.awt.Dimension(800, 500));
+        setLocationRelativeTo(null); // Center on screen
+        setResizable(true);
+        controller.loadStaffData(this);
     }
 
     /**
@@ -46,6 +52,7 @@ public class StaffManagement extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
 
@@ -178,6 +185,14 @@ public class StaffManagement extends javax.swing.JFrame {
         jPanel4.add(jButton4);
         jButton4.setBounds(480, 10, 90, 30);
 
+        btnDelete.setBackground(new java.awt.Color(255, 51, 51));
+        btnDelete.setFont(new java.awt.Font("Sinhala MN", 1, 12)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(this::btnDeleteActionPerformed);
+        jPanel4.add(btnDelete);
+        btnDelete.setBounds(380, 10, 90, 30);
+
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"H-101", "Ritesh Chand", "9874563210", null, "Kathmandu", "Chef", null},
@@ -219,11 +234,12 @@ public class StaffManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDiscountsActionPerformed
 
     private void btnStaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffsActionPerformed
-        // Handled in other navigation sections
+        new view.SystemSetting().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnStaffsActionPerformed
 
     private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
-        // TODO add your handling code here:
+        // Already on Staff Management page
     }//GEN-LAST:event_btnSystemSettingActionPerformed
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
@@ -236,12 +252,72 @@ public class StaffManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        new view.StaffAttendence().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        new view.AddStaff().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {
+        int selectedRow = jTable2.getSelectedRow();
+        if (selectedRow == -1) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Please select a staff member from the table to delete.",
+                "Selection Error",
+                javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        Object idObj = jTable2.getValueAt(selectedRow, 0);
+        if (idObj == null) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Invalid row selection.",
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        String staffId = idObj.toString();
+
+        int confirm = javax.swing.JOptionPane.showConfirmDialog(this,
+            "Are you sure you want to delete staff member with ID: " + staffId + "?",
+            "Confirm Deletion",
+            javax.swing.JOptionPane.YES_NO_OPTION);
+
+        if (confirm == javax.swing.JOptionPane.YES_OPTION) {
+            boolean success = controller.deleteStaff(staffId);
+            if (success) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                    "Staff member deleted successfully.",
+                    "Success",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                controller.loadStaffData(this);
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                    "Failed to delete staff member.",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    public void populateTable(java.util.List<model.StaffManagementModel> staffList) {
+        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTable2.getModel();
+        model.setRowCount(0);
+        for (model.StaffManagementModel staff : staffList) {
+            model.addRow(new Object[]{
+                staff.getStaffId(),
+                staff.getName(),
+                staff.getPhone(),
+                staff.getEmail(),
+                staff.getAddress(),
+                staff.getRole(),
+                staff.getShift()
+            });
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -278,6 +354,7 @@ public class StaffManagement extends javax.swing.JFrame {
     private javax.swing.JButton btnSystemSetting;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelHeader;
