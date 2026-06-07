@@ -22,8 +22,8 @@ public admindashboard() {
 
 private void loadDashboardData() {
     try {
-        controller.admindashboardcontroller ctrl = new controller.admindashboardcontroller();
-        model.admindashboardmodel data = ctrl.getDashboardData();
+        controller.AdminDashboardController ctrl = new controller.AdminDashboardController();
+        model.AdminDashboardModel data = ctrl.getDashboardData();
 
         lblCheckIn.setText(String.valueOf(data.getTodayCheckIn()));
         lblCheckOut.setText(String.valueOf(data.getTodayCheckOut()));

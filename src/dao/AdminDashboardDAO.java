@@ -5,12 +5,12 @@
 package dao;
 
 import java.sql.*;
-import model.admindashboardmodel;
+import model.AdminDashboardModel;
 
-public class admindashboarddao {
+public class AdminDashboardDAO {
 
-    public admindashboardmodel getDashboardData() {
-        admindashboardmodel model = new admindashboardmodel();
+    public AdminDashboardModel getDashboardData() {
+        AdminDashboardModel model = new AdminDashboardModel();
 
         try (Connection conn = DBConnection.getConnection()) {
 
