@@ -59,7 +59,6 @@ public class gest_dashbord extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -74,6 +73,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         jButton3.setBounds(20, 167, 121, 32);
 
         jButton4.setText("Feedback");
+        jButton4.addActionListener(this::jButton4ActionPerformed);
         getContentPane().add(jButton4);
         jButton4.setBounds(20, 217, 121, 32);
 
@@ -125,7 +125,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Gourmet dining delivered ");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(580, 140, 130, 24);
+        jLabel10.setBounds(580, 140, 150, 24);
 
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton7.setText("Room Service");
@@ -196,24 +196,46 @@ public class gest_dashbord extends javax.swing.JFrame {
         jTextField4.setBounds(540, 102, 220, 80);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 160, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 160, 500);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
         getContentPane().add(jPanel2);
         jPanel2.setBounds(190, 80, 580, 380);
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setLayout(null);
         getContentPane().add(jPanel3);
         jPanel3.setBounds(180, 70, 600, 400);
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 560, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
         getContentPane().add(jPanel4);
         jPanel4.setBounds(200, 20, 560, 30);
-
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jPanel5);
-        jPanel5.setBounds(160, 0, 640, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -237,6 +259,10 @@ public class gest_dashbord extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,7 +319,6 @@ public class gest_dashbord extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
