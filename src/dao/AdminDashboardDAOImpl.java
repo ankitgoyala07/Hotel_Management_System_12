@@ -8,9 +8,8 @@ import model.AdminDashboardModel;
 /**
  * Concrete implementation of the AdminDashboardDAO using MySQL.
  */
-public class AdminDashboardDAOImpl implements AdminDashboardDAO {
+public class AdminDashboardDAOImpl {
 
-    @Override
     public AdminDashboardModel getDashboardStats() {
         MySqlConnection db = new MySqlConnection();
         Connection conn = db.Openconnection();

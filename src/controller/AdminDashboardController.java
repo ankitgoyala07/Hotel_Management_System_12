@@ -4,18 +4,18 @@
  */
 package controller;
 
-import dao.admindashboarddao;
-import model.admindashboardmodel;
+import dao.AdminDashboardDAO;
+import model.AdminDashboardModel;
 
-public class admindashboardcontroller {
+public class AdminDashboardController {
 
-    private admindashboarddao dao;
+    private AdminDashboardDAO dao;
 
-    public admindashboardcontroller() {
-        this.dao = new admindashboarddao();
+    public AdminDashboardController() {
+        this.dao = new AdminDashboardDAO();
     }
 
-    public admindashboardmodel getDashboardData() {
+    public AdminDashboardModel getDashboardData() {
         return dao.getDashboardData();
     }
 }
