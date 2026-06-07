@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
-
+import java.sql.Date;
 /**
  *
  * @author Dell
@@ -74,15 +74,24 @@ public class GuestDetails {
     public void setGUEST_NO(int GUEST_NO) {
         this.GUEST_NO = GUEST_NO;
     }
+    // Room Type 
+    private String Room_Type ;
+    public String getRoom_Type() {
+        return Room_Type;
+    }
+
+    public void setRoom_Type(String Room_Type) {
+        this.Room_Type = Room_Type;
        
+    }
     
     // CHECK IN DATE 
-    private String CHECK_IN_DATE ;
-    public String getCHECK_IN_DATE() {
+    private Date CHECK_IN_DATE ;
+    public Date getCHECK_IN_DATE() {
         return CHECK_IN_DATE;
     }
 
-    public void setCHECK_IN_DATE(String CHECK_IN_DATE) {
+    public void setCHECK_IN_DATE(Date CHECK_IN_DATE) {
         this.CHECK_IN_DATE = CHECK_IN_DATE;
         
        
@@ -90,12 +99,12 @@ public class GuestDetails {
     
     
     // CHECK OUT DATE 
-    private String CHECK_OUT_DATE ;
-    public String getCHECK_OUT_DATE() {
+    private Date CHECK_OUT_DATE ;
+    public Date getCHECK_OUT_DATE() {
         return CHECK_OUT_DATE;
     }
 
-    public void setCHECK_OUT_DATE(String CHECK_OUT_DATE) {
+    public void setCHECK_OUT_DATE(Date CHECK_OUT_DATE) {
         this.CHECK_OUT_DATE = CHECK_OUT_DATE;
         
        
