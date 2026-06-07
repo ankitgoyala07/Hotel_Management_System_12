@@ -59,6 +59,8 @@ jButtonSystemSetting = new javax.swing.JButton();
         jButtonLogout = new javax.swing.JButton();
 
 jPanelMain = new javax.swing.JPanel();
+
+jLabelMainTitle = new javax.swing.JLabel();
 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
         getContentPane().setLayout(null);
@@ -158,6 +160,12 @@ getContentPane().add(jPanelSidebar);
         jPanelMain.setBackground(new java.awt.Color(245, 246, 248));
         jPanelMain.setLayout(null);
 
+jLabelMainTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabelMainTitle.setForeground(new java.awt.Color(32, 33, 36));
+        jLabelMainTitle.setText("Discount & Offers");
+        jPanelMain.add(jLabelMainTitle);
+        jLabelMainTitle.setBounds(30, 24, 300, 40);
+
 getContentPane().add(jPanelMain);
         jPanelMain.setBounds(220, 0, 780, 700);
 pack();
@@ -195,6 +203,8 @@ private javax.swing.JButton jButtonSystemSetting;
     private javax.swing.JButton jButtonReports;
 
 private javax.swing.JLabel jLabelLogo;
+
+private javax.swing.JLabel jLabelMainTitle;
 
 private javax.swing.JPanel jPanelMain;
 
