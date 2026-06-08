@@ -11,12 +11,22 @@ package view;
 public class StaffAttendence extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(StaffAttendence.class.getName());
+    private final controller.StaffAttendenceController controller = new controller.StaffAttendenceController();
+    private com.toedter.calendar.JDateChooser dateChooser;
+    private javax.swing.table.DefaultTableModel attendanceTableModel;
+    private boolean attendanceEditable;
 
     /**
      * Creates new form StaffAttendence
      */
     public StaffAttendence() {
         initComponents();
+        setSize(800, 500);
+        setMinimumSize(new java.awt.Dimension(800, 500));
+        setLocationRelativeTo(null);
+        setResizable(true);
+        setupAttendanceUi();
+        loadAttendanceForSelectedDate();
     }
 
     /**
@@ -182,6 +192,7 @@ public class StaffAttendence extends javax.swing.JFrame {
         btnSave.setFont(new java.awt.Font("Aparajita", 1, 25)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
+        btnSave.addActionListener(this::btnSaveActionPerformed);
         jPanel1.add(btnSave);
         btnSave.setBounds(490, 420, 100, 30);
 
@@ -227,6 +238,91 @@ public class StaffAttendence extends javax.swing.JFrame {
         new view.StaffManagement().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSystemSettingActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {
+        controller.handleSaveAttendance(this, this, getSelectedDate());
+    }
+
+    private void setupAttendanceUi() {
+        javax.swing.JLabel lblDate = new javax.swing.JLabel("Date:");
+        lblDate.setFont(new java.awt.Font("Aparajita", 1, 16));
+        lblDate.setBounds(20, 70, 50, 25);
+        jPanel1.add(lblDate);
+
+        dateChooser = new com.toedter.calendar.JDateChooser();
+        dateChooser.setDate(new java.util.Date());
+        dateChooser.setDateFormatString("yyyy-MM-dd");
+        dateChooser.setBounds(70, 70, 150, 25);
+        dateChooser.addPropertyChangeListener("date", evt -> loadAttendanceForSelectedDate());
+        jPanel1.add(dateChooser);
+
+        attendanceTableModel = new javax.swing.table.DefaultTableModel(
+                new Object[][]{},
+                new String[]{"Staff ID", "Name", "Total", "Today"}
+        ) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column == 3 && attendanceEditable;
+            }
+
+            @Override
+            public Class<?> getColumnClass(int columnIndex) {
+                return columnIndex == 3 ? Boolean.class : Object.class;
+            }
+        };
+        jTable2.setModel(attendanceTableModel);
+    }
+
+    private java.sql.Date getSelectedDate() {
+        java.util.Date selected = dateChooser != null ? dateChooser.getDate() : new java.util.Date();
+        if (selected == null) {
+            selected = new java.util.Date();
+        }
+        return new java.sql.Date(selected.getTime());
+    }
+
+    private void loadAttendanceForSelectedDate() {
+        controller.loadAttendanceData(this, getSelectedDate());
+    }
+
+    public void populateTable(java.util.List<model.StaffAttendenceModel> attendanceList, boolean editable) {
+        attendanceEditable = editable;
+        attendanceTableModel.setRowCount(0);
+        for (model.StaffAttendenceModel record : attendanceList) {
+            attendanceTableModel.addRow(new Object[]{
+                record.getStaffId(),
+                record.getName(),
+                String.format("%.1f%%", record.getTotalPercentage()),
+                record.isPresentToday()
+            });
+        }
+        btnSave.setEnabled(editable);
+    }
+
+    public void setAttendanceEditable(boolean editable) {
+        attendanceEditable = editable;
+        btnSave.setEnabled(editable);
+    }
+
+    public java.util.List<model.StaffAttendenceModel> getAttendanceFromTable() {
+        java.util.List<model.StaffAttendenceModel> records = new java.util.ArrayList<>();
+        java.sql.Date selectedDate = getSelectedDate();
+        for (int row = 0; row < attendanceTableModel.getRowCount(); row++) {
+            Object staffIdValue = attendanceTableModel.getValueAt(row, 0);
+            if (staffIdValue == null || staffIdValue.toString().trim().isEmpty()) {
+                continue;
+            }
+            model.StaffAttendenceModel record = new model.StaffAttendenceModel();
+            record.setStaffId(staffIdValue.toString().trim());
+            record.setName(attendanceTableModel.getValueAt(row, 1) != null
+                    ? attendanceTableModel.getValueAt(row, 1).toString() : "");
+            Object presentValue = attendanceTableModel.getValueAt(row, 3);
+            record.setPresentToday(presentValue instanceof Boolean && (Boolean) presentValue);
+            record.setAttendanceDate(selectedDate);
+            records.add(record);
+        }
+        return records;
+    }
 
     /**
      * @param args the command line arguments

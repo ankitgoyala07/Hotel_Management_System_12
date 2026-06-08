@@ -64,7 +64,6 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -82,10 +81,46 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jLabel70 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        jLabel75 = new javax.swing.JLabel();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -204,7 +239,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(37, 99, 235));
-        jLabel4.setText("11");
+        jLabel4.setText("20");
         jPanel3.add(jLabel4);
         jLabel4.setBounds(490, 50, 40, 30);
 
@@ -219,7 +254,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(37, 99, 235));
-        jLabel7.setText("36");
+        jLabel7.setText("49");
         jPanel3.add(jLabel7);
         jLabel7.setBounds(70, 50, 40, 30);
 
@@ -234,17 +269,17 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(37, 99, 235));
-        jLabel10.setText("25");
+        jLabel10.setText("29");
         jPanel3.add(jLabel10);
         jLabel10.setBounds(300, 50, 40, 30);
 
         jPanel2.add(jPanel3);
-        jPanel3.setBounds(20, 10, 540, 90);
+        jPanel3.setBounds(10, 10, 550, 90);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setText("Available Rooms");
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(220, 120, 100, 20);
+        jLabel11.setBounds(220, 110, 100, 20);
 
         jPanel4.setBackground(new java.awt.Color(51, 255, 51));
 
@@ -260,12 +295,12 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel4);
-        jPanel4.setBounds(20, 120, 20, 20);
+        jPanel4.setBounds(20, 110, 20, 20);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel12.setText("Booked Rooms");
         jPanel2.add(jLabel12);
-        jLabel12.setBounds(50, 120, 100, 20);
+        jLabel12.setBounds(50, 110, 100, 20);
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -281,7 +316,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel5);
-        jPanel5.setBounds(190, 120, 20, 20);
+        jPanel5.setBounds(190, 110, 20, 20);
 
         jPanel6.setBackground(new java.awt.Color(114, 173, 218));
         jPanel6.setLayout(null);
@@ -333,14 +368,6 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         jLabel19.setOpaque(true);
         jPanel6.add(jLabel19);
         jLabel19.setBounds(10, 50, 35, 30);
-
-        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel20.setText("108");
-        jLabel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel20.setOpaque(true);
-        jPanel6.add(jLabel20);
-        jLabel20.setBounds(160, 50, 35, 30);
 
         jLabel21.setBackground(new java.awt.Color(0, 255, 0));
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -478,8 +505,16 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         jPanel6.add(jLabel37);
         jLabel37.setBounds(160, 10, 35, 30);
 
+        jLabel45.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel45.setText("108");
+        jLabel45.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel45.setOpaque(true);
+        jPanel6.add(jLabel45);
+        jLabel45.setBounds(160, 50, 35, 30);
+
         jPanel2.add(jPanel6);
-        jPanel6.setBounds(20, 150, 210, 250);
+        jPanel6.setBounds(10, 160, 210, 250);
 
         jPanel7.setBackground(new java.awt.Color(154, 104, 204));
         jPanel7.setLayout(null);
@@ -490,7 +525,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel17.setOpaque(true);
         jPanel7.add(jLabel17);
-        jLabel17.setBounds(40, 10, 35, 30);
+        jLabel17.setBounds(10, 130, 35, 30);
 
         jLabel38.setBackground(new java.awt.Color(0, 255, 0));
         jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -500,27 +535,288 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         jPanel7.add(jLabel38);
         jLabel38.setBounds(10, 10, 35, 30);
 
+        jLabel39.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel39.setText("104");
+        jLabel39.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel39.setOpaque(true);
+        jPanel7.add(jLabel39);
+        jLabel39.setBounds(60, 10, 35, 30);
+
+        jLabel41.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel41.setText("104");
+        jLabel41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel41.setOpaque(true);
+        jPanel7.add(jLabel41);
+        jLabel41.setBounds(110, 90, 35, 30);
+
+        jLabel42.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel42.setText("104");
+        jLabel42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel42.setOpaque(true);
+        jPanel7.add(jLabel42);
+        jLabel42.setBounds(60, 50, 35, 30);
+
+        jLabel43.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel43.setText("104");
+        jLabel43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel43.setOpaque(true);
+        jPanel7.add(jLabel43);
+        jLabel43.setBounds(10, 50, 35, 30);
+
+        jLabel44.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel44.setText("104");
+        jLabel44.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel44.setOpaque(true);
+        jPanel7.add(jLabel44);
+        jLabel44.setBounds(10, 130, 35, 30);
+
+        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel20.setText("108");
+        jLabel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel20.setOpaque(true);
+        jPanel7.add(jLabel20);
+        jLabel20.setBounds(110, 130, 35, 30);
+
+        jLabel46.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel46.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel46.setText("108");
+        jLabel46.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel46.setOpaque(true);
+        jPanel7.add(jLabel46);
+        jLabel46.setBounds(10, 90, 35, 30);
+
+        jLabel48.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel48.setText("108");
+        jLabel48.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel48.setOpaque(true);
+        jPanel7.add(jLabel48);
+        jLabel48.setBounds(60, 130, 35, 30);
+
+        jLabel49.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel49.setText("108");
+        jLabel49.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel49.setOpaque(true);
+        jPanel7.add(jLabel49);
+        jLabel49.setBounds(10, 170, 35, 30);
+
+        jLabel50.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel50.setText("108");
+        jLabel50.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel50.setOpaque(true);
+        jPanel7.add(jLabel50);
+        jLabel50.setBounds(10, 210, 35, 30);
+
+        jLabel51.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel51.setText("108");
+        jLabel51.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel51.setOpaque(true);
+        jPanel7.add(jLabel51);
+        jLabel51.setBounds(60, 210, 35, 30);
+
+        jLabel52.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel52.setText("108");
+        jLabel52.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel52.setOpaque(true);
+        jPanel7.add(jLabel52);
+        jLabel52.setBounds(110, 170, 35, 30);
+
+        jLabel53.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel53.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel53.setText("104");
+        jLabel53.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel53.setOpaque(true);
+        jPanel7.add(jLabel53);
+        jLabel53.setBounds(110, 90, 35, 30);
+
+        jLabel54.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel54.setText("104");
+        jLabel54.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel54.setOpaque(true);
+        jPanel7.add(jLabel54);
+        jLabel54.setBounds(110, 50, 35, 30);
+
+        jLabel55.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel55.setText("104");
+        jLabel55.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel55.setOpaque(true);
+        jPanel7.add(jLabel55);
+        jLabel55.setBounds(110, 50, 35, 30);
+
+        jLabel56.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel56.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel56.setText("104");
+        jLabel56.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel56.setOpaque(true);
+        jPanel7.add(jLabel56);
+        jLabel56.setBounds(60, 170, 35, 30);
+
+        jLabel57.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel57.setText("104");
+        jLabel57.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel57.setOpaque(true);
+        jPanel7.add(jLabel57);
+        jLabel57.setBounds(60, 170, 35, 30);
+
+        jLabel58.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel58.setText("104");
+        jLabel58.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel58.setOpaque(true);
+        jPanel7.add(jLabel58);
+        jLabel58.setBounds(110, 210, 35, 30);
+
+        jLabel59.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel59.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel59.setText("104");
+        jLabel59.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel59.setOpaque(true);
+        jPanel7.add(jLabel59);
+        jLabel59.setBounds(110, 210, 35, 30);
+
+        jLabel61.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel61.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel61.setText("104");
+        jLabel61.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel61.setOpaque(true);
+        jPanel7.add(jLabel61);
+        jLabel61.setBounds(110, 10, 35, 30);
+
+        jLabel66.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel66.setText("108");
+        jLabel66.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel66.setOpaque(true);
+        jPanel7.add(jLabel66);
+        jLabel66.setBounds(60, 90, 35, 30);
+
         jPanel2.add(jPanel7);
-        jPanel7.setBounds(240, 150, 160, 250);
+        jPanel7.setBounds(230, 160, 160, 250);
 
         jPanel8.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel8.setLayout(null);
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 150, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
-        );
+        jLabel60.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel60.setText("104");
+        jLabel60.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel60.setOpaque(true);
+        jPanel8.add(jLabel60);
+        jLabel60.setBounds(10, 50, 35, 30);
+
+        jLabel62.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel62.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel62.setText("104");
+        jLabel62.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel62.setOpaque(true);
+        jPanel8.add(jLabel62);
+        jLabel62.setBounds(110, 50, 35, 30);
+
+        jLabel63.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel63.setText("104");
+        jLabel63.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel63.setOpaque(true);
+        jPanel8.add(jLabel63);
+        jLabel63.setBounds(10, 10, 35, 30);
+
+        jLabel64.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel64.setText("104");
+        jLabel64.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel64.setOpaque(true);
+        jPanel8.add(jLabel64);
+        jLabel64.setBounds(60, 90, 35, 30);
+
+        jLabel65.setBackground(new java.awt.Color(0, 255, 0));
+        jLabel65.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel65.setText("104");
+        jLabel65.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel65.setOpaque(true);
+        jPanel8.add(jLabel65);
+        jLabel65.setBounds(60, 10, 35, 30);
+
+        jLabel47.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel47.setText("108");
+        jLabel47.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel47.setOpaque(true);
+        jPanel8.add(jLabel47);
+        jLabel47.setBounds(110, 90, 35, 30);
+
+        jLabel67.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel67.setText("108");
+        jLabel67.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel67.setOpaque(true);
+        jPanel8.add(jLabel67);
+        jLabel67.setBounds(110, 10, 35, 30);
+
+        jLabel68.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel68.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel68.setText("108");
+        jLabel68.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel68.setOpaque(true);
+        jPanel8.add(jLabel68);
+        jLabel68.setBounds(60, 50, 35, 30);
+
+        jLabel70.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel70.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel70.setText("108");
+        jLabel70.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel70.setOpaque(true);
+        jPanel8.add(jLabel70);
+        jLabel70.setBounds(110, 90, 35, 30);
+
+        jLabel71.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel71.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        jLabel71.setText("108");
+        jLabel71.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jLabel71.setOpaque(true);
+        jPanel8.add(jLabel71);
+        jLabel71.setBounds(10, 90, 35, 30);
 
         jPanel2.add(jPanel8);
-        jPanel8.setBounds(410, 150, 150, 250);
+        jPanel8.setBounds(410, 160, 150, 130);
+
+        jLabel40.setBackground(new java.awt.Color(24, 131, 213));
+        jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(15, 15, 178));
+        jLabel40.setText("VIP Rooms");
+        jPanel2.add(jLabel40);
+        jLabel40.setBounds(440, 140, 110, 20);
+
+        jLabel74.setBackground(new java.awt.Color(24, 131, 213));
+        jLabel74.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel74.setForeground(new java.awt.Color(24, 131, 213));
+        jLabel74.setText("Single Bedrooms");
+        jPanel2.add(jLabel74);
+        jLabel74.setBounds(70, 140, 120, 20);
+
+        jLabel75.setBackground(new java.awt.Color(24, 131, 213));
+        jLabel75.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel75.setForeground(new java.awt.Color(121, 23, 218));
+        jLabel75.setText("Double Bedrooms");
+        jPanel2.add(jLabel75);
+        jLabel75.setBounds(260, 140, 130, 20);
+        jPanel2.add(jCalendar1);
+        jCalendar1.setBounds(400, 290, 170, 120);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(20, 80, 580, 410);
+        jPanel2.setBounds(20, 70, 580, 420);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(180, 0, 620, 500);
@@ -586,6 +882,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnStaffs;
     private javax.swing.JButton btnSystemSetting;
     private javax.swing.JButton btnSystemSetting1;
+    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -618,10 +915,44 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
