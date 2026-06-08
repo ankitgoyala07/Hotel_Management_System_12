@@ -7,9 +7,10 @@ import java.awt.event.ActionListener;
 
 // Import view classes
 import view.BookRoom;
-import view.Gust_Details;
+//import view.Gust_Details;
 import view.OrderFood;
-
+import view.Feedback;
+import view.gest_dashbord;
 /**
  * GuestDashboard.java
  * Main Dashboard for Guest after successful login
@@ -64,6 +65,9 @@ public class GuestDashboard extends JFrame {
     /**
      * Action when "Book Room" button clicked
      */
+    
+
+  
     private void jButton2ActionPerformed(ActionEvent evt) {
         new BookRoom().setVisible(true);   // Open Book Room window
         this.dispose();                    // Close current dashboard
@@ -82,9 +86,11 @@ public class GuestDashboard extends JFrame {
      * Action when "Feedback" button clicked
      */
     private void jButton4ActionPerformed(ActionEvent evt) {
-        new Gust_Details().setVisible(true);  // Open Guest Details / Feedback
+        new Feedback().setVisible(true);  // Open Guest Details / Feedback
         this.dispose();                       // Close current dashboard
     }
+    
+    
 
     /**
      * Main method - For testing the dashboard independently
@@ -94,4 +100,6 @@ public class GuestDashboard extends JFrame {
             new GuestDashboard().setVisible(true);
         });
     }
+
+
 }
