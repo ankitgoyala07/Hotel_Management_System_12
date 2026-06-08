@@ -195,7 +195,7 @@ public class StaffManagement extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"H-101", "Ritesh Chand", "9874563210", null, "Kathmandu", "Chef", null},
+                {"", "", "", null, "", "", null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -346,6 +346,7 @@ public class StaffManagement extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDashboard;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDiscounts;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnReports;
@@ -354,7 +355,6 @@ public class StaffManagement extends javax.swing.JFrame {
     private javax.swing.JButton btnSystemSetting;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton btnDelete;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelHeader;

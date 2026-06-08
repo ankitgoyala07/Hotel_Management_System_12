@@ -45,6 +45,7 @@ public class StaffAttendence extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         btnSave = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -172,8 +173,6 @@ public class StaffAttendence extends javax.swing.JFrame {
             }
         });
         jTable2.setShowGrid(true);
-        jTable2.setShowHorizontalLines(true);
-        jTable2.setShowVerticalLines(true);
         jScrollPane2.setViewportView(jTable2);
 
         jPanel1.add(jScrollPane2);
@@ -185,6 +184,10 @@ public class StaffAttendence extends javax.swing.JFrame {
         btnSave.setText("Save");
         jPanel1.add(btnSave);
         btnSave.setBounds(490, 420, 100, 30);
+
+        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator6);
+        jSeparator6.setBounds(0, 0, 10, 500);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(180, 0, 620, 500);
@@ -263,6 +266,7 @@ public class StaffAttendence extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JPanel jPanelSidebar;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblLogo;

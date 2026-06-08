@@ -347,7 +347,7 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanelMain.setBackground(new java.awt.Color(255, 255, 255));
         jPanelMain.setLayout(null);
 
-        jPanelHeader.setBackground(new java.awt.Color(232, 236, 239));
+        jPanelHeader.setBackground(new java.awt.Color(211, 228, 245));
         jPanelHeader.setLayout(null);
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
