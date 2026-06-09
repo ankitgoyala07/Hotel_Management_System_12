@@ -61,6 +61,10 @@ jButtonSystemSetting = new javax.swing.JButton();
 jPanelMain = new javax.swing.JPanel();
 
 jLabelMainTitle = new javax.swing.JLabel();
+
+jPanelManager = new javax.swing.JPanel();
+        jLabelManagerText = new javax.swing.JLabel();
+        jLabelManagerIcon = new javax.swing.JLabel();
 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
         getContentPane().setLayout(null);
@@ -166,6 +170,23 @@ jLabelMainTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jPanelMain.add(jLabelMainTitle);
         jLabelMainTitle.setBounds(30, 24, 300, 40);
 
+jPanelManager.setBackground(new java.awt.Color(232, 232, 232));
+        jPanelManager.setLayout(null);
+
+        jLabelManagerText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelManagerText.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelManagerText.setText("Manager");
+        jPanelManager.add(jLabelManagerText);
+        jLabelManagerText.setBounds(15, 5, 90, 30);
+
+        jLabelManagerIcon.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabelManagerIcon.setText("👤");
+        jPanelManager.add(jLabelManagerIcon);
+        jLabelManagerIcon.setBounds(120, 5, 30, 30);
+
+        jPanelMain.add(jPanelManager);
+        jPanelManager.setBounds(580, 24, 170, 40);
+
 getContentPane().add(jPanelMain);
         jPanelMain.setBounds(220, 0, 780, 700);
 pack();
@@ -206,7 +227,12 @@ private javax.swing.JLabel jLabelLogo;
 
 private javax.swing.JLabel jLabelMainTitle;
 
+private javax.swing.JLabel jLabelManagerIcon;
+    private javax.swing.JLabel jLabelManagerText;
+
 private javax.swing.JPanel jPanelMain;
+
+private javax.swing.JPanel jPanelManager;
 
 private javax.swing.JPanel jPanelSidebar;
 // End of variables declaration
