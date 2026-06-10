@@ -1,4 +1,8 @@
-package controller;
+﻿package controller;
+
+/**
+ * Controller class to handle business logic for Admin Dashboard view and query DAO layers
+ */
 
 import dao.admindashboardDAO;
 import model.admindashboardModel;
