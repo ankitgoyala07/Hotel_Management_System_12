@@ -1,8 +1,13 @@
-/*
+﻿/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+
+/**
+ * Room Management View Class
+ * Manages room listing, category prices, availability updates, and visual components.
+ */
 
 /**
  *
