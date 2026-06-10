@@ -1,8 +1,13 @@
-/*
+﻿/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+
+/**
+ * Login Page User Interface Class
+ * Handles admin/staff credential input, validation, and session initialization.
+ */
 
 /**
  *
