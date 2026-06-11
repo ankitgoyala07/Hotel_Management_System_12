@@ -1,4 +1,8 @@
-package controller;
+﻿package controller;
+
+/**
+ * Controller class to coordinate room data between Room Management UI and room DAO
+ */
 
 import dao.roommanagementDAO;
 import java.util.List;
