@@ -1,4 +1,8 @@
-package dao;
+﻿package dao;
+
+/**
+ * Data Access Object (DAO) for retrieving Admin Dashboard statistics from database
+ */
 
 import database.MySqlConnection;
 import java.sql.Connection;
