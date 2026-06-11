@@ -65,6 +65,8 @@ jLabelMainTitle = new javax.swing.JLabel();
 jPanelManager = new javax.swing.JPanel();
         jLabelManagerText = new javax.swing.JLabel();
         jLabelManagerIcon = new javax.swing.JLabel();
+
+jPanelTableBg = new javax.swing.JPanel();
 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
         getContentPane().setLayout(null);
@@ -187,6 +189,12 @@ jPanelManager.setBackground(new java.awt.Color(232, 232, 232));
         jPanelMain.add(jPanelManager);
         jPanelManager.setBounds(580, 24, 170, 40);
 
+jPanelTableBg.setBackground(new java.awt.Color(224, 224, 224));
+        jPanelTableBg.setLayout(null);
+
+jPanelMain.add(jPanelTableBg);
+        jPanelTableBg.setBounds(30, 90, 720, 550);
+
 getContentPane().add(jPanelMain);
         jPanelMain.setBounds(220, 0, 780, 700);
 pack();
@@ -235,5 +243,7 @@ private javax.swing.JPanel jPanelMain;
 private javax.swing.JPanel jPanelManager;
 
 private javax.swing.JPanel jPanelSidebar;
+
+private javax.swing.JPanel jPanelTableBg;
 // End of variables declaration
 }
