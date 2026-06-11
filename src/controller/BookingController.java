@@ -1,4 +1,8 @@
-package controller;
+﻿package controller;
+
+/**
+ * Controller class to handle booking creation, status changes, and coordination with Booking DAO
+ */
 
 import dao.BookingDAO;
 import java.util.List;
