@@ -306,6 +306,25 @@
             </Component>
           </SubComponents>
         </Container>
+
+<Container class="javax.swing.JPanel" name="jPanelTableBg">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="e0" green="e0" red="e0" type="rgb"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="30" y="90" width="720" height="550"/>
+            </Constraint>
+          </Constraints>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="true"/>
+          </Layout>
+          <SubComponents>
+            
+          </SubComponents>
+        </Container>
 </SubComponents>
     </Container>
 </SubComponents>
