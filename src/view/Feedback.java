@@ -17,6 +17,70 @@ public class Feedback extends javax.swing.JFrame {
      */
     public Feedback() {
         initComponents();
+        
+        // Sidebar navigation
+        jButton1.addActionListener(e -> {
+            new gest_dashbord().setVisible(true);
+            this.dispose();
+        });
+        jButton2.addActionListener(e -> {
+            new BookRoom().setVisible(true);
+            this.dispose();
+        });
+        jButton3.addActionListener(e -> {
+            new OrderFood().setVisible(true);
+            this.dispose();
+        });
+        jButton4.addActionListener(e -> {
+            new Feedback().setVisible(true);
+            this.dispose();
+        });
+        jButton5.addActionListener(e -> {
+            new loginpage().setVisible(true);
+            this.dispose();
+        });
+
+        // Submit Review
+        jButton6.addActionListener(e -> {
+            String serviceRatingStr = jTextField4.getText().trim();
+            String cleanlinessRatingStr = jTextField2.getText().trim();
+            String foodRatingStr = jTextField3.getText().trim();
+            String reviewText = jTextArea1.getText().trim();
+
+            if (serviceRatingStr.isEmpty() || cleanlinessRatingStr.isEmpty() || foodRatingStr.isEmpty() || reviewText.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Please fill in all rating fields and provide a detailed review.", "Validation Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            try {
+                int serviceRating = Integer.parseInt(serviceRatingStr);
+                int cleanlinessRating = Integer.parseInt(cleanlinessRatingStr);
+                int foodRating = Integer.parseInt(foodRatingStr);
+
+                if (serviceRating < 1 || serviceRating > 5 || cleanlinessRating < 1 || cleanlinessRating > 5 || foodRating < 1 || foodRating > 5) {
+                    javax.swing.JOptionPane.showMessageDialog(this, "Ratings must be between 1 and 5.", "Validation Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                // Success
+                javax.swing.JOptionPane.showMessageDialog(this, "Thank you for your feedback! It has been submitted successfully.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                
+                // Clear fields
+                jTextField4.setText("1-5");
+                jTextField2.setText("1-5");
+                jTextField3.setText("1-5");
+                jTextArea1.setText("");
+
+                // Navigate back to dashboard
+                new gest_dashbord().setVisible(true);
+                this.dispose();
+
+            } catch (NumberFormatException ex) {
+                javax.swing.JOptionPane.showMessageDialog(this, "Ratings must be valid integers.", "Validation Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+        });
+
+        setLocationRelativeTo(null);
     }
 
     /**
