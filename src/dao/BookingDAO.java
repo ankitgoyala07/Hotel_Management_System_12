@@ -1,4 +1,8 @@
-package dao;
+﻿package dao;
+
+/**
+ * Data Access Object (DAO) managing database queries for Booking transactions
+ */
 
 import database.MySqlConnection;
 import java.sql.Connection;
