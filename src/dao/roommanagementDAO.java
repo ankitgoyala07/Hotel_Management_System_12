@@ -1,4 +1,8 @@
-package dao;
+﻿package dao;
+
+/**
+ * Data Access Object (DAO) executing CRUD operations on the Room details table
+ */
 
 import database.MySqlConnection;
 import java.sql.Connection;
