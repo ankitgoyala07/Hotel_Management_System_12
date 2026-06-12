@@ -1,11 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 /**
- *
+ * Guest Dashboard View Frame
  * @author Dell
  */
 public class gest_dashbord extends javax.swing.JFrame {
@@ -17,7 +13,27 @@ public class gest_dashbord extends javax.swing.JFrame {
      */
     public gest_dashbord() {
         initComponents();
+        // Activate Controller to wire logic and database binding
+        new controller.GuestDashboardController(this);
+        setLocationRelativeTo(null);
     }
+
+    // Public Getters for controller to access components (Clean Architecture)
+    public javax.swing.JButton getBtnBookRoom() { return jButton2; }
+    public javax.swing.JButton getBtnOrderFoodSidebar() { return jButton3; }
+    public javax.swing.JButton getBtnFeedback() { return jButton4; }
+    public javax.swing.JButton getBtnLogout() { return jButton6; }
+    public javax.swing.JButton getBtnDashboard() { return jButton8; }
+    public javax.swing.JButton getBtnOrderFoodCard() { return jButton5; }
+    public javax.swing.JButton getBtnRoomService() { return jButton7; }
+
+    // Public Getters for display labels
+    public javax.swing.JLabel getLblWelcome() { return jLabel8; }
+    public javax.swing.JLabel getLblRoomType() { return jLabel15; }
+    public javax.swing.JLabel getLblCheckIn() { return jLabel16; }
+    public javax.swing.JLabel getLblCheckOut() { return jLabel17; }
+    public javax.swing.JLabel getLblGuests() { return jLabel18; }
+    public javax.swing.JLabel getLblExpenses() { return jLabel13; }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,7 +81,6 @@ public class gest_dashbord extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jButton2.setText("Book Room");
-        jButton2.addActionListener(this::jButton2ActionPerformed);
         getContentPane().add(jButton2);
         jButton2.setBounds(20, 117, 121, 32);
 
@@ -74,12 +89,10 @@ public class gest_dashbord extends javax.swing.JFrame {
         jButton3.setBounds(20, 167, 121, 32);
 
         jButton4.setText("Feedback");
-        jButton4.addActionListener(this::jButton4ActionPerformed);
         getContentPane().add(jButton4);
         jButton4.setBounds(20, 217, 121, 32);
 
         jButton6.setText("Logout");
-        jButton6.addActionListener(this::jButton6ActionPerformed);
         getContentPane().add(jButton6);
         jButton6.setBounds(20, 267, 121, 32);
 
@@ -88,7 +101,6 @@ public class gest_dashbord extends javax.swing.JFrame {
         jLabel2.setBounds(20, 15, 121, 34);
 
         jButton8.setText("Dashboard");
-        jButton8.addActionListener(this::jButton8ActionPerformed);
         getContentPane().add(jButton8);
         jButton8.setBounds(20, 70, 120, 30);
 
@@ -157,7 +169,6 @@ public class gest_dashbord extends javax.swing.JFrame {
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton5.setText("Order Food ");
-        jButton5.addActionListener(this::jButton5ActionPerformed);
 
         jLabel10.setForeground(new java.awt.Color(204, 204, 204));
         jLabel10.setText("Gourmet dining delivered ");
@@ -187,7 +198,6 @@ public class gest_dashbord extends javax.swing.JFrame {
 
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton7.setText("Room Service");
-        jButton7.addActionListener(this::jButton7ActionPerformed);
 
         jLabel12.setText("Housekeeping, towels or ammenities ");
 
@@ -374,39 +384,12 @@ public class gest_dashbord extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

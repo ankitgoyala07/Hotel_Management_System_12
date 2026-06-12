@@ -19,6 +19,10 @@ public class Gust_Details extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void setRoomType(String roomType) {
+        jComboBox1.setSelectedItem(roomType);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
