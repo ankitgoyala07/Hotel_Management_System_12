@@ -69,6 +69,9 @@ jPanelManager = new javax.swing.JPanel();
 jPanelTableBg = new javax.swing.JPanel();
 
 jPanelTableCard = new javax.swing.JPanel();
+
+jButtonOngoing = new javax.swing.JButton();
+        jButtonAddDeal = new javax.swing.JButton();
 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
         getContentPane().setLayout(null);
@@ -197,6 +200,24 @@ jPanelTableBg.setBackground(new java.awt.Color(224, 224, 224));
 jPanelTableCard.setBackground(new java.awt.Color(255, 255, 255));
         jPanelTableCard.setLayout(null);
 
+jButtonOngoing.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonOngoing.setForeground(new java.awt.Color(26, 115, 232));
+        jButtonOngoing.setText("Ongoing");
+        jButtonOngoing.setBorderPainted(true);
+        jButtonOngoing.setContentAreaFilled(false);
+        jButtonOngoing.setFocusPainted(false);
+        jPanelTableCard.add(jButtonOngoing);
+        jButtonOngoing.setBounds(20, 20, 100, 36);
+
+        jButtonAddDeal.setBackground(new java.awt.Color(26, 115, 232));
+        jButtonAddDeal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonAddDeal.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAddDeal.setText("Add deal");
+        jButtonAddDeal.setBorderPainted(false);
+        jButtonAddDeal.setFocusPainted(false);
+        jPanelTableCard.add(jButtonAddDeal);
+        jButtonAddDeal.setBounds(550, 20, 110, 36);
+
 jPanelTableBg.add(jPanelTableCard);
         jPanelTableCard.setBounds(20, 20, 680, 510);
 
@@ -228,10 +249,14 @@ pack();
     }
 
     // Variables declaration - do not modify
+private javax.swing.JButton jButtonAddDeal;
+
 private javax.swing.JButton jButtonDashboard;
 
 private javax.swing.JButton jButtonDiscount;
     private javax.swing.JButton jButtonLogout;
+
+private javax.swing.JButton jButtonOngoing;
 
 private javax.swing.JButton jButtonRooms;
     private javax.swing.JButton jButtonStaffs;
