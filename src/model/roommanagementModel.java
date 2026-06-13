@@ -1,4 +1,8 @@
-package model;
+﻿package model;
+
+/**
+ * Model representation of a Room entity with fields for number, type, price, and status
+ */
 
 public class roommanagementModel {
     private final String roomNumber;
