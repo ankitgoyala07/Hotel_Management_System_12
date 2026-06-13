@@ -1,4 +1,8 @@
-package model;
+﻿package model;
+
+/**
+ * Model representation of a Booking transaction containing customer details and room assignments
+ */
 
 import java.util.Date;
 
