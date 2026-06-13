@@ -81,11 +81,11 @@ public class DiagnosticTool {
         
         System.out.println("\nChecking GUI resources...");
         try {
-            var resource = DiagnosticTool.class.getResource("/iamges/hotelpic.png");
+            var resource = DiagnosticTool.class.getResource("/images/hotelpic.png");
             if (resource != null) {
-                System.out.println("SUCCESS: '/iamges/hotelpic.png' found.");
+                System.out.println("SUCCESS: '/images/hotelpic.png' found.");
             } else {
-                System.out.println("FAILED: '/iamges/hotelpic.png' NOT found. Make sure the 'iamges' folder exists under src/ and contains 'hotelpic.png'.");
+                System.out.println("FAILED: '/images/hotelpic.png' NOT found. Make sure the 'images' folder exists under src/ and contains 'hotelpic.png'.");
             }
         } catch (Exception e) {
             System.out.println("FAILED: Error checking resources: " + e.getMessage());

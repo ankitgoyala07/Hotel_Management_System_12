@@ -1,204 +1,23 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package view;
 
-import controller.systemController;
-
 /**
- * JFrame View representing the System Setting & Controls page.
- * Implements a high-fidelity desktop UI with elegant layouts and interactive elements.
- * Resized to 800x500 with a modern 20px rounded corner aesthetic on all panels, fields, and buttons.
- * Fully compatible with the NetBeans GUI Builder.
  *
  * @author i3
  */
 public class SystemSetting extends javax.swing.JFrame {
-
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(SystemSetting.class.getName());
-    private final systemController controller = new systemController();
 
     /**
      * Creates new form SystemSetting
      */
     public SystemSetting() {
         initComponents();
-        
-        // UI Sizing and Positioning
-        setSize(800, 500);
-        setMinimumSize(new java.awt.Dimension(800, 500));
-        setLocationRelativeTo(null); // Center on screen
-        setResizable(true); // Allow resizing / maximizing
-        
-        // Listen for resize / maximize events to scale absolute layouts
-        this.addComponentListener(new java.awt.event.ComponentAdapter() {
-            @Override
-            public void componentResized(java.awt.event.ComponentEvent e) {
-                adjustLayout();
-            }
-        });
-        
-        // Load data into fields on startup
-        controller.loadSettings(this);
-        
-        // Initially fields are read-only
-        setFieldsEditable(false);
     }
-
-    public void setFieldsEditable(boolean editable) {
-        txtHotelName.setEditable(editable);
-        txtHotelId.setEditable(editable);
-        txtAddress.setEditable(editable);
-        txtPanNumber.setEditable(editable);
-        txtOwner.setEditable(editable);
-        txtQuickNote.setEditable(editable);
-        txtPhone.setEditable(editable);
-        txtWebsite.setEditable(editable);
-        
-        if (btnSave != null) {
-            btnSave.setEnabled(editable);
-        }
-        if (btnEdit != null) {
-            btnEdit.setEnabled(!editable);
-        }
-    }
-
-    private void adjustLayout() {
-        int width = getContentPane().getWidth();
-        int height = getContentPane().getHeight();
-        if (width < 800) width = 800;
-        if (height < 500) height = 500;
-        
-        // Sidebar stays fixed width 180, stretches vertically
-        jPanelSidebar.setBounds(0, 0, 180, height);
-        
-        // Main panel fills the rest
-        int mainWidth = width - 180;
-        jPanelMain.setBounds(180, 0, mainWidth, height);
-        
-        // Inside main panel:
-        // jPanelHeader stretches horizontally
-        jPanelHeader.setBounds(20, 15, mainWidth - 40, 40);
-        
-        int headerWidth = jPanelHeader.getWidth();
-        lblAvatar.setBounds(headerWidth - 50, 0, 40, 40);
-        lblRole.setBounds(headerWidth - 160, 5, 100, 30);
-        
-        // jPanel1 stretches horizontally
-        jPanel1.setBounds(20, 80, mainWidth - 40, 200);
-        int p1Width = jPanel1.getWidth();
-        jSeparator1.setBounds(0, 40, p1Width, 10);
-        
-        int rightColX = p1Width / 2 + 10;
-        int rightColWidth = p1Width - rightColX - 20;
-        jLabel3.setBounds(rightColX, 60, 100, 16);
-        txtAddress.setBounds(rightColX, 80, rightColWidth, 40);
-        jLabel11.setBounds(rightColX, 130, 100, 16);
-        txtPhone.setBounds(rightColX, 150, rightColWidth, 40);
-        
-        // Bottom panels: jPanel2 and jPanel3
-        int bottomY = 290;
-        int bottomHeight = height - bottomY - 10;
-        
-        int gap = 20;
-        int availableWidth = mainWidth - 40;
-        int p2Width = (int) (availableWidth * 0.38);
-        int p3Width = availableWidth - p2Width - gap;
-        
-        jPanel2.setBounds(20, bottomY, p2Width, bottomHeight);
-        int p2WidthReal = jPanel2.getWidth();
-        jSeparator2.setBounds(0, 40, p2WidthReal, 10);
-        txtOwner.setBounds(10, 70, p2WidthReal - 20, 30);
-        txtPanNumber.setBounds(10, 130, p2WidthReal - 20, 30);
-        
-        jPanel3.setBounds(20 + p2Width + gap, bottomY, p3Width, bottomHeight);
-        int p3WidthReal = jPanel3.getWidth();
-        jSeparator3.setBounds(0, 40, 50, 10);
-        jSeparator4.setBounds(0, 40, p3WidthReal, 10);
-        
-        txtWebsite.setBounds(10, 70, p3WidthReal / 2 - 20, 50);
-        
-        int noteX = p3WidthReal / 2;
-        int noteWidth = p3WidthReal - noteX - 10;
-        jLabel10.setBounds(noteX + 10, 50, 70, 16);
-        jScrollPane2.setBounds(noteX, 70, noteWidth, 60);
-        
-        if (btnEdit != null) {
-            btnEdit.setBounds(noteX, 150, 100, 30);
-        }
-        if (btnSave != null) {
-            btnSave.setBounds(noteX + 110, 150, 100, 30);
-        }
-        
-        jSeparator6.setBounds(0, 0, 10, height);
-        
-        getContentPane().revalidate();
-        getContentPane().repaint();
-    }
-
-    // Getters and Setters for Controller binding
-    public String getHotelNameText() {
-        return txtHotelName.getText();
-    }
-
-    public void setHotelNameText(String text) {
-        txtHotelName.setText(text);
-    }
-
-    public String getHotelIdText() {
-        return txtHotelId.getText();
-    }
-
-    public void setHotelIdText(String text) {
-        txtHotelId.setText(text);
-    }
-
-    public String getAddressText() {
-        return txtAddress.getText();
-    }
-
-    public void setAddressText(String text) {
-        txtAddress.setText(text);
-    }
-
-    public String getPanNumberText() {
-        return txtPanNumber.getText();
-    }
-
-    public void setPanNumberText(String text) {
-        txtPanNumber.setText(text);
-    }
-
-    public String getOwnerText() {
-        return txtOwner.getText();
-    }
-
-    public void setOwnerText(String text) {
-        txtOwner.setText(text);
-    }
-
-    public String getQuickNoteText() {
-        return txtQuickNote.getText();
-    }
-
-    public void setQuickNoteText(String text) {
-        txtQuickNote.setText(text);
-    }
-
-    public String getPhoneText() {
-        return txtPhone.getText();
-    }
-
-    public void setPhoneText(String text) {
-        txtPhone.setText(text);
-    }
-
-    public String getWebsiteText() {
-        return txtWebsite.getText();
-    }
-
-    public void setWebsiteText(String text) {
-        txtWebsite.setText(text);
-    }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -209,10 +28,6 @@ public class SystemSetting extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField8 = new javax.swing.JTextField();
-        jSeparator5 = new javax.swing.JSeparator();
         jPanelSidebar = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         btnDashboard = new javax.swing.JButton();
@@ -259,12 +74,7 @@ public class SystemSetting extends javax.swing.JFrame {
         btnSave = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JSeparator();
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("System Setting & Controls");
         getContentPane().setLayout(null);
 
         jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
@@ -306,9 +116,9 @@ public class SystemSetting extends javax.swing.JFrame {
 
         btnStaffs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnStaffs.setText("  Staffs");
-        btnStaffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnStaffs.setBorderPainted(false);
         btnStaffs.setContentAreaFilled(false);
+        btnStaffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnStaffs.addActionListener(this::btnStaffsActionPerformed);
         jPanelSidebar.add(btnStaffs);
         btnStaffs.setBounds(10, 200, 160, 35);
@@ -363,7 +173,7 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanelHeader.add(lblRole);
         lblRole.setBounds(420, 5, 100, 30);
 
-        lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/user (1).png"))); // NOI18N
+        lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user (1).png"))); // NOI18N
         jPanelHeader.add(lblAvatar);
         lblAvatar.setBounds(530, 0, 40, 40);
 
@@ -414,7 +224,7 @@ public class SystemSetting extends javax.swing.JFrame {
 
         txtPhone.addActionListener(this::txtPhoneActionPerformed);
         jPanel1.add(txtPhone);
-        txtPhone.setBounds(310, 150, 250, 40);
+        txtPhone.setBounds(310, 150, 260, 40);
 
         jLabel11.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
         jLabel11.setText("Hotel Phone");
@@ -515,17 +325,14 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanelMain.setBounds(180, 0, 620, 500);
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
-        new view.gest_dashbord().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnDashboardActionPerformed
 
     private void btnRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomsActionPerformed
-        new view.BookRoom().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnRoomsActionPerformed
 
     private void btnDiscountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiscountsActionPerformed
@@ -533,61 +340,52 @@ public class SystemSetting extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDiscountsActionPerformed
 
     private void btnStaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffsActionPerformed
-        new view.StaffManagement().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnStaffsActionPerformed
+
+    private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
+        // Already on System Settings page
+    }//GEN-LAST:event_btnSystemSettingActionPerformed
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
         // Handled in other navigation sections
     }//GEN-LAST:event_btnReportsActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        new view.loginpage().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
+    private void txtHotelIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSystemSettingActionPerformed
+    }//GEN-LAST:event_txtHotelIdActionPerformed
 
-    private void txtHotelIdActionPerformed(java.awt.event.ActionEvent evt) {
+    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
         // TODO add your handling code here:
-    }
+    }//GEN-LAST:event_txtAddressActionPerformed
 
-    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {
+    private void txtHotelNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelNameActionPerformed
         // TODO add your handling code here:
-    }
+    }//GEN-LAST:event_txtHotelNameActionPerformed
 
-    private void txtHotelNameActionPerformed(java.awt.event.ActionEvent evt) {
+    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
         // TODO add your handling code here:
-    }
+    }//GEN-LAST:event_txtPhoneActionPerformed
 
-    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {
+    private void txtPanNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPanNumberActionPerformed
         // TODO add your handling code here:
-    }
+    }//GEN-LAST:event_txtPanNumberActionPerformed
 
-    private void txtPanNumberActionPerformed(java.awt.event.ActionEvent evt) {
+    private void txtOwnerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOwnerActionPerformed
         // TODO add your handling code here:
-    }
+    }//GEN-LAST:event_txtOwnerActionPerformed
 
-    private void txtOwnerActionPerformed(java.awt.event.ActionEvent evt) {
+    private void txtWebsiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWebsiteActionPerformed
         // TODO add your handling code here:
-    }
+    }//GEN-LAST:event_txtWebsiteActionPerformed
 
-    private void txtWebsiteActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
-    }
-
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {
-        setFieldsEditable(true);
-    }
-
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {
-        boolean success = controller.saveSettings(this);
-        if (success) {
-            setFieldsEditable(false);
-        }
-    }
+    }//GEN-LAST:event_btnEditActionPerformed
 
     /**
      * @param args the command line arguments
@@ -595,6 +393,9 @@ public class SystemSetting extends javax.swing.JFrame {
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -608,11 +409,7 @@ public class SystemSetting extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SystemSetting().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> new SystemSetting().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -643,16 +440,12 @@ public class SystemSetting extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JPanel jPanelMain;
     private javax.swing.JPanel jPanelSidebar;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblRole;

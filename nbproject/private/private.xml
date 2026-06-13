@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/FrontdeskDashboard.java</file>
-            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/StaffAttendence.java</file>
-            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/hotel_management/Hotel_Management.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/FrontDeskDashboard.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/controller/FrontdeskDeshboardControler.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/dao/FrontdeskDeshboardDao.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/AddStaff.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/model/systemModel.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/SystemSetting.java</file>
         </group>
     </open-files>
 </project-private>

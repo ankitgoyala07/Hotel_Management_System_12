@@ -11,22 +11,12 @@ package view;
 public class StaffAttendence extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(StaffAttendence.class.getName());
-    private final controller.StaffAttendenceController controller = new controller.StaffAttendenceController();
-    private com.toedter.calendar.JDateChooser dateChooser;
-    private javax.swing.table.DefaultTableModel attendanceTableModel;
-    private boolean attendanceEditable;
 
     /**
      * Creates new form StaffAttendence
      */
     public StaffAttendence() {
         initComponents();
-        setSize(800, 500);
-        setMinimumSize(new java.awt.Dimension(800, 500));
-        setLocationRelativeTo(null);
-        setResizable(true);
-        setupAttendanceUi();
-        loadAttendanceForSelectedDate();
     }
 
     /**
@@ -52,10 +42,12 @@ public class StaffAttendence extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         lblRole = new javax.swing.JLabel();
         lblAvatar = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         btnSave = new javax.swing.JButton();
-        jSeparator6 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -156,12 +148,23 @@ public class StaffAttendence extends javax.swing.JFrame {
         jPanelHeader.add(lblRole);
         lblRole.setBounds(420, 10, 100, 30);
 
-        lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/user (1).png"))); // NOI18N
+        lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user (1).png"))); // NOI18N
         jPanelHeader.add(lblAvatar);
         lblAvatar.setBounds(530, 0, 40, 40);
 
         jPanel1.add(jPanelHeader);
         jPanelHeader.setBounds(20, 15, 580, 40);
+
+        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator6);
+        jSeparator6.setBounds(0, 0, 10, 500);
+
+        jPanel2.setBackground(new java.awt.Color(211, 228, 245));
+        jPanel2.setLayout(null);
+        jPanel2.add(jDateChooser1);
+        jDateChooser1.setBounds(20, 20, 140, 22);
+
+        jScrollPane2.setBackground(new java.awt.Color(211, 228, 245));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -171,7 +174,7 @@ public class StaffAttendence extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Staff ID", "Name", "Total", "Today"
+                "Staff ID", "Name", "Total", "Attendence"
             }
         ) {
             Class[] types = new Class [] {
@@ -182,23 +185,22 @@ public class StaffAttendence extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTable2.setSelectionBackground(new java.awt.Color(211, 228, 245));
         jTable2.setShowGrid(true);
         jScrollPane2.setViewportView(jTable2);
 
-        jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(20, 110, 570, 290);
+        jPanel2.add(jScrollPane2);
+        jScrollPane2.setBounds(20, 50, 540, 200);
 
         btnSave.setBackground(new java.awt.Color(51, 51, 255));
         btnSave.setFont(new java.awt.Font("Aparajita", 1, 25)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save");
-        btnSave.addActionListener(this::btnSaveActionPerformed);
-        jPanel1.add(btnSave);
-        btnSave.setBounds(490, 420, 100, 30);
+        jPanel2.add(btnSave);
+        btnSave.setBounds(460, 270, 100, 30);
 
-        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanel1.add(jSeparator6);
-        jSeparator6.setBounds(0, 0, 10, 500);
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(20, 80, 580, 310);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(180, 0, 620, 500);
@@ -207,13 +209,11 @@ public class StaffAttendence extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
-        new view.gest_dashbord().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnDashboardActionPerformed
 
     private void btnRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomsActionPerformed
-        new view.BookRoom().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnRoomsActionPerformed
 
     private void btnDiscountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiscountsActionPerformed
@@ -221,8 +221,7 @@ public class StaffAttendence extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDiscountsActionPerformed
 
     private void btnStaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffsActionPerformed
-        new view.SystemSetting().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnStaffsActionPerformed
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
@@ -230,99 +229,12 @@ public class StaffAttendence extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReportsActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        new view.loginpage().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
-        new view.StaffManagement().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnSystemSettingActionPerformed
-
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {
-        controller.handleSaveAttendance(this, this, getSelectedDate());
-    }
-
-    private void setupAttendanceUi() {
-        javax.swing.JLabel lblDate = new javax.swing.JLabel("Date:");
-        lblDate.setFont(new java.awt.Font("Aparajita", 1, 16));
-        lblDate.setBounds(20, 70, 50, 25);
-        jPanel1.add(lblDate);
-
-        dateChooser = new com.toedter.calendar.JDateChooser();
-        dateChooser.setDate(new java.util.Date());
-        dateChooser.setDateFormatString("yyyy-MM-dd");
-        dateChooser.setBounds(70, 70, 150, 25);
-        dateChooser.addPropertyChangeListener("date", evt -> loadAttendanceForSelectedDate());
-        jPanel1.add(dateChooser);
-
-        attendanceTableModel = new javax.swing.table.DefaultTableModel(
-                new Object[][]{},
-                new String[]{"Staff ID", "Name", "Total", "Today"}
-        ) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return column == 3 && attendanceEditable;
-            }
-
-            @Override
-            public Class<?> getColumnClass(int columnIndex) {
-                return columnIndex == 3 ? Boolean.class : Object.class;
-            }
-        };
-        jTable2.setModel(attendanceTableModel);
-    }
-
-    private java.sql.Date getSelectedDate() {
-        java.util.Date selected = dateChooser != null ? dateChooser.getDate() : new java.util.Date();
-        if (selected == null) {
-            selected = new java.util.Date();
-        }
-        return new java.sql.Date(selected.getTime());
-    }
-
-    private void loadAttendanceForSelectedDate() {
-        controller.loadAttendanceData(this, getSelectedDate());
-    }
-
-    public void populateTable(java.util.List<model.StaffAttendenceModel> attendanceList, boolean editable) {
-        attendanceEditable = editable;
-        attendanceTableModel.setRowCount(0);
-        for (model.StaffAttendenceModel record : attendanceList) {
-            attendanceTableModel.addRow(new Object[]{
-                record.getStaffId(),
-                record.getName(),
-                String.format("%.1f%%", record.getTotalPercentage()),
-                record.isPresentToday()
-            });
-        }
-        btnSave.setEnabled(editable);
-    }
-
-    public void setAttendanceEditable(boolean editable) {
-        attendanceEditable = editable;
-        btnSave.setEnabled(editable);
-    }
-
-    public java.util.List<model.StaffAttendenceModel> getAttendanceFromTable() {
-        java.util.List<model.StaffAttendenceModel> records = new java.util.ArrayList<>();
-        java.sql.Date selectedDate = getSelectedDate();
-        for (int row = 0; row < attendanceTableModel.getRowCount(); row++) {
-            Object staffIdValue = attendanceTableModel.getValueAt(row, 0);
-            if (staffIdValue == null || staffIdValue.toString().trim().isEmpty()) {
-                continue;
-            }
-            model.StaffAttendenceModel record = new model.StaffAttendenceModel();
-            record.setStaffId(staffIdValue.toString().trim());
-            record.setName(attendanceTableModel.getValueAt(row, 1) != null
-                    ? attendanceTableModel.getValueAt(row, 1).toString() : "");
-            Object presentValue = attendanceTableModel.getValueAt(row, 3);
-            record.setPresentToday(presentValue instanceof Boolean && (Boolean) presentValue);
-            record.setAttendanceDate(selectedDate);
-            records.add(record);
-        }
-        return records;
-    }
 
     /**
      * @param args the command line arguments
@@ -358,7 +270,9 @@ public class StaffAttendence extends javax.swing.JFrame {
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnStaffs;
     private javax.swing.JButton btnSystemSetting;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JPanel jPanelSidebar;
     private javax.swing.JScrollPane jScrollPane2;

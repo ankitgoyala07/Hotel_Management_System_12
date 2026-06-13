@@ -12,18 +12,26 @@ public class signupModel {
     private String phone;
     private String password;
     private String role;
+    private String securityQuestion;
 
     // Default constructor
     public signupModel() {}
 
-    // Parameterized constructor
+    // Parameterized constructor (backward compatibility)
     public signupModel(String username, String email, String phone,
                        String password, String role) {
+        this(username, email, phone, password, role, null);
+    }
+
+    // Parameterized constructor with security question
+    public signupModel(String username, String email, String phone,
+                       String password, String role, String securityQuestion) {
         this.username = username;
         this.email = email;
         this.phone = phone;
         this.password = password;
         this.role = role;
+        this.securityQuestion = securityQuestion;
     }
 
     public int getUserId()                     { return user_id; }
@@ -43,4 +51,7 @@ public class signupModel {
 
     public String getRole()                    { return role; }
     public void setRole(String role)           { this.role = role; }
+
+    public String getSecurityQuestion()        { return securityQuestion; }
+    public void setSecurityQuestion(String sq) { this.securityQuestion = sq; }
 }

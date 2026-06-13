@@ -5,7 +5,7 @@
 package hotel_management;
 
 import database.DatabaseSetup;
-import view.loginpage;
+import view.login;
 
 /**
  *
@@ -20,9 +20,9 @@ public class Hotel_Management {
         // Initialize database schema and default admin user
         DatabaseSetup.initializeDatabase();
         
-        // Start login UI
+        // Start login UI via Controller
         java.awt.EventQueue.invokeLater(() -> {
-            new loginpage().setVisible(true);
+            new controller.LoginController();
         });
     }
     

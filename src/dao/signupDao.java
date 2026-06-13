@@ -27,8 +27,8 @@ public class signupDao {
             return false;
         }
 
-        String sql = "INSERT INTO users (username, email, phone, password, role) "
-                   + "VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO users (username, email, phone, password, role, security_questions) "
+                   + "VALUES (?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstm = conn.prepareStatement(sql)) {
             pstm.setString(1, user.getUsername());
@@ -36,6 +36,7 @@ public class signupDao {
             pstm.setString(3, user.getPhone());
             pstm.setString(4, user.getPassword());
             pstm.setString(5, user.getRole());
+            pstm.setString(6, user.getSecurityQuestion());
             int rows = pstm.executeUpdate();
             return rows > 0;
 

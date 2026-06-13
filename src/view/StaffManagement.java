@@ -11,18 +11,12 @@ package view;
 public class StaffManagement extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(StaffManagement.class.getName());
-    private final controller.StaffManagementController controller = new controller.StaffManagementController();
 
     /**
      * Creates new form StaffManagement
      */
     public StaffManagement() {
         initComponents();
-        setSize(800, 500);
-        setMinimumSize(new java.awt.Dimension(800, 500));
-        setLocationRelativeTo(null); // Center on screen
-        setResizable(true);
-        controller.loadStaffData(this);
     }
 
     /**
@@ -57,7 +51,6 @@ public class StaffManagement extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(null);
 
         jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
@@ -156,7 +149,7 @@ public class StaffManagement extends javax.swing.JFrame {
         jPanelHeader.add(lblRole);
         lblRole.setBounds(420, 5, 100, 30);
 
-        lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/user (1).png"))); // NOI18N
+        lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user (1).png"))); // NOI18N
         jPanelHeader.add(lblAvatar);
         lblAvatar.setBounds(530, 0, 40, 40);
 
@@ -220,13 +213,11 @@ public class StaffManagement extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
-        new view.gest_dashbord().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnDashboardActionPerformed
 
     private void btnRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomsActionPerformed
-        new view.BookRoom().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnRoomsActionPerformed
 
     private void btnDiscountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiscountsActionPerformed
@@ -234,90 +225,32 @@ public class StaffManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDiscountsActionPerformed
 
     private void btnStaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffsActionPerformed
-        new view.SystemSetting().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnStaffsActionPerformed
-
-    private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
-        // Already on Staff Management page
-    }//GEN-LAST:event_btnSystemSettingActionPerformed
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
         // Handled in other navigation sections
     }//GEN-LAST:event_btnReportsActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        new view.loginpage().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
+        // Already on Staff Management page
+    }//GEN-LAST:event_btnSystemSettingActionPerformed
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new view.StaffAttendence().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new view.AddStaff().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {
-        int selectedRow = jTable2.getSelectedRow();
-        if (selectedRow == -1) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Please select a staff member from the table to delete.",
-                "Selection Error",
-                javax.swing.JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        Object idObj = jTable2.getValueAt(selectedRow, 0);
-        if (idObj == null) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                "Invalid row selection.",
-                "Error",
-                javax.swing.JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        String staffId = idObj.toString();
-
-        int confirm = javax.swing.JOptionPane.showConfirmDialog(this,
-            "Are you sure you want to delete staff member with ID: " + staffId + "?",
-            "Confirm Deletion",
-            javax.swing.JOptionPane.YES_NO_OPTION);
-
-        if (confirm == javax.swing.JOptionPane.YES_OPTION) {
-            boolean success = controller.deleteStaff(staffId);
-            if (success) {
-                javax.swing.JOptionPane.showMessageDialog(this,
-                    "Staff member deleted successfully.",
-                    "Success",
-                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                controller.loadStaffData(this);
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this,
-                    "Failed to delete staff member.",
-                    "Error",
-                    javax.swing.JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }
-
-    public void populateTable(java.util.List<model.StaffManagementModel> staffList) {
-        javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) jTable2.getModel();
-        model.setRowCount(0);
-        for (model.StaffManagementModel staff : staffList) {
-            model.addRow(new Object[]{
-                staff.getStaffId(),
-                staff.getName(),
-                staff.getPhone(),
-                staff.getEmail(),
-                staff.getAddress(),
-                staff.getRole(),
-                staff.getShift()
-            });
-        }
-    }
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments

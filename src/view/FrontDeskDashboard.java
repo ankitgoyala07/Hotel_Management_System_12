@@ -8,14 +8,14 @@ package view;
  *
  * @author i3
  */
-public class FrontdeskDashboard extends javax.swing.JFrame {
+public class FrontDeskDashboard extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrontdeskDashboard.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrontDeskDashboard.class.getName());
 
     /**
-     * Creates new form FrontdeskDashboard
+     * Creates new form FrontDashboard
      */
-    public FrontdeskDashboard() {
+    public FrontDeskDashboard() {
         initComponents();
     }
 
@@ -254,7 +254,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(37, 99, 235));
-        jLabel7.setText("49");
+        jLabel7.setText("51");
         jPanel3.add(jLabel7);
         jLabel7.setBounds(70, 50, 40, 30);
 
@@ -269,7 +269,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(37, 99, 235));
-        jLabel10.setText("29");
+        jLabel10.setText("31");
         jPanel3.add(jLabel10);
         jLabel10.setBounds(300, 50, 40, 30);
 
@@ -475,7 +475,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel34.setBackground(new java.awt.Color(0, 255, 0));
         jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel34.setText("101");
+        jLabel34.setText("124");
         jLabel34.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel34.setOpaque(true);
         jPanel6.add(jLabel34);
@@ -521,7 +521,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel17.setBackground(new java.awt.Color(0, 255, 0));
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel17.setText("104");
+        jLabel17.setText("210");
         jLabel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel17.setOpaque(true);
         jPanel7.add(jLabel17);
@@ -529,7 +529,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel38.setBackground(new java.awt.Color(0, 255, 0));
         jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel38.setText("104");
+        jLabel38.setText("201");
         jLabel38.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel38.setOpaque(true);
         jPanel7.add(jLabel38);
@@ -537,7 +537,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel39.setBackground(new java.awt.Color(0, 255, 0));
         jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel39.setText("104");
+        jLabel39.setText("202");
         jLabel39.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel39.setOpaque(true);
         jPanel7.add(jLabel39);
@@ -545,7 +545,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel41.setBackground(new java.awt.Color(0, 255, 0));
         jLabel41.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel41.setText("104");
+        jLabel41.setText("209");
         jLabel41.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel41.setOpaque(true);
         jPanel7.add(jLabel41);
@@ -553,7 +553,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel42.setBackground(new java.awt.Color(0, 255, 0));
         jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel42.setText("104");
+        jLabel42.setText("205");
         jLabel42.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel42.setOpaque(true);
         jPanel7.add(jLabel42);
@@ -561,7 +561,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel43.setBackground(new java.awt.Color(0, 255, 0));
         jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel43.setText("104");
+        jLabel43.setText("204");
         jLabel43.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel43.setOpaque(true);
         jPanel7.add(jLabel43);
@@ -577,7 +577,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel20.setText("108");
+        jLabel20.setText("212");
         jLabel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel20.setOpaque(true);
         jPanel7.add(jLabel20);
@@ -585,7 +585,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel46.setBackground(new java.awt.Color(255, 255, 255));
         jLabel46.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel46.setText("108");
+        jLabel46.setText("207");
         jLabel46.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel46.setOpaque(true);
         jPanel7.add(jLabel46);
@@ -593,7 +593,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel48.setBackground(new java.awt.Color(255, 255, 255));
         jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel48.setText("108");
+        jLabel48.setText("211");
         jLabel48.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel48.setOpaque(true);
         jPanel7.add(jLabel48);
@@ -601,7 +601,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel49.setBackground(new java.awt.Color(255, 255, 255));
         jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel49.setText("108");
+        jLabel49.setText("213");
         jLabel49.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel49.setOpaque(true);
         jPanel7.add(jLabel49);
@@ -609,7 +609,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel50.setBackground(new java.awt.Color(255, 255, 255));
         jLabel50.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel50.setText("108");
+        jLabel50.setText("216");
         jLabel50.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel50.setOpaque(true);
         jPanel7.add(jLabel50);
@@ -617,7 +617,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel51.setBackground(new java.awt.Color(255, 255, 255));
         jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel51.setText("108");
+        jLabel51.setText("217");
         jLabel51.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel51.setOpaque(true);
         jPanel7.add(jLabel51);
@@ -625,7 +625,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel52.setBackground(new java.awt.Color(255, 255, 255));
         jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel52.setText("108");
+        jLabel52.setText("215");
         jLabel52.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel52.setOpaque(true);
         jPanel7.add(jLabel52);
@@ -641,7 +641,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel54.setBackground(new java.awt.Color(0, 255, 0));
         jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel54.setText("104");
+        jLabel54.setText("206");
         jLabel54.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel54.setOpaque(true);
         jPanel7.add(jLabel54);
@@ -657,7 +657,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel56.setBackground(new java.awt.Color(0, 255, 0));
         jLabel56.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel56.setText("104");
+        jLabel56.setText("214");
         jLabel56.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel56.setOpaque(true);
         jPanel7.add(jLabel56);
@@ -673,7 +673,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel58.setBackground(new java.awt.Color(0, 255, 0));
         jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel58.setText("104");
+        jLabel58.setText("218");
         jLabel58.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel58.setOpaque(true);
         jPanel7.add(jLabel58);
@@ -689,7 +689,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel61.setBackground(new java.awt.Color(0, 255, 0));
         jLabel61.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel61.setText("104");
+        jLabel61.setText("203");
         jLabel61.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel61.setOpaque(true);
         jPanel7.add(jLabel61);
@@ -697,7 +697,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel66.setBackground(new java.awt.Color(255, 255, 255));
         jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel66.setText("108");
+        jLabel66.setText("208");
         jLabel66.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel66.setOpaque(true);
         jPanel7.add(jLabel66);
@@ -711,7 +711,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel60.setBackground(new java.awt.Color(0, 255, 0));
         jLabel60.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel60.setText("104");
+        jLabel60.setText("304");
         jLabel60.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel60.setOpaque(true);
         jPanel8.add(jLabel60);
@@ -719,7 +719,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel62.setBackground(new java.awt.Color(0, 255, 0));
         jLabel62.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel62.setText("104");
+        jLabel62.setText("306");
         jLabel62.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel62.setOpaque(true);
         jPanel8.add(jLabel62);
@@ -727,7 +727,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel63.setBackground(new java.awt.Color(0, 255, 0));
         jLabel63.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel63.setText("104");
+        jLabel63.setText("301");
         jLabel63.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel63.setOpaque(true);
         jPanel8.add(jLabel63);
@@ -735,7 +735,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel64.setBackground(new java.awt.Color(0, 255, 0));
         jLabel64.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel64.setText("104");
+        jLabel64.setText("308");
         jLabel64.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel64.setOpaque(true);
         jPanel8.add(jLabel64);
@@ -743,7 +743,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel65.setBackground(new java.awt.Color(0, 255, 0));
         jLabel65.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel65.setText("104");
+        jLabel65.setText("302");
         jLabel65.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel65.setOpaque(true);
         jPanel8.add(jLabel65);
@@ -751,7 +751,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel47.setBackground(new java.awt.Color(255, 255, 255));
         jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel47.setText("108");
+        jLabel47.setText("309");
         jLabel47.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel47.setOpaque(true);
         jPanel8.add(jLabel47);
@@ -759,7 +759,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel67.setBackground(new java.awt.Color(255, 255, 255));
         jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel67.setText("108");
+        jLabel67.setText("303");
         jLabel67.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel67.setOpaque(true);
         jPanel8.add(jLabel67);
@@ -767,7 +767,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel68.setBackground(new java.awt.Color(255, 255, 255));
         jLabel68.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel68.setText("108");
+        jLabel68.setText("305");
         jLabel68.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel68.setOpaque(true);
         jPanel8.add(jLabel68);
@@ -783,7 +783,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         jLabel71.setBackground(new java.awt.Color(255, 255, 255));
         jLabel71.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel71.setText("108");
+        jLabel71.setText("307");
         jLabel71.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel71.setOpaque(true);
         jPanel8.add(jLabel71);
@@ -825,8 +825,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomsActionPerformed
-        new view.BookRoom().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnRoomsActionPerformed
 
     private void btnDiscountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiscountsActionPerformed
@@ -834,13 +833,8 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDiscountsActionPerformed
 
     private void btnStaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffsActionPerformed
-        new view.StaffManagement().setVisible(true);
-        this.dispose();
+        // Handled by Controller
     }//GEN-LAST:event_btnStaffsActionPerformed
-
-    private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSystemSettingActionPerformed
 
     private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
         // Handled in other navigation sections
@@ -849,6 +843,10 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
     private void btnSystemSetting1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSetting1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSystemSetting1ActionPerformed
+
+    private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSystemSettingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -872,7 +870,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrontdeskDashboard().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrontDeskDashboard().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

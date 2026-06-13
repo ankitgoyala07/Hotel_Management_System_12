@@ -15,43 +15,33 @@ public class loginDao {
     private final MySqlConnection mysql = new MySqlConnection();
 
     /**
-     * Authenticates a user with username and password.
+     * Validates a user's credentials against the database and sets their role.
      *
-     * @param username the input username
-     * @param password the input password
-     * @return a loginModel if authentication is successful, null otherwise
+     * @param user the loginModel containing credentials
+     * @return true if credentials are valid, false otherwise
      */
-    public loginModel authenticateUser(String username, String password) {
+    public boolean validateUser(loginModel user) {
         Connection conn = mysql.Openconnection();
         if (conn == null) {
             System.out.println("Connection failed.");
-            return null;
+            return false;
         }
 
-        String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
-
+        String sql = "SELECT role FROM users WHERE username = ? AND password = ?";
         try (PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setString(1, username);
-            pstm.setString(2, password);
-
+            pstm.setString(1, user.getUsername());
+            pstm.setString(2, user.getPassword());
             try (ResultSet rs = pstm.executeQuery()) {
                 if (rs.next()) {
-                    loginModel user = new loginModel();
-                    user.setUserId(rs.getInt("user_id"));
-                    user.setUsername(rs.getString("username"));
-                    user.setEmail(rs.getString("email"));
-                    user.setPhone(rs.getString("phone"));
-                    user.setPassword(rs.getString("password"));
                     user.setRole(rs.getString("role"));
-                    return user;
+                    return true;
                 }
             }
-
         } catch (Exception e) {
-            System.out.println("Error authenticating: " + e.getMessage());
+            System.out.println("Error validating user: " + e.getMessage());
         } finally {
             mysql.closeConnection(conn);
         }
-        return null;
+        return false;
     }
 }
