@@ -1,4 +1,8 @@
-package model;
+﻿package model;
+
+/**
+ * Business logic model for handling validation and status transition of reservations
+ */
 
 import java.util.Date;
 
