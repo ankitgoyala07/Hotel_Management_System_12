@@ -13,6 +13,34 @@ public class GuestDetails {
     // guest id
     private int Guest_id ;
      
+    // Default Constructor
+    public GuestDetails() {}
+
+    // Constructor without ID (for insertion)
+    public GuestDetails(String FULL_NAME, int PHONE_NUMBER, String EMAIL_ADDRESS, int ROOM_NO, int GUEST_NO, String Room_Type, Date CHECK_IN_DATE, Date CHECK_OUT_DATE) {
+        this.FULL_NAME = FULL_NAME;
+        this.PHONE_NUMBER = PHONE_NUMBER;
+        this.EMAIL_ADDRESS = EMAIL_ADDRESS;
+        this.ROOM_NO = ROOM_NO;
+        this.GUEST_NO = GUEST_NO;
+        this.Room_Type = Room_Type;
+        this.CHECK_IN_DATE = CHECK_IN_DATE;
+        this.CHECK_OUT_DATE = CHECK_OUT_DATE;
+    }
+
+    // Full Constructor
+    public GuestDetails(int Guest_id, String FULL_NAME, int PHONE_NUMBER, String EMAIL_ADDRESS, int ROOM_NO, int GUEST_NO, String Room_Type, Date CHECK_IN_DATE, Date CHECK_OUT_DATE) {
+        this.Guest_id = Guest_id;
+        this.FULL_NAME = FULL_NAME;
+        this.PHONE_NUMBER = PHONE_NUMBER;
+        this.EMAIL_ADDRESS = EMAIL_ADDRESS;
+        this.ROOM_NO = ROOM_NO;
+        this.GUEST_NO = GUEST_NO;
+        this.Room_Type = Room_Type;
+        this.CHECK_IN_DATE = CHECK_IN_DATE;
+        this.CHECK_OUT_DATE = CHECK_OUT_DATE;
+    }
+
     public int getId() {
         return Guest_id;
     }
