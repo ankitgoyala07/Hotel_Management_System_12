@@ -28,7 +28,6 @@ public class roommanagement extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -50,18 +49,6 @@ public class roommanagement extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-
-        jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Rooms Management");
@@ -69,7 +56,7 @@ public class roommanagement extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(229, 231, 235)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
@@ -205,31 +192,26 @@ public class roommanagement extends javax.swing.JFrame {
         jButton8.addActionListener(this::jButton8ActionPerformed);
         jPanel5.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 12, 90, 30));
 
-        jTable1.setRowHeight(38);
-        jTable1.setGridColor(new java.awt.Color(229, 231, 235));
-        jTable1.setSelectionBackground(new java.awt.Color(239, 246, 255));
-        jTable1.setSelectionForeground(new java.awt.Color(30, 64, 175));
-        jTable1.getTableHeader().setReorderingAllowed(false);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"#001", "Double bed", "Floor - 1", "AC, shower, Double bed, towel bathtub, TV", "<html><span style='color: #2563EB; background: #DBEAFE; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Available</span></html>", "⋮"},
-                {"#002", "Single bed", "Floor - 2", "AC, shower, bed, TV", "<html><span style='color: #EF4444; background: #FEE2E2; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Booked</span></html>", "⋮"},
-                {"#003", "VIP", "Floor - 1", "AC, shower, Double bed, towel bathtub, TV", "<html><span style='color: #EF4444; background: #FEE2E2; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Booked</span></html>", "⋮"},
-                {"#004", "VIP", "Floor - 1", "AC, shower, Double bed, towel bathtub, TV", "<html><span style='color: #10B981; background: #D1FAE5; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Reserved</span></html>", "⋮"},
-                {"#005", "Single bed", "Floor - 1", "AC, shower, bed, TV", "<html><span style='color: #10B981; background: #D1FAE5; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Reserved</span></html>", "⋮"},
-                {"#006", "Double bed", "Floor - 2", "AC, shower, Double bed, towel bathtub, TV", "<html><span style='color: #F59E0B; background: #FEF3C7; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Waitlist</span></html>", "⋮"},
-                {"#007", "Double bed", "Floor - 3", "AC, shower, Double bed, towel bathtub, TV", "<html><span style='color: #10B981; background: #D1FAE5; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Reserved</span></html>", "⋮"},
-                {"#008", "Single bed", "Floor - 5", "AC, shower, bed, TV", "<html><span style='color: #9CA3AF; background: #F3F4F6; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Blocked</span></html>", "⋮"}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Room number", "Room type", "Room floor", "Room facility", "Status", ""
+                "Room number", "Room type", "Room floor", "Room facility", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -240,51 +222,14 @@ public class roommanagement extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setGridColor(new java.awt.Color(229, 231, 235));
+        jTable1.setRowHeight(38);
+        jTable1.setSelectionBackground(new java.awt.Color(239, 246, 255));
+        jTable1.setSelectionForeground(new java.awt.Color(30, 64, 175));
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 60, 540, 270));
-
-        jButton9.setBackground(new java.awt.Color(249, 250, 251));
-        jButton9.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(75, 85, 99));
-        jButton9.setText("< Previous");
-        jButton9.setBorderPainted(false);
-        jButton9.setFocusPainted(false);
-        jPanel5.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 345, 90, 25));
-
-        jButton10.setBackground(new java.awt.Color(249, 250, 251));
-        jButton10.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(75, 85, 99));
-        jButton10.setText("Next >");
-        jButton10.setBorderPainted(false);
-        jButton10.setFocusPainted(false);
-        jButton10.addActionListener(this::jButton10ActionPerformed);
-        jPanel5.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 345, 90, 25));
-
-        jButton11.setText("1");
-        jPanel5.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 345, 25, 25));
-
-        jButton12.setText("2");
-        jPanel5.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 345, 25, 25));
-
-        jButton13.setText("3");
-        jPanel5.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 345, 25, 25));
-
-        jButton14.setText("4");
-        jPanel5.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 345, 25, 25));
-
-        jButton15.setText("5");
-        jButton15.addActionListener(this::jButton15ActionPerformed);
-        jPanel5.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 345, 25, 25));
-
-        jButton16.setText("6");
-        jPanel5.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 345, 25, 25));
-
-        jButton17.setText("7");
-        jPanel5.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 345, 25, 25));
-
-        jButton18.setText("8");
-        jPanel5.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 345, 25, 25));
+        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 60, 540, 310));
 
         jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 570, 385));
 
@@ -295,18 +240,6 @@ public class roommanagement extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         new view.loginpage().setVisible(true);
@@ -339,6 +272,10 @@ public class roommanagement extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -366,15 +303,6 @@ public class roommanagement extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -382,14 +310,12 @@ public class roommanagement extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonAllRooms;
     private javax.swing.JButton jButtonAvailableRooms;
     private javax.swing.JButton jButtonBookedRooms;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
