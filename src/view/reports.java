@@ -10,6 +10,8 @@ public class reports extends javax.swing.JFrame {
     private JButton jButton1;
     private JButton jButton2;
     private JButton jButton3;
+    private JLabel jLabel1;
+    private JLabel jLabel_reports_title;
     public reports() {
         initComponents();
     }
@@ -20,6 +22,8 @@ public class reports extends javax.swing.JFrame {
         jButton1 = new JButton();
         jButton2 = new JButton();
         jButton3 = new JButton();
+        jLabel1 = new JLabel();
+        jLabel_reports_title = new JLabel();
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(930, 650);
     }
