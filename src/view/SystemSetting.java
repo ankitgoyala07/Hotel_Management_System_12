@@ -32,7 +32,6 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanelHeader = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblRole = new javax.swing.JLabel();
-        lblAvatar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
@@ -93,14 +92,10 @@ public class SystemSetting extends javax.swing.JFrame {
 
         lblRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblRole.setForeground(new java.awt.Color(64, 64, 64));
-        lblRole.setText("Manager");
         lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblRole.setText("Manager");
         jPanelHeader.add(lblRole);
-        lblRole.setBounds(420, 5, 100, 30);
-
-        lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user (1).png"))); // NOI18N
-        jPanelHeader.add(lblAvatar);
-        lblAvatar.setBounds(530, 0, 40, 40);
+        lblRole.setBounds(460, 10, 100, 30);
 
         jPanelMain.add(jPanelHeader);
         jPanelHeader.setBounds(20, 15, 580, 40);
@@ -442,7 +437,6 @@ public class SystemSetting extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblTitle;
