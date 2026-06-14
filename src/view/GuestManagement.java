@@ -45,10 +45,6 @@ public class GuestManagement extends javax.swing.JFrame {
         lblTotalIcon = new javax.swing.JLabel();
         lblTotalTitle = new javax.swing.JLabel();
         lblTotalValue = new javax.swing.JLabel();
-        cardInhouseGuests = new javax.swing.JPanel();
-        lblInhouseIcon = new javax.swing.JLabel();
-        lblInhouseTitle = new javax.swing.JLabel();
-        lblInhouseValue = new javax.swing.JLabel();
         cardCheckinToday = new javax.swing.JPanel();
         lblCheckinIcon = new javax.swing.JLabel();
         lblCheckinTitle = new javax.swing.JLabel();
@@ -125,9 +121,9 @@ public class GuestManagement extends javax.swing.JFrame {
         lblNavLogout.setBounds(15, 305, 170, 35);
 
         getContentPane().add(panelSidebar);
-        panelSidebar.setBounds(0, 0, 200, 630);
+        panelSidebar.setBounds(0, 0, 200, 600);
 
-        panelContent.setBackground(new java.awt.Color(250, 250, 250));
+        panelContent.setBackground(new java.awt.Color(255, 255, 255));
         panelContent.setLayout(null);
 
         headerPanel.setBackground(new java.awt.Color(232, 240, 254));
@@ -137,7 +133,7 @@ public class GuestManagement extends javax.swing.JFrame {
         lblPageTitle.setForeground(new java.awt.Color(32, 33, 36));
         lblPageTitle.setText("Guest Management");
         headerPanel.add(lblPageTitle);
-        lblPageTitle.setBounds(20, 20, 200, 30);
+        lblPageTitle.setBounds(20, 10, 200, 30);
 
         panelProfile.setOpaque(false);
         panelProfile.setLayout(null);
@@ -147,18 +143,19 @@ public class GuestManagement extends javax.swing.JFrame {
         lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblRole.setText("Frontdesk");
         panelProfile.add(lblRole);
-        lblRole.setBounds(20, 20, 140, 16);
+        lblRole.setBounds(10, 20, 140, 16);
 
         headerPanel.add(panelProfile);
         panelProfile.setBounds(380, 5, 160, 40);
 
         lblUserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/user (1).png"))); // NOI18N
         headerPanel.add(lblUserIcon);
-        lblUserIcon.setBounds(550, 10, 50, 40);
+        lblUserIcon.setBounds(540, 10, 50, 30);
 
         panelContent.add(headerPanel);
-        headerPanel.setBounds(20, 20, 640, 60);
+        headerPanel.setBounds(20, 20, 640, 50);
 
+        statsPanel.setBackground(new java.awt.Color(232, 240, 254));
         statsPanel.setOpaque(false);
         statsPanel.setLayout(null);
 
@@ -186,30 +183,6 @@ public class GuestManagement extends javax.swing.JFrame {
         statsPanel.add(cardTotalGuests);
         cardTotalGuests.setBounds(10, 0, 125, 90);
 
-        cardInhouseGuests.setBackground(new java.awt.Color(255, 255, 255));
-        cardInhouseGuests.setLayout(null);
-
-        lblInhouseIcon.setFont(new java.awt.Font("Segoe UI Symbol", 0, 20)); // NOI18N
-        lblInhouseIcon.setForeground(new java.awt.Color(52, 168, 83));
-        lblInhouseIcon.setText("👤");
-        cardInhouseGuests.add(lblInhouseIcon);
-        lblInhouseIcon.setBounds(10, 10, 25, 25);
-
-        lblInhouseTitle.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        lblInhouseTitle.setForeground(new java.awt.Color(96, 96, 96));
-        lblInhouseTitle.setText("In-house Guests");
-        cardInhouseGuests.add(lblInhouseTitle);
-        lblInhouseTitle.setBounds(10, 40, 105, 15);
-
-        lblInhouseValue.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        lblInhouseValue.setForeground(new java.awt.Color(32, 33, 36));
-        lblInhouseValue.setText("32");
-        cardInhouseGuests.add(lblInhouseValue);
-        lblInhouseValue.setBounds(10, 55, 105, 25);
-
-        statsPanel.add(cardInhouseGuests);
-        cardInhouseGuests.setBounds(170, 0, 125, 90);
-
         cardCheckinToday.setBackground(new java.awt.Color(255, 255, 255));
         cardCheckinToday.setLayout(null);
 
@@ -232,7 +205,7 @@ public class GuestManagement extends javax.swing.JFrame {
         lblCheckinValue.setBounds(10, 60, 105, 25);
 
         statsPanel.add(cardCheckinToday);
-        cardCheckinToday.setBounds(330, 0, 125, 90);
+        cardCheckinToday.setBounds(270, 0, 125, 90);
 
         cardCheckoutToday.setBackground(new java.awt.Color(255, 255, 255));
         cardCheckoutToday.setLayout(null);
@@ -321,14 +294,14 @@ public class GuestManagement extends javax.swing.JFrame {
         paginationPanel.setBounds(15, 230, 530, 35);
 
         panelContent.add(tableCardPanel);
-        tableCardPanel.setBounds(30, 220, 630, 360);
+        tableCardPanel.setBounds(20, 210, 630, 360);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         panelContent.add(jSeparator1);
         jSeparator1.setBounds(0, 0, 10, 640);
 
         getContentPane().add(panelContent);
-        panelContent.setBounds(200, 0, 700, 640);
+        panelContent.setBounds(200, 0, 670, 600);
 
         pack();
         setLocationRelativeTo(null);
@@ -367,7 +340,6 @@ public class GuestManagement extends javax.swing.JFrame {
     private javax.swing.JButton btnAddGuest;
     private javax.swing.JPanel cardCheckinToday;
     private javax.swing.JPanel cardCheckoutToday;
-    private javax.swing.JPanel cardInhouseGuests;
     private javax.swing.JPanel cardTotalGuests;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JSeparator jSeparator1;
@@ -377,9 +349,6 @@ public class GuestManagement extends javax.swing.JFrame {
     private javax.swing.JLabel lblCheckoutIcon;
     private javax.swing.JLabel lblCheckoutTitle;
     private javax.swing.JLabel lblCheckoutValue;
-    private javax.swing.JLabel lblInhouseIcon;
-    private javax.swing.JLabel lblInhouseTitle;
-    private javax.swing.JLabel lblInhouseValue;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblNavBilling;
     private javax.swing.JLabel lblNavBookings;
