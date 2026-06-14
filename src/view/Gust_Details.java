@@ -17,7 +17,29 @@ public class Gust_Details extends javax.swing.JFrame {
      */
     public Gust_Details() {
         initComponents();
+        // Activate Controller to wire logic and database binding
+        new controller.GuestDetailsController(this);
+        setLocationRelativeTo(null);
     }
+
+    // Public Getters for inputs
+    public javax.swing.JTextField getTxtFullName() { return jTextField1; }
+    public javax.swing.JTextField getTxtPhoneNumber() { return jTextField6; }
+    public javax.swing.JTextField getTxtEmailAddress() { return jTextField4; }
+    public javax.swing.JComboBox<String> getComboRoomType() { return jComboBox1; }
+    public javax.swing.JTextField getTxtRoomNo() { return jTextField7; }
+    public javax.swing.JTextField getTxtGuestNo() { return jTextField8; }
+    public com.toedter.calendar.JDateChooser getDateChooserCheckIn() { return jDateChooser1; }
+    public com.toedter.calendar.JDateChooser getDateChooserCheckOut() { return jDateChooser2; }
+
+    // Public Getters for buttons
+    public javax.swing.JButton getBtnDashboard() { return jButton1; }
+    public javax.swing.JButton getBtnRoomBrowsing() { return jButton2; }
+    public javax.swing.JButton getBtnOrderFood() { return jButton3; }
+    public javax.swing.JButton getBtnFeedback() { return jButton4; }
+    public javax.swing.JButton getBtnLogout() { return jButton5; }
+    public javax.swing.JButton getBtnConfirmBooking() { return jButton6; }
+
 
     public void setRoomType(String roomType) {
         jComboBox1.setSelectedItem(roomType);
