@@ -17,8 +17,37 @@ public class BookRoom extends javax.swing.JFrame {
      */
     public BookRoom() {
         initComponents();
+        // Activate Controller to wire logic and database binding
+        new controller.BookRoomController(this);
         setLocationRelativeTo(null);
     }
+
+    // Public Getters for controller to bind listeners
+    public javax.swing.JButton getBtnDashboard() { return jButton1; }
+    public javax.swing.JButton getBtnRoomBrowsing() { return jButton2; }
+    public javax.swing.JButton getBtnOrderFood() { return jButton4; }
+    public javax.swing.JButton getBtnFeedback() { return jButton3; }
+    public javax.swing.JButton getBtnLogout() { return jButton5; }
+    public javax.swing.JButton getBtnBookVip() { return jButton6; }
+    public javax.swing.JButton getBtnBookDouble() { return jButton7; }
+    public javax.swing.JButton getBtnBookSingle() { return jButton9; }
+
+    // Public Getters for Room UI Labels (for dynamic database populating)
+    public javax.swing.JLabel getLblVipPrice() { return jLabel_vip_price; }
+    public javax.swing.JLabel getLblVipSize() { return jLabel_vip_size; }
+    public javax.swing.JLabel getLblVipBed() { return jLabel_vip_bed; }
+    public javax.swing.JTextArea getTxtVipDesc() { return jTextArea_vip_desc; }
+
+    public javax.swing.JLabel getLblDoublePrice() { return jLabel_double_price; }
+    public javax.swing.JLabel getLblDoubleSize() { return jLabel_double_size; }
+    public javax.swing.JLabel getLblDoubleBed() { return jLabel_double_bed; }
+    public javax.swing.JTextArea getTxtDoubleDesc() { return jTextArea_double_desc; }
+
+    public javax.swing.JLabel getLblSinglePrice() { return jLabel_single_price; }
+    public javax.swing.JLabel getLblSingleSize() { return jLabel_single_size; }
+    public javax.swing.JLabel getLblSingleBed() { return jLabel_single_bed; }
+    public javax.swing.JTextArea getTxtSingleDesc() { return jTextArea_single_desc; }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -390,48 +419,35 @@ public class BookRoom extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new gest_dashbord().setVisible(true);
-        this.dispose();
+        // Handled by BookRoomController
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // Room browsing (refresh or do nothing)
+        // Handled by BookRoomController
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new OrderFood().setVisible(true);
-        this.dispose();
+        // Handled by BookRoomController
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new Feedback().setVisible(true);
-        this.dispose();
+        // Handled by BookRoomController
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        new loginpage().setVisible(true);
-        this.dispose();
+        // Handled by BookRoomController
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        Gust_Details details = new Gust_Details();
-        details.setRoomType("VIP");
-        details.setVisible(true);
-        this.dispose();
+        // Handled by BookRoomController
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        Gust_Details details = new Gust_Details();
-        details.setRoomType("Double Bed Room");
-        details.setVisible(true);
-        this.dispose();
+        // Handled by BookRoomController
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        Gust_Details details = new Gust_Details();
-        details.setRoomType("Single Bed Room ");
-        details.setVisible(true);
-        this.dispose();
+        // Handled by BookRoomController
     }//GEN-LAST:event_jButton9ActionPerformed
 
     /**

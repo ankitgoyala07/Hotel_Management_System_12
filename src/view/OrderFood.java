@@ -566,6 +566,22 @@ public class OrderFood extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonDashboardActionPerformed(java.awt.event.ActionEvent evt) {
+        new gest_dashbord().setVisible(true);
+        this.dispose();
+    }
+
+    private void jButtonAdd1ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jButtonAdd2ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jButtonAdd3ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jButtonAdd4ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jButtonAdd5ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jButtonAdd6ActionPerformed(java.awt.event.ActionEvent evt) {}
+    private void jButtonAdd7ActionPerformed(java.awt.event.ActionEvent evt) {}
+
+    private void jButtonCompleteActionPerformed(java.awt.event.ActionEvent evt) {}
+
+
     /**
      * @param args the command line arguments
      */
