@@ -67,7 +67,7 @@ public class BookingManagement extends javax.swing.JFrame {
         jLabelLogo.setText("    HMS");
         jPanelSidebar.add(jLabelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, 130, 35));
 
-        jButtonDashboard.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButtonDashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButtonDashboard.setForeground(new java.awt.Color(75, 85, 99));
         jButtonDashboard.setText("    Dashboard");
         jButtonDashboard.setBorderPainted(false);
@@ -77,7 +77,7 @@ public class BookingManagement extends javax.swing.JFrame {
         jButtonDashboard.addActionListener(this::jButtonDashboardActionPerformed);
         jPanelSidebar.add(jButtonDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 70, 140, 32));
 
-        jButtonGuests.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButtonGuests.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButtonGuests.setForeground(new java.awt.Color(75, 85, 99));
         jButtonGuests.setText("    Guests");
         jButtonGuests.setBorderPainted(false);
@@ -87,7 +87,7 @@ public class BookingManagement extends javax.swing.JFrame {
         jPanelSidebar.add(jButtonGuests, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 110, 140, 32));
 
         jButtonBookings.setBackground(new java.awt.Color(219, 234, 254));
-        jButtonBookings.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButtonBookings.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButtonBookings.setForeground(new java.awt.Color(37, 99, 235));
         jButtonBookings.setText("    Bookings");
         jButtonBookings.setBorderPainted(false);
@@ -96,7 +96,7 @@ public class BookingManagement extends javax.swing.JFrame {
         jButtonBookings.addActionListener(this::jButtonBookingsActionPerformed);
         jPanelSidebar.add(jButtonBookings, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 150, 140, 32));
 
-        jButtonMealTime.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButtonMealTime.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButtonMealTime.setForeground(new java.awt.Color(75, 85, 99));
         jButtonMealTime.setText("    Meal time");
         jButtonMealTime.setBorderPainted(false);
@@ -106,7 +106,7 @@ public class BookingManagement extends javax.swing.JFrame {
         jButtonMealTime.addActionListener(this::jButtonMealTimeActionPerformed);
         jPanelSidebar.add(jButtonMealTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 190, 140, 32));
 
-        jButtonBilling.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButtonBilling.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButtonBilling.setForeground(new java.awt.Color(75, 85, 99));
         jButtonBilling.setText("    Billing");
         jButtonBilling.setBorderPainted(false);
@@ -116,7 +116,7 @@ public class BookingManagement extends javax.swing.JFrame {
         jButtonBilling.addActionListener(this::jButtonBillingActionPerformed);
         jPanelSidebar.add(jButtonBilling, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 230, 140, 32));
 
-        jButtonLogout.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButtonLogout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButtonLogout.setForeground(new java.awt.Color(75, 85, 99));
         jButtonLogout.setText("    Logout");
         jButtonLogout.setBorderPainted(false);
