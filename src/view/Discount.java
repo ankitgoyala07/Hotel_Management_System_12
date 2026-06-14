@@ -72,6 +72,9 @@ jPanelTableCard = new javax.swing.JPanel();
 
 jButtonOngoing = new javax.swing.JButton();
         jButtonAddDeal = new javax.swing.JButton();
+
+jScrollPaneTable = new javax.swing.JScrollPane();
+        jTableDeals = new javax.swing.JTable();
 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 700));
         getContentPane().setLayout(null);
@@ -218,6 +221,37 @@ jButtonOngoing.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jPanelTableCard.add(jButtonAddDeal);
         jButtonAddDeal.setBounds(550, 20, 110, 36);
 
+jTableDeals.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"#5644", "Family deal", "10", "21/3/23", "Ongoing", "⋮"},
+                {"#6112", "Christmas deal", "12", "25/3/23", "Full", "⋮"},
+                {"#6141", "Family deal", "15", "-", "Inactive", "⋮"},
+                {"#6535", "Black Friday", "15", "1/5/23", "New", "⋮"}
+            },
+            new String [] {
+                "Deal code", "Deal name", "Reservations left", "End date", "Status", ""
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPaneTable.setViewportView(jTableDeals);
+
+        jPanelTableCard.add(jScrollPaneTable);
+        jScrollPaneTable.setBounds(20, 70, 640, 420);
+
 jPanelTableBg.add(jPanelTableCard);
         jPanelTableCard.setBounds(20, 20, 680, 510);
 
@@ -280,5 +314,8 @@ private javax.swing.JPanel jPanelSidebar;
 private javax.swing.JPanel jPanelTableBg;
 
 private javax.swing.JPanel jPanelTableCard;
+
+private javax.swing.JScrollPane jScrollPaneTable;
+    private javax.swing.JTable jTableDeals;
 // End of variables declaration
 }
