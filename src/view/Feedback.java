@@ -17,71 +17,25 @@ public class Feedback extends javax.swing.JFrame {
      */
     public Feedback() {
         initComponents();
-        
-        // Sidebar navigation
-        jButton1.addActionListener(e -> {
-            new gest_dashbord().setVisible(true);
-            this.dispose();
-        });
-        jButton2.addActionListener(e -> {
-            new BookRoom().setVisible(true);
-            this.dispose();
-        });
-        jButton3.addActionListener(e -> {
-            new OrderFood().setVisible(true);
-            this.dispose();
-        });
-        jButton4.addActionListener(e -> {
-            new Feedback().setVisible(true);
-            this.dispose();
-        });
-        jButton5.addActionListener(e -> {
-            new loginpage().setVisible(true);
-            this.dispose();
-        });
-
-        // Submit Review
-        jButton6.addActionListener(e -> {
-            String serviceRatingStr = jTextField4.getText().trim();
-            String cleanlinessRatingStr = jTextField2.getText().trim();
-            String foodRatingStr = jTextField3.getText().trim();
-            String reviewText = jTextArea1.getText().trim();
-
-            if (serviceRatingStr.isEmpty() || cleanlinessRatingStr.isEmpty() || foodRatingStr.isEmpty() || reviewText.isEmpty()) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Please fill in all rating fields and provide a detailed review.", "Validation Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-
-            try {
-                int serviceRating = Integer.parseInt(serviceRatingStr);
-                int cleanlinessRating = Integer.parseInt(cleanlinessRatingStr);
-                int foodRating = Integer.parseInt(foodRatingStr);
-
-                if (serviceRating < 1 || serviceRating > 5 || cleanlinessRating < 1 || cleanlinessRating > 5 || foodRating < 1 || foodRating > 5) {
-                    javax.swing.JOptionPane.showMessageDialog(this, "Ratings must be between 1 and 5.", "Validation Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-
-                // Success
-                javax.swing.JOptionPane.showMessageDialog(this, "Thank you for your feedback! It has been submitted successfully.", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-                
-                // Clear fields
-                jTextField4.setText("1-5");
-                jTextField2.setText("1-5");
-                jTextField3.setText("1-5");
-                jTextArea1.setText("");
-
-                // Navigate back to dashboard
-                new gest_dashbord().setVisible(true);
-                this.dispose();
-
-            } catch (NumberFormatException ex) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Ratings must be valid integers.", "Validation Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-            }
-        });
-
+        // Activate Controller to wire logic and database binding
+        new controller.FeedbackController(this);
         setLocationRelativeTo(null);
     }
+
+    // Public Getters for inputs
+    public javax.swing.JTextField getTxtCleanlinessRating() { return jTextField2; }
+    public javax.swing.JTextField getTxtFoodRating() { return jTextField3; }
+    public javax.swing.JTextField getTxtServiceRating() { return jTextField4; }
+    public javax.swing.JTextArea getTxtReviewText() { return jTextArea1; }
+
+    // Public Getters for buttons
+    public javax.swing.JButton getBtnDashboard() { return jButton1; }
+    public javax.swing.JButton getBtnRoomBrowsing() { return jButton2; }
+    public javax.swing.JButton getBtnOrderFood() { return jButton3; }
+    public javax.swing.JButton getBtnFeedback() { return jButton4; }
+    public javax.swing.JButton getBtnLogout() { return jButton5; }
+    public javax.swing.JButton getBtnSubmitReview() { return jButton6; }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
