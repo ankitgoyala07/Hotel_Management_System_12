@@ -31,9 +31,9 @@ public class roommanagement extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -44,6 +44,9 @@ public class roommanagement extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
+        jButtonAllRooms = new javax.swing.JButton();
+        jButtonAvailableRooms = new javax.swing.JButton();
+        jButtonBookedRooms = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -61,245 +64,236 @@ public class roommanagement extends javax.swing.JFrame {
         jLabel4.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Rooms Management");
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(240, 242, 245));
-        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
-        jPanel1.setMinimumSize(new java.awt.Dimension(190, 500));
-        jPanel1.setPreferredSize(new java.awt.Dimension(190, 500));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(229, 231, 235)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
-        jLabel1.setText("HMS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 73, -1));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(37, 99, 235));
+        jLabel1.setText("    HMS");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, 130, 35));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton1.setText("Bookings");
-        jButton1.setBorderPainted(false);
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 160, 32));
-
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton2.setText("Dashboard");
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(75, 85, 99));
+        jButton2.setText("    Dashboard");
         jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
         jButton2.setFocusPainted(false);
         jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton2.setMaximumSize(new java.awt.Dimension(81, 29));
-        jButton2.setMinimumSize(new java.awt.Dimension(81, 29));
-        jButton2.setPreferredSize(new java.awt.Dimension(81, 29));
         jButton2.addActionListener(this::jButton2ActionPerformed);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 160, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 70, 140, 32));
 
-        jButton3.setBackground(new java.awt.Color(88, 132, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("   Rooms");
-        jButton3.setBorder(null);
+        jButton3.setBackground(new java.awt.Color(219, 234, 254));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(37, 99, 235));
+        jButton3.setText("    Rooms");
         jButton3.setBorderPainted(false);
+        jButton3.setFocusPainted(false);
         jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton3.addActionListener(this::jButton3ActionPerformed);
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 160, 30));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 110, 140, 32));
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton4.setText("Staffs");
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(75, 85, 99));
+        jButton1.setText("    Discount & Offers");
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 150, 140, 32));
+
+        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(75, 85, 99));
+        jButton4.setText("    Staffs");
         jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setFocusPainted(false);
         jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton4.addActionListener(this::jButton4ActionPerformed);
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 160, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 190, 140, 32));
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton5.setText("System Setting");
+        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(75, 85, 99));
+        jButton5.setText("    System Setting");
         jButton5.setBorderPainted(false);
+        jButton5.setContentAreaFilled(false);
+        jButton5.setFocusPainted(false);
         jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton5.addActionListener(this::jButton5ActionPerformed);
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 160, -1));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 230, 140, 32));
 
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton6.setText("Reports");
+        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(75, 85, 99));
+        jButton6.setText("    Reports");
         jButton6.setBorderPainted(false);
+        jButton6.setContentAreaFilled(false);
+        jButton6.setFocusPainted(false);
         jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton6.addActionListener(this::jButton6ActionPerformed);
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 160, -1));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 270, 140, 32));
 
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton7.setText("LogOut");
+        jButton7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(75, 85, 99));
+        jButton7.setText("    Logout");
         jButton7.setBorderPainted(false);
+        jButton7.setContentAreaFilled(false);
+        jButton7.setFocusPainted(false);
         jButton7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton7.addActionListener(this::jButton7ActionPerformed);
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 160, -1));
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 310, 140, 32));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 500));
+
+        jPanel2.setBackground(new java.awt.Color(249, 250, 251));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(245, 245, 245));
+        jPanel3.setBackground(new java.awt.Color(229, 231, 235));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("Room Management");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel2.setText("Rooms Management");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 7, 220, 30));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(75, 85, 99));
         jLabel3.setText("Manager");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 100, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                    .addComponent(jLabel3))
-                .addContainerGap())
-        );
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 600, 45));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 14, 600, -1));
-
-        jPanel4.setBackground(new java.awt.Color(229, 231, 235));
+        jPanel4.setBackground(new java.awt.Color(209, 213, 219));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton8.setBackground(new java.awt.Color(88, 132, 255));
-        jButton8.setText("Add Rooms");
+        jButtonAllRooms.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jButtonAllRooms.setForeground(new java.awt.Color(37, 99, 235));
+        jButtonAllRooms.setText("All room(100)");
+        jButtonAllRooms.setBorderPainted(false);
+        jButtonAllRooms.setContentAreaFilled(false);
+        jButtonAllRooms.setFocusPainted(false);
+        jPanel5.add(jButtonAllRooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 105, 25));
+
+        jButtonAvailableRooms.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jButtonAvailableRooms.setForeground(new java.awt.Color(37, 99, 235));
+        jButtonAvailableRooms.setText("Available room(20)");
+        jButtonAvailableRooms.setBorderPainted(false);
+        jButtonAvailableRooms.setContentAreaFilled(false);
+        jButtonAvailableRooms.setFocusPainted(false);
+        jPanel5.add(jButtonAvailableRooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 15, 140, 25));
+
+        jButtonBookedRooms.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jButtonBookedRooms.setForeground(new java.awt.Color(37, 99, 235));
+        jButtonBookedRooms.setText("Booked(80)");
+        jButtonBookedRooms.setBorderPainted(false);
+        jButtonBookedRooms.setContentAreaFilled(false);
+        jButtonBookedRooms.setFocusPainted(false);
+        jPanel5.add(jButtonBookedRooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 15, 100, 25));
+
+        jButton8.setBackground(new java.awt.Color(37, 99, 235));
+        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setText("Add room");
+        jButton8.setBorderPainted(false);
         jButton8.addActionListener(this::jButton8ActionPerformed);
+        jPanel5.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 12, 90, 30));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton8)
-                .addGap(21, 21, 21))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
+        jTable1.setRowHeight(38);
+        jTable1.setGridColor(new java.awt.Color(229, 231, 235));
+        jTable1.setSelectionBackground(new java.awt.Color(239, 246, 255));
+        jTable1.setSelectionForeground(new java.awt.Color(30, 64, 175));
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {"#001", "Double bed", "Floor - 1", "AC, shower, Double bed, towel bathtub, TV", "<html><span style='color: #2563EB; background: #DBEAFE; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Available</span></html>", "⋮"},
+                {"#002", "Single bed", "Floor - 2", "AC, shower, bed, TV", "<html><span style='color: #EF4444; background: #FEE2E2; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Booked</span></html>", "⋮"},
+                {"#003", "VIP", "Floor - 1", "AC, shower, Double bed, towel bathtub, TV", "<html><span style='color: #EF4444; background: #FEE2E2; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Booked</span></html>", "⋮"},
+                {"#004", "VIP", "Floor - 1", "AC, shower, Double bed, towel bathtub, TV", "<html><span style='color: #10B981; background: #D1FAE5; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Reserved</span></html>", "⋮"},
+                {"#005", "Single bed", "Floor - 1", "AC, shower, bed, TV", "<html><span style='color: #10B981; background: #D1FAE5; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Reserved</span></html>", "⋮"},
+                {"#006", "Double bed", "Floor - 2", "AC, shower, Double bed, towel bathtub, TV", "<html><span style='color: #F59E0B; background: #FEF3C7; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Waitlist</span></html>", "⋮"},
+                {"#007", "Double bed", "Floor - 3", "AC, shower, Double bed, towel bathtub, TV", "<html><span style='color: #10B981; background: #D1FAE5; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Reserved</span></html>", "⋮"},
+                {"#008", "Single bed", "Floor - 5", "AC, shower, bed, TV", "<html><span style='color: #9CA3AF; background: #F3F4F6; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Blocked</span></html>", "⋮"}
             },
             new String [] {
-                "Room Number", "Room Type", "Room Floor", "Room Faculty", "Status"
+                "Room number", "Room type", "Room floor", "Room facility", "Status", ""
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
-        jButton9.setBackground(new java.awt.Color(229, 231, 235));
+        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 60, 540, 270));
+
+        jButton9.setBackground(new java.awt.Color(249, 250, 251));
+        jButton9.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jButton9.setForeground(new java.awt.Color(75, 85, 99));
         jButton9.setText("< Previous");
         jButton9.setBorderPainted(false);
         jButton9.setFocusPainted(false);
+        jPanel5.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 345, 90, 25));
 
-        jButton10.setBackground(new java.awt.Color(229, 231, 235));
+        jButton10.setBackground(new java.awt.Color(249, 250, 251));
+        jButton10.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        jButton10.setForeground(new java.awt.Color(75, 85, 99));
         jButton10.setText("Next >");
         jButton10.setBorderPainted(false);
         jButton10.setFocusPainted(false);
         jButton10.addActionListener(this::jButton10ActionPerformed);
+        jPanel5.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 345, 90, 25));
 
         jButton11.setText("1");
+        jPanel5.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 345, 25, 25));
 
         jButton12.setText("2");
+        jPanel5.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 345, 25, 25));
 
         jButton13.setText("3");
+        jPanel5.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(245, 345, 25, 25));
 
         jButton14.setText("4");
+        jPanel5.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 345, 25, 25));
 
         jButton15.setText("5");
         jButton15.addActionListener(this::jButton15ActionPerformed);
+        jPanel5.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 345, 25, 25));
 
         jButton16.setText("6");
+        jPanel5.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(335, 345, 25, 25));
 
         jButton17.setText("7");
+        jPanel5.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(365, 345, 25, 25));
 
         jButton18.setText("8");
+        jPanel5.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 345, 25, 25));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton9)
-                        .addGap(95, 95, 95)
-                        .addComponent(jButton11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                        .addComponent(jButton10)))
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10)
-                    .addComponent(jButton11)
-                    .addComponent(jButton12)
-                    .addComponent(jButton13)
-                    .addComponent(jButton14)
-                    .addComponent(jButton15)
-                    .addComponent(jButton16)
-                    .addComponent(jButton17)
-                    .addComponent(jButton18))
-                .addContainerGap(7, Short.MAX_VALUE))
-        );
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 570, 385));
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 79, -1, -1));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 70, 600, 415));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 630, 500));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -371,14 +365,6 @@ public class roommanagement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRooms;
-    private javax.swing.JButton btnRooms1;
-    private javax.swing.JButton btnRooms2;
-    private javax.swing.JButton btnRooms3;
-    private javax.swing.JButton btnRooms4;
-    private javax.swing.JButton btnRooms5;
-    private javax.swing.JButton btnRooms6;
-    private javax.swing.JButton btnRooms7;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -397,6 +383,9 @@ public class roommanagement extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButtonAllRooms;
+    private javax.swing.JButton jButtonAvailableRooms;
+    private javax.swing.JButton jButtonBookedRooms;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -406,23 +395,7 @@ public class roommanagement extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanelSidebar;
-    private javax.swing.JPanel jPanelSidebar1;
-    private javax.swing.JPanel jPanelSidebar2;
-    private javax.swing.JPanel jPanelSidebar3;
-    private javax.swing.JPanel jPanelSidebar4;
-    private javax.swing.JPanel jPanelSidebar5;
-    private javax.swing.JPanel jPanelSidebar6;
-    private javax.swing.JPanel jPanelSidebar7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblLogo;
-    private javax.swing.JLabel lblLogo1;
-    private javax.swing.JLabel lblLogo2;
-    private javax.swing.JLabel lblLogo3;
-    private javax.swing.JLabel lblLogo4;
-    private javax.swing.JLabel lblLogo5;
-    private javax.swing.JLabel lblLogo6;
-    private javax.swing.JLabel lblLogo7;
     // End of variables declaration//GEN-END:variables
 }
