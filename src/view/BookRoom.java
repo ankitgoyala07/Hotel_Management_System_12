@@ -103,14 +103,11 @@ public class BookRoom extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Room Browsing");
         setResizable(false);
-        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(62, 82, 232));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/hms_logo.png"))); // NOI18N
         jLabel1.setText("   HMS");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(25, 25, 130, 30);
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(75, 85, 99));
@@ -120,8 +117,6 @@ public class BookRoom extends javax.swing.JFrame {
         jButton1.setFocusPainted(false);
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton1.addActionListener(this::jButton1ActionPerformed);
-        getContentPane().add(jButton1);
-        jButton1.setBounds(15, 80, 150, 35);
 
         jButton2.setBackground(new java.awt.Color(226, 236, 252));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -132,8 +127,6 @@ public class BookRoom extends javax.swing.JFrame {
         jButton2.setFocusPainted(false);
         jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton2.addActionListener(this::jButton2ActionPerformed);
-        getContentPane().add(jButton2);
-        jButton2.setBounds(15, 125, 160, 35);
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton4.setForeground(new java.awt.Color(75, 85, 99));
@@ -143,8 +136,6 @@ public class BookRoom extends javax.swing.JFrame {
         jButton4.setFocusPainted(false);
         jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton4.addActionListener(this::jButton4ActionPerformed);
-        getContentPane().add(jButton4);
-        jButton4.setBounds(15, 170, 150, 35);
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton3.setForeground(new java.awt.Color(75, 85, 99));
@@ -154,8 +145,6 @@ public class BookRoom extends javax.swing.JFrame {
         jButton3.setFocusPainted(false);
         jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton3.addActionListener(this::jButton3ActionPerformed);
-        getContentPane().add(jButton3);
-        jButton3.setBounds(15, 215, 150, 35);
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton5.setForeground(new java.awt.Color(75, 85, 99));
@@ -165,13 +154,9 @@ public class BookRoom extends javax.swing.JFrame {
         jButton5.setFocusPainted(false);
         jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton5.addActionListener(this::jButton5ActionPerformed);
-        getContentPane().add(jButton5);
-        jButton5.setBounds(15, 260, 150, 35);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 180, 600);
 
         jPanel5.setBackground(new java.awt.Color(243, 248, 249));
         jPanel5.setLayout(null);
@@ -411,8 +396,51 @@ public class BookRoom extends javax.swing.JFrame {
         jPanel5.add(jPanel6);
         jPanel6.setBounds(20, 85, 680, 490);
 
-        getContentPane().add(jPanel5);
-        jPanel5.setBounds(180, 0, 720, 600);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
         setLocationRelativeTo(null);
