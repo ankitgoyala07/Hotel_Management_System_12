@@ -134,7 +134,7 @@ public class Gust_Details extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(226, 236, 252));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -286,7 +286,7 @@ public class Gust_Details extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(226, 236, 252));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jLabel2.setText("Room browsing");
