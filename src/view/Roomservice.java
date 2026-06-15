@@ -6,54 +6,24 @@ public class Roomservice extends javax.swing.JFrame {
 
     public Roomservice() {
         initComponents();
-        
-        // Sidebar navigation
-        jButton1.addActionListener(e -> {
-            new gest_dashbord().setVisible(true);
-            this.dispose();
-        });
-        jButton2.addActionListener(e -> {
-            new BookRoom().setVisible(true);
-            this.dispose();
-        });
-        jButton3.addActionListener(e -> {
-            new OrderFood().setVisible(true);
-            this.dispose();
-        });
-        jButton4.addActionListener(e -> {
-            new Feedback().setVisible(true);
-            this.dispose();
-        });
-        jButton5.addActionListener(e -> {
-            new loginpage().setVisible(true);
-            this.dispose();
-        });
-
-        // Submit service request
-        jButton6.addActionListener(e -> {
-            String serviceType = (String) jComboBox1.getSelectedItem();
-            String roomNo = jTextField1.getText().trim();
-            String instructions = jTextArea1.getText().trim();
-
-            if (roomNo.isEmpty() || instructions.isEmpty()) {
-                javax.swing.JOptionPane.showMessageDialog(this, "Please enter your Room Number and request details.", "Validation Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-
-            // Success
-            javax.swing.JOptionPane.showMessageDialog(this, "Your request for " + serviceType + " in room " + roomNo + " has been submitted. Our staff is on the way!", "Success", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-            
-            // Clear fields
-            jTextField1.setText("");
-            jTextArea1.setText("");
-
-            // Navigate back to dashboard
-            new gest_dashbord().setVisible(true);
-            this.dispose();
-        });
-
+        // Activate Controller to wire logic and database binding
+        new controller.RoomServiceController(this);
         setLocationRelativeTo(null);
     }
+
+    // Public Getters for inputs
+    public javax.swing.JComboBox<String> getComboServiceType() { return jComboBox1; }
+    public javax.swing.JTextField getTxtRoomNo() { return jTextField1; }
+    public javax.swing.JTextArea getTxtInstructions() { return jTextArea1; }
+
+    // Public Getters for buttons
+    public javax.swing.JButton getBtnDashboard() { return jButton1; }
+    public javax.swing.JButton getBtnRoomBrowsing() { return jButton2; }
+    public javax.swing.JButton getBtnOrderFood() { return jButton3; }
+    public javax.swing.JButton getBtnFeedback() { return jButton4; }
+    public javax.swing.JButton getBtnLogout() { return jButton5; }
+    public javax.swing.JButton getBtnSubmitRequest() { return jButton6; }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

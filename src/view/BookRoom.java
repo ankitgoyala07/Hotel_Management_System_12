@@ -111,7 +111,6 @@ public class BookRoom extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(75, 85, 99));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/icon_dashboard.png"))); // NOI18N
         jButton1.setText("  Dashboard");
         jButton1.setBorderPainted(false);
         jButton1.setFocusPainted(false);
@@ -121,7 +120,6 @@ public class BookRoom extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(226, 236, 252));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jButton2.setForeground(new java.awt.Color(62, 82, 232));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/icon_room.png"))); // NOI18N
         jButton2.setText("  Room browsing");
         jButton2.setBorderPainted(false);
         jButton2.setFocusPainted(false);
@@ -130,7 +128,6 @@ public class BookRoom extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton4.setForeground(new java.awt.Color(75, 85, 99));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/icon_food.png"))); // NOI18N
         jButton4.setText("  Order Food");
         jButton4.setBorderPainted(false);
         jButton4.setFocusPainted(false);
@@ -139,7 +136,6 @@ public class BookRoom extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton3.setForeground(new java.awt.Color(75, 85, 99));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/icon_feedback.png"))); // NOI18N
         jButton3.setText("  Feedback");
         jButton3.setBorderPainted(false);
         jButton3.setFocusPainted(false);
@@ -148,7 +144,6 @@ public class BookRoom extends javax.swing.JFrame {
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton5.setForeground(new java.awt.Color(75, 85, 99));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/icon_logout.png"))); // NOI18N
         jButton5.setText("  Logout");
         jButton5.setBorderPainted(false);
         jButton5.setFocusPainted(false);
@@ -161,7 +156,7 @@ public class BookRoom extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(243, 248, 249));
         jPanel5.setLayout(null);
 
-        jPanel7.setBackground(new java.awt.Color(230, 230, 230));
+        jPanel7.setBackground(new java.awt.Color(226, 236, 252));
         jPanel7.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
@@ -183,7 +178,7 @@ public class BookRoom extends javax.swing.JFrame {
         jPanel5.add(jPanel7);
         jPanel7.setBounds(20, 20, 680, 45);
 
-        jPanel6.setBackground(new java.awt.Color(230, 230, 230));
+        jPanel6.setBackground(new java.awt.Color(226, 236, 252));
         jPanel6.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
