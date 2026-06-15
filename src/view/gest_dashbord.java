@@ -48,9 +48,9 @@ public class gest_dashbord extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -81,48 +81,59 @@ public class gest_dashbord extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jButton2.setText("Book Room");
+        jButton2.setBorder(null);
         getContentPane().add(jButton2);
         jButton2.setBounds(20, 117, 121, 32);
 
         jButton3.setText("Order Food");
+        jButton3.setBorder(null);
         getContentPane().add(jButton3);
         jButton3.setBounds(20, 167, 121, 32);
 
         jButton4.setText("Feedback");
+        jButton4.setBorder(null);
         getContentPane().add(jButton4);
         jButton4.setBounds(20, 217, 121, 32);
 
         jButton6.setText("Logout");
+        jButton6.setBorder(null);
         getContentPane().add(jButton6);
         jButton6.setBounds(20, 267, 121, 32);
 
-        jLabel2.setText("           HMS");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 15, 121, 34);
-
         jButton8.setText("Dashboard");
+        jButton8.setBorder(null);
         getContentPane().add(jButton8);
         jButton8.setBounds(20, 70, 120, 30);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
+        jLabel2.setText("           HMS");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(481, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 160, 500);
+        jPanel1.setBounds(0, 0, 160, 530);
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBackground(new java.awt.Color(243, 248, 249));
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(226, 236, 252));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -328,7 +339,7 @@ public class gest_dashbord extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel6.setBackground(new java.awt.Color(226, 236, 252));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(153, 153, 153));
