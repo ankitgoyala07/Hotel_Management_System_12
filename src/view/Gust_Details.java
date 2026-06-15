@@ -97,26 +97,31 @@ public class Gust_Details extends javax.swing.JFrame {
         jLabel1.setBounds(50, 17, 34, 31);
 
         jButton1.setText("Dashboard");
+        jButton1.setBorder(null);
         getContentPane().add(jButton1);
         jButton1.setBounds(6, 54, 114, 32);
 
         jButton2.setText("Room browsing");
+        jButton2.setBorder(null);
         getContentPane().add(jButton2);
-        jButton2.setBounds(6, 104, 114, 32);
+        jButton2.setBounds(6, 104, 84, 32);
 
         jButton3.setText("Order Food");
+        jButton3.setBorder(null);
         getContentPane().add(jButton3);
         jButton3.setBounds(6, 155, 114, 32);
 
         jButton4.setText("Feedback");
+        jButton4.setBorder(null);
         getContentPane().add(jButton4);
         jButton4.setBounds(6, 206, 114, 32);
 
         jButton5.setText("Logout");
+        jButton5.setBorder(null);
         getContentPane().add(jButton5);
         jButton5.setBounds(6, 258, 114, 32);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -132,7 +137,7 @@ public class Gust_Details extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 150, 540);
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setBackground(new java.awt.Color(243, 248, 249));
 
         jPanel1.setBackground(new java.awt.Color(226, 236, 252));
 
