@@ -63,33 +63,38 @@ public class Roomservice extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(50, 17, 34, 31);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
         jButton1.setText("Dashboard");
+        jButton1.setBorder(null);
         jPanel2.add(jButton1);
         jButton1.setBounds(6, 54, 114, 32);
 
         jButton2.setText("Room browsing");
+        jButton2.setBorder(null);
         jPanel2.add(jButton2);
         jButton2.setBounds(6, 104, 114, 32);
 
         jButton3.setText("Order Food");
+        jButton3.setBorder(null);
         jPanel2.add(jButton3);
         jButton3.setBounds(6, 155, 114, 32);
 
         jButton4.setText("Feedback");
+        jButton4.setBorder(null);
         jPanel2.add(jButton4);
         jButton4.setBounds(6, 206, 114, 32);
 
         jButton5.setText("Logout");
+        jButton5.setBorder(null);
         jPanel2.add(jButton5);
         jButton5.setBounds(6, 258, 114, 32);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 150, 540);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(243, 248, 249));
         jPanel1.setLayout(null);
 
         jPanel6.setBackground(new java.awt.Color(226, 236, 252));
@@ -111,7 +116,7 @@ public class Roomservice extends javax.swing.JFrame {
         jPanel1.add(jPanel6);
         jPanel6.setBounds(40, 10, 500, 31);
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel3.setBackground(new java.awt.Color(226, 236, 252));
         jPanel3.setLayout(null);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -170,7 +175,7 @@ public class Roomservice extends javax.swing.JFrame {
         jPanel3.setBounds(40, 60, 500, 440);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(150, 0, 590, 540);
+        jPanel1.setBounds(150, 0, 600, 530);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
