@@ -63,7 +63,6 @@ public class GuestManagement extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hotel Management System - Guest Management");
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -143,7 +142,7 @@ public class GuestManagement extends javax.swing.JFrame {
         lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblRole.setText("Frontdesk");
         panelProfile.add(lblRole);
-        lblRole.setBounds(10, 20, 140, 16);
+        lblRole.setBounds(10, 20, 140, 18);
 
         headerPanel.add(panelProfile);
         panelProfile.setBounds(380, 5, 160, 40);
@@ -153,7 +152,7 @@ public class GuestManagement extends javax.swing.JFrame {
         lblUserIcon.setBounds(540, 10, 50, 30);
 
         panelContent.add(headerPanel);
-        headerPanel.setBounds(20, 20, 640, 50);
+        headerPanel.setBounds(20, 20, 630, 50);
 
         statsPanel.setBackground(new java.awt.Color(232, 240, 254));
         statsPanel.setOpaque(false);
@@ -232,7 +231,7 @@ public class GuestManagement extends javax.swing.JFrame {
         cardCheckoutToday.setBounds(500, 0, 125, 90);
 
         panelContent.add(statsPanel);
-        statsPanel.setBounds(20, 110, 640, 95);
+        statsPanel.setBounds(20, 80, 630, 95);
 
         tableCardPanel.setBackground(new java.awt.Color(232, 240, 254));
         tableCardPanel.setLayout(null);
