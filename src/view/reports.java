@@ -19,11 +19,11 @@ public class reports extends javax.swing.JFrame {
         jPanel1 = new JPanel();
         jPanel2 = new JPanel();
         jPanel3 = new JPanel();
-        jButton1 = new JButton();
-        jButton2 = new JButton();
-        jButton3 = new JButton();
-        jLabel1 = new JLabel();
-        jLabel_reports_title = new JLabel();
+        jButton1 = new JButton("Dashboard");
+        jButton2 = new JButton("Rooms");
+        jButton3 = new JButton("Reports");
+        jLabel1 = new JLabel("HMS");
+        jLabel_reports_title = new JLabel("Reports");
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(930, 650);
     }
