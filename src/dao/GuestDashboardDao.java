@@ -141,7 +141,7 @@ public class GuestDashboardDao {
 
     // Retrieve active booking from guest_details table by email or phone
     public GuestDashboardModel getActiveBooking(String email, String phone) {
-        String sql = "SELECT * FROM guest_details WHERE (email_address = ? OR phone_number = ?) ORDER BY guest_id DESC LIMIT 1";
+        String sql = "SELECT * FROM guest_details WHERE (email_address = ? OR phone_number = ?) AND status = 'Checked In' ORDER BY guest_id DESC LIMIT 1";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, email);
             ps.setString(2, phone);

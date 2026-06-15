@@ -363,7 +363,7 @@ public class BookRoom extends javax.swing.JFrame {
         jSeparator1.setBounds(0, 0, 3, 500);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(180, 0, 640, 500);
+        jPanel2.setBounds(180, 0, 650, 500);
 
         jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
         jPanelSidebar.setLayout(null);
@@ -453,13 +453,7 @@ public class BookRoom extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSystemSettingActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new BookRoom().setVisible(true));
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDiscounts;

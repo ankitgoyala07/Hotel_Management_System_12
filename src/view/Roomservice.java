@@ -549,5 +549,6 @@ public class Roomservice extends javax.swing.JFrame {
     public javax.swing.JLabel getLblOrderItem2Name() { return jLabelOrderItem2Name; }
     public javax.swing.JLabel getLblOrderItem2Price() { return jLabelOrderItem2Price; }
     public javax.swing.JLabel getLblTotalValue() { return jLabelTotalValue; }
+    public javax.swing.JPanel getjPanelOrder() { return jPanelOrder; }
     public javax.swing.JLabel getLblOrderBadge() { return jLabelOrderBadge; }
 }

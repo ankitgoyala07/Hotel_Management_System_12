@@ -87,14 +87,15 @@ public class Billing extends javax.swing.JFrame {
         lblTitle.setForeground(new java.awt.Color(75, 85, 99));
         lblTitle.setText("Billing & Invoicing");
         jPanelHeader.add(lblTitle);
-        lblTitle.setBounds(15, 10, 200, 25);
+        lblTitle.setBounds(10, 10, 200, 25);
 
         lblRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblRole.setForeground(new java.awt.Color(75, 85, 99));
+        lblRole.setForeground(new java.awt.Color(64, 64, 64));
         lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblRole.setText("Frontdesk");
+        lblRole.setPreferredSize(new java.awt.Dimension(100, 30));
         jPanelHeader.add(lblRole);
-        lblRole.setBounds(430, 10, 100, 25);
+        lblRole.setBounds(450, 10, 100, 30);
 
         jPanelMain.add(jPanelHeader);
         jPanelHeader.setBounds(20, 15, 580, 45);
@@ -406,13 +407,7 @@ public class Billing extends javax.swing.JFrame {
 
 
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Billing().setVisible(true));
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Billing;

@@ -31,19 +31,34 @@ public class OrderFoodController {
     private final OrderFood view;
     private final OrderFoodDao orderFoodDao;
     private final List<OrderFoodModel> currentOrder;
-    private static final double DELIVERY_FEE = 5.00;
+    private static final double DELIVERY_FEE = 0.00;
+
+    private javax.swing.JScrollPane orderScrollPane;
+    private javax.swing.JPanel orderListContainer;
 
     public OrderFoodController(OrderFood view) {
         this.view = view;
         this.orderFoodDao = new OrderFoodDao();
         this.currentOrder = new ArrayList<>();
 
-        // Add default items from the mockup on initial load
-        List<OrderFoodModel> menu = getAllMenuItems();
-        if (menu.size() >= 7) {
-            addItemToOrder(menu.get(4)); // Wagyu Beef Burger (ID 5)
-            addItemToOrder(menu.get(6)); // Artisan Pour-Over Coffee (ID 7)
-        }
+        // Hide original hardcoded item views
+        setRow1Visible(false);
+        setRow2Visible(false);
+
+        // Setup dynamic scroll pane for order items
+        orderListContainer = new javax.swing.JPanel();
+        orderListContainer.setLayout(new javax.swing.BoxLayout(orderListContainer, javax.swing.BoxLayout.Y_AXIS));
+        orderListContainer.setBackground(new java.awt.Color(211, 228, 245));
+
+        orderScrollPane = new javax.swing.JScrollPane(orderListContainer);
+        orderScrollPane.setBorder(null);
+        orderScrollPane.setBackground(new java.awt.Color(211, 228, 245));
+        orderScrollPane.getViewport().setBackground(new java.awt.Color(211, 228, 245));
+        orderScrollPane.setBounds(5, 40, 170, 280);
+        orderScrollPane.setHorizontalScrollBarPolicy(javax.swing.JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        orderScrollPane.setVerticalScrollBarPolicy(javax.swing.JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+        view.getjPanelOrder().add(orderScrollPane);
 
         bindListeners();
         updateOrderUI();
@@ -204,31 +219,91 @@ public class OrderFoodController {
         }
     }
 
-    // UI Rendering helpers
     private void updateOrderUI() {
         int totalItems = getTotalItemCount();
         view.getLblOrderBadge().setText(String.valueOf(totalItems));
 
-        // Row 1
-        if (currentOrder.size() > 0) {
-            OrderFoodModel item1 = currentOrder.get(0);
-            view.getLblOrderItem1Name().setText(item1.getName());
-            view.getLblOrderItem1Price().setText(String.format("$%.2f", item1.getPrice() * item1.getQuantity()));
-            view.getLblOrderItem1Qty().setText(String.valueOf(item1.getQuantity()));
-            setRow1Visible(true);
-        } else {
-            setRow1Visible(false);
-        }
+        if (orderListContainer != null) {
+            orderListContainer.removeAll();
 
-        // Row 2
-        if (currentOrder.size() > 1) {
-            OrderFoodModel item2 = currentOrder.get(1);
-            view.getLblOrderItem2Name().setText(item2.getName());
-            view.getLblOrderItem2Price().setText(String.format("$%.2f", item2.getPrice() * item2.getQuantity()));
-            view.getLblOrderItem2Qty().setText(String.valueOf(item2.getQuantity()));
-            setRow2Visible(true);
-        } else {
-            setRow2Visible(false);
+            for (OrderFoodModel item : currentOrder) {
+                javax.swing.JPanel itemPanel = new javax.swing.JPanel();
+                itemPanel.setLayout(new java.awt.BorderLayout(2, 2));
+                itemPanel.setBackground(new java.awt.Color(211, 228, 245));
+                itemPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
+                javax.swing.JPanel topRow = new javax.swing.JPanel(new java.awt.BorderLayout());
+                topRow.setBackground(new java.awt.Color(211, 228, 245));
+
+                javax.swing.JLabel nameLabel = new javax.swing.JLabel(item.getName());
+                nameLabel.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 10));
+                nameLabel.setForeground(new java.awt.Color(35, 40, 60));
+                topRow.add(nameLabel, java.awt.BorderLayout.WEST);
+
+                javax.swing.JLabel priceLabel = new javax.swing.JLabel(String.format("$%.2f", item.getPrice() * item.getQuantity()));
+                priceLabel.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 10));
+                priceLabel.setForeground(new java.awt.Color(35, 40, 60));
+                topRow.add(priceLabel, java.awt.BorderLayout.EAST);
+
+                itemPanel.add(topRow, java.awt.BorderLayout.NORTH);
+
+                javax.swing.JPanel bottomRow = new javax.swing.JPanel(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 4, 0));
+                bottomRow.setBackground(new java.awt.Color(211, 228, 245));
+
+                javax.swing.JButton minusBtn = new javax.swing.JButton("-");
+                minusBtn.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 8));
+                minusBtn.setPreferredSize(new java.awt.Dimension(18, 18));
+                minusBtn.setMargin(new java.awt.Insets(0, 0, 0, 0));
+                minusBtn.setFocusPainted(false);
+                minusBtn.addActionListener(e -> {
+                    decreaseQuantity(item.getId());
+                    updateOrderUI();
+                });
+
+                javax.swing.JLabel qtyLabel = new javax.swing.JLabel(String.valueOf(item.getQuantity()));
+                qtyLabel.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 10));
+
+                javax.swing.JButton plusBtn = new javax.swing.JButton("+");
+                plusBtn.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 8));
+                plusBtn.setPreferredSize(new java.awt.Dimension(18, 18));
+                plusBtn.setMargin(new java.awt.Insets(0, 0, 0, 0));
+                plusBtn.setFocusPainted(false);
+                plusBtn.addActionListener(e -> {
+                    increaseQuantity(item.getId());
+                    updateOrderUI();
+                });
+
+                javax.swing.JButton removeBtn = new javax.swing.JButton("Remove");
+                removeBtn.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 8));
+                removeBtn.setForeground(java.awt.Color.RED);
+                removeBtn.setBorderPainted(false);
+                removeBtn.setContentAreaFilled(false);
+                removeBtn.setFocusPainted(false);
+                removeBtn.setMargin(new java.awt.Insets(0, 0, 0, 0));
+                removeBtn.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));
+                removeBtn.addActionListener(e -> {
+                    removeItemFromOrder(item.getId());
+                    updateOrderUI();
+                });
+
+                bottomRow.add(minusBtn);
+                bottomRow.add(qtyLabel);
+                bottomRow.add(plusBtn);
+                bottomRow.add(removeBtn);
+
+                itemPanel.add(bottomRow, java.awt.BorderLayout.CENTER);
+
+                javax.swing.JSeparator sep = new javax.swing.JSeparator();
+                sep.setForeground(new java.awt.Color(190, 205, 240));
+                itemPanel.add(sep, java.awt.BorderLayout.SOUTH);
+
+                orderListContainer.add(itemPanel);
+            }
+
+            orderListContainer.revalidate();
+            orderListContainer.repaint();
+            orderScrollPane.revalidate();
+            orderScrollPane.repaint();
         }
 
         // Totals
@@ -508,7 +583,7 @@ public class OrderFoodController {
 
         // Bottom Summary Panel
         javax.swing.JPanel bottomPanel = new javax.swing.JPanel();
-        bottomPanel.setLayout(new java.awt.GridLayout(3, 2, 0, 5));
+        bottomPanel.setLayout(new java.awt.GridLayout(2, 2, 0, 5));
         bottomPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 20, 15, 20));
         bottomPanel.setBackground(new java.awt.Color(235, 242, 255));
 
@@ -522,17 +597,6 @@ public class OrderFoodController {
         subtotalVal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         subtotalVal.setForeground(new java.awt.Color(35, 40, 60));
         bottomPanel.add(subtotalVal);
-
-        javax.swing.JLabel deliveryLbl = new javax.swing.JLabel("Delivery Fee");
-        deliveryLbl.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 11));
-        deliveryLbl.setForeground(new java.awt.Color(100, 108, 130));
-        bottomPanel.add(deliveryLbl);
-
-        javax.swing.JLabel deliveryVal = new javax.swing.JLabel(String.format("$%.2f", getDeliveryFee()));
-        deliveryVal.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 11));
-        deliveryVal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        deliveryVal.setForeground(new java.awt.Color(35, 40, 60));
-        bottomPanel.add(deliveryVal);
 
         javax.swing.JLabel totalLbl = new javax.swing.JLabel("Total");
         totalLbl.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 14));
@@ -584,7 +648,7 @@ public class OrderFoodController {
 
             if (email != null || phone != null) {
                 // 2. Get room number from guest_details table
-                String guestSql = "SELECT room_no FROM guest_details WHERE email_address = ? OR phone_number = ? ORDER BY guest_id DESC LIMIT 1";
+                String guestSql = "SELECT room_no FROM guest_details WHERE (email_address = ? OR phone_number = ?) AND status = 'Checked In' ORDER BY guest_id DESC LIMIT 1";
                 try (PreparedStatement ps = conn.prepareStatement(guestSql)) {
                     ps.setString(1, email);
                     ps.setString(2, phone);

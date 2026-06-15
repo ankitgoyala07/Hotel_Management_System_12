@@ -35,10 +35,33 @@ public class RoomServiceController {
 
     private final List<SelectedService> currentOrder = new ArrayList<>();
 
+    private javax.swing.JScrollPane orderScrollPane;
+    private javax.swing.JPanel orderListContainer;
+
     public RoomServiceController(Roomservice view) {
         this.view = view;
         initDatabase();
         loadRoomNo();
+
+        // Hide original hardcoded item views
+        setRow1Visible(false);
+        setRow2Visible(false);
+
+        // Setup dynamic scroll pane for order items
+        orderListContainer = new javax.swing.JPanel();
+        orderListContainer.setLayout(new javax.swing.BoxLayout(orderListContainer, javax.swing.BoxLayout.Y_AXIS));
+        orderListContainer.setBackground(new java.awt.Color(211, 228, 245));
+
+        orderScrollPane = new javax.swing.JScrollPane(orderListContainer);
+        orderScrollPane.setBorder(null);
+        orderScrollPane.setBackground(new java.awt.Color(211, 228, 245));
+        orderScrollPane.getViewport().setBackground(new java.awt.Color(211, 228, 245));
+        orderScrollPane.setBounds(5, 40, 170, 280);
+        orderScrollPane.setHorizontalScrollBarPolicy(javax.swing.JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        orderScrollPane.setVerticalScrollBarPolicy(javax.swing.JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+
+        view.getjPanelOrder().add(orderScrollPane);
+
         bindListeners();
         updateOrderUI();
     }
@@ -78,7 +101,7 @@ public class RoomServiceController {
                             }
                         }
                         if (email != null || phone != null) {
-                           String guestSql = "SELECT room_no FROM guest_details WHERE email_address = ? OR phone_number = ? ORDER BY guest_id DESC LIMIT 1";
+                           String guestSql = "SELECT room_no FROM guest_details WHERE (email_address = ? OR phone_number = ?) AND status = 'Checked In' ORDER BY guest_id DESC LIMIT 1";
                            try (PreparedStatement ps = conn.prepareStatement(guestSql)) {
                                ps.setString(1, email);
                                ps.setString(2, phone);
@@ -149,24 +172,63 @@ public class RoomServiceController {
         }
         view.getLblTotalValue().setText(String.format("$%.2f", totalAmount));
 
-        // Show last added item in Row 1
-        if (totalCount > 0) {
-            SelectedService item1 = currentOrder.get(totalCount - 1);
-            view.getLblOrderItem1Name().setText(item1.name);
-            view.getLblOrderItem1Price().setText(String.format("$%.2f", item1.price));
-            setRow1Visible(true);
-        } else {
-            setRow1Visible(false);
-        }
+        if (orderListContainer != null) {
+            orderListContainer.removeAll();
 
-        // Show second to last added item in Row 2
-        if (totalCount > 1) {
-            SelectedService item2 = currentOrder.get(totalCount - 2);
-            view.getLblOrderItem2Name().setText(item2.name);
-            view.getLblOrderItem2Price().setText(String.format("$%.2f", item2.price));
-            setRow2Visible(true);
-        } else {
-            setRow2Visible(false);
+            for (int i = 0; i < currentOrder.size(); i++) {
+                final int itemIndex = i;
+                SelectedService s = currentOrder.get(i);
+
+                javax.swing.JPanel itemPanel = new javax.swing.JPanel();
+                itemPanel.setLayout(new java.awt.BorderLayout(2, 2));
+                itemPanel.setBackground(new java.awt.Color(211, 228, 245));
+                itemPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+
+                javax.swing.JPanel topRow = new javax.swing.JPanel(new java.awt.BorderLayout());
+                topRow.setBackground(new java.awt.Color(211, 228, 245));
+
+                javax.swing.JLabel nameLabel = new javax.swing.JLabel(s.name);
+                nameLabel.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 10));
+                nameLabel.setForeground(new java.awt.Color(35, 40, 60));
+                topRow.add(nameLabel, java.awt.BorderLayout.WEST);
+
+                javax.swing.JLabel priceLabel = new javax.swing.JLabel(String.format("$%.2f", s.price));
+                priceLabel.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 10));
+                priceLabel.setForeground(new java.awt.Color(35, 40, 60));
+                topRow.add(priceLabel, java.awt.BorderLayout.EAST);
+
+                itemPanel.add(topRow, java.awt.BorderLayout.NORTH);
+
+                javax.swing.JPanel bottomRow = new javax.swing.JPanel(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT, 4, 0));
+                bottomRow.setBackground(new java.awt.Color(211, 228, 245));
+
+                javax.swing.JButton removeBtn = new javax.swing.JButton("Remove");
+                removeBtn.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 8));
+                removeBtn.setForeground(java.awt.Color.RED);
+                removeBtn.setBorderPainted(false);
+                removeBtn.setContentAreaFilled(false);
+                removeBtn.setFocusPainted(false);
+                removeBtn.setMargin(new java.awt.Insets(0, 0, 0, 0));
+                removeBtn.setCursor(java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR));
+                removeBtn.addActionListener(e -> {
+                    currentOrder.remove(itemIndex);
+                    updateOrderUI();
+                });
+
+                bottomRow.add(removeBtn);
+                itemPanel.add(bottomRow, java.awt.BorderLayout.CENTER);
+
+                javax.swing.JSeparator sep = new javax.swing.JSeparator();
+                sep.setForeground(new java.awt.Color(190, 205, 240));
+                itemPanel.add(sep, java.awt.BorderLayout.SOUTH);
+
+                orderListContainer.add(itemPanel);
+            }
+
+            orderListContainer.revalidate();
+            orderListContainer.repaint();
+            orderScrollPane.revalidate();
+            orderScrollPane.repaint();
         }
     }
 
@@ -311,7 +373,7 @@ public class RoomServiceController {
 
             if (email != null || phone != null) {
                 // 2. Get room number from guest_details table
-                String guestSql = "SELECT room_no FROM guest_details WHERE email_address = ? OR phone_number = ? ORDER BY guest_id DESC LIMIT 1";
+                String guestSql = "SELECT room_no FROM guest_details WHERE (email_address = ? OR phone_number = ?) AND status = 'Checked In' ORDER BY guest_id DESC LIMIT 1";
                 try (PreparedStatement ps = conn.prepareStatement(guestSql)) {
                     ps.setString(1, email);
                     ps.setString(2, phone);

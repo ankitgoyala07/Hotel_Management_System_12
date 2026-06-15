@@ -37,7 +37,7 @@ public class LoginController extends BaseController<login> {
                     String phone = rs.getString("phone");
                     
                     if (email != null || phone != null) {
-                        String guestSql = "SELECT COUNT(*) FROM guest_details WHERE (email_address = ? OR phone_number = ?) LIMIT 1";
+                        String guestSql = "SELECT COUNT(*) FROM guest_details WHERE (email_address = ? OR phone_number = ?) AND status = 'Checked In' LIMIT 1";
                         try (PreparedStatement ps2 = conn.prepareStatement(guestSql)) {
                             ps2.setString(1, email);
                             ps2.setString(2, phone);
