@@ -11,12 +11,68 @@ package view;
 public class roommanagement extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(roommanagement.class.getName());
+    private final controller.roommanagementController roomsController = new controller.roommanagementController();
 
     /**
      * Creates new form roommanagement
      */
     public roommanagement() {
         initComponents();
+        loadRoomsData("All");
+        setupFilterListeners();
+    }
+
+    private void loadRoomsData(String filterStatus) {
+        try {
+            java.util.List<model.roommanagementModel> rooms = roomsController.getRooms();
+            
+            javax.swing.table.DefaultTableModel tblModel = (javax.swing.table.DefaultTableModel) jTable1.getModel();
+            tblModel.setRowCount(0);
+            
+            for (model.roommanagementModel r : rooms) {
+                String statusText = r.getStatus();
+                
+                // Apply filter
+                if (filterStatus.equalsIgnoreCase("Available") && !statusText.equalsIgnoreCase("Available")) {
+                    continue;
+                }
+                if (filterStatus.equalsIgnoreCase("Booked") && !statusText.equalsIgnoreCase("Booked")) {
+                    continue;
+                }
+
+                String badgeHtml = statusText;
+                if (statusText != null) {
+                    if (statusText.equalsIgnoreCase("Available")) {
+                        badgeHtml = "<html><span style='color: #2563EB; background: #DBEAFE; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Available</span></html>";
+                    } else if (statusText.equalsIgnoreCase("Booked")) {
+                        badgeHtml = "<html><span style='color: #EF4444; background: #FEE2E2; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Booked</span></html>";
+                    } else if (statusText.equalsIgnoreCase("Reserved")) {
+                        badgeHtml = "<html><span style='color: #10B981; background: #D1FAE5; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Reserved</span></html>";
+                    } else if (statusText.equalsIgnoreCase("Waitlist")) {
+                        badgeHtml = "<html><span style='color: #F59E0B; background: #FEF3C7; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Waitlist</span></html>";
+                    } else if (statusText.equalsIgnoreCase("Blocked")) {
+                        badgeHtml = "<html><span style='color: #9CA3AF; background: #F3F4F6; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Blocked</span></html>";
+                    }
+                }
+                
+                tblModel.addRow(new Object[]{
+                    r.getRoomNumber(),
+                    r.getRoomType(),
+                    r.getRoomFloor(),
+                    r.getRoomFacility(),
+                    badgeHtml,
+                    "⋮"
+                });
+            }
+        } catch (Exception e) {
+            System.out.println("Error loading rooms data: " + e.getMessage());
+        }
+    }
+
+    private void setupFilterListeners() {
+        jButtonAllRooms.addActionListener(e -> loadRoomsData("All"));
+        jButtonAvailableRooms.addActionListener(e -> loadRoomsData("Available"));
+        jButtonBookedRooms.addActionListener(e -> loadRoomsData("Booked"));
     }
 
     /**
