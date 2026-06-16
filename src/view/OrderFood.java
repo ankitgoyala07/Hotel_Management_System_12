@@ -157,7 +157,7 @@ public class OrderFood extends javax.swing.JFrame {
         jButtonLogout.setBounds(0, 232, 160, 38);
 
         getContentPane().add(jPanelSidebar);
-        jPanelSidebar.setBounds(0, 0, 160, 660);
+        jPanelSidebar.setBounds(0, 0, 180, 600);
 
         jPanelTopBar.setBackground(new java.awt.Color(235, 237, 242));
         jPanelTopBar.setLayout(null);
