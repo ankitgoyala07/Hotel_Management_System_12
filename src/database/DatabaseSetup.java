@@ -62,6 +62,7 @@ public class DatabaseSetup {
             try (java.sql.ResultSet rsRooms = stmt.executeQuery(checkRoomsQuery)) {
                 if (rsRooms.next() && rsRooms.getInt(1) == 0) {
                     String seedRoomsSql = "INSERT INTO rooms (room_number, room_type, status) VALUES "
+                            + "('001', 'Single', 'Occupied'), "
                             + "('101', 'Single', 'Occupied'), ('102', 'Single', 'Occupied'), ('103', 'Single', 'Occupied'), "
                             + "('104', 'Single', 'Occupied'), ('105', 'Single', 'Occupied'), ('106', 'Single', 'Available'), "
                             + "('107', 'Single', 'Occupied'), ('108', 'Single', 'Available'), ('109', 'Single', 'Available'), "
@@ -84,6 +85,33 @@ public class DatabaseSetup {
                             + "('310', 'VIP', 'Available')";
                     stmt.executeUpdate(seedRoomsSql);
                     System.out.println("Default rooms seeded successfully.");
+                }
+            }
+
+            // Create billings table if it doesn't exist
+            String createBillingsSql = "CREATE TABLE IF NOT EXISTS billings ("
+                    + "bill_id INT AUTO_INCREMENT PRIMARY KEY, "
+                    + "guest_id VARCHAR(50) NOT NULL, "
+                    + "room_number VARCHAR(10) NOT NULL, "
+                    + "stay_period VARCHAR(100) NOT NULL, "
+                    + "nights INT NOT NULL, "
+                    + "room_rate DECIMAL(10, 2) NOT NULL, "
+                    + "room_service DECIMAL(10, 2) NOT NULL DEFAULT 0.00, "
+                    + "food_orders DECIMAL(10, 2) NOT NULL DEFAULT 0.00, "
+                    + "laundry DECIMAL(10, 2) NOT NULL DEFAULT 0.00, "
+                    + "mini_bar DECIMAL(10, 2) NOT NULL DEFAULT 0.00"
+                    + ")";
+            stmt.executeUpdate(createBillingsSql);
+            System.out.println("Table 'billings' verified/created.");
+
+            // Seed billings table if empty
+            String checkBillingsQuery = "SELECT COUNT(*) FROM billings";
+            try (java.sql.ResultSet rsBillings = stmt.executeQuery(checkBillingsQuery)) {
+                if (rsBillings.next() && rsBillings.getInt(1) == 0) {
+                    String seedBillingsSql = "INSERT INTO billings (guest_id, room_number, stay_period, nights, room_rate, room_service, food_orders, laundry, mini_bar) VALUES "
+                            + "('001', '001', 'Oct 14 - Oct 18 (4 Nights)', 4, 250.00, 65.50, 145.00, 36.00, 22.00)";
+                    stmt.executeUpdate(seedBillingsSql);
+                    System.out.println("Default billings seeded successfully.");
                 }
             }
 

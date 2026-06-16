@@ -7,6 +7,13 @@
             <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/login.java</file>
             <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/FrontDeskDashboard.java</file>
             <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/Signup.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/AddStaff.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/StaffAttendence.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/view/Billing.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/model/loginModel.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/model/BillingModel.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/dao/BillingDao.java</file>
+            <file>file:/C:/Users/i3/Documents/NetBeansProjects/Hotel_Management/src/controller/BillingController.java</file>
         </group>
     </open-files>
 </project-private>

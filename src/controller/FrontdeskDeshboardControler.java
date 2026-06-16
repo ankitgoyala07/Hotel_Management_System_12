@@ -190,10 +190,8 @@ public class FrontdeskDeshboardControler {
                     
                     // Redirect to Billing Section
                     try {
-                        JButton btnSystemSetting1 = (JButton) getPrivateField("btnSystemSetting1");
-                        if (btnSystemSetting1 != null) {
-                            btnSystemSetting1.doClick();
-                        }
+                        new BillingController(room.getRoomNumber());
+                        view.dispose();
                     } catch (Exception ex) {
                         System.out.println("Error redirecting to billing: " + ex.getMessage());
                     }
@@ -262,7 +260,10 @@ public class FrontdeskDeshboardControler {
         }
         if (btnSystemSetting1 != null) {
             btnSystemSetting1.setContentAreaFilled(false); // Make Billing button transparent to match others
-            btnSystemSetting1.addActionListener(e -> JOptionPane.showMessageDialog(view, "Navigating to Billing section."));
+            btnSystemSetting1.addActionListener(e -> {
+                new BillingController();
+                view.dispose();
+            });
         }
         if (btnSystemSetting != null) {
             btnSystemSetting.addActionListener(e -> JOptionPane.showMessageDialog(view, "You are already on the Dashboard."));

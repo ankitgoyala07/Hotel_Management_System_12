@@ -17,6 +17,10 @@ public class admindashboard extends javax.swing.JFrame {
      */
     public admindashboard() {
         initComponents();
+        jButton5.addActionListener(e -> {
+            new controller.BillingController();
+            dispose();
+        });
     }
 
     /**
