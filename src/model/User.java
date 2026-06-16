@@ -1,53 +1,62 @@
 package model;
-// rajip
-import java.sql.Date;
 
+/**
+ * User model class representing a user in the Hotel Management System.
+ */
 public class User {
-    private int id;
-    private String name;
+    private String fullName;
     private String email;
-    private String roomType;
-    private Date checkIn;
-    private Date checkOut;
+    private String phone;
+    private String password;
+    private String role;
 
-    // Default constructor
     public User() {}
 
-    // Constructor with id
-    public User(int id, String name, String email, String roomType, Date checkIn, Date checkOut) {
-        this.id = id;
-        this.name = name;
+    public User(String fullName, String email, String phone, String password, String role) {
+        this.fullName = fullName;
         this.email = email;
-        this.roomType = roomType;
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
+        this.phone = phone;
+        this.password = password;
+        this.role = role;
     }
 
-    // Constructor without id
-    public User(String name, String email, String roomType, Date checkIn, Date checkOut) {
-        this.name = name;
-        this.email = email;
-        this.roomType = roomType;
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
+    public String getFullName() {
+        return fullName;
     }
 
-    // Getters and Setters
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public String getEmail() {
+        return email;
+    }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public String getRoomType() { return roomType; }
-    public void setRoomType(String roomType) { this.roomType = roomType; }
+    public String getPhone() {
+        return phone;
+    }
 
-    public Date getCheckIn() { return checkIn; }
-    public void setCheckIn(Date checkIn) { this.checkIn = checkIn; }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-    public Date getCheckOut() { return checkOut; }
-    public void setCheckOut(Date checkOut) { this.checkOut = checkOut; }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 }
