@@ -92,7 +92,7 @@ public class Roomservice extends javax.swing.JFrame {
         jButton5.setBounds(6, 258, 114, 32);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 0, 150, 540);
+        jPanel2.setBounds(0, 0, 150, 530);
 
         jPanel1.setBackground(new java.awt.Color(243, 248, 249));
         jPanel1.setLayout(null);
@@ -146,6 +146,8 @@ public class Roomservice extends javax.swing.JFrame {
         jLabel7.setText("Room Number");
         jPanel4.add(jLabel7);
         jLabel7.setBounds(270, 70, 150, 20);
+
+        jTextField1.addActionListener(this::jTextField1ActionPerformed);
         jPanel4.add(jTextField1);
         jTextField1.setBounds(270, 95, 150, 30);
 
@@ -180,20 +182,9 @@ public class Roomservice extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public static void main(String args[]) {
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-        java.awt.EventQueue.invokeLater(() -> new Roomservice().setVisible(true));
-    }
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
