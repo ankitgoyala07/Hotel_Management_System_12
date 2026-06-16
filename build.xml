@@ -70,4 +70,38 @@
     nbproject/build-impl.xml file. 
 
     -->
+    <!-- Overridden Run Target to bypass Unicode path issues in Windows cmd -->
+    <target name="run" depends="init,compile">
+        <pathconvert property="run.classpath.relative" pathsep=";">
+            <path>
+                <pathelement path="${run.classpath}"/>
+            </path>
+            <map from="${basedir}\" to=""/>
+            <map from="${basedir}/" to=""/>
+        </pathconvert>
+        <exec executable="java" failonerror="true">
+            <arg line="${run.jvmargs}"/>
+            <arg value="-cp"/>
+            <arg value="${run.classpath.relative}"/>
+            <arg value="${main.class}"/>
+        </exec>
+    </target>
+
+    <!-- Overridden Run Single Target for running individual files -->
+    <target name="run-single" depends="init,compile-single">
+        <fail unless="run.class">Must select one file in the IDE or set run.class</fail>
+        <pathconvert property="run.classpath.relative" pathsep=";">
+            <path>
+                <pathelement path="${run.classpath}"/>
+            </path>
+            <map from="${basedir}\" to=""/>
+            <map from="${basedir}/" to=""/>
+        </pathconvert>
+        <exec executable="java" failonerror="true">
+            <arg line="${run.jvmargs}"/>
+            <arg value="-cp"/>
+            <arg value="${run.classpath.relative}"/>
+            <arg value="${run.class}"/>
+        </exec>
+    </target>
 </project>

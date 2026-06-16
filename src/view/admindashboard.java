@@ -1,8 +1,13 @@
-/*
+﻿/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+
+/**
+ * Admin Dashboard User Interface Class
+ * Provides summary stats, navigation sidebar, and room status overview.
+ */
 
 /**
  *
@@ -17,10 +22,23 @@ public class admindashboard extends javax.swing.JFrame {
      */
     public admindashboard() {
         initComponents();
-        jButton5.addActionListener(e -> {
-            new controller.BillingController();
-            dispose();
-        });
+        loadDashboardData();
+    }
+
+    private void loadDashboardData() {
+        try {
+            controller.admindashboardController ctrl = new controller.admindashboardController();
+            model.admindashboardModel data = ctrl.getDashboardData();
+
+            lblCheckIn.setText(String.valueOf(data.getTodayCheckIn()));
+            lblCheckOut.setText(String.valueOf(data.getTodayCheckOut()));
+            lblTotal.setText(String.valueOf(data.getTotalRooms()));
+            lblAvailable.setText(String.valueOf(data.getAvailableRooms()));
+            lblOccupied.setText(String.valueOf(data.getOccupiedRooms()));
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     /**
@@ -32,255 +50,422 @@ public class admindashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanelSidebar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        jPanelMain = new javax.swing.JPanel();
+        jPanelHeader = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
+        jLabel25 = new javax.swing.JLabel();
+        jPanelContent = new javax.swing.JPanel();
+        jPanelCard = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        lblCheckIn = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        lblCheckOut = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        lblTotal = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        lblAvailable = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        lblOccupied = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanelPriceSingle = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jPanelPriceDouble = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jPanelPriceVIP = new javax.swing.JPanel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jPanelRoomStatus = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jDayChooser1 = new com.toedter.calendar.JDayChooser();
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        setTitle("Admin Dashboard");
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setLayout(null);
+        jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSidebar.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(0, 0, 0)));
+        jPanelSidebar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 255));
-        jLabel1.setText("HMS");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(45, 6, 60, 32);
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(37, 99, 235));
+        jLabel1.setText("    HMS");
+        jPanelSidebar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, 130, 35));
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton1.setText("Dashboard");
+        jButton1.setBackground(new java.awt.Color(219, 234, 254));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(37, 99, 235));
+        jButton1.setText("    Dashboard");
         jButton1.setBorderPainted(false);
         jButton1.setFocusPainted(false);
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-        jPanel1.add(jButton1);
-        jButton1.setBounds(20, 60, 120, 29);
+        jPanelSidebar.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 70, 140, 32));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton2.setText("Guests");
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(75, 85, 99));
+        jButton2.setText("    Rooms");
         jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
         jButton2.setFocusPainted(false);
         jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton2.addActionListener(this::jButton2ActionPerformed);
-        jPanel1.add(jButton2);
-        jButton2.setBounds(20, 110, 120, 29);
+        jPanelSidebar.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 110, 140, 32));
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton3.setText("Bookings");
+        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(75, 85, 99));
+        jButton3.setText("    Bookings");
         jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
         jButton3.setFocusPainted(false);
         jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton3.addActionListener(this::jButton3ActionPerformed);
-        jPanel1.add(jButton3);
-        jButton3.setBounds(20, 160, 120, 29);
+        jPanelSidebar.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 150, 140, 32));
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton4.setText("Meal Time");
+        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(75, 85, 99));
+        jButton4.setText("    Staffs");
         jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
         jButton4.setFocusPainted(false);
         jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(jButton4);
-        jButton4.setBounds(20, 210, 120, 29);
+        jPanelSidebar.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 190, 140, 32));
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton5.setText("Billings");
+        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(75, 85, 99));
+        jButton5.setText("    System Setting");
         jButton5.setBorderPainted(false);
+        jButton5.setContentAreaFilled(false);
         jButton5.setFocusPainted(false);
         jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(jButton5);
-        jButton5.setBounds(20, 260, 120, 29);
+        jButton5.addActionListener(this::jButton5ActionPerformed);
+        jPanelSidebar.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 230, 140, 32));
 
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton6.setText("Logout");
+        jButton7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(75, 85, 99));
+        jButton7.setText("    Reports");
+        jButton7.setBorderPainted(false);
+        jButton7.setContentAreaFilled(false);
+        jButton7.setFocusPainted(false);
+        jButton7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanelSidebar.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 270, 140, 32));
+
+        jButton6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(75, 85, 99));
+        jButton6.setText("    Logout");
         jButton6.setBorderPainted(false);
+        jButton6.setContentAreaFilled(false);
         jButton6.setFocusPainted(false);
         jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(jButton6);
-        jButton6.setBounds(20, 310, 120, 30);
+        jButton6.addActionListener(this::jButton6ActionPerformed);
+        jPanelSidebar.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 310, 140, 32));
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 168, 500);
+        getContentPane().add(jPanelSidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 500));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(800, 500));
-        jPanel2.setLayout(null);
+        jPanelMain.setBackground(new java.awt.Color(249, 250, 251));
+        jPanelMain.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel4.setBackground(new java.awt.Color(236, 236, 236));
-        jPanel4.setLayout(null);
+        jPanelHeader.setBackground(new java.awt.Color(229, 231, 235));
+        jPanelHeader.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(75, 85, 99));
         jLabel2.setText("Dashboard Overview");
-        jPanel4.add(jLabel2);
-        jLabel2.setBounds(22, 6, 250, 38);
+        jPanelHeader.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 7, 220, 30));
 
-        jPanel2.add(jPanel4);
-        jPanel4.setBounds(40, 20, 570, 50);
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel25.setText("Manager");
+        jPanelHeader.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
 
-        jPanel7.setBackground(new java.awt.Color(236, 236, 236));
+        jPanelMain.add(jPanelHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 600, 45));
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelContent.setBackground(new java.awt.Color(209, 213, 219));
+        jPanelContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(467, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel4)
-                .addGap(0, 31, Short.MAX_VALUE))
-        );
+        jPanelCard.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelCard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setBackground(new java.awt.Color(243, 244, 246));
+        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 231, 235)));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 328, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
+        jLabel17.setText("Overview");
+        jLabel17.setVisible(false);
+        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel19.setText("Today's Check-in");
+        jPanel8.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 95, 15));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
+        lblCheckIn.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lblCheckIn.setForeground(new java.awt.Color(37, 99, 235));
+        lblCheckIn.setText("23");
+        jPanel8.add(lblCheckIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 30, 95, 35));
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel23.setText("Today's Check-out");
+        jPanel8.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 95, 15));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 153, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        lblCheckOut.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lblCheckOut.setForeground(new java.awt.Color(37, 99, 235));
+        lblCheckOut.setText("13");
+        jPanel8.add(lblCheckOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 95, 35));
 
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel26.setText("Total In Hotel");
+        jPanel8.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 10, 95, 15));
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 141, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 78, Short.MAX_VALUE)
-        );
+        lblTotal.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lblTotal.setForeground(new java.awt.Color(37, 99, 235));
+        lblTotal.setText("60");
+        jPanel8.add(lblTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 30, 95, 35));
 
-        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel29.setText("Available Room");
+        jPanel8.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, 95, 15));
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 141, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        lblAvailable.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lblAvailable.setForeground(new java.awt.Color(37, 99, 235));
+        lblAvailable.setText("20");
+        jPanel8.add(lblAvailable, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, 95, 35));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel32.setText("Occupied Room");
+        jPanel8.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 10, 95, 15));
 
-        jPanel2.add(jPanel7);
-        jPanel7.setBounds(40, 100, 570, 390);
+        lblOccupied.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        lblOccupied.setForeground(new java.awt.Color(37, 99, 235));
+        lblOccupied.setText("80");
+        jPanel8.add(lblOccupied, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 30, 95, 35));
+        jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+        jPanel8.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+        jPanel8.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(180, 0, 640, 500);
+        jPanelCard.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 540, 80));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel5.setText("Room Prices");
+        jPanelCard.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 105, 150, 20));
+
+        jPanelPriceSingle.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelPriceSingle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 231, 235)));
+        jPanelPriceSingle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(107, 114, 128));
+        jLabel37.setText("Single sharing");
+        jPanelPriceSingle.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 145, 15));
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel38.setForeground(new java.awt.Color(37, 99, 235));
+        jLabel38.setText("$568/day");
+        jPanelPriceSingle.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 145, 25));
+
+        jPanelCard.add(jPanelPriceSingle, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 130, 165, 70));
+
+        jPanelPriceDouble.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelPriceDouble.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 231, 235)));
+        jPanelPriceDouble.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(107, 114, 128));
+        jLabel35.setText("Double sharing");
+        jPanelPriceDouble.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 145, 15));
+
+        jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(37, 99, 235));
+        jLabel39.setText("$1,068/day");
+        jPanelPriceDouble.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 145, 25));
+
+        jPanelCard.add(jPanelPriceDouble, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 130, 165, 70));
+
+        jPanelPriceVIP.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelPriceVIP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 231, 235)));
+        jPanelPriceVIP.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel36.setForeground(new java.awt.Color(107, 114, 128));
+        jLabel36.setText("VIP suit");
+        jPanelPriceVIP.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 160, 15));
+
+        jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel40.setForeground(new java.awt.Color(37, 99, 235));
+        jLabel40.setText("$2,568/day");
+        jPanelPriceVIP.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 160, 25));
+
+        jPanelCard.add(jPanelPriceVIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 130, 180, 70));
+
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel44.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel44.setText("Room status");
+        jPanelCard.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 210, 150, 20));
+
+        jPanelRoomStatus.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelRoomStatus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 231, 235)));
+        jPanelRoomStatus.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(107, 114, 128));
+        jLabel22.setText("OCCUPIED ROOMS");
+        jPanelRoomStatus.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 160, 15));
+
+        jLabel8.setText("Occupied Room");
+        jLabel8.setForeground(new java.awt.Color(67, 75, 85));
+        jPanelRoomStatus.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 30, 90, 15));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel12.setText("104");
+        jPanelRoomStatus.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 50, 15));
+
+        jLabel9.setText("Clean");
+        jLabel9.setForeground(new java.awt.Color(67, 75, 85));
+        jPanelRoomStatus.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 50, 90, 15));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel13.setText("90");
+        jPanelRoomStatus.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 50, 15));
+
+        jLabel10.setText("Dirty");
+        jLabel10.setForeground(new java.awt.Color(67, 75, 85));
+        jPanelRoomStatus.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 70, 90, 15));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel14.setText("4");
+        jPanelRoomStatus.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 50, 15));
+
+        jLabel11.setText("Inspected");
+        jLabel11.setForeground(new java.awt.Color(67, 75, 85));
+        jPanelRoomStatus.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 90, 90, 15));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel15.setText("60");
+        jPanelRoomStatus.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 50, 15));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(107, 114, 128));
+        jLabel16.setText("AVAILABLE ROOMS");
+        jPanelRoomStatus.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 10, 160, 15));
+
+        jLabel3.setText("Available Room");
+        jLabel3.setForeground(new java.awt.Color(67, 75, 85));
+        jPanelRoomStatus.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 30, 90, 15));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel21.setText("20");
+        jPanelRoomStatus.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 50, 15));
+
+        jLabel6.setText("Clean");
+        jLabel6.setForeground(new java.awt.Color(67, 75, 85));
+        jPanelRoomStatus.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 50, 90, 15));
+
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel30.setText("30");
+        jPanelRoomStatus.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 50, 15));
+
+        jLabel7.setText("Dirty");
+        jLabel7.setForeground(new java.awt.Color(67, 75, 85));
+        jPanelRoomStatus.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 70, 90, 15));
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel33.setText("19");
+        jPanelRoomStatus.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 50, 15));
+
+        jLabel31.setText("Inspected");
+        jLabel31.setForeground(new java.awt.Color(67, 75, 85));
+        jPanelRoomStatus.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 90, 90, 15));
+
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel34.setText("30");
+        jPanelRoomStatus.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 50, 15));
+
+        jPanelCard.add(jPanelRoomStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 235, 355, 135));
+        jPanelCard.add(jDayChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 235, 170, 135));
+
+        jPanelContent.add(jPanelCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 570, 385));
+
+        jPanelMain.add(jPanelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 70, 600, 415));
+
+        getContentPane().add(jPanelMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 630, 500));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        new view.roommanagement().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new view.BookingManagement().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        new view.loginpage().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        // Already on Dashboard
+    }
 
     /**
      * @param args the command line arguments
@@ -314,18 +499,61 @@ public class admindashboard extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private com.toedter.calendar.JDayChooser jDayChooser1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanelCard;
+    private javax.swing.JPanel jPanelContent;
+    private javax.swing.JPanel jPanelHeader;
+    private javax.swing.JPanel jPanelMain;
+    private javax.swing.JPanel jPanelPriceDouble;
+    private javax.swing.JPanel jPanelPriceSingle;
+    private javax.swing.JPanel jPanelPriceVIP;
+    private javax.swing.JPanel jPanelRoomStatus;
+    private javax.swing.JPanel jPanelSidebar;
+    private javax.swing.JLabel lblAvailable;
+    private javax.swing.JLabel lblCheckIn;
+    private javax.swing.JLabel lblCheckOut;
+    private javax.swing.JLabel lblOccupied;
+    private javax.swing.JLabel lblTotal;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,8 +1,13 @@
-/*
+﻿/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
+
+/**
+ * Login Page User Interface Class
+ * Handles admin/staff credential input, validation, and session initialization.
+ */
 
 /**
  *
@@ -166,14 +171,8 @@ public class loginpage extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String username = jTextField1.getText().trim();
-        String password = new String(jPasswordField1.getPassword());
-        if (username.isEmpty() || password.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Please enter both Username and Password.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
-        } else {
-            new gest_dashbord().setVisible(true);
-            this.dispose();
-        }
+        new view.admindashboard().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed

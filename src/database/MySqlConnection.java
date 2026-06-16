@@ -22,7 +22,7 @@ public class MySqlConnection implements Database {
 
             connection = DriverManager.getConnection(
 
-                    "jdbc:mysql://localhost:3306/" + database, username, password
+                    "jdbc:mysql://localhost:3306/" + database + "?connectTimeout=2000&socketTimeout=2000", username, password
 
             );
             return connection;
