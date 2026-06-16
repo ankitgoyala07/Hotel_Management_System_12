@@ -63,7 +63,6 @@ public class GuestManagement extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hotel Management System - Guest Management");
-        setPreferredSize(new java.awt.Dimension(800, 500));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -143,7 +142,7 @@ public class GuestManagement extends javax.swing.JFrame {
         lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblRole.setText("Frontdesk");
         panelProfile.add(lblRole);
-        lblRole.setBounds(10, 20, 140, 16);
+        lblRole.setBounds(10, 20, 140, 18);
 
         headerPanel.add(panelProfile);
         panelProfile.setBounds(380, 5, 160, 40);
