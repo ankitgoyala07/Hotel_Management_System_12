@@ -22,8 +22,8 @@ public class admindashboard extends javax.swing.JFrame {
 
     private void loadDashboardData() {
         try {
-            controller.AdminDashboardController ctrl = new controller.AdminDashboardController();
-            model.AdminDashboardModel data = ctrl.getDashboardData();
+            controller.admindashboardController ctrl = new controller.admindashboardController();
+            model.admindashboardModel data = ctrl.getDashboardData();
 
             lblCheckIn.setText(String.valueOf(data.getTodayCheckIn()));
             lblCheckOut.setText(String.valueOf(data.getTodayCheckOut()));

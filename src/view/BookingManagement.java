@@ -11,12 +11,112 @@ package view;
 public class BookingManagement extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(BookingManagement.class.getName());
+    private final controller.BookingController bookingController = new controller.BookingController();
 
     /**
      * Creates new form BookingManagement
      */
     public BookingManagement() {
         initComponents();
+        populateComboBoxes();
+        loadBookingsData();
+        setupListeners();
+    }
+
+    private void populateComboBoxes() {
+        jComboBoxRoomType.removeAllItems();
+        jComboBoxRoomType.addItem("All Types");
+        jComboBoxRoomType.addItem("Single");
+        jComboBoxRoomType.addItem("Double");
+        jComboBoxRoomType.addItem("Suite");
+        jComboBoxRoomType.addItem("Deluxe");
+
+        jComboBoxStatus.removeAllItems();
+        jComboBoxStatus.addItem("All Status");
+        jComboBoxStatus.addItem("Confirmed");
+        jComboBoxStatus.addItem("Checked-in");
+        jComboBoxStatus.addItem("Checked-out");
+        jComboBoxStatus.addItem("Cancelled");
+    }
+
+    private void loadBookingsData() {
+        String search = jTextFieldSearch.getText().trim();
+        if (search.equals("e.g. John Doe")) {
+            search = "";
+        }
+        String roomType = String.valueOf(jComboBoxRoomType.getSelectedItem());
+        String status = String.valueOf(jComboBoxStatus.getSelectedItem());
+        
+        try {
+            java.util.List<model.BookingModel> bookings = bookingController.getBookings(search, roomType, status, 1, 100);
+            
+            javax.swing.table.DefaultTableModel tblModel = (javax.swing.table.DefaultTableModel) jTableBookings.getModel();
+            tblModel.setRowCount(0);
+            
+            java.text.SimpleDateFormat df = new java.text.SimpleDateFormat("MMM dd, yyyy");
+            
+            for (model.BookingModel b : bookings) {
+                String stay = "";
+                if (b.getCheckInDate() != null && b.getCheckOutDate() != null) {
+                    stay = df.format(b.getCheckInDate()) + " - " + df.format(b.getCheckOutDate());
+                }
+                
+                String statusText = b.getStatus();
+                String badgeHtml = statusText;
+                if (statusText != null) {
+                    if (statusText.equalsIgnoreCase("Confirmed")) {
+                        badgeHtml = "<html><span style='color: #10B981; background: #D1FAE5; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Confirmed</span></html>";
+                    } else if (statusText.equalsIgnoreCase("CheckedIn") || statusText.equalsIgnoreCase("Checked-in")) {
+                        badgeHtml = "<html><span style='color: #2563EB; background: #DBEAFE; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Checked In</span></html>";
+                    } else if (statusText.equalsIgnoreCase("CheckedOut") || statusText.equalsIgnoreCase("Checked-out")) {
+                        badgeHtml = "<html><span style='color: #9CA3AF; background: #F3F4F6; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Checked Out</span></html>";
+                    } else if (statusText.equalsIgnoreCase("Cancelled")) {
+                        badgeHtml = "<html><span style='color: #EF4444; background: #FEE2E2; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Cancelled</span></html>";
+                    }
+                }
+                
+                tblModel.addRow(new Object[]{
+                    b.getGuestName(),
+                    b.getRoomNumber(),
+                    b.getRoomType(),
+                    stay,
+                    badgeHtml,
+                    String.format("$%.2f", b.getTotalAmount())
+                });
+            }
+        } catch (Exception e) {
+            System.out.println("Error loading bookings data: " + e.getMessage());
+        }
+    }
+
+    private void setupListeners() {
+        jComboBoxRoomType.addActionListener(e -> loadBookingsData());
+        jComboBoxStatus.addActionListener(e -> loadBookingsData());
+        
+        jTextFieldSearch.addActionListener(e -> loadBookingsData());
+        jTextFieldSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                loadBookingsData();
+            }
+        });
+        
+        jTextFieldSearch.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                if (jTextFieldSearch.getText().equals("e.g. John Doe")) {
+                    jTextFieldSearch.setText("");
+                    jTextFieldSearch.setForeground(new java.awt.Color(55, 65, 81));
+                }
+            }
+            @Override
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                if (jTextFieldSearch.getText().trim().isEmpty()) {
+                    jTextFieldSearch.setText("e.g. John Doe");
+                    jTextFieldSearch.setForeground(new java.awt.Color(156, 163, 169));
+                }
+            }
+        });
     }
 
     /**

@@ -9,7 +9,10 @@ public class DbInit {
         String url = "jdbc:mysql://localhost:3306/?allowMultiQueries=true";
         String user = "root";
         String password = "1234";
-        String sqlFilePath = "c:/Users/rikes/OneDrive/文档/Desktop/NetBeansProjects/Hotel_Management_System_12/database_schema.sql";
+        String sqlFilePath = "database_schema.sql";
+        if (!new java.io.File(sqlFilePath).exists()) {
+            sqlFilePath = "../database_schema.sql";
+        }
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
