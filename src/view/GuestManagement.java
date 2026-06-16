@@ -15,6 +15,13 @@ public class GuestManagement extends javax.swing.JFrame {
     /** Creates new form GuestManagement */
     public GuestManagement() {
         initComponents();
+        lblNavBilling.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                new controller.BillingController();
+                dispose();
+            }
+        });
     }
 
     /** This method is called from within the constructor to
@@ -152,7 +159,7 @@ public class GuestManagement extends javax.swing.JFrame {
         lblUserIcon.setBounds(540, 10, 50, 30);
 
         panelContent.add(headerPanel);
-        headerPanel.setBounds(20, 20, 640, 50);
+        headerPanel.setBounds(20, 20, 630, 50);
 
         statsPanel.setBackground(new java.awt.Color(232, 240, 254));
         statsPanel.setOpaque(false);
@@ -231,7 +238,7 @@ public class GuestManagement extends javax.swing.JFrame {
         cardCheckoutToday.setBounds(500, 0, 125, 90);
 
         panelContent.add(statsPanel);
-        statsPanel.setBounds(20, 110, 640, 95);
+        statsPanel.setBounds(20, 80, 630, 95);
 
         tableCardPanel.setBackground(new java.awt.Color(232, 240, 254));
         tableCardPanel.setLayout(null);

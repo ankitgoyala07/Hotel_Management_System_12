@@ -4,6 +4,9 @@
  */
 package hotel_management;
 
+import database.DatabaseSetup;
+import view.login;
+
 /**
  *
  * @author i3
@@ -14,8 +17,12 @@ public class Hotel_Management {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        // Initialize database schema and default admin user
+        DatabaseSetup.initializeDatabase();
+        
+        // Start login UI via Controller
         java.awt.EventQueue.invokeLater(() -> {
-            new view.loginpage().setVisible(true);
+            new controller.LoginController();
         });
     }
     
