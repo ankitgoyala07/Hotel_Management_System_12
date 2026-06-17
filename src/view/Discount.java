@@ -63,6 +63,21 @@ private void customInit() {
             }
         });
 
+// Custom renderer for Status badges
+        jTableDeals.getColumnModel().getColumn(4).setCellRenderer(new StatusBadgeRenderer());
+
+        // Custom renderer for 3-dots action menu
+        jTableDeals.getColumnModel().getColumn(5).setCellRenderer(new javax.swing.table.DefaultTableCellRenderer() {
+            @Override
+            public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                javax.swing.JLabel label = (javax.swing.JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                label.setHorizontalAlignment(SwingConstants.CENTER);
+                label.setFont(new Font("Segoe UI", Font.BOLD, 16));
+                label.setForeground(new Color(148, 163, 184));
+                return label;
+            }
+        });
+
 // Set rounded border for Ongoing tab filter button
         jButtonOngoing.setBorder(new javax.swing.border.LineBorder(new Color(26, 115, 232), 1, true));
         
@@ -70,6 +85,52 @@ private void customInit() {
         jScrollPaneTable.setBorder(BorderFactory.createEmptyBorder());
         jScrollPaneTable.setViewportBorder(BorderFactory.createEmptyBorder());
 }
+
+private static class StatusBadgeRenderer extends javax.swing.table.DefaultTableCellRenderer {
+        @Override
+        public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            javax.swing.JLabel label = (javax.swing.JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            label.setHorizontalAlignment(SwingConstants.CENTER);
+            String val = (String) value;
+            label.setOpaque(false); // So we can draw our rounded background
+            
+            label.setText(val);
+            label.setFont(new Font("Segoe UI", Font.BOLD, 12));
+            
+            if ("Ongoing".equals(val)) {
+                label.setForeground(new Color(25, 118, 210));
+                label.setBackground(new Color(227, 242, 253));
+            } else if ("Full".equals(val)) {
+                label.setForeground(new Color(197, 34, 31));
+                label.setBackground(new Color(252, 232, 230));
+            } else if ("Inactive".equals(val)) {
+                label.setForeground(new Color(217, 119, 6));
+                label.setBackground(new Color(254, 243, 199));
+            } else if ("New".equals(val)) {
+                label.setForeground(new Color(19, 115, 51));
+                label.setBackground(new Color(230, 244, 234));
+            } else {
+                label.setOpaque(true);
+            }
+            return label;
+        }
+        
+        @Override
+        protected void paintComponent(Graphics g) {
+            Graphics2D g2d = (Graphics2D) g.create();
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2d.setColor(getBackground());
+            int w = getWidth();
+            int h = getHeight();
+            int badgeW = 76;
+            int badgeH = 24;
+            int x = (w - badgeW) / 2;
+            int y = (h - badgeH) / 2;
+            g2d.fillRoundRect(x, y, badgeW, badgeH, 12, 12);
+            g2d.dispose();
+            super.paintComponent(g);
+        }
+    }
 /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
