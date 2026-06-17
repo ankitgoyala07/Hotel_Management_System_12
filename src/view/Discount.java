@@ -1,0 +1,417 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package view;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import javax.swing.BorderFactory;
+import javax.swing.SwingConstants;
+
+/**
+ *
+ * @author pratikjungsinghthakuri
+ */
+public class Discount extends javax.swing.JFrame {
+    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Discount.class.getName());
+
+    /**
+     * Creates new form Discount
+     */
+    public Discount() {
+        initComponents();
+customInit();
+}
+private void customInit() {
+        // Table styling
+        jTableDeals.setRowHeight(45);
+        jTableDeals.setShowGrid(false);
+        jTableDeals.setShowHorizontalLines(true);
+        jTableDeals.setGridColor(new Color(241, 245, 249));
+        jTableDeals.setBackground(Color.WHITE);
+        jTableDeals.setSelectionBackground(new Color(248, 250, 252));
+        jTableDeals.setSelectionForeground(new Color(15, 23, 42));
+        
+        // Header styling
+        jTableDeals.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 13));
+        jTableDeals.getTableHeader().setBackground(new Color(248, 250, 252));
+        jTableDeals.getTableHeader().setForeground(new Color(100, 116, 139));
+        jTableDeals.getTableHeader().setOpaque(true);
+        jTableDeals.getTableHeader().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(226, 232, 240)));
+
+        // Column widths
+        jTableDeals.getColumnModel().getColumn(0).setPreferredWidth(100);
+        jTableDeals.getColumnModel().getColumn(1).setPreferredWidth(180);
+        jTableDeals.getColumnModel().getColumn(2).setPreferredWidth(130);
+        jTableDeals.getColumnModel().getColumn(3).setPreferredWidth(100);
+        jTableDeals.getColumnModel().getColumn(4).setPreferredWidth(100);
+        jTableDeals.getColumnModel().getColumn(5).setPreferredWidth(30);
+
+        // Bold for Deal Code column
+        jTableDeals.getColumnModel().getColumn(0).setCellRenderer(new javax.swing.table.DefaultTableCellRenderer() {
+            @Override
+            public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                javax.swing.JLabel label = (javax.swing.JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                label.setFont(new Font("Segoe UI", Font.BOLD, 13));
+                label.setForeground(new Color(15, 23, 42));
+                return label;
+            }
+        });
+
+// Custom renderer for Status badges
+        jTableDeals.getColumnModel().getColumn(4).setCellRenderer(new StatusBadgeRenderer());
+
+        // Custom renderer for 3-dots action menu
+        jTableDeals.getColumnModel().getColumn(5).setCellRenderer(new javax.swing.table.DefaultTableCellRenderer() {
+            @Override
+            public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                javax.swing.JLabel label = (javax.swing.JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                label.setHorizontalAlignment(SwingConstants.CENTER);
+                label.setFont(new Font("Segoe UI", Font.BOLD, 16));
+                label.setForeground(new Color(148, 163, 184));
+                return label;
+            }
+        });
+
+// Set rounded border for Ongoing tab filter button
+        jButtonOngoing.setBorder(new javax.swing.border.LineBorder(new Color(26, 115, 232), 1, true));
+        
+        // Remove scroll pane borders
+        jScrollPaneTable.setBorder(BorderFactory.createEmptyBorder());
+        jScrollPaneTable.setViewportBorder(BorderFactory.createEmptyBorder());
+}
+
+private static class StatusBadgeRenderer extends javax.swing.table.DefaultTableCellRenderer {
+        @Override
+        public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            javax.swing.JLabel label = (javax.swing.JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            label.setHorizontalAlignment(SwingConstants.CENTER);
+            String val = (String) value;
+            label.setOpaque(false); // So we can draw our rounded background
+            
+            label.setText(val);
+            label.setFont(new Font("Segoe UI", Font.BOLD, 12));
+            
+            if ("Ongoing".equals(val)) {
+                label.setForeground(new Color(25, 118, 210));
+                label.setBackground(new Color(227, 242, 253));
+            } else if ("Full".equals(val)) {
+                label.setForeground(new Color(197, 34, 31));
+                label.setBackground(new Color(252, 232, 230));
+            } else if ("Inactive".equals(val)) {
+                label.setForeground(new Color(217, 119, 6));
+                label.setBackground(new Color(254, 243, 199));
+            } else if ("New".equals(val)) {
+                label.setForeground(new Color(19, 115, 51));
+                label.setBackground(new Color(230, 244, 234));
+            } else {
+                label.setOpaque(true);
+            }
+            return label;
+        }
+        
+        @Override
+        protected void paintComponent(Graphics g) {
+            Graphics2D g2d = (Graphics2D) g.create();
+            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2d.setColor(getBackground());
+            int w = getWidth();
+            int h = getHeight();
+            int badgeW = 76;
+            int badgeH = 24;
+            int x = (w - badgeW) / 2;
+            int y = (h - badgeH) / 2;
+            g2d.fillRoundRect(x, y, badgeW, badgeH, 12, 12);
+            g2d.dispose();
+            super.paintComponent(g);
+        }
+    }
+/**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    private void initComponents() {
+jPanelSidebar = new javax.swing.JPanel();
+
+jLabelLogo = new javax.swing.JLabel();
+
+jButtonDashboard = new javax.swing.JButton();
+        jButtonRooms = new javax.swing.JButton();
+
+jButtonDiscount = new javax.swing.JButton();
+
+jButtonStaffs = new javax.swing.JButton();
+
+jButtonSystemSetting = new javax.swing.JButton();
+        jButtonReports = new javax.swing.JButton();
+        jButtonLogout = new javax.swing.JButton();
+
+jPanelMain = new javax.swing.JPanel();
+
+jLabelMainTitle = new javax.swing.JLabel();
+
+jPanelManager = new javax.swing.JPanel();
+        jLabelManagerText = new javax.swing.JLabel();
+        jLabelManagerIcon = new javax.swing.JLabel();
+
+jPanelTableBg = new javax.swing.JPanel();
+
+jPanelTableCard = new javax.swing.JPanel();
+
+jButtonOngoing = new javax.swing.JButton();
+        jButtonAddDeal = new javax.swing.JButton();
+
+jScrollPaneTable = new javax.swing.JScrollPane();
+        jTableDeals = new javax.swing.JTable();
+setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1000, 700));
+        getContentPane().setLayout(null);
+jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSidebar.setLayout(null);
+
+jLabelLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabelLogo.setForeground(new java.awt.Color(26, 115, 232));
+        jLabelLogo.setText("<html><font color='#1A73E8'><b>⚡ HMS</b></font></html>");
+        jPanelSidebar.add(jLabelLogo);
+        jLabelLogo.setBounds(24, 24, 170, 40);
+
+
+jButtonDashboard.setBackground(new java.awt.Color(255, 255, 255));
+
+jButtonDashboard.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonDashboard.setForeground(new java.awt.Color(95, 99, 104));
+        jButtonDashboard.setBorderPainted(false);
+        jButtonDashboard.setContentAreaFilled(false);
+        jButtonDashboard.setFocusPainted(false);
+        jButtonDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+jButtonDashboard.setText("🏠  Dashboard");
+        jPanelSidebar.add(jButtonDashboard);
+        jButtonDashboard.setBounds(16, 100, 188, 40);
+jButtonRooms.setBackground(new java.awt.Color(255, 255, 255));
+
+jButtonRooms.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonRooms.setForeground(new java.awt.Color(95, 99, 104));
+        jButtonRooms.setBorderPainted(false);
+        jButtonRooms.setContentAreaFilled(false);
+        jButtonRooms.setFocusPainted(false);
+        jButtonRooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+jButtonRooms.setText("🔑  Rooms");
+        jPanelSidebar.add(jButtonRooms);
+        jButtonRooms.setBounds(16, 150, 188, 40);
+
+
+jButtonDiscount.setBackground(new java.awt.Color(232, 240, 254));
+        jButtonDiscount.setForeground(new java.awt.Color(26, 115, 232));
+        jButtonDiscount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonDiscount.setBorderPainted(false);
+        jButtonDiscount.setFocusPainted(false);
+        jButtonDiscount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+jButtonDiscount.setText("🏷️  Discount & Offers");
+        jPanelSidebar.add(jButtonDiscount);
+        jButtonDiscount.setBounds(16, 200, 188, 40);
+
+
+jButtonStaffs.setBackground(new java.awt.Color(255, 255, 255));
+
+jButtonStaffs.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonStaffs.setForeground(new java.awt.Color(95, 99, 104));
+        jButtonStaffs.setBorderPainted(false);
+        jButtonStaffs.setContentAreaFilled(false);
+        jButtonStaffs.setFocusPainted(false);
+        jButtonStaffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+jButtonStaffs.setText("👥  Staffs");
+        jPanelSidebar.add(jButtonStaffs);
+        jButtonStaffs.setBounds(16, 250, 188, 40);
+
+jButtonSystemSetting.setBackground(new java.awt.Color(255, 255, 255));
+jButtonSystemSetting.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonSystemSetting.setForeground(new java.awt.Color(95, 99, 104));
+        jButtonSystemSetting.setBorderPainted(false);
+        jButtonSystemSetting.setContentAreaFilled(false);
+        jButtonSystemSetting.setFocusPainted(false);
+        jButtonSystemSetting.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+jButtonSystemSetting.setText("⚙️  System Setting");
+        jPanelSidebar.add(jButtonSystemSetting);
+        jButtonSystemSetting.setBounds(16, 300, 188, 40);
+
+        jButtonReports.setBackground(new java.awt.Color(255, 255, 255));
+jButtonReports.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonReports.setForeground(new java.awt.Color(95, 99, 104));
+        jButtonReports.setBorderPainted(false);
+        jButtonReports.setContentAreaFilled(false);
+        jButtonReports.setFocusPainted(false);
+        jButtonReports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+jButtonReports.setText("📊  Reports");
+        jPanelSidebar.add(jButtonReports);
+        jButtonReports.setBounds(16, 350, 188, 40);
+
+        jButtonLogout.setBackground(new java.awt.Color(255, 255, 255));
+jButtonLogout.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonLogout.setForeground(new java.awt.Color(95, 99, 104));
+        jButtonLogout.setBorderPainted(false);
+        jButtonLogout.setContentAreaFilled(false);
+        jButtonLogout.setFocusPainted(false);
+        jButtonLogout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+jButtonLogout.setText("🚪  Logout");
+        jPanelSidebar.add(jButtonLogout);
+        jButtonLogout.setBounds(16, 600, 188, 40);
+
+getContentPane().add(jPanelSidebar);
+        jPanelSidebar.setBounds(0, 0, 220, 700);
+
+        jPanelMain.setBackground(new java.awt.Color(245, 246, 248));
+        jPanelMain.setLayout(null);
+
+jLabelMainTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabelMainTitle.setForeground(new java.awt.Color(32, 33, 36));
+        jLabelMainTitle.setText("Discount & Offers");
+        jPanelMain.add(jLabelMainTitle);
+        jLabelMainTitle.setBounds(30, 24, 300, 40);
+
+jPanelManager.setBackground(new java.awt.Color(232, 232, 232));
+        jPanelManager.setLayout(null);
+
+        jLabelManagerText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelManagerText.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelManagerText.setText("Manager");
+        jPanelManager.add(jLabelManagerText);
+        jLabelManagerText.setBounds(15, 5, 90, 30);
+
+        jLabelManagerIcon.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabelManagerIcon.setText("👤");
+        jPanelManager.add(jLabelManagerIcon);
+        jLabelManagerIcon.setBounds(120, 5, 30, 30);
+
+        jPanelMain.add(jPanelManager);
+        jPanelManager.setBounds(580, 24, 170, 40);
+
+jPanelTableBg.setBackground(new java.awt.Color(224, 224, 224));
+        jPanelTableBg.setLayout(null);
+
+jPanelTableCard.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelTableCard.setLayout(null);
+
+jButtonOngoing.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButtonOngoing.setForeground(new java.awt.Color(26, 115, 232));
+        jButtonOngoing.setText("Ongoing");
+        jButtonOngoing.setBorderPainted(true);
+        jButtonOngoing.setContentAreaFilled(false);
+        jButtonOngoing.setFocusPainted(false);
+        jPanelTableCard.add(jButtonOngoing);
+        jButtonOngoing.setBounds(20, 20, 100, 36);
+
+        jButtonAddDeal.setBackground(new java.awt.Color(26, 115, 232));
+        jButtonAddDeal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonAddDeal.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAddDeal.setText("Add deal");
+        jButtonAddDeal.setBorderPainted(false);
+        jButtonAddDeal.setFocusPainted(false);
+        jPanelTableCard.add(jButtonAddDeal);
+        jButtonAddDeal.setBounds(550, 20, 110, 36);
+
+jTableDeals.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"#5644", "Family deal", "10", "21/3/23", "Ongoing", "⋮"},
+                {"#6112", "Christmas deal", "12", "25/3/23", "Full", "⋮"},
+                {"#6141", "Family deal", "15", "-", "Inactive", "⋮"},
+                {"#6535", "Black Friday", "15", "1/5/23", "New", "⋮"}
+            },
+            new String [] {
+                "Deal code", "Deal name", "Reservations left", "End date", "Status", ""
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPaneTable.setViewportView(jTableDeals);
+
+        jPanelTableCard.add(jScrollPaneTable);
+        jScrollPaneTable.setBounds(20, 70, 640, 420);
+
+jPanelTableBg.add(jPanelTableCard);
+        jPanelTableCard.setBounds(20, 20, 680, 510);
+
+jPanelMain.add(jPanelTableBg);
+        jPanelTableBg.setBounds(30, 90, 720, 550);
+
+getContentPane().add(jPanelMain);
+        jPanelMain.setBounds(220, 0, 780, 700);
+pack();
+        setLocationRelativeTo(null);
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+        java.awt.EventQueue.invokeLater(() -> new Discount().setVisible(true));
+    }
+
+    // Variables declaration - do not modify
+private javax.swing.JButton jButtonAddDeal;
+
+private javax.swing.JButton jButtonDashboard;
+
+private javax.swing.JButton jButtonDiscount;
+    private javax.swing.JButton jButtonLogout;
+
+private javax.swing.JButton jButtonOngoing;
+
+private javax.swing.JButton jButtonRooms;
+    private javax.swing.JButton jButtonStaffs;
+
+private javax.swing.JButton jButtonSystemSetting;
+    private javax.swing.JButton jButtonReports;
+
+private javax.swing.JLabel jLabelLogo;
+
+private javax.swing.JLabel jLabelMainTitle;
+
+private javax.swing.JLabel jLabelManagerIcon;
+    private javax.swing.JLabel jLabelManagerText;
+
+private javax.swing.JPanel jPanelMain;
+
+private javax.swing.JPanel jPanelManager;
+
+private javax.swing.JPanel jPanelSidebar;
+
+private javax.swing.JPanel jPanelTableBg;
+
+private javax.swing.JPanel jPanelTableCard;
+
+private javax.swing.JScrollPane jScrollPaneTable;
+    private javax.swing.JTable jTableDeals;
+// End of variables declaration
+}
