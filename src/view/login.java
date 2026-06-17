@@ -178,4 +178,10 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnSignin() { return jButton1; }
+    public javax.swing.JLabel getLblSignup() { return jLabel12; }
+    public javax.swing.JLabel getLblForgetPassword() { return jLabel10; }
+    public javax.swing.JTextField getUsernameField() { return jTextField1; }
+    public javax.swing.JPasswordField getPasswordField() { return jPasswordField1; }
 }

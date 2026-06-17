@@ -17,6 +17,11 @@ public class OrderFood extends javax.swing.JFrame {
      */
     public OrderFood() {
         initComponents();
+        UIStyleUtil.styleSidebarButton(jButtonDashboard, false);
+        UIStyleUtil.styleSidebarButton(jButtonRoomBrowse, false);
+        UIStyleUtil.styleSidebarButton(jButtonOrderFood, true);
+        UIStyleUtil.styleSidebarButton(jButtonFeedback, false);
+        UIStyleUtil.styleSidebarButton(jButtonLogout, false);
     }
 
     /**

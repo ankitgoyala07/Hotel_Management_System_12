@@ -1,4 +1,4 @@
-﻿package dao;
+package dao;
 
 /**
  * Data Access Object (DAO) executing CRUD operations on the Room details table
@@ -63,5 +63,26 @@ public class roommanagementDAO {
         mockList.add(new roommanagementModel("007", "Double", "Reserved", 120.00));
         mockList.add(new roommanagementModel("008", "Single", "Blocked", 80.00));
         return mockList;
+    }
+
+    public boolean addRoom(roommanagementModel room) {
+        MySqlConnection db = new MySqlConnection();
+        Connection conn = db.Openconnection();
+        if (conn == null) return false;
+
+        String sql = "INSERT INTO rooms (room_number, room_type, status, price_per_night) VALUES (?, ?, ?, ?)";
+        try (java.sql.PreparedStatement pstm = conn.prepareStatement(sql)) {
+            pstm.setString(1, room.getRoomNumber().replace("#", "").trim());
+            pstm.setString(2, room.getRoomType());
+            pstm.setString(3, room.getStatus());
+            pstm.setDouble(4, room.getPricePerNight());
+            int result = pstm.executeUpdate();
+            return result > 0;
+        } catch (Exception e) {
+            System.out.println("Error adding room: " + e.getMessage());
+            return false;
+        } finally {
+            db.closeConnection(conn);
+        }
     }
 }

@@ -16,69 +16,23 @@ package view;
 public class roommanagement extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(roommanagement.class.getName());
-    private final controller.roommanagementController roomsController = new controller.roommanagementController();
+
 
     /**
-     * Creates new form roommanagement
+     * Creates new form room management
      */
     public roommanagement() {
         initComponents();
-        loadRoomsData("All");
-        setupFilterListeners();
+        UIStyleUtil.styleSidebarButton(jButton2, false);
+        UIStyleUtil.styleSidebarButton(jButton3, true);
+        UIStyleUtil.styleSidebarButton(jButton1, false);
+        UIStyleUtil.styleSidebarButton(jButton4, false);
+        UIStyleUtil.styleSidebarButton(jButton5, false);
+        UIStyleUtil.styleSidebarButton(jButton6, false);
+        UIStyleUtil.styleSidebarButton(jButton7, false);
     }
 
-    private void loadRoomsData(String filterStatus) {
-        try {
-            java.util.List<model.roommanagementModel> rooms = roomsController.getRooms();
-            
-            javax.swing.table.DefaultTableModel tblModel = (javax.swing.table.DefaultTableModel) jTable1.getModel();
-            tblModel.setRowCount(0);
-            
-            for (model.roommanagementModel r : rooms) {
-                String statusText = r.getStatus();
-                
-                // Apply filter
-                if (filterStatus.equalsIgnoreCase("Available") && !statusText.equalsIgnoreCase("Available")) {
-                    continue;
-                }
-                if (filterStatus.equalsIgnoreCase("Booked") && !statusText.equalsIgnoreCase("Booked")) {
-                    continue;
-                }
 
-                String badgeHtml = statusText;
-                if (statusText != null) {
-                    if (statusText.equalsIgnoreCase("Available")) {
-                        badgeHtml = "<html><span style='color: #2563EB; background: #DBEAFE; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Available</span></html>";
-                    } else if (statusText.equalsIgnoreCase("Booked")) {
-                        badgeHtml = "<html><span style='color: #EF4444; background: #FEE2E2; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Booked</span></html>";
-                    } else if (statusText.equalsIgnoreCase("Reserved")) {
-                        badgeHtml = "<html><span style='color: #10B981; background: #D1FAE5; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Reserved</span></html>";
-                    } else if (statusText.equalsIgnoreCase("Waitlist")) {
-                        badgeHtml = "<html><span style='color: #F59E0B; background: #FEF3C7; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Waitlist</span></html>";
-                    } else if (statusText.equalsIgnoreCase("Blocked")) {
-                        badgeHtml = "<html><span style='color: #9CA3AF; background: #F3F4F6; padding: 2px 10px; border-radius: 9999px; font-weight: bold;'>Blocked</span></html>";
-                    }
-                }
-                
-                tblModel.addRow(new Object[]{
-                    r.getRoomNumber(),
-                    r.getRoomType(),
-                    r.getRoomFloor(),
-                    r.getRoomFacility(),
-                    badgeHtml,
-                    "⋮"
-                });
-            }
-        } catch (Exception e) {
-            System.out.println("Error loading rooms data: " + e.getMessage());
-        }
-    }
-
-    private void setupFilterListeners() {
-        jButtonAllRooms.addActionListener(e -> loadRoomsData("All"));
-        jButtonAvailableRooms.addActionListener(e -> loadRoomsData("Available"));
-        jButtonBookedRooms.addActionListener(e -> loadRoomsData("Booked"));
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -303,8 +257,7 @@ public class roommanagement extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        new controller.LoginController();
-        this.dispose();
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -324,13 +277,11 @@ public class roommanagement extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new view.admindashboard().setVisible(true);
-        this.dispose();
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new view.BookingManagement().setVisible(true);
-        this.dispose();
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -340,27 +291,6 @@ public class roommanagement extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new roommanagement().setVisible(true));
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -385,4 +315,17 @@ public class roommanagement extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JTable getTable() { return jTable1; }
+    public javax.swing.JButton getBtnAllRooms() { return jButtonAllRooms; }
+    public javax.swing.JButton getBtnAvailableRooms() { return jButtonAvailableRooms; }
+    public javax.swing.JButton getBtnBookedRooms() { return jButtonBookedRooms; }
+    public javax.swing.JButton getBtnAddRoom() { return jButton8; }
+    public javax.swing.JButton getBtnDashboard() { return jButton2; }
+    public javax.swing.JButton getBtnRooms() { return jButton3; }
+    public javax.swing.JButton getBtnDiscount() { return jButton1; }
+    public javax.swing.JButton getBtnStaffs() { return jButton4; }
+    public javax.swing.JButton getBtnSystemSetting() { return jButton5; }
+    public javax.swing.JButton getBtnReports() { return jButton6; }
+    public javax.swing.JButton getBtnLogout() { return jButton7; }
 }

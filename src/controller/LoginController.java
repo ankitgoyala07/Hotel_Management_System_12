@@ -114,13 +114,21 @@ public class LoginController {
         boolean success = dao.validateUser(credentials);
 
         if (success) {
-            JOptionPane.showMessageDialog(view,
-                "Welcome back, " + username + "! Logged in as " + credentials.getRole(),
-                "Login Successful",
-                JOptionPane.INFORMATION_MESSAGE);
-            
-            // Navigate to Dashboard
-            new FrontdeskDeshboardControler();
+            String role = credentials.getRole();
+            if (role != null) {
+                role = role.trim();
+                if (role.equalsIgnoreCase("Manager") || role.equalsIgnoreCase("Admin")) {
+                    new admindashboardController();
+                } else if (role.equalsIgnoreCase("Frontdesk Staff") || role.equalsIgnoreCase("Frontdesk")) {
+                    new FrontdeskDeshboardControler();
+                } else if (role.equalsIgnoreCase("Guest")) {
+                    new GuestDashboardController(new view.gest_dashbord());
+                } else {
+                    new FrontdeskDeshboardControler();
+                }
+            } else {
+                new FrontdeskDeshboardControler();
+            }
             view.dispose();
         } else {
             JOptionPane.showMessageDialog(view,

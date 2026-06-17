@@ -33,33 +33,13 @@ public class SignupController {
         initController();
     }
 
-    /**
-     * Safely retrieves the private Swing components from the view via Java reflection.
-     */
     private void initFields() {
-        try {
-            txtUsername = getTextField("jTextField8");
-            txtEmail = getTextField("jTextField7");
-            txtPhone = getTextField("jTextField9");
-            txtPassword = getTextField("jTextField10"); // actual Password field
-            txtSecurityAnswer = getTextField("jTextField6"); // Security Answer field
-            comboRole = getComboBoxField("jComboBox3"); // Role dropdown
-        } catch (Exception e) {
-            System.err.println("Error accessing private components in Signup view: " + e.getMessage());
-        }
-    }
-
-    private javax.swing.JTextField getTextField(String name) throws Exception {
-        Field field = view.getClass().getDeclaredField(name);
-        field.setAccessible(true);
-        return (javax.swing.JTextField) field.get(view);
-    }
-
-    @SuppressWarnings("unchecked")
-    private javax.swing.JComboBox<String> getComboBoxField(String name) throws Exception {
-        Field field = view.getClass().getDeclaredField(name);
-        field.setAccessible(true);
-        return (javax.swing.JComboBox<String>) field.get(view);
+        txtUsername = view.getUsernameField();
+        txtEmail = view.getEmailField();
+        txtPhone = view.getPhoneField();
+        txtPassword = view.getPasswordField();
+        txtSecurityAnswer = view.getSecurityAnswerField();
+        comboRole = view.getComboRole();
     }
 
     /**

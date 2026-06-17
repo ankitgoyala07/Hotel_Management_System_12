@@ -12,11 +12,21 @@ public class Gust_Details extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Gust_Details.class.getName());
 
+    private final com.toedter.calendar.JDateChooser dateChooserCheckIn;
+    private final com.toedter.calendar.JDateChooser dateChooserCheckOut;
+
     /**
      * Creates new form Gust_Details
      */
     public Gust_Details() {
+        dateChooserCheckIn = new com.toedter.calendar.JDateChooser();
+        dateChooserCheckOut = new com.toedter.calendar.JDateChooser();
         initComponents();
+        UIStyleUtil.styleSidebarButton(jButton1, false);
+        UIStyleUtil.styleSidebarButton(jButton2, true);
+        UIStyleUtil.styleSidebarButton(jButton3, false);
+        UIStyleUtil.styleSidebarButton(jButton4, false);
+        UIStyleUtil.styleSidebarButton(jButton5, false);
     }
 
     /**
@@ -194,6 +204,10 @@ public class Gust_Details extends javax.swing.JFrame {
                         .addGap(144, 144, 144)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(dateChooserCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(dateChooserCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(85, 85, 85)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(28, Short.MAX_VALUE))
@@ -233,7 +247,11 @@ public class Gust_Details extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                .addGap(6, 6, 6)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dateChooserCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateChooserCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
@@ -367,4 +385,23 @@ public class Gust_Details extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnDashboard() { return jButton1; }
+    public javax.swing.JButton getBtnRoomBrowsing() { return jButton2; }
+    public javax.swing.JButton getBtnOrderFood() { return jButton3; }
+    public javax.swing.JButton getBtnFeedback() { return jButton4; }
+    public javax.swing.JButton getBtnLogout() { return jButton5; }
+    public javax.swing.JButton getBtnConfirmBooking() { return jButton6; }
+
+    public javax.swing.JTextField getTxtFullName() { return jTextField1; }
+    public javax.swing.JTextField getTxtPhoneNumber() { return jTextField6; }
+    public javax.swing.JTextField getTxtEmailAddress() { return jTextField4; }
+    public javax.swing.JComboBox<String> getComboRoomType() { return jComboBox1; }
+    public javax.swing.JTextField getTxtRoomNo() { return jTextField7; }
+    public javax.swing.JTextField getTxtGuestNo() { return jTextField8; }
+
+    public com.toedter.calendar.JDateChooser getDateChooserCheckIn() { return dateChooserCheckIn; }
+    public com.toedter.calendar.JDateChooser getDateChooserCheckOut() { return dateChooserCheckOut; }
+
+    public void setRoomType(String roomType) { jComboBox1.setSelectedItem(roomType); }
 }

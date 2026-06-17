@@ -1,4 +1,4 @@
-﻿package model;
+package model;
 
 /**
  * Model class holding data attributes for Admin Dashboard metrics (rooms, check-ins, check-outs)

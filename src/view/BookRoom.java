@@ -13,6 +13,11 @@ public class BookRoom extends javax.swing.JFrame {
      */
     public BookRoom() {
         initComponents();
+        UIStyleUtil.styleSidebarButton(Dashboard, false);
+        UIStyleUtil.styleSidebarButton(RoomBrowsing, true);
+        UIStyleUtil.styleSidebarButton(Orderfood, false);
+        UIStyleUtil.styleSidebarButton(Feedback, false);
+        UIStyleUtil.styleSidebarButton(Logout, false);
     }
 
     /**
@@ -517,4 +522,28 @@ public class BookRoom extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea_vip_desc;
     private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JLabel getLblVipPrice() { return jLabel_vip_price; }
+    public javax.swing.JLabel getLblVipSize() { return jLabel_vip_size; }
+    public javax.swing.JLabel getLblVipBed() { return jLabel_vip_bed; }
+    public javax.swing.JTextArea getTxtVipDesc() { return jTextArea_vip_desc; }
+
+    public javax.swing.JLabel getLblDoublePrice() { return jLabel_double_price; }
+    public javax.swing.JLabel getLblDoubleSize() { return jLabel_double_size; }
+    public javax.swing.JLabel getLblDoubleBed() { return jLabel_double_bed; }
+    public javax.swing.JTextArea getTxtDoubleDesc() { return jTextArea_double_desc; }
+
+    public javax.swing.JLabel getLblSinglePrice() { return jLabel_single_price; }
+    public javax.swing.JLabel getLblSingleSize() { return jLabel_single_size; }
+    public javax.swing.JLabel getLblSingleBed() { return jLabel_single_bed; }
+    public javax.swing.JTextArea getTxtSingleDesc() { return jTextArea_single_desc; }
+
+    public javax.swing.JButton getBtnDashboard() { return Dashboard; }
+    public javax.swing.JButton getBtnOrderFood() { return Orderfood; }
+    public javax.swing.JButton getBtnFeedback() { return Feedback; }
+    public javax.swing.JButton getBtnLogout() { return Logout; }
+
+    public javax.swing.JButton getBtnBookVip() { return jButton6; }
+    public javax.swing.JButton getBtnBookDouble() { return jButton7; }
+    public javax.swing.JButton getBtnBookSingle() { return jButton9; }
 }

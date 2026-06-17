@@ -19,6 +19,19 @@ public class DatabaseSetup {
             stmt = conn.createStatement();
             System.out.println("Connected to hotel_management database.");
 
+            // Create users table if it doesn't exist
+            String createUsersSql = "CREATE TABLE IF NOT EXISTS users ("
+                    + "user_id INT AUTO_INCREMENT PRIMARY KEY, "
+                    + "username VARCHAR(100) UNIQUE NOT NULL, "
+                    + "email VARCHAR(100) UNIQUE NOT NULL, "
+                    + "phone VARCHAR(20) NOT NULL, "
+                    + "password VARCHAR(100) NOT NULL, "
+                    + "role VARCHAR(50) NOT NULL, "
+                    + "security_questions VARCHAR(255)"
+                    + ")";
+            stmt.executeUpdate(createUsersSql);
+            System.out.println("Table 'users' verified/created.");
+
             // Create system_settings table if it doesn't exist
             String createTableSql = "CREATE TABLE IF NOT EXISTS system_settings ("
                     + "id INT AUTO_INCREMENT PRIMARY KEY, "

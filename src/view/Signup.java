@@ -216,4 +216,12 @@ public class Signup extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnSignup() { return jButton2; }
+    public javax.swing.JTextField getUsernameField() { return jTextField8; }
+    public javax.swing.JTextField getEmailField() { return jTextField7; }
+    public javax.swing.JTextField getPhoneField() { return jTextField9; }
+    public javax.swing.JTextField getPasswordField() { return jTextField10; }
+    public javax.swing.JComboBox<String> getComboRole() { return jComboBox3; }
+    public javax.swing.JTextField getSecurityAnswerField() { return jTextField6; }
 }

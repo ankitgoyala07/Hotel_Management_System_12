@@ -6,6 +6,11 @@ public class Roomservice extends javax.swing.JFrame {
 
     public Roomservice() {
         initComponents();
+        UIStyleUtil.styleSidebarButton(jButton1, false);
+        UIStyleUtil.styleSidebarButton(jButton2, false);
+        UIStyleUtil.styleSidebarButton(jButton3, false);
+        UIStyleUtil.styleSidebarButton(jButton4, false);
+        UIStyleUtil.styleSidebarButton(jButton5, false);
     }
 
 
@@ -195,4 +200,15 @@ public class Roomservice extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnDashboard() { return jButton1; }
+    public javax.swing.JButton getBtnRoomBrowsing() { return jButton2; }
+    public javax.swing.JButton getBtnOrderFood() { return jButton3; }
+    public javax.swing.JButton getBtnFeedback() { return jButton4; }
+    public javax.swing.JButton getBtnLogout() { return jButton5; }
+    public javax.swing.JButton getBtnSubmitRequest() { return jButton6; }
+
+    public javax.swing.JComboBox<String> getComboServiceType() { return jComboBox1; }
+    public javax.swing.JTextField getTxtRoomNo() { return jTextField1; }
+    public javax.swing.JTextArea getTxtInstructions() { return jTextArea1; }
 }

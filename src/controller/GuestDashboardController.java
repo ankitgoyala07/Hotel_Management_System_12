@@ -21,6 +21,7 @@ public class GuestDashboardController {
         initDatabase();
         loadStayInfo();
         bindListeners();
+        this.view.setVisible(true);
     }
 
     private void initDatabase() {

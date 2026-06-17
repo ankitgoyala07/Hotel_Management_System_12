@@ -17,6 +17,13 @@ public class StaffManagement extends javax.swing.JFrame {
      */
     public StaffManagement() {
         initComponents();
+        UIStyleUtil.styleSidebarButton(Dashboard, false);
+        UIStyleUtil.styleSidebarButton(Rooms, false);
+        UIStyleUtil.styleSidebarButton(Discount, false);
+        UIStyleUtil.styleSidebarButton(Staffs, true);
+        UIStyleUtil.styleSidebarButton(Sysetemsettings, false);
+        UIStyleUtil.styleSidebarButton(Reports, false);
+        UIStyleUtil.styleSidebarButton(Logout, false);
     }
 
     /**

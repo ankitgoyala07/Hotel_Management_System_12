@@ -24,6 +24,10 @@ public class signupDao {
         Connection conn = mysql.Openconnection();
         if (conn == null) {
             System.out.println("Connection failed.");
+            javax.swing.JOptionPane.showMessageDialog(null,
+                "Database connection failed. Please ensure MySQL is running on port 3306 and password is '1234'.",
+                "Database Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
             return false;
         }
 
@@ -42,6 +46,10 @@ public class signupDao {
 
         } catch (Exception e) {
             System.out.println("Error creating user: " + e.getMessage());
+            javax.swing.JOptionPane.showMessageDialog(null,
+                "Database error occurred: " + e.getMessage(),
+                "Registration Failed",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
             return false;
         } finally {
             mysql.closeConnection(conn);

@@ -15,7 +15,7 @@ public class GuestDashboardDao {
 
     // DDL: Create table if not present in the database
     public void createTableIfNotExists() {
-        String sql = "CREATE TABLE IF NOT EXISTS users ("
+        String sql = "CREATE TABLE IF NOT EXISTS guest_dashboard_data ("
                    + "id INT AUTO_INCREMENT PRIMARY KEY, "
                    + "name VARCHAR(255), "
                    + "email VARCHAR(255), "
@@ -27,7 +27,7 @@ public class GuestDashboardDao {
                    + ")";
         try (Statement st = conn.createStatement()) {
             st.executeUpdate(sql);
-            System.out.println("Table 'users' verified/created successfully.");
+            System.out.println("Table 'guest_dashboard_data' verified/created successfully.");
         } catch (SQLException e) {
             System.out.println("Error creating table: " + e.getMessage());
         }
@@ -35,7 +35,7 @@ public class GuestDashboardDao {
 
     // Insert new guest
     public boolean insertGuest(GuestDashboardModel guest) {
-        String sql = "INSERT INTO users (name, email, roomType, checkIn, checkOut, guestsCount, expenses) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO guest_dashboard_data (name, email, roomType, checkIn, checkOut, guestsCount, expenses) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, guest.getName());
             ps.setString(2, guest.getEmail());
@@ -63,7 +63,7 @@ public class GuestDashboardDao {
     // Retrieve all guests
     public List<GuestDashboardModel> getAllGuests() {
         List<GuestDashboardModel> guests = new ArrayList<>();
-        String sql = "SELECT * FROM users";
+        String sql = "SELECT * FROM guest_dashboard_data";
         try (Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) {
@@ -87,7 +87,7 @@ public class GuestDashboardDao {
 
     // Retrieve a single guest by ID
     public GuestDashboardModel getGuestById(int id) {
-        String sql = "SELECT * FROM users WHERE id = ?";
+        String sql = "SELECT * FROM guest_dashboard_data WHERE id = ?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
             try (ResultSet rs = ps.executeQuery()) {
@@ -112,7 +112,7 @@ public class GuestDashboardDao {
 
     // Update guest details
     public boolean updateGuest(GuestDashboardModel guest) {
-        String sql = "UPDATE users SET name=?, email=?, roomType=?, checkIn=?, checkOut=?, guestsCount=?, expenses=? WHERE id=?";
+        String sql = "UPDATE guest_dashboard_data SET name=?, email=?, roomType=?, checkIn=?, checkOut=?, guestsCount=?, expenses=? WHERE id=?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, guest.getName());
             ps.setString(2, guest.getEmail());
@@ -131,7 +131,7 @@ public class GuestDashboardDao {
 
     // Delete guest
     public boolean deleteGuest(int id) {
-        String sql = "DELETE FROM users WHERE id=?";
+        String sql = "DELETE FROM guest_dashboard_data WHERE id=?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
             return ps.executeUpdate() > 0;

@@ -17,6 +17,11 @@ public class Feedback extends javax.swing.JFrame {
      */
     public Feedback() {
         initComponents();
+        UIStyleUtil.styleSidebarButton(Dashboard, false);
+        UIStyleUtil.styleSidebarButton(RoomBrowsing, false);
+        UIStyleUtil.styleSidebarButton(Orderfood, false);
+        UIStyleUtil.styleSidebarButton(Feedback, true);
+        UIStyleUtil.styleSidebarButton(Logout, false);
     }
 
 
@@ -346,4 +351,16 @@ public class Feedback extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnDashboard() { return Dashboard; }
+    public javax.swing.JButton getBtnRoomBrowsing() { return RoomBrowsing; }
+    public javax.swing.JButton getBtnOrderFood() { return Orderfood; }
+    public javax.swing.JButton getBtnFeedback() { return Feedback; }
+    public javax.swing.JButton getBtnLogout() { return Logout; }
+    public javax.swing.JButton getBtnSubmitReview() { return jButton6; }
+    
+    public javax.swing.JTextField getTxtServiceRating() { return jTextField4; }
+    public javax.swing.JTextField getTxtCleanlinessRating() { return jTextField2; }
+    public javax.swing.JTextField getTxtFoodRating() { return jTextField3; }
+    public javax.swing.JTextArea getTxtReviewText() { return jTextArea1; }
 }

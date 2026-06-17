@@ -1,11 +1,10 @@
-﻿package model;
-
-/**
- * Model representation of a Booking transaction containing customer details and room assignments
- */
+package model;
 
 import java.util.Date;
 
+/**
+ * Model class representing a Booking transaction.
+ */
 public class BookingModel {
     private int bookingId;
     private String guestName;

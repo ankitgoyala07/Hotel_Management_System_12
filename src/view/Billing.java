@@ -15,6 +15,12 @@ public class Billing extends javax.swing.JFrame {
      */
     public Billing() {
         initComponents();
+        UIStyleUtil.styleSidebarButton(Dashboard, false);
+        UIStyleUtil.styleSidebarButton(Guest, false);
+        UIStyleUtil.styleSidebarButton(Booking, false);
+        UIStyleUtil.styleSidebarButton(Mealtime, false);
+        UIStyleUtil.styleSidebarButton(Billing, true);
+        UIStyleUtil.styleSidebarButton(Logout, false);
     }
 
     /**
@@ -535,4 +541,30 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblUserIcon;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JLabel getLblRole() { return lblRole; }
+    public javax.swing.JLabel getLblGuestIdValue() { return lblGuestIdValue; }
+    public javax.swing.JLabel getLblRoomIdValue() { return lblRoomIdValue; }
+    public javax.swing.JLabel getLblStayPeriodValue() { return lblStayPeriodValue; }
+    public javax.swing.JLabel getLblRow1Qty() { return lblRow1Qty; }
+    public javax.swing.JLabel getLblRow1Price() { return lblRow1Price; }
+    public javax.swing.JLabel getLblRow1Amount() { return lblRow1Amount; }
+    public javax.swing.JLabel getLblRow2Qty() { return lblRow2Qty; }
+    public javax.swing.JLabel getLblRow2Price() { return lblRow2Price; }
+    public javax.swing.JLabel getLblRow2Amount() { return lblRow2Amount; }
+    public javax.swing.JLabel getLblRow3Qty() { return lblRow3Qty; }
+    public javax.swing.JLabel getLblRow3Price() { return lblRow3Price; }
+    public javax.swing.JLabel getLblRow3Amount() { return lblRow3Amount; }
+    public javax.swing.JLabel getLblRow4Qty() { return lblRow4Qty; }
+    public javax.swing.JLabel getLblRow4Price() { return lblRow4Price; }
+    public javax.swing.JLabel getLblRow4Amount() { return lblRow4Amount; }
+    public javax.swing.JLabel getLblRow5Qty() { return lblRow5Qty; }
+    public javax.swing.JLabel getLblRow5Price() { return lblRow5Price; }
+    public javax.swing.JLabel getLblRow5Amount() { return lblRow5Amount; }
+    public javax.swing.JLabel getLblSubtotalValue() { return lblSubtotalValue; }
+    public javax.swing.JLabel getLblTaxValue() { return lblTaxValue; }
+    public javax.swing.JLabel getLblGrandTotalValue() { return lblGrandTotalValue; }
+    public javax.swing.JButton getBtnDashboard() { return Dashboard; }
+    public javax.swing.JButton getBtnLogout() { return Logout; }
+    public javax.swing.JButton getBtnPrintInvoice() { return btnPrintInvoice; }
 }

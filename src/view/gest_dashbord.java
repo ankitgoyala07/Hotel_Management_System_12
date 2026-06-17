@@ -13,6 +13,11 @@ public class gest_dashbord extends javax.swing.JFrame {
      */
     public gest_dashbord() {
         initComponents();
+        UIStyleUtil.styleSidebarButton(btnSystemSetting, true);
+        UIStyleUtil.styleSidebarButton(btnRooms, false);
+        UIStyleUtil.styleSidebarButton(btnDiscounts, false);
+        UIStyleUtil.styleSidebarButton(btnStaffs, false);
+        UIStyleUtil.styleSidebarButton(btnReports, false);
     }
 
     /**
@@ -403,4 +408,18 @@ public class gest_dashbord extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JLabel getLblWelcome() { return jLabel8; }
+    public javax.swing.JLabel getLblRoomType() { return jLabel15; }
+    public javax.swing.JLabel getLblCheckIn() { return jLabel16; }
+    public javax.swing.JLabel getLblCheckOut() { return jLabel17; }
+    public javax.swing.JLabel getLblGuests() { return jLabel18; }
+    public javax.swing.JLabel getLblExpenses() { return jLabel13; }
+    public javax.swing.JButton getBtnBookRoom() { return btnRooms; }
+    public javax.swing.JButton getBtnOrderFoodSidebar() { return btnDiscounts; }
+    public javax.swing.JButton getBtnOrderFoodCard() { return jButton5; }
+    public javax.swing.JButton getBtnFeedback() { return btnStaffs; }
+    public javax.swing.JButton getBtnRoomService() { return jButton7; }
+    public javax.swing.JButton getBtnLogout() { return btnReports; }
+    public javax.swing.JButton getBtnDashboard() { return btnSystemSetting; }
 }

@@ -17,6 +17,12 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
      */
     public FrontdeskDashboard() {
         initComponents();
+        UIStyleUtil.styleSidebarButton(Dashboard, true);
+        UIStyleUtil.styleSidebarButton(Guest, false);
+        UIStyleUtil.styleSidebarButton(Booking, false);
+        UIStyleUtil.styleSidebarButton(Mealtime, false);
+        UIStyleUtil.styleSidebarButton(Billing, false);
+        UIStyleUtil.styleSidebarButton(Logout, false);
     }
 
     /**

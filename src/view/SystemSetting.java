@@ -17,6 +17,13 @@ public class SystemSetting extends javax.swing.JFrame {
      */
     public SystemSetting() {
         initComponents();
+        UIStyleUtil.styleSidebarButton(Dashboard, false);
+        UIStyleUtil.styleSidebarButton(Rooms, false);
+        UIStyleUtil.styleSidebarButton(Discount, false);
+        UIStyleUtil.styleSidebarButton(Staffs, false);
+        UIStyleUtil.styleSidebarButton(Sysetemsettings, true);
+        UIStyleUtil.styleSidebarButton(Reports, false);
+        UIStyleUtil.styleSidebarButton(Logout, false);
     }
 
     /**
@@ -28,15 +35,6 @@ public class SystemSetting extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelSidebar = new javax.swing.JPanel();
-        lblLogo = new javax.swing.JLabel();
-        btnDashboard = new javax.swing.JButton();
-        btnRooms = new javax.swing.JButton();
-        btnDiscounts = new javax.swing.JButton();
-        btnStaffs = new javax.swing.JButton();
-        btnSystemSetting = new javax.swing.JButton();
-        btnReports = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
         jPanelMain = new javax.swing.JPanel();
         jPanelHeader = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
@@ -73,86 +71,18 @@ public class SystemSetting extends javax.swing.JFrame {
         txtQuickNote = new javax.swing.JTextArea();
         btnSave = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JSeparator();
+        jPanelSidebar = new javax.swing.JPanel();
+        lblLogo = new javax.swing.JLabel();
+        Dashboard = new javax.swing.JButton();
+        Rooms = new javax.swing.JButton();
+        Discount = new javax.swing.JButton();
+        Staffs = new javax.swing.JButton();
+        Sysetemsettings = new javax.swing.JButton();
+        Reports = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
-
-        jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelSidebar.setLayout(null);
-
-        lblLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        lblLogo.setForeground(new java.awt.Color(37, 99, 235));
-        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLogo.setText("HMS");
-        jPanelSidebar.add(lblLogo);
-        lblLogo.setBounds(10, 30, 140, 30);
-
-        btnDashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnDashboard.setText("  Dashboard");
-        btnDashboard.setBorderPainted(false);
-        btnDashboard.setContentAreaFilled(false);
-        btnDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnDashboard.addActionListener(this::btnDashboardActionPerformed);
-        jPanelSidebar.add(btnDashboard);
-        btnDashboard.setBounds(10, 80, 160, 35);
-
-        btnRooms.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnRooms.setText("  Rooms");
-        btnRooms.setBorderPainted(false);
-        btnRooms.setContentAreaFilled(false);
-        btnRooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnRooms.addActionListener(this::btnRoomsActionPerformed);
-        jPanelSidebar.add(btnRooms);
-        btnRooms.setBounds(10, 120, 160, 35);
-
-        btnDiscounts.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnDiscounts.setText("  Discount & Offers");
-        btnDiscounts.setBorderPainted(false);
-        btnDiscounts.setContentAreaFilled(false);
-        btnDiscounts.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnDiscounts.addActionListener(this::btnDiscountsActionPerformed);
-        jPanelSidebar.add(btnDiscounts);
-        btnDiscounts.setBounds(10, 160, 160, 35);
-
-        btnStaffs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnStaffs.setText("  Staffs");
-        btnStaffs.setBorderPainted(false);
-        btnStaffs.setContentAreaFilled(false);
-        btnStaffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnStaffs.addActionListener(this::btnStaffsActionPerformed);
-        jPanelSidebar.add(btnStaffs);
-        btnStaffs.setBounds(10, 200, 160, 35);
-
-        btnSystemSetting.setBackground(new java.awt.Color(211, 228, 245));
-        btnSystemSetting.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnSystemSetting.setForeground(new java.awt.Color(37, 99, 235));
-        btnSystemSetting.setText("  System Setting");
-        btnSystemSetting.setBorderPainted(false);
-        btnSystemSetting.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnSystemSetting.addActionListener(this::btnSystemSettingActionPerformed);
-        jPanelSidebar.add(btnSystemSetting);
-        btnSystemSetting.setBounds(10, 240, 160, 35);
-
-        btnReports.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnReports.setText("  Reports");
-        btnReports.setBorderPainted(false);
-        btnReports.setContentAreaFilled(false);
-        btnReports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnReports.addActionListener(this::btnReportsActionPerformed);
-        jPanelSidebar.add(btnReports);
-        btnReports.setBounds(10, 280, 160, 35);
-
-        btnLogout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnLogout.setText("  Logout");
-        btnLogout.setBorderPainted(false);
-        btnLogout.setContentAreaFilled(false);
-        btnLogout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnLogout.addActionListener(this::btnLogoutActionPerformed);
-        jPanelSidebar.add(btnLogout);
-        btnLogout.setBounds(10, 320, 160, 35);
-
-        getContentPane().add(jPanelSidebar);
-        jPanelSidebar.setBounds(0, 0, 180, 500);
 
         jPanelMain.setBackground(new java.awt.Color(255, 255, 255));
         jPanelMain.setLayout(null);
@@ -324,36 +254,80 @@ public class SystemSetting extends javax.swing.JFrame {
         getContentPane().add(jPanelMain);
         jPanelMain.setBounds(180, 0, 620, 500);
 
+        jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSidebar.setLayout(null);
+
+        lblLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblLogo.setForeground(new java.awt.Color(37, 99, 235));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setText("HMS");
+        jPanelSidebar.add(lblLogo);
+        lblLogo.setBounds(10, 30, 140, 30);
+
+        Dashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Dashboard.setText("  Dashboard");
+        Dashboard.setBorderPainted(false);
+        Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Dashboard.addActionListener(this::DashboardActionPerformed);
+        jPanelSidebar.add(Dashboard);
+        Dashboard.setBounds(10, 80, 160, 35);
+
+        Rooms.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Rooms.setText(" Rooms");
+        Rooms.setBorderPainted(false);
+        Rooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Rooms.addActionListener(this::RoomsActionPerformed);
+        jPanelSidebar.add(Rooms);
+        Rooms.setBounds(10, 120, 160, 35);
+
+        Discount.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Discount.setText(" Discount & Offers");
+        Discount.setBorderPainted(false);
+        Discount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Discount.addActionListener(this::DiscountActionPerformed);
+        jPanelSidebar.add(Discount);
+        Discount.setBounds(10, 160, 160, 35);
+
+        Staffs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Staffs.setText(" Staffs");
+        Staffs.setBorderPainted(false);
+        Staffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Staffs.addActionListener(this::StaffsActionPerformed);
+        jPanelSidebar.add(Staffs);
+        Staffs.setBounds(10, 200, 160, 35);
+
+        Sysetemsettings.setBackground(new java.awt.Color(211, 228, 245));
+        Sysetemsettings.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Sysetemsettings.setForeground(new java.awt.Color(37, 99, 235));
+        Sysetemsettings.setText(" System Settings");
+        Sysetemsettings.setBorderPainted(false);
+        Sysetemsettings.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Sysetemsettings.addActionListener(this::SysetemsettingsActionPerformed);
+        jPanelSidebar.add(Sysetemsettings);
+        Sysetemsettings.setBounds(10, 240, 160, 35);
+
+        Reports.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Reports.setText(" Reports");
+        Reports.setBorderPainted(false);
+        Reports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Reports.setOpaque(true);
+        Reports.addActionListener(this::ReportsActionPerformed);
+        jPanelSidebar.add(Reports);
+        Reports.setBounds(10, 280, 160, 35);
+
+        Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Logout.setText(" Logout");
+        Logout.setBorderPainted(false);
+        Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Logout.addActionListener(this::LogoutActionPerformed);
+        jPanelSidebar.add(Logout);
+        Logout.setBounds(10, 320, 160, 35);
+
+        getContentPane().add(jPanelSidebar);
+        jPanelSidebar.setBounds(0, 0, 180, 500);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
-        // Handled by Controller
-    }//GEN-LAST:event_btnDashboardActionPerformed
-
-    private void btnRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomsActionPerformed
-        // Handled by Controller
-    }//GEN-LAST:event_btnRoomsActionPerformed
-
-    private void btnDiscountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiscountsActionPerformed
-        // Handled in other navigation sections
-    }//GEN-LAST:event_btnDiscountsActionPerformed
-
-    private void btnStaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffsActionPerformed
-        // Handled by Controller
-    }//GEN-LAST:event_btnStaffsActionPerformed
-
-    private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
-        // Already on System Settings page
-    }//GEN-LAST:event_btnSystemSettingActionPerformed
-
-    private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
-        // Handled in other navigation sections
-    }//GEN-LAST:event_btnReportsActionPerformed
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // Handled by Controller
-    }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void txtHotelIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelIdActionPerformed
         // TODO add your handling code here:
@@ -387,6 +361,34 @@ public class SystemSetting extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditActionPerformed
 
+    private void DashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashboardActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DashboardActionPerformed
+
+    private void RoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RoomsActionPerformed
+
+    private void DiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiscountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DiscountActionPerformed
+
+    private void StaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StaffsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_StaffsActionPerformed
+
+    private void SysetemsettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SysetemsettingsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SysetemsettingsActionPerformed
+
+    private void ReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReportsActionPerformed
+
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -413,15 +415,15 @@ public class SystemSetting extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDashboard;
-    private javax.swing.JButton btnDiscounts;
+    private javax.swing.JButton Dashboard;
+    private javax.swing.JButton Discount;
+    private javax.swing.JButton Logout;
+    private javax.swing.JButton Reports;
+    private javax.swing.JButton Rooms;
+    private javax.swing.JButton Staffs;
+    private javax.swing.JButton Sysetemsettings;
     private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnReports;
-    private javax.swing.JButton btnRooms;
     private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnStaffs;
-    private javax.swing.JButton btnSystemSetting;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -22,24 +22,16 @@ public class admindashboard extends javax.swing.JFrame {
      */
     public admindashboard() {
         initComponents();
-        loadDashboardData();
+        UIStyleUtil.styleSidebarButton(Dashboard, true);
+        UIStyleUtil.styleSidebarButton(Rooms, false);
+        UIStyleUtil.styleSidebarButton(Discount, false);
+        UIStyleUtil.styleSidebarButton(Staffs, false);
+        UIStyleUtil.styleSidebarButton(Sysetemsettings, false);
+        UIStyleUtil.styleSidebarButton(Reports, false);
+        UIStyleUtil.styleSidebarButton(Logout, false);
     }
 
-    private void loadDashboardData() {
-        try {
-            controller.admindashboardController ctrl = new controller.admindashboardController();
-            model.admindashboardModel data = ctrl.getDashboardData();
 
-            lblCheckIn.setText(String.valueOf(data.getTodayCheckIn()));
-            lblCheckOut.setText(String.valueOf(data.getTodayCheckOut()));
-            lblTotal.setText(String.valueOf(data.getTotalRooms()));
-            lblAvailable.setText(String.valueOf(data.getAvailableRooms()));
-            lblOccupied.setText(String.valueOf(data.getOccupiedRooms()));
-
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -146,7 +138,7 @@ public class admindashboard extends javax.swing.JFrame {
         jLabel25.setText("Manager");
         jPanelHeader.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
 
-        jPanelMain.add(jPanelHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 600, 45));
+        jPanelMain.add(jPanelHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 580, 45));
 
         jPanelContent.setBackground(new java.awt.Color(211, 228, 245));
         jPanelContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -355,7 +347,7 @@ public class admindashboard extends javax.swing.JFrame {
         jPanelRoomStatus.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 50, 15));
 
         jPanelCard.add(jPanelRoomStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 235, 310, 135));
-        jPanelCard.add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, -1, -1));
+        jPanelCard.add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
 
         jPanelContent.add(jPanelCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 550, 380));
 
@@ -469,9 +461,7 @@ public class admindashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LogoutActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // Already on Dashboard
-    }
+
 
     /**
      * @param args the command line arguments
@@ -563,4 +553,13 @@ public class admindashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblOccupied;
     private javax.swing.JLabel lblTotal;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnLogout() { return Logout; }
+    public javax.swing.JButton getBtnRooms() { return Rooms; }
+    public javax.swing.JButton getBtnDiscount() { return Discount; }
+    public javax.swing.JLabel getLblCheckIn() { return lblCheckIn; }
+    public javax.swing.JLabel getLblCheckOut() { return lblCheckOut; }
+    public javax.swing.JLabel getLblTotal() { return lblTotal; }
+    public javax.swing.JLabel getLblAvailable() { return lblAvailable; }
+    public javax.swing.JLabel getLblOccupied() { return lblOccupied; }
 }
