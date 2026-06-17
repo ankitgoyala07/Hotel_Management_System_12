@@ -6,11 +6,6 @@ public class Roomservice extends javax.swing.JFrame {
 
     public Roomservice() {
         initComponents();
-        UIStyleUtil.styleSidebarButton(jButton1, false);
-        UIStyleUtil.styleSidebarButton(jButton2, false);
-        UIStyleUtil.styleSidebarButton(jButton3, false);
-        UIStyleUtil.styleSidebarButton(jButton4, false);
-        UIStyleUtil.styleSidebarButton(jButton5, false);
     }
 
 

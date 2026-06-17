@@ -13,11 +13,6 @@ public class gest_dashbord extends javax.swing.JFrame {
      */
     public gest_dashbord() {
         initComponents();
-        UIStyleUtil.styleSidebarButton(btnSystemSetting, true);
-        UIStyleUtil.styleSidebarButton(btnRooms, false);
-        UIStyleUtil.styleSidebarButton(btnDiscounts, false);
-        UIStyleUtil.styleSidebarButton(btnStaffs, false);
-        UIStyleUtil.styleSidebarButton(btnReports, false);
     }
 
     /**
@@ -348,20 +343,6 @@ public class gest_dashbord extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new gest_dashbord().setVisible(true));
     }

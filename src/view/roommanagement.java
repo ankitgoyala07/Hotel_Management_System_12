@@ -23,13 +23,6 @@ public class roommanagement extends javax.swing.JFrame {
      */
     public roommanagement() {
         initComponents();
-        UIStyleUtil.styleSidebarButton(jButton2, false);
-        UIStyleUtil.styleSidebarButton(jButton3, true);
-        UIStyleUtil.styleSidebarButton(jButton1, false);
-        UIStyleUtil.styleSidebarButton(jButton4, false);
-        UIStyleUtil.styleSidebarButton(jButton5, false);
-        UIStyleUtil.styleSidebarButton(jButton6, false);
-        UIStyleUtil.styleSidebarButton(jButton7, false);
     }
 
 
