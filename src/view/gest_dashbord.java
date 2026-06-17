@@ -13,27 +13,7 @@ public class gest_dashbord extends javax.swing.JFrame {
      */
     public gest_dashbord() {
         initComponents();
-        // Activate Controller to wire logic and database binding
-        new controller.GuestDashboardController(this);
-        setLocationRelativeTo(null);
     }
-
-    // Public Getters for controller to access components (Clean Architecture)
-    public javax.swing.JButton getBtnBookRoom() { return jButton2; }
-    public javax.swing.JButton getBtnOrderFoodSidebar() { return jButton3; }
-    public javax.swing.JButton getBtnFeedback() { return jButton4; }
-    public javax.swing.JButton getBtnLogout() { return jButton6; }
-    public javax.swing.JButton getBtnDashboard() { return jButton8; }
-    public javax.swing.JButton getBtnOrderFoodCard() { return jButton5; }
-    public javax.swing.JButton getBtnRoomService() { return jButton7; }
-
-    // Public Getters for display labels
-    public javax.swing.JLabel getLblWelcome() { return jLabel8; }
-    public javax.swing.JLabel getLblRoomType() { return jLabel15; }
-    public javax.swing.JLabel getLblCheckIn() { return jLabel16; }
-    public javax.swing.JLabel getLblCheckOut() { return jLabel17; }
-    public javax.swing.JLabel getLblGuests() { return jLabel18; }
-    public javax.swing.JLabel getLblExpenses() { return jLabel13; }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,356 +24,320 @@ public class gest_dashbord extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        jPanelHeader = new javax.swing.JPanel();
+        jLabelHeaderTitle = new javax.swing.JLabel();
+        jLabelGuestRole = new javax.swing.JLabel();
+        jPanelContainer = new javax.swing.JPanel();
+        jPanelWhiteCard = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        jLabelStayTitle = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jLabelRoomNoSub = new javax.swing.JLabel();
+        jLabelStayDates = new javax.swing.JLabel();
+        jLabelCheckInTitle = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jLabelCheckOutTitle = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jLabelGuestsTitle = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
+        jLabelAmenitiesTitle = new javax.swing.JLabel();
+        jPanelPoolIcon = new javax.swing.JPanel();
+        jLabelPoolSymbol = new javax.swing.JLabel();
+        jLabelPool = new javax.swing.JLabel();
+        jPanelGymIcon = new javax.swing.JPanel();
+        jLabelGymSymbol = new javax.swing.JLabel();
+        jLabelGym = new javax.swing.JLabel();
+        jPanelSpaIcon = new javax.swing.JPanel();
+        jLabelSpaSymbol = new javax.swing.JLabel();
+        jLabelSpa = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
+        jLabelViewExpenses = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jPanelSidebar = new javax.swing.JPanel();
+        lblLogo = new javax.swing.JLabel();
+        btnRooms = new javax.swing.JButton();
+        btnDiscounts = new javax.swing.JButton();
+        btnStaffs = new javax.swing.JButton();
+        btnReports = new javax.swing.JButton();
+        btnSystemSetting = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jButton2.setText("Book Room");
-        jButton2.setBorder(null);
-        getContentPane().add(jButton2);
-        jButton2.setBounds(20, 117, 121, 32);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
 
-        jButton3.setText("Order Food");
-        jButton3.setBorder(null);
-        getContentPane().add(jButton3);
-        jButton3.setBounds(20, 167, 121, 32);
+        jPanelHeader.setBackground(new java.awt.Color(211, 228, 245));
+        jPanelHeader.setLayout(null);
 
-        jButton4.setText("Feedback");
-        jButton4.setBorder(null);
-        getContentPane().add(jButton4);
-        jButton4.setBounds(20, 217, 121, 32);
+        jLabelHeaderTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelHeaderTitle.setForeground(new java.awt.Color(75, 75, 85));
+        jLabelHeaderTitle.setText("Dashboard Overview");
+        jPanelHeader.add(jLabelHeaderTitle);
+        jLabelHeaderTitle.setBounds(15, 12, 200, 20);
 
-        jButton6.setText("Logout");
-        jButton6.setBorder(null);
-        getContentPane().add(jButton6);
-        jButton6.setBounds(20, 267, 121, 32);
+        jLabelGuestRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelGuestRole.setForeground(new java.awt.Color(75, 75, 85));
+        jLabelGuestRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelGuestRole.setText("Guest");
+        jPanelHeader.add(jLabelGuestRole);
+        jLabelGuestRole.setBounds(480, 12, 60, 20);
 
-        jButton8.setText("Dashboard");
-        jButton8.setBorder(null);
-        getContentPane().add(jButton8);
-        jButton8.setBounds(20, 70, 120, 30);
+        jPanel2.add(jPanelHeader);
+        jPanelHeader.setBounds(10, 20, 600, 45);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelContainer.setBackground(new java.awt.Color(211, 228, 245));
+        jPanelContainer.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel2.setText("           HMS");
+        jPanelWhiteCard.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelWhiteCard.setLayout(null);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(481, Short.MAX_VALUE))
-        );
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(17, 24, 39));
+        jLabel8.setText("Welcome, Alexander.");
+        jPanelWhiteCard.add(jLabel8);
+        jLabel8.setBounds(10, 10, 290, 35);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 160, 530);
+        jLabelStayTitle.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabelStayTitle.setForeground(new java.awt.Color(37, 99, 235));
+        jLabelStayTitle.setText("YOUR CURRENT STAY");
+        jPanelWhiteCard.add(jLabelStayTitle);
+        jLabelStayTitle.setBounds(20, 70, 200, 20);
 
-        jPanel5.setBackground(new java.awt.Color(243, 248, 249));
-
-        jPanel2.setBackground(new java.awt.Color(226, 236, 252));
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel7.setText("YOUR CURRENT STAY");
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("Welcome");
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel9.setText("HOTEL AMENITIES");
-
-        jLabel1.setText("Infinity Pool");
-
-        jLabel3.setText("Fitness Center");
-
-        jLabel4.setText("The Zen Spa");
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(51, 0, 255));
-        jLabel11.setText("View Expenses");
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel13.setText("$ 3000");
-
-        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel14.setText("Room");
-
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(17, 24, 39));
         jLabel15.setText("  VIP");
+        jPanelWhiteCard.add(jLabel15);
+        jLabel15.setBounds(16, 90, 150, 25);
 
-        jLabel16.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel16.setText("CHECK-IN");
+        jLabelRoomNoSub.setForeground(new java.awt.Color(75, 85, 99));
+        jLabelRoomNoSub.setText("Room 80");
+        jPanelWhiteCard.add(jLabelRoomNoSub);
+        jLabelRoomNoSub.setBounds(20, 115, 150, 15);
 
-        jLabel17.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel17.setText("CHECK-OUT");
+        jLabelStayDates.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabelStayDates.setForeground(new java.awt.Color(17, 24, 39));
+        jLabelStayDates.setText("Oct 24 — Oct 28");
+        jPanelWhiteCard.add(jLabelStayDates);
+        jLabelStayDates.setBounds(200, 90, 150, 25);
 
-        jLabel18.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel18.setText("GUESTS");
+        jLabelCheckInTitle.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jLabelCheckInTitle.setForeground(new java.awt.Color(156, 163, 175));
+        jLabelCheckInTitle.setText("CHECK-IN");
+        jPanelWhiteCard.add(jLabelCheckInTitle);
+        jLabelCheckInTitle.setBounds(20, 150, 80, 15);
 
-        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(17, 24, 39));
+        jLabel16.setText("3:00 PM");
+        jPanelWhiteCard.add(jLabel16);
+        jLabel16.setBounds(20, 165, 80, 20);
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton5.setText("Order Food ");
+        jLabelCheckOutTitle.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jLabelCheckOutTitle.setForeground(new java.awt.Color(156, 163, 175));
+        jLabelCheckOutTitle.setText("CHECK-OUT");
+        jPanelWhiteCard.add(jLabelCheckOutTitle);
+        jLabelCheckOutTitle.setBounds(110, 150, 80, 15);
 
-        jLabel10.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel10.setText("Gourmet dining delivered ");
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(17, 24, 39));
+        jLabel17.setText("11:00 AM");
+        jPanelWhiteCard.add(jLabel17);
+        jLabel17.setBounds(110, 165, 80, 20);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
+        jLabelGuestsTitle.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jLabelGuestsTitle.setForeground(new java.awt.Color(156, 163, 175));
+        jLabelGuestsTitle.setText("GUESTS");
+        jPanelWhiteCard.add(jLabelGuestsTitle);
+        jLabelGuestsTitle.setBounds(200, 150, 80, 15);
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(17, 24, 39));
+        jLabel18.setText("2 Adults");
+        jPanelWhiteCard.add(jLabel18);
+        jLabel18.setBounds(200, 165, 80, 20);
 
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton7.setText("Room Service");
+        jLabelAmenitiesTitle.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabelAmenitiesTitle.setForeground(new java.awt.Color(37, 99, 235));
+        jLabelAmenitiesTitle.setText("HOTEL AMENITIES");
+        jPanelWhiteCard.add(jLabelAmenitiesTitle);
+        jLabelAmenitiesTitle.setBounds(20, 210, 200, 20);
 
-        jLabel12.setText("Housekeeping, towels or ammenities ");
+        jPanelPoolIcon.setBackground(new java.awt.Color(243, 244, 246));
+        jPanelPoolIcon.setLayout(null);
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addGap(0, 12, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
+        jLabelPoolSymbol.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelPoolSymbol.setText("🏊");
+        jPanelPoolIcon.add(jLabelPoolSymbol);
+        jLabelPoolSymbol.setBounds(0, 0, 26, 26);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(28, 28, 28)
-                                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(336, 336, 336))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(118, 118, 118)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(124, 124, 124)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel15)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel14)
-                        .addGap(41, 41, 41)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18))
-                        .addGap(50, 50, 50)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(1, 1, 1)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(jLabel13)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(203, Short.MAX_VALUE))))
-        );
+        jPanelWhiteCard.add(jPanelPoolIcon);
+        jPanelPoolIcon.setBounds(20, 235, 26, 26);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jLabelPool.setForeground(new java.awt.Color(17, 24, 39));
+        jLabelPool.setText("Infinity Pool");
+        jPanelWhiteCard.add(jLabelPool);
+        jLabelPool.setBounds(55, 238, 150, 20);
 
-        jPanel6.setBackground(new java.awt.Color(226, 236, 252));
+        jPanelGymIcon.setBackground(new java.awt.Color(243, 244, 246));
+        jPanelGymIcon.setLayout(null);
 
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel19.setText("  Dashboard Overview");
+        jLabelGymSymbol.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelGymSymbol.setText("🏋");
+        jPanelGymIcon.add(jLabelGymSymbol);
+        jLabelGymSymbol.setBounds(0, 0, 26, 26);
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel20.setText("Guest");
+        jPanelWhiteCard.add(jPanelGymIcon);
+        jPanelGymIcon.setBounds(20, 270, 26, 26);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 297, Short.MAX_VALUE)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 8, Short.MAX_VALUE))
-        );
+        jLabelGym.setForeground(new java.awt.Color(17, 24, 39));
+        jLabelGym.setText("Fitness Center");
+        jPanelWhiteCard.add(jLabelGym);
+        jLabelGym.setBounds(55, 273, 150, 20);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
+        jPanelSpaIcon.setBackground(new java.awt.Color(243, 244, 246));
+        jPanelSpaIcon.setLayout(null);
 
-        getContentPane().add(jPanel5);
-        jPanel5.setBounds(160, 0, 650, 530);
+        jLabelSpaSymbol.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelSpaSymbol.setText("🧘");
+        jPanelSpaIcon.add(jLabelSpaSymbol);
+        jLabelSpaSymbol.setBounds(0, 0, 26, 26);
+
+        jPanelWhiteCard.add(jPanelSpaIcon);
+        jPanelSpaIcon.setBounds(20, 305, 26, 26);
+
+        jLabelSpa.setForeground(new java.awt.Color(17, 24, 39));
+        jLabelSpa.setText("The Zen Spa");
+        jPanelWhiteCard.add(jLabelSpa);
+        jLabelSpa.setBounds(55, 308, 150, 20);
+
+        jButton5.setBackground(new java.awt.Color(17, 24, 39));
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("<html><body style='padding: 8px;'><font size='4' color='white'><b>🍴 &nbsp;Order Food</b></font><br><font size='2' color='#9CA3AF'>Gourmet dining delivered to room</font></body></html>");
+        jButton5.setBorderPainted(false);
+        jButton5.setFocusPainted(false);
+        jPanelWhiteCard.add(jButton5);
+        jButton5.setBounds(350, 60, 200, 80);
+
+        jButton7.setForeground(new java.awt.Color(17, 24, 39));
+        jButton7.setText("<html><body style='padding: 8px;'><font size='4' color='black'><b>🛎 &nbsp;Room Service</b></font><br><font size='2' color='#6B7280'>Housekeeping, towels, or amenities</font></body></html>");
+        jButton7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jButton7.setFocusPainted(false);
+        jPanelWhiteCard.add(jButton7);
+        jButton7.setBounds(350, 160, 200, 80);
+
+        jLabelViewExpenses.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabelViewExpenses.setForeground(new java.awt.Color(37, 99, 235));
+        jLabelViewExpenses.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelViewExpenses.setText("View Expenses");
+        jPanelWhiteCard.add(jLabelViewExpenses);
+        jLabelViewExpenses.setBounds(350, 270, 200, 20);
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(17, 24, 39));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel13.setText("$ 3000");
+        jPanelWhiteCard.add(jLabel13);
+        jLabel13.setBounds(350, 290, 200, 45);
+
+        jPanelContainer.add(jPanelWhiteCard);
+        jPanelWhiteCard.setBounds(20, 20, 560, 360);
+
+        jPanel2.add(jPanelContainer);
+        jPanelContainer.setBounds(10, 80, 600, 400);
+
+        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel2.add(jSeparator6);
+        jSeparator6.setBounds(0, 0, 3, 500);
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(180, 0, 620, 500);
+
+        jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSidebar.setLayout(null);
+
+        lblLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblLogo.setForeground(new java.awt.Color(37, 99, 235));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setText("HMS");
+        jPanelSidebar.add(lblLogo);
+        lblLogo.setBounds(10, 30, 140, 30);
+
+        btnRooms.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnRooms.setText("  Room Browsing");
+        btnRooms.setBorderPainted(false);
+        btnRooms.setContentAreaFilled(false);
+        btnRooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRooms.addActionListener(this::btnRoomsActionPerformed);
+        jPanelSidebar.add(btnRooms);
+        btnRooms.setBounds(10, 120, 160, 35);
+
+        btnDiscounts.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnDiscounts.setText("  Order Food");
+        btnDiscounts.setBorderPainted(false);
+        btnDiscounts.setContentAreaFilled(false);
+        btnDiscounts.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnDiscounts.addActionListener(this::btnDiscountsActionPerformed);
+        jPanelSidebar.add(btnDiscounts);
+        btnDiscounts.setBounds(10, 160, 160, 35);
+
+        btnStaffs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnStaffs.setText("  Feedback");
+        btnStaffs.setBorderPainted(false);
+        btnStaffs.setContentAreaFilled(false);
+        btnStaffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnStaffs.addActionListener(this::btnStaffsActionPerformed);
+        jPanelSidebar.add(btnStaffs);
+        btnStaffs.setBounds(10, 200, 160, 35);
+
+        btnReports.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnReports.setText("  Logout");
+        btnReports.setBorderPainted(false);
+        btnReports.setContentAreaFilled(false);
+        btnReports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnReports.addActionListener(this::btnReportsActionPerformed);
+        jPanelSidebar.add(btnReports);
+        btnReports.setBounds(10, 240, 160, 35);
+
+        btnSystemSetting.setBackground(new java.awt.Color(211, 228, 245));
+        btnSystemSetting.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnSystemSetting.setForeground(new java.awt.Color(37, 99, 235));
+        btnSystemSetting.setText("  Dashboard");
+        btnSystemSetting.setBorderPainted(false);
+        btnSystemSetting.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnSystemSetting.addActionListener(this::btnSystemSettingActionPerformed);
+        jPanelSidebar.add(btnSystemSetting);
+        btnSystemSetting.setBounds(10, 80, 160, 35);
+
+        getContentPane().add(jPanelSidebar);
+        jPanelSidebar.setBounds(0, 0, 180, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomsActionPerformed
+        // Handled by Controller
+    }//GEN-LAST:event_btnRoomsActionPerformed
+
+    private void btnDiscountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiscountsActionPerformed
+        // Handled in other navigation sections
+    }//GEN-LAST:event_btnDiscountsActionPerformed
+
+    private void btnStaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffsActionPerformed
+        // Handled by Controller
+    }//GEN-LAST:event_btnStaffsActionPerformed
+
+    private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
+        // Handled in other navigation sections
+    }//GEN-LAST:event_btnReportsActionPerformed
+
+    private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSystemSettingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -418,37 +362,45 @@ public class gest_dashbord extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnDiscounts;
+    private javax.swing.JButton btnReports;
+    private javax.swing.JButton btnRooms;
+    private javax.swing.JButton btnStaffs;
+    private javax.swing.JButton btnSystemSetting;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabelAmenitiesTitle;
+    private javax.swing.JLabel jLabelCheckInTitle;
+    private javax.swing.JLabel jLabelCheckOutTitle;
+    private javax.swing.JLabel jLabelGuestRole;
+    private javax.swing.JLabel jLabelGuestsTitle;
+    private javax.swing.JLabel jLabelGym;
+    private javax.swing.JLabel jLabelGymSymbol;
+    private javax.swing.JLabel jLabelHeaderTitle;
+    private javax.swing.JLabel jLabelPool;
+    private javax.swing.JLabel jLabelPoolSymbol;
+    private javax.swing.JLabel jLabelRoomNoSub;
+    private javax.swing.JLabel jLabelSpa;
+    private javax.swing.JLabel jLabelSpaSymbol;
+    private javax.swing.JLabel jLabelStayDates;
+    private javax.swing.JLabel jLabelStayTitle;
+    private javax.swing.JLabel jLabelViewExpenses;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanelContainer;
+    private javax.swing.JPanel jPanelGymIcon;
+    private javax.swing.JPanel jPanelHeader;
+    private javax.swing.JPanel jPanelPoolIcon;
+    private javax.swing.JPanel jPanelSidebar;
+    private javax.swing.JPanel jPanelSpaIcon;
+    private javax.swing.JPanel jPanelWhiteCard;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
 }

@@ -134,29 +134,7 @@ public class login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    public javax.swing.JButton getBtnSignin() {
-        return jButton1;
-    }
 
-    public javax.swing.JTextField getUsernameField() {
-        return jTextField1;
-    }
-
-    public javax.swing.JPasswordField getPasswordField() {
-        return jPasswordField1;
-    }
-
-    public javax.swing.JLabel getLblSignup() {
-        return jLabel12;
-    }
-
-    public javax.swing.JLabel getLblForgetPassword() {
-        return jLabel10;
-    }
-
-    public javax.swing.JCheckBox getChkRememberMe() {
-        return jCheckBox1;
-    }
 
 
     /**
@@ -182,7 +160,7 @@ public class login extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new login().setVisible(true));
-    }
+    }   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

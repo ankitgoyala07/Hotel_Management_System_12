@@ -6,23 +6,7 @@ public class Roomservice extends javax.swing.JFrame {
 
     public Roomservice() {
         initComponents();
-        // Activate Controller to wire logic and database binding
-        new controller.RoomServiceController(this);
-        setLocationRelativeTo(null);
     }
-
-    // Public Getters for inputs
-    public javax.swing.JComboBox<String> getComboServiceType() { return jComboBox1; }
-    public javax.swing.JTextField getTxtRoomNo() { return jTextField1; }
-    public javax.swing.JTextArea getTxtInstructions() { return jTextArea1; }
-
-    // Public Getters for buttons
-    public javax.swing.JButton getBtnDashboard() { return jButton1; }
-    public javax.swing.JButton getBtnRoomBrowsing() { return jButton2; }
-    public javax.swing.JButton getBtnOrderFood() { return jButton3; }
-    public javax.swing.JButton getBtnFeedback() { return jButton4; }
-    public javax.swing.JButton getBtnLogout() { return jButton5; }
-    public javax.swing.JButton getBtnSubmitRequest() { return jButton6; }
 
 
     @SuppressWarnings("unchecked")

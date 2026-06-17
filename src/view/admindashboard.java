@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -455,7 +455,7 @@ public class admindashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        new view.loginpage().setVisible(true);
+        new controller.LoginController();
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 

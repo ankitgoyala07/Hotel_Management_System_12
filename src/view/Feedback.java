@@ -17,24 +17,7 @@ public class Feedback extends javax.swing.JFrame {
      */
     public Feedback() {
         initComponents();
-        // Activate Controller to wire logic and database binding
-        new controller.FeedbackController(this);
-        setLocationRelativeTo(null);
     }
-
-    // Public Getters for inputs
-    public javax.swing.JTextField getTxtCleanlinessRating() { return jTextField2; }
-    public javax.swing.JTextField getTxtFoodRating() { return jTextField3; }
-    public javax.swing.JTextField getTxtServiceRating() { return jTextField4; }
-    public javax.swing.JTextArea getTxtReviewText() { return jTextArea1; }
-
-    // Public Getters for buttons
-    public javax.swing.JButton getBtnDashboard() { return jButton1; }
-    public javax.swing.JButton getBtnRoomBrowsing() { return jButton2; }
-    public javax.swing.JButton getBtnOrderFood() { return jButton3; }
-    public javax.swing.JButton getBtnFeedback() { return jButton4; }
-    public javax.swing.JButton getBtnLogout() { return jButton5; }
-    public javax.swing.JButton getBtnSubmitReview() { return jButton6; }
 
 
     /**
@@ -46,13 +29,6 @@ public class Feedback extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -75,184 +51,208 @@ public class Feedback extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jPanelSidebar = new javax.swing.JPanel();
+        lblLogo = new javax.swing.JLabel();
+        Dashboard = new javax.swing.JButton();
+        RoomBrowsing = new javax.swing.JButton();
+        Orderfood = new javax.swing.JButton();
+        Feedback = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 500));
-        setResizable(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(226, 232, 240)));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(15, 23, 42));
-        jLabel1.setText("<html><font color='#0EA5E9'>★</font> HMS</html>");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 20, 130, 35));
-
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(71, 85, 105));
-        jButton1.setText("Dashboard");
-        jButton1.setBorder(null);
-        jButton1.setFocusPainted(false);
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 80, 150, 35));
-
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(71, 85, 105));
-        jButton2.setText("Room browsing");
-        jButton2.setBorder(null);
-        jButton2.setFocusPainted(false);
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 125, 150, 35));
-
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(71, 85, 105));
-        jButton3.setText("Order Food");
-        jButton3.setBorder(null);
-        jButton3.setFocusPainted(false);
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 170, 150, 35));
-
-        jButton4.setBackground(new java.awt.Color(224, 242, 254));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(3, 105, 161));
-        jButton4.setText("Feedback");
-        jButton4.setBorder(null);
-        jButton4.setFocusPainted(false);
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 215, 150, 35));
-
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(100, 116, 139));
-        jButton5.setText("Logout");
-        jButton5.setBorder(null);
-        jButton5.setFocusPainted(false);
-        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 410, 150, 35));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 500));
-
-        jPanel1.setBackground(new java.awt.Color(248, 250, 252));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel6.setBackground(new java.awt.Color(248, 250, 252));
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel6.setBackground(new java.awt.Color(211, 228, 245));
+        jPanel6.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(15, 23, 42));
         jLabel2.setText("Feedback");
-        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 40));
+        jPanel6.add(jLabel2);
+        jLabel2.setBounds(20, 0, 160, 40);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(100, 116, 139));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Guest");
-        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 5, 70, 30));
+        jPanel6.add(jLabel3);
+        jLabel3.setBounds(510, 5, 70, 30);
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, 580, 40));
+        jPanel1.add(jPanel6);
+        jPanel6.setBounds(20, 15, 580, 40);
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(226, 232, 240)));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel4.setBackground(new java.awt.Color(211, 228, 245));
+        jPanel4.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel4.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(100, 116, 139));
         jLabel4.setText("Your insights help us maintain the Grand");
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 20, 530, 20));
+        jPanel4.add(jLabel4);
+        jLabel4.setBounds(25, 20, 530, 20);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(100, 116, 139));
         jLabel5.setText("Horizon standard of excellence.");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 38, 530, 20));
+        jPanel4.add(jLabel5);
+        jLabel5.setBounds(25, 38, 530, 20);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(15, 23, 42));
         jLabel6.setText("Tell us about your stay");
-        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 70, 530, 30));
+        jPanel4.add(jLabel6);
+        jLabel6.setBounds(25, 70, 530, 30);
 
         jLabel7.setText("<html><font color='#475569'><b>SERVICE</b></font><br/><font color='#0EA5E9' size='5'>★ ★ ★ ★</font><font color='#CBD5E1' size='5'>☆</font></html>");
-        jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 110, 110, 45));
+        jPanel4.add(jLabel7);
+        jLabel7.setBounds(25, 110, 110, 45);
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField4.setText("1-5");
-        jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(203, 213, 225)));
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 35, 25));
+        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField4.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextField4.addActionListener(this::jTextField4ActionPerformed);
+        jPanel4.add(jTextField4);
+        jTextField4.setBounds(140, 120, 35, 25);
 
         jLabel8.setText("<html><font color='#475569'><b>CLEANLINESS</b></font><br/><font color='#0EA5E9' size='5'>★ ★ ★ ★ ★</font></html>");
-        jPanel4.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 120, 45));
+        jPanel4.add(jLabel8);
+        jLabel8.setBounds(200, 110, 120, 45);
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setText("1-5");
-        jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(203, 213, 225)));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 120, 35, 25));
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField2.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextField2.addActionListener(this::jTextField2ActionPerformed);
+        jPanel4.add(jTextField2);
+        jTextField2.setBounds(325, 120, 35, 25);
 
         jLabel9.setText("<html><font color='#475569'><b>FOOD</b></font><br/><font color='#0EA5E9' size='5'>★ ★ ★</font><font color='#CBD5E1' size='5'>☆ ☆</font></html>");
-        jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 110, 110, 45));
+        jPanel4.add(jLabel9);
+        jLabel9.setBounds(385, 110, 110, 45);
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setText("1-5");
-        jTextField3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(203, 213, 225)));
-        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 35, 25));
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField3.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel4.add(jTextField3);
+        jTextField3.setBounds(500, 120, 35, 25);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(100, 116, 139));
         jLabel10.setText("DETAILED REVIEW");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 175, 530, 20));
+        jPanel4.add(jLabel10);
+        jLabel10.setBounds(25, 175, 530, 20);
 
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
+        jTextArea1.setLineWrap(true);
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setBorder(null);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 200, 530, 100));
+        jPanel4.add(jScrollPane1);
+        jScrollPane1.setBounds(25, 200, 530, 100);
 
         jPanel3.setBackground(new java.awt.Color(248, 250, 252));
-        jPanel3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(240, 232, 226)));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.setBorder(new javax.swing.border.MatteBorder(null));
+        jPanel3.setLayout(null);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(71, 85, 105));
         jLabel11.setText("FEEDBACK POLICY");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 6, 200, 12));
+        jPanel3.add(jLabel11);
+        jLabel11.setBounds(10, 6, 200, 12);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 9)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(100, 116, 139));
         jLabel12.setText("<html>All feedback is reviewed by our management within 24 hours. Critical issues are escalated immediately to ensure guest satisfaction.</html>");
-        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 330, 30));
+        jPanel3.add(jLabel12);
+        jLabel12.setBounds(10, 20, 330, 30);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
         jLabel13.setText("<html><font color='#0EA5E9'>Privacy and Terms &rarr;</font></html>");
-        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 150, 12));
+        jPanel3.add(jLabel13);
+        jLabel13.setBounds(10, 50, 150, 12);
 
-        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 310, 350, 65));
+        jPanel4.add(jPanel3);
+        jPanel3.setBounds(25, 310, 350, 65);
 
         jButton6.setBackground(new java.awt.Color(15, 23, 42));
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Submit Review \u00a0 \u25b8");
+        jButton6.setText("Submit Review");
         jButton6.setBorder(null);
         jButton6.setFocusPainted(false);
-        jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 320, 150, 35));
+        jButton6.addActionListener(this::jButton6ActionPerformed);
+        jPanel4.add(jButton6);
+        jButton6.setBounds(405, 320, 150, 35);
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 580, 390));
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(20, 70, 580, 390);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 620, 500));
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator1);
+        jSeparator1.setBounds(0, 0, 10, 500);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(180, 0, 620, 500);
+
+        jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSidebar.setLayout(null);
+
+        lblLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblLogo.setForeground(new java.awt.Color(37, 99, 235));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setText("HMS");
+        jPanelSidebar.add(lblLogo);
+        lblLogo.setBounds(10, 30, 140, 30);
+
+        Dashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Dashboard.setText("  Dashboard");
+        Dashboard.setBorderPainted(false);
+        Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Dashboard.addActionListener(this::DashboardActionPerformed);
+        jPanelSidebar.add(Dashboard);
+        Dashboard.setBounds(10, 80, 160, 35);
+
+        RoomBrowsing.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        RoomBrowsing.setText(" Room Browsing");
+        RoomBrowsing.setBorderPainted(false);
+        RoomBrowsing.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        RoomBrowsing.addActionListener(this::RoomBrowsingActionPerformed);
+        jPanelSidebar.add(RoomBrowsing);
+        RoomBrowsing.setBounds(10, 120, 160, 35);
+
+        Orderfood.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Orderfood.setText(" Order Food");
+        Orderfood.setBorderPainted(false);
+        Orderfood.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Orderfood.addActionListener(this::OrderfoodActionPerformed);
+        jPanelSidebar.add(Orderfood);
+        Orderfood.setBounds(10, 170, 160, 35);
+
+        Feedback.setBackground(new java.awt.Color(211, 228, 245));
+        Feedback.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Feedback.setForeground(new java.awt.Color(37, 99, 235));
+        Feedback.setText(" Feedback");
+        Feedback.setBorderPainted(false);
+        Feedback.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Feedback.addActionListener(this::FeedbackActionPerformed);
+        jPanelSidebar.add(Feedback);
+        Feedback.setBounds(10, 210, 160, 35);
+
+        Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Logout.setText(" Logout");
+        Logout.setBorderPainted(false);
+        Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Logout.addActionListener(this::LogoutActionPerformed);
+        jPanelSidebar.add(Logout);
+        Logout.setBounds(10, 250, 160, 35);
+
+        getContentPane().add(jPanelSidebar);
+        jPanelSidebar.setBounds(0, 0, 180, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -264,6 +264,30 @@ public class Feedback extends javax.swing.JFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LogoutActionPerformed
+
+    private void DashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashboardActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DashboardActionPerformed
+
+    private void RoomBrowsingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomBrowsingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RoomBrowsingActionPerformed
+
+    private void OrderfoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderfoodActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OrderfoodActionPerformed
+
+    private void FeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FeedbackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FeedbackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,13 +315,12 @@ public class Feedback extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton Dashboard;
+    private javax.swing.JButton Feedback;
+    private javax.swing.JButton Logout;
+    private javax.swing.JButton Orderfood;
+    private javax.swing.JButton RoomBrowsing;
     private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -311,14 +334,16 @@ public class Feedback extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanelSidebar;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
 }

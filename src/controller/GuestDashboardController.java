@@ -5,7 +5,6 @@ import view.BookRoom;
 import view.OrderFood;
 import view.Feedback;
 import view.Roomservice;
-import view.loginpage;
 import model.GuestDashboardModel;
 import dao.GuestDashboardDao;
 import database.MySqlConnection;
@@ -105,7 +104,7 @@ public class GuestDashboardController {
     }
 
     private void logout() {
-        new loginpage().setVisible(true);
+        new LoginController();
         view.dispose();
     }
 

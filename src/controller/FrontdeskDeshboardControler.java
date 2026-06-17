@@ -2,7 +2,7 @@ package controller;
 
 import dao.FrontdeskDeshboardDao;
 import model.FrontdeskDeshboardModel;
-import view.FrontDeskDashboard;
+import view.FrontdeskDashboard;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,11 +19,11 @@ import java.util.stream.Collectors;
  * @author i3
  */
 public class FrontdeskDeshboardControler {
-    private final FrontDeskDashboard view;
+    private final FrontdeskDashboard view;
     private final FrontdeskDeshboardDao dao = new FrontdeskDeshboardDao();
 
     public FrontdeskDeshboardControler() {
-        this.view = new FrontDeskDashboard();
+        this.view = new FrontdeskDashboard();
         initController();
     }
 
@@ -271,7 +271,7 @@ public class FrontdeskDeshboardControler {
     }
 
     private Object getPrivateField(String fieldName) throws Exception {
-        Field field = FrontDeskDashboard.class.getDeclaredField(fieldName);
+        Field field = FrontdeskDashboard.class.getDeclaredField(fieldName);
         field.setAccessible(true);
         return field.get(view);
     }

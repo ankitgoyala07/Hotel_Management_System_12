@@ -8,14 +8,14 @@ package view;
  *
  * @author i3
  */
-public class FrontDeskDashboard extends javax.swing.JFrame {
+public class FrontdeskDashboard extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrontDeskDashboard.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrontdeskDashboard.class.getName());
 
     /**
      * Creates new form FrontDashboard
      */
-    public FrontDeskDashboard() {
+    public FrontdeskDashboard() {
         initComponents();
     }
 
@@ -30,12 +30,12 @@ public class FrontDeskDashboard extends javax.swing.JFrame {
 
         jPanelSidebar = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
-        btnRooms = new javax.swing.JButton();
-        btnDiscounts = new javax.swing.JButton();
-        btnStaffs = new javax.swing.JButton();
-        btnReports = new javax.swing.JButton();
-        btnSystemSetting1 = new javax.swing.JButton();
-        btnSystemSetting = new javax.swing.JButton();
+        Dashboard = new javax.swing.JButton();
+        Guest = new javax.swing.JButton();
+        Booking = new javax.swing.JButton();
+        Mealtime = new javax.swing.JButton();
+        Billing = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jSeparator6 = new javax.swing.JSeparator();
         jPanelHeader = new javax.swing.JPanel();
@@ -135,59 +135,55 @@ public class FrontDeskDashboard extends javax.swing.JFrame {
         jPanelSidebar.add(lblLogo);
         lblLogo.setBounds(10, 30, 140, 30);
 
-        btnRooms.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnRooms.setText("  Guests");
-        btnRooms.setBorderPainted(false);
-        btnRooms.setContentAreaFilled(false);
-        btnRooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnRooms.addActionListener(this::btnRoomsActionPerformed);
-        jPanelSidebar.add(btnRooms);
-        btnRooms.setBounds(10, 120, 160, 35);
+        Dashboard.setBackground(new java.awt.Color(211, 228, 245));
+        Dashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Dashboard.setForeground(new java.awt.Color(37, 99, 235));
+        Dashboard.setText("  Dashboard");
+        Dashboard.setBorderPainted(false);
+        Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Dashboard.addActionListener(this::DashboardActionPerformed);
+        jPanelSidebar.add(Dashboard);
+        Dashboard.setBounds(10, 80, 160, 35);
 
-        btnDiscounts.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnDiscounts.setText("  Bookings");
-        btnDiscounts.setBorderPainted(false);
-        btnDiscounts.setContentAreaFilled(false);
-        btnDiscounts.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnDiscounts.addActionListener(this::btnDiscountsActionPerformed);
-        jPanelSidebar.add(btnDiscounts);
-        btnDiscounts.setBounds(10, 160, 160, 35);
+        Guest.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Guest.setText(" Guest");
+        Guest.setBorderPainted(false);
+        Guest.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Guest.addActionListener(this::GuestActionPerformed);
+        jPanelSidebar.add(Guest);
+        Guest.setBounds(10, 120, 160, 35);
 
-        btnStaffs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnStaffs.setText("  Meal time");
-        btnStaffs.setBorderPainted(false);
-        btnStaffs.setContentAreaFilled(false);
-        btnStaffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnStaffs.addActionListener(this::btnStaffsActionPerformed);
-        jPanelSidebar.add(btnStaffs);
-        btnStaffs.setBounds(10, 200, 160, 35);
+        Booking.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Booking.setText(" Booking");
+        Booking.setBorderPainted(false);
+        Booking.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Booking.addActionListener(this::BookingActionPerformed);
+        jPanelSidebar.add(Booking);
+        Booking.setBounds(10, 160, 160, 35);
 
-        btnReports.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnReports.setText("  Logout");
-        btnReports.setBorderPainted(false);
-        btnReports.setContentAreaFilled(false);
-        btnReports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnReports.addActionListener(this::btnReportsActionPerformed);
-        jPanelSidebar.add(btnReports);
-        btnReports.setBounds(10, 280, 160, 35);
+        Mealtime.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Mealtime.setText(" Mealtime");
+        Mealtime.setBorderPainted(false);
+        Mealtime.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Mealtime.addActionListener(this::MealtimeActionPerformed);
+        jPanelSidebar.add(Mealtime);
+        Mealtime.setBounds(10, 200, 160, 35);
 
-        btnSystemSetting1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnSystemSetting1.setText("  Billing");
-        btnSystemSetting1.setBorderPainted(false);
-        btnSystemSetting1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnSystemSetting1.addActionListener(this::btnSystemSetting1ActionPerformed);
-        jPanelSidebar.add(btnSystemSetting1);
-        btnSystemSetting1.setBounds(10, 240, 160, 35);
+        Billing.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Billing.setText(" Billing");
+        Billing.setBorderPainted(false);
+        Billing.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Billing.addActionListener(this::BillingActionPerformed);
+        jPanelSidebar.add(Billing);
+        Billing.setBounds(10, 240, 160, 35);
 
-        btnSystemSetting.setBackground(new java.awt.Color(211, 228, 245));
-        btnSystemSetting.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnSystemSetting.setForeground(new java.awt.Color(37, 99, 235));
-        btnSystemSetting.setText("  Dashboard");
-        btnSystemSetting.setBorderPainted(false);
-        btnSystemSetting.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnSystemSetting.addActionListener(this::btnSystemSettingActionPerformed);
-        jPanelSidebar.add(btnSystemSetting);
-        btnSystemSetting.setBounds(10, 80, 160, 35);
+        Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Logout.setText(" Logout");
+        Logout.setBorderPainted(false);
+        Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Logout.addActionListener(this::LogoutActionPerformed);
+        jPanelSidebar.add(Logout);
+        Logout.setBounds(10, 280, 160, 35);
 
         getContentPane().add(jPanelSidebar);
         jPanelSidebar.setBounds(0, 0, 180, 500);
@@ -824,29 +820,29 @@ public class FrontDeskDashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomsActionPerformed
-        // Handled by Controller
-    }//GEN-LAST:event_btnRoomsActionPerformed
-
-    private void btnDiscountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiscountsActionPerformed
-        // Handled in other navigation sections
-    }//GEN-LAST:event_btnDiscountsActionPerformed
-
-    private void btnStaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffsActionPerformed
-        // Handled by Controller
-    }//GEN-LAST:event_btnStaffsActionPerformed
-
-    private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
-        // Handled in other navigation sections
-    }//GEN-LAST:event_btnReportsActionPerformed
-
-    private void btnSystemSetting1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSetting1ActionPerformed
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSystemSetting1ActionPerformed
+    }//GEN-LAST:event_LogoutActionPerformed
 
-    private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
+    private void BillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSystemSettingActionPerformed
+    }//GEN-LAST:event_BillingActionPerformed
+
+    private void MealtimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MealtimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MealtimeActionPerformed
+
+    private void BookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BookingActionPerformed
+
+    private void GuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuestActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GuestActionPerformed
+
+    private void DashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashboardActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DashboardActionPerformed
 
     /**
      * @param args the command line arguments
@@ -870,16 +866,16 @@ public class FrontDeskDashboard extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrontDeskDashboard().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new FrontdeskDashboard().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDiscounts;
-    private javax.swing.JButton btnReports;
-    private javax.swing.JButton btnRooms;
-    private javax.swing.JButton btnStaffs;
-    private javax.swing.JButton btnSystemSetting;
-    private javax.swing.JButton btnSystemSetting1;
+    private javax.swing.JButton Billing;
+    private javax.swing.JButton Booking;
+    private javax.swing.JButton Dashboard;
+    private javax.swing.JButton Guest;
+    private javax.swing.JButton Logout;
+    private javax.swing.JButton Mealtime;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

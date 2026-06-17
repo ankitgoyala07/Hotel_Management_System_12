@@ -15,13 +15,6 @@ public class GuestManagement extends javax.swing.JFrame {
     /** Creates new form GuestManagement */
     public GuestManagement() {
         initComponents();
-        lblNavBilling.addMouseListener(new java.awt.event.MouseAdapter() {
-            @Override
-            public void mouseClicked(java.awt.event.MouseEvent e) {
-                new controller.BillingController();
-                dispose();
-            }
-        });
     }
 
     /** This method is called from within the constructor to

@@ -124,9 +124,9 @@ public class OrderFood extends javax.swing.JFrame {
 
         jButtonRoomBrowse.setForeground(new java.awt.Color(80, 85, 105));
         jButtonRoomBrowse.setText("   Room browsing");
-        jButtonRoomBrowse.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButtonRoomBrowse.setBorderPainted(false);
         jButtonRoomBrowse.setFocusPainted(false);
+        jButtonRoomBrowse.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jPanelSidebar.add(jButtonRoomBrowse);
         jButtonRoomBrowse.setBounds(0, 103, 160, 38);
 
@@ -488,7 +488,7 @@ public class OrderFood extends javax.swing.JFrame {
         jPanelItem7.setBounds(309, 409, 285, 75);
 
         jPanelCard.add(jPanelMenu);
-        jPanelMenu.setBounds(10, 10, 600, 500);
+        jPanelMenu.setBounds(10, 20, 600, 500);
 
         jPanelOrder.setBackground(new java.awt.Color(236, 242, 255));
         jPanelOrder.setLayout(null);

@@ -4,7 +4,6 @@ import view.Feedback;
 import view.gest_dashbord;
 import view.BookRoom;
 import view.OrderFood;
-import view.loginpage;
 import model.FeedbackModel;
 import dao.FeedbackDao;
 import database.MySqlConnection;
@@ -73,7 +72,7 @@ public class FeedbackController {
     }
 
     private void logout() {
-        new loginpage().setVisible(true);
+        new LoginController();
         view.dispose();
     }
 

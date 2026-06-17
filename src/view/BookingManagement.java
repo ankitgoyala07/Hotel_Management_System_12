@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -338,7 +338,7 @@ public class BookingManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonDashboardActionPerformed
 
     private void jButtonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutActionPerformed
-        new view.loginpage().setVisible(true);
+        new controller.LoginController();
         this.dispose();
     }//GEN-LAST:event_jButtonLogoutActionPerformed
 

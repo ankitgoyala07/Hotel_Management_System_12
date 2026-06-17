@@ -168,30 +168,7 @@ public class Signup extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
-    public javax.swing.JButton getBtnSignup() {
-        return jButton2;
-    }
 
-    public String getUsernameText() {
-        return jTextField8.getText();
-    }
-
-    public String getEmailText() {
-        return jTextField7.getText();
-    }
-
-    public String getPhoneText() {
-        return jTextField9.getText();
-    }
-
-    public String getPasswordText() {
-        return jTextField6.getText();
-    }
-
-    public String getRoleText() {
-        if (jComboBox3.getSelectedItem() == null) return "";
-        return jComboBox3.getSelectedItem().toString();
-    }
 
     /**
      * @param args the command line arguments

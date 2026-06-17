@@ -3,7 +3,7 @@ package controller;
 import dao.BillingDao;
 import model.BillingModel;
 import view.Billing;
-import view.FrontDeskDashboard;
+import view.FrontdeskDashboard;
 import view.GuestManagement;
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
