@@ -1,45 +1,21 @@
 package controller;
 
-import dao.admindashboardDAO;
-import model.admindashboardModel;
-import view.admindashboard;
+import view.reports;
 import javax.swing.JOptionPane;
 
 /**
- * Controller class to handle business logic for the Manager/Admin Dashboard view.
- * Exposes database stats via getters and binds action listeners.
+ * Controller class to handle business logic for the Reports view.
+ * Connects the sidebar buttons for navigation.
  */
-public class admindashboardController {
-    private final admindashboard view;
-    private final admindashboardDAO dashboardDAO;
+public class reportsController {
+    private final reports view;
 
-    public admindashboardController() {
-        this.view = new admindashboard();
-        this.dashboardDAO = new admindashboardDAO();
+    public reportsController() {
+        this.view = new reports();
         initController();
     }
 
     private void initController() {
-        // Load statistics from the database
-        admindashboardModel data = dashboardDAO.getDashboardData();
-
-        // Populate labels in the view using public getters
-        if (view.getLblCheckIn() != null) {
-            view.getLblCheckIn().setText(String.valueOf(data.getTodayCheckIn()));
-        }
-        if (view.getLblCheckOut() != null) {
-            view.getLblCheckOut().setText(String.valueOf(data.getTodayCheckOut()));
-        }
-        if (view.getLblTotal() != null) {
-            view.getLblTotal().setText(String.valueOf(data.getTotalRooms()));
-        }
-        if (view.getLblAvailable() != null) {
-            view.getLblAvailable().setText(String.valueOf(data.getAvailableRooms()));
-        }
-        if (view.getLblOccupied() != null) {
-            view.getLblOccupied().setText(String.valueOf(data.getOccupiedRooms()));
-        }
-
         // Set up Logout listener using view's public getter
         if (view.getBtnLogout() != null) {
             view.getBtnLogout().addActionListener(e -> {
@@ -60,7 +36,8 @@ public class admindashboardController {
         // Set up navigation listeners
         if (view.getBtnDashboard() != null) {
             view.getBtnDashboard().addActionListener(e -> {
-                // Already on dashboard
+                new admindashboardController();
+                view.dispose();
             });
         }
         if (view.getBtnRooms() != null) {
@@ -89,12 +66,11 @@ public class admindashboardController {
         }
         if (view.getBtnReports() != null) {
             view.getBtnReports().addActionListener(e -> {
-                new reportsController();
-                view.dispose();
+                // Already on reports view, do nothing
             });
         }
 
-        // Silently make the dashboard visible without showing popups
+        // Show the view
         view.setVisible(true);
     }
 }

@@ -73,7 +73,8 @@ public class AddDiscountController {
         }
         if (view.getBtnReports() != null) {
             view.getBtnReports().addActionListener(e -> {
-                // Do nothing
+                new reportsController();
+                view.dispose();
             });
         }
         if (view.getBtnLogout() != null) {

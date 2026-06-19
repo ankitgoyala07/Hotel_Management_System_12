@@ -508,4 +508,13 @@ public class reports extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_testimonials;
     private javax.swing.JPanel jPanel_user;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JButton getBtnDashboard() { return jButton1; }
+    public javax.swing.JButton getBtnRooms() { return jButton2; }
+    public javax.swing.JButton getBtnDiscount() { return jButton3; }
+    public javax.swing.JButton getBtnStaffs() { return jButton4; }
+    public javax.swing.JButton getBtnSystemSetting() { return jButton5; }
+    public javax.swing.JButton getBtnReports() { return jButton6; }
+    public javax.swing.JButton getBtnLogout() { return jButton7; }
 }
+
