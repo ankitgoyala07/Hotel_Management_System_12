@@ -28,6 +28,7 @@ public class MealTime extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanelContent = new javax.swing.JPanel();
         jPanelCard = new javax.swing.JPanel();
@@ -51,15 +52,16 @@ public class MealTime extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Meal Time Management");
-        setPreferredSize(new java.awt.Dimension(900, 600));
-        setResizable(false);
-        getContentPane().setLayout(null);
+        setMinimumSize(new java.awt.Dimension(810, 535));
 
         jPanelContent.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelContent.setLayout(null);
+        jPanelContent.setLayout(new java.awt.GridBagLayout());
 
         jPanelCard.setBackground(new java.awt.Color(211, 228, 245));
-        jPanelCard.setLayout(null);
+        jPanelCard.setPreferredSize(new java.awt.Dimension(580, 310));
+        jPanelCard.setLayout(new java.awt.GridBagLayout());
+
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(540, 150));
 
         jTableSchedule.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -93,57 +95,106 @@ public class MealTime extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jScrollPaneTable);
 
-        jPanelCard.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 70, 540, 150);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(70, 20, 50, 20);
+        jPanelCard.add(jScrollPane1, gridBagConstraints);
 
         jButtonEdit1.setBackground(new java.awt.Color(26, 115, 232));
         jButtonEdit1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jButtonEdit1.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEdit1.setText("EDIT");
         jButtonEdit1.setBorderPainted(false);
+        jButtonEdit1.setPreferredSize(new java.awt.Dimension(90, 30));
         jButtonEdit1.addActionListener(this::jButtonEdit1ActionPerformed);
-        jPanelCard.add(jButtonEdit1);
-        jButtonEdit1.setBounds(330, 270, 90, 30);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 40);
+        jPanelCard.add(jButtonEdit1, gridBagConstraints);
 
         jButtonEdit.setBackground(new java.awt.Color(26, 115, 232));
         jButtonEdit.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jButtonEdit.setForeground(new java.awt.Color(255, 255, 255));
         jButtonEdit.setText("SAVE");
         jButtonEdit.setBorderPainted(false);
+        jButtonEdit.setPreferredSize(new java.awt.Dimension(90, 30));
         jButtonEdit.addActionListener(this::jButtonEditActionPerformed);
-        jPanelCard.add(jButtonEdit);
-        jButtonEdit.setBounds(460, 270, 90, 30);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 30);
+        jPanelCard.add(jButtonEdit, gridBagConstraints);
 
-        jPanelContent.add(jPanelCard);
-        jPanelCard.setBounds(20, 110, 580, 310);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(55, 10, 80, 20);
+        jPanelContent.add(jPanelCard, gridBagConstraints);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanelContent.add(jSeparator1);
-        jSeparator1.setBounds(0, 0, 10, 500);
+        jSeparator1.setPreferredSize(new java.awt.Dimension(10, 500));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridheight = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.weighty = 1.0;
+        jPanelContent.add(jSeparator1, gridBagConstraints);
 
         jPanelHeader.setBackground(new java.awt.Color(211, 228, 245));
-        jPanelHeader.setLayout(null);
+        jPanelHeader.setPreferredSize(new java.awt.Dimension(580, 40));
+        jPanelHeader.setLayout(new java.awt.GridBagLayout());
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(64, 64, 64));
         lblTitle.setText("Meal Time Management");
-        jPanelHeader.add(lblTitle);
-        lblTitle.setBounds(10, 5, 200, 30);
+        lblTitle.setPreferredSize(new java.awt.Dimension(200, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 0);
+        jPanelHeader.add(lblTitle, gridBagConstraints);
 
         lblRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblRole.setForeground(new java.awt.Color(64, 64, 64));
         lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblRole.setText("Frontdesk");
-        jPanelHeader.add(lblRole);
-        lblRole.setBounds(420, 5, 100, 30);
+        lblRole.setPreferredSize(new java.awt.Dimension(100, 30));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 60);
+        jPanelHeader.add(lblRole, gridBagConstraints);
 
-        jPanelContent.add(jPanelHeader);
-        jPanelHeader.setBounds(20, 15, 580, 40);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(15, 10, 0, 20);
+        jPanelContent.add(jPanelHeader, gridBagConstraints);
 
-        getContentPane().add(jPanelContent);
-        jPanelContent.setBounds(180, 0, 620, 500);
+        getContentPane().add(jPanelContent, java.awt.BorderLayout.CENTER);
 
         jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSidebar.setPreferredSize(new java.awt.Dimension(180, 500));
         jPanelSidebar.setLayout(null);
 
         lblLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -214,8 +265,7 @@ public class MealTime extends javax.swing.JFrame {
         jPanelSidebar.add(Logout);
         Logout.setBounds(10, 280, 160, 35);
 
-        getContentPane().add(jPanelSidebar);
-        jPanelSidebar.setBounds(0, 0, 180, 500);
+        getContentPane().add(jPanelSidebar, java.awt.BorderLayout.WEST);
 
         pack();
         setLocationRelativeTo(null);
