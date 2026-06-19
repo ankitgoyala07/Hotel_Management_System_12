@@ -4,13 +4,13 @@ import java.sql.Statement;
 
 public class DbUpdate {
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/shop";
+        String url = "jdbc:mysql://localhost:3306/hotel_management";
         String user = "root";
         String password = "1234";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("Connecting to shop database...");
+            System.out.println("Connecting to hotel_management database...");
             try (Connection conn = DriverManager.getConnection(url, user, password);
                  Statement stmt = conn.createStatement()) {
 

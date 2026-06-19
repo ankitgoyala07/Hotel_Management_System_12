@@ -1,9 +1,5 @@
 package dao;
 
-/**
- * Data Access Object executing list, search, and filter queries on joined bookings tables.
- */
-
 import database.MySqlConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import model.BookingModel;
 
-public class BookingDAO {
+/**
+ * Data Access Object executing list, search, and filter queries on joined bookings and guest_details tables.
+ */
+public class BookingManagementDao {
 
     public List<BookingModel> getBookings(String search, String roomType, String status, int offset, int limit) {
         List<BookingModel> bookingsList = new ArrayList<>();
@@ -20,16 +19,16 @@ public class BookingDAO {
         Connection conn = db.Openconnection();
 
         if (conn == null) {
-            System.out.println("Warning: Database connection failed. Returning default/mock bookings.");
-            return getMockBookings();
+            System.out.println("Warning: Database connection failed.");
+            return bookingsList;
         }
 
         StringBuilder query = new StringBuilder(
-            "SELECT b.booking_id, CONCAT(g.first_name, ' ', g.last_name) AS guest_name, " +
+            "SELECT b.booking_id, gd.full_name AS guest_name, " +
             "b.room_number, r.room_type, b.check_in_date, b.check_out_date, b.status, " +
             "COALESCE(bl.amount, 0.0) AS amount " +
             "FROM bookings b " +
-            "JOIN guests g ON b.guest_id = g.guest_id " +
+            "JOIN guest_details gd ON b.guest_id = gd.guest_id " +
             "JOIN rooms r ON b.room_number = r.room_number " +
             "LEFT JOIN billings bl ON b.booking_id = bl.booking_id " +
             "WHERE 1=1"
@@ -38,22 +37,22 @@ public class BookingDAO {
         List<Object> params = new ArrayList<>();
 
         if (search != null && !search.trim().isEmpty()) {
-            query.append(" AND (CONCAT(g.first_name, ' ', g.last_name) LIKE ? OR b.room_number LIKE ?)");
+            query.append(" AND (gd.full_name LIKE ? OR b.room_number LIKE ?)");
             params.add("%" + search.trim() + "%");
             params.add("%" + search.trim() + "%");
         }
 
-        if (roomType != null && !roomType.equals("All Types") && !roomType.trim().isEmpty()) {
+        if (roomType != null && !roomType.equalsIgnoreCase("All") && !roomType.equalsIgnoreCase("All Types") && !roomType.trim().isEmpty()) {
             query.append(" AND r.room_type = ?");
             params.add(roomType.trim());
         }
 
-        if (status != null && !status.equals("All Status") && !status.trim().isEmpty()) {
+        if (status != null && !status.equalsIgnoreCase("All") && !status.equalsIgnoreCase("All Status") && !status.trim().isEmpty()) {
             query.append(" AND b.status = ?");
             params.add(status.trim());
         }
 
-        query.append(" ORDER BY b.booking_id DESC LIMIT ? OFFSET ?");
+        query.append(" ORDER BY (CASE WHEN b.status = 'CheckedOut' OR b.status = 'Checked Out' THEN 1 ELSE 0 END) ASC, b.booking_id DESC LIMIT ? OFFSET ?");
         params.add(limit);
         params.add(offset);
 
@@ -83,22 +82,6 @@ public class BookingDAO {
             db.closeConnection(conn);
         }
 
-        if (bookingsList.isEmpty()) {
-            return getMockBookings();
-        }
-
         return bookingsList;
-    }
-
-    private List<BookingModel> getMockBookings() {
-        List<BookingModel> mockList = new ArrayList<>();
-        java.util.Date today = new java.util.Date();
-        java.util.Date tomorrow = new java.util.Date(today.getTime() + 86400000);
-        
-        mockList.add(new BookingModel(1001, "John Doe", "101", "Single", today, tomorrow, "CheckedIn", 80.00));
-        mockList.add(new BookingModel(1002, "Jane Smith", "202", "Double", today, tomorrow, "CheckedIn", 120.00));
-        mockList.add(new BookingModel(1003, "Bob Johnson", "301", "VIP", today, tomorrow, "CheckedIn", 250.00));
-        mockList.add(new BookingModel(1004, "Alice Brown", "303", "VIP", today, tomorrow, "CheckedIn", 250.00));
-        return mockList;
     }
 }

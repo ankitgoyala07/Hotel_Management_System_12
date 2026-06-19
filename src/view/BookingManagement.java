@@ -4,6 +4,8 @@
  */
 package view;
 
+import com.toedter.calendar.JDateChooser;
+
 /**
  *
  * @author i3
@@ -44,14 +46,14 @@ public class BookingManagement extends javax.swing.JFrame {
         jLabelSearch = new javax.swing.JLabel();
         jTextFieldSearch = new javax.swing.JTextField();
         jLabelDateRange = new javax.swing.JLabel();
-        jTextFieldDateRange = new javax.swing.JTextField();
-        jComboBoxRoomType = new javax.swing.JComboBox();
-        jComboBoxStatus = new javax.swing.JComboBox();
         jLabelRoomType = new javax.swing.JLabel();
         jLabelStatus = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jScrollPaneBookings = new javax.swing.JScrollPane();
         jTableBookings = new javax.swing.JTable();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jComboBoxRoomType = new javax.swing.JComboBox<>();
+        jComboBoxStatus = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -163,13 +165,8 @@ public class BookingManagement extends javax.swing.JFrame {
 
         jLabelDateRange.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
         jLabelDateRange.setForeground(new java.awt.Color(75, 85, 99));
-        jLabelDateRange.setText("DATE RANGE");
+        jLabelDateRange.setText("DATE ");
         jPanelContent.add(jLabelDateRange, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 140, 15));
-
-        jTextFieldDateRange.setForeground(new java.awt.Color(55, 65, 81));
-        jPanelContent.add(jTextFieldDateRange, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 140, 28));
-        jPanelContent.add(jComboBoxRoomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 140, 28));
-        jPanelContent.add(jComboBoxStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 120, 28));
 
         jLabelRoomType.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
         jLabelRoomType.setForeground(new java.awt.Color(75, 85, 99));
@@ -183,20 +180,20 @@ public class BookingManagement extends javax.swing.JFrame {
 
         jTableBookings.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "GUEST NAME", "ROOM", "ROOM TYPE", "STAY DURATION", "STATUS", "TOTAL AMOUNT"
+                "Guest Name", "Room", "Room Type", "Stay Duration", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -217,9 +214,17 @@ public class BookingManagement extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(jScrollPaneBookings);
 
-        jPanelContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 570, 300));
+        jPanelContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 570, 250));
+        jPanelContent.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 130, 30));
 
-        jPanelMain.add(jPanelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 85, 590, 400));
+        jComboBoxRoomType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Single Bed", "Double Bed", "VIP" }));
+        jComboBoxRoomType.addActionListener(this::jComboBoxRoomTypeActionPerformed);
+        jPanelContent.add(jComboBoxRoomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 130, 30));
+
+        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "CheckedIn", "CheckedOut" }));
+        jPanelContent.add(jComboBoxStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 120, 30));
+
+        jPanelMain.add(jPanelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 105, 590, 380));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanelMain.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
@@ -258,6 +263,10 @@ public class BookingManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSearchActionPerformed
 
+    private void jComboBoxRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRoomTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxRoomTypeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -273,8 +282,9 @@ public class BookingManagement extends javax.swing.JFrame {
     private javax.swing.JButton Guest;
     private javax.swing.JButton Logout;
     private javax.swing.JButton Mealtime;
-    private javax.swing.JComboBox jComboBoxRoomType;
-    private javax.swing.JComboBox jComboBoxStatus;
+    private javax.swing.JComboBox<String> jComboBoxRoomType;
+    private javax.swing.JComboBox<String> jComboBoxStatus;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelDateRange;
     private javax.swing.JLabel jLabelRoomType;
@@ -289,7 +299,6 @@ public class BookingManagement extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPaneBookings;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTableBookings;
-    private javax.swing.JTextField jTextFieldDateRange;
     private javax.swing.JTextField jTextFieldSearch;
     private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
@@ -298,7 +307,7 @@ public class BookingManagement extends javax.swing.JFrame {
     public javax.swing.JTextField getTxtSearch() { return jTextFieldSearch; }
     public javax.swing.JComboBox getComboRoomType() { return jComboBoxRoomType; }
     public javax.swing.JComboBox getComboStatus() { return jComboBoxStatus; }
-    public javax.swing.JTextField getTxtDateRange() { return jTextFieldDateRange; }
+    public JDateChooser getTxtDate() { return jDateChooser1; }
     public javax.swing.JButton getBtnDashboard() { return Dashboard; }
     public javax.swing.JButton getBtnGuest() { return Guest; }
     public javax.swing.JButton getBtnBooking() { return Booking; }

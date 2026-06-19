@@ -7,7 +7,7 @@ import model.BookRoomModel;
 
 /**
  * DAO class for room browsing operations.
- * Handles database operations for rooms.
+ * Handles database operations for rooms categories.
  */
 public class BookRoomDao {
     private Connection conn;
@@ -19,7 +19,7 @@ public class BookRoomDao {
 
     // DDL: Create table if not present in the database
     public void createTableIfNotExists() {
-        String sql = "CREATE TABLE IF NOT EXISTS rooms ("
+        String sql = "CREATE TABLE IF NOT EXISTS room_categories ("
                    + "id INT AUTO_INCREMENT PRIMARY KEY, "
                    + "room_type VARCHAR(255) NOT NULL, "
                    + "price DOUBLE NOT NULL, "
@@ -29,15 +29,15 @@ public class BookRoomDao {
                    + ")";
         try (Statement st = conn.createStatement()) {
             st.executeUpdate(sql);
-            System.out.println("Table 'rooms' verified/created successfully.");
+            System.out.println("Table 'room_categories' verified/created successfully.");
         } catch (SQLException e) {
-            System.out.println("Error creating rooms table: " + e.getMessage());
+            System.out.println("Error creating room_categories table: " + e.getMessage());
         }
     }
 
-    // Insert a room
+    // Insert a room category
     public boolean insertRoom(BookRoomModel room) {
-        String sql = "INSERT INTO rooms (room_type, price, room_size, bed_type, description) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO room_categories (room_type, price, room_size, bed_type, description) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, room.getRoomType());
             ps.setDouble(2, room.getPrice());
@@ -56,14 +56,14 @@ public class BookRoomDao {
             }
             return false;
         } catch (SQLException e) {
-            System.out.println("Error inserting room: " + e.getMessage());
+            System.out.println("Error inserting room category: " + e.getMessage());
             return false;
         }
     }
 
-    // Update room details
+    // Update room category details
     public boolean updateRoom(BookRoomModel room) {
-        String sql = "UPDATE rooms SET room_type=?, price=?, room_size=?, bed_type=?, description=? WHERE id=?";
+        String sql = "UPDATE room_categories SET room_type=?, price=?, room_size=?, bed_type=?, description=? WHERE id=?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, room.getRoomType());
             ps.setDouble(2, room.getPrice());
@@ -74,27 +74,27 @@ public class BookRoomDao {
             
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.out.println("Error updating room: " + e.getMessage());
+            System.out.println("Error updating room category: " + e.getMessage());
             return false;
         }
     }
 
-    // Delete a room by ID
+    // Delete a room category by ID
     public boolean deleteRoom(int id) {
-        String sql = "DELETE FROM rooms WHERE id=?";
+        String sql = "DELETE FROM room_categories WHERE id=?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, id);
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.out.println("Error deleting room: " + e.getMessage());
+            System.out.println("Error deleting room category: " + e.getMessage());
             return false;
         }
     }
 
-    // Retrieve all rooms
+    // Retrieve all room categories
     public List<BookRoomModel> getAllRooms() {
         List<BookRoomModel> rooms = new ArrayList<>();
-        String sql = "SELECT * FROM rooms";
+        String sql = "SELECT * FROM room_categories";
         try (Statement st = conn.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) {
@@ -109,9 +109,8 @@ public class BookRoomDao {
                 rooms.add(room);
             }
         } catch (SQLException e) {
-            System.out.println("Error fetching rooms: " + e.getMessage());
+            System.out.println("Error fetching room categories: " + e.getMessage());
         }
         return rooms;
     }
 }
-// git

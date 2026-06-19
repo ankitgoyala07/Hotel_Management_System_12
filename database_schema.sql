@@ -1,7 +1,7 @@
 -- Hotel Management System Database Schema Setup Script
--- Database name: shop (matches MySqlConnection.java default)
-CREATE DATABASE IF NOT EXISTS shop;
-USE shop;
+-- Database name: hotel_management (matches MySqlConnection.java default)
+CREATE DATABASE IF NOT EXISTS hotel_management;
+USE hotel_management;
 
 -- 1. Create table: rooms
 CREATE TABLE IF NOT EXISTS rooms (

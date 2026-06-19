@@ -30,7 +30,8 @@ public class GuestDetailsDao {
                    + "room_type VARCHAR(255), "
                    + "check_in_date DATE, "
                    + "check_out_date DATE, "
-                   + "discount_deal VARCHAR(50)"
+                   + "discount_deal VARCHAR(50), "
+                   + "status VARCHAR(50) DEFAULT 'Checked In'"
                    + ")";
         try (Statement st = conn.createStatement()) {
             st.executeUpdate(sql);
@@ -42,11 +43,11 @@ public class GuestDetailsDao {
 
     // Find the first available room number matching a room type
     public int findAvailableRoomNo(String roomType) {
-        // Normalize room type format from previous screen (e.g. "Single" vs "Single bed" / "Double" vs "Double bed")
+        // Normalize room type format from JComboBox or previous screens
         String queryType = roomType;
-        if (roomType.equalsIgnoreCase("Single bed")) {
+        if (roomType.equalsIgnoreCase("Single") || roomType.equalsIgnoreCase("Single bed") || roomType.equalsIgnoreCase("Single Bed Room")) {
             queryType = "Single";
-        } else if (roomType.equalsIgnoreCase("Double bed")) {
+        } else if (roomType.equalsIgnoreCase("Double") || roomType.equalsIgnoreCase("Double bed") || roomType.equalsIgnoreCase("Double Bed Room")) {
             queryType = "Double";
         } else if (roomType.equalsIgnoreCase("VIP")) {
             queryType = "VIP";
@@ -112,6 +113,22 @@ public class GuestDetailsDao {
                         guest.setId(generatedKeys.getInt(1));
                     }
                 }
+                
+                // Also insert into bookings table using guest_id (foreign key reference to guest_details)
+                try {
+                    String insertBookingSql = "INSERT INTO bookings (guest_id, room_number, check_in_date, check_out_date, status) VALUES (?, ?, ?, ?, ?)";
+                    try (PreparedStatement psB = conn.prepareStatement(insertBookingSql)) {
+                        psB.setInt(1, guest.getId());
+                        psB.setString(2, String.valueOf(guest.getROOM_NO()));
+                        psB.setDate(3, guest.getCHECK_IN_DATE());
+                        psB.setDate(4, guest.getCHECK_OUT_DATE());
+                        psB.setString(5, "CheckedIn");
+                        psB.executeUpdate();
+                    }
+                } catch (SQLException ex) {
+                    System.out.println("Error inserting bookings record: " + ex.getMessage());
+                }
+                
                 return true;
             }
             return false;

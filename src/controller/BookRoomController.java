@@ -49,21 +49,21 @@ public class BookRoomController {
                 // Seed default rooms if table is empty
                 dao.insertRoom(new BookRoomModel(
                     "VIP", 
-                    850.0, 
+                    300.0, 
                     "85m²", 
                     "King Size", 
                     "Our pinnacle of luxury featuring a private lounge, marble bathroom with a soaking tub, and priority concierge access."
                 ));
                 dao.insertRoom(new BookRoomModel(
                     "Double Bed Room", 
-                    420.0, 
+                    180.0, 
                     "45m²", 
                     "2 Doubles", 
                     "Perfect for families or business associates, offering spacious layouts and a fully equipped ergonomic workspace."
                 ));
                 dao.insertRoom(new BookRoomModel(
                     "Single Bed Room", 
-                    295.0, 
+                    100.0, 
                     "30m²", 
                     "1 Queen", 
                     "An efficient and cozy space designed for the modern solo traveler, prioritizing comfort and connectivity."

@@ -3,6 +3,7 @@ package controller;
 import dao.FrontdeskDeshboardDao;
 import model.FrontdeskDeshboardModel;
 import view.FrontdeskDashboard;
+import view.GuestManagement;
 
 import javax.swing.*;
 import java.awt.*;
@@ -168,6 +169,7 @@ public class FrontdeskDeshboardControler {
                     room.setStatus("Occupied");
                     updateLabelVisuals(label, "Occupied");
                     updateOverviewStats();
+                    dao.insertDefaultGuestForRoom(room.getRoomNumber(), room.getRoomType());
                     JOptionPane.showMessageDialog(view, "Room " + room.getRoomNumber() + " booked successfully!");
                 } else {
                     JOptionPane.showMessageDialog(view, "Failed to book room.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -250,13 +252,21 @@ public class FrontdeskDeshboardControler {
 
         // Add action placeholders for other sidebar items to make dashboard responsive
         if (btnRooms != null) {
-            btnRooms.addActionListener(e -> JOptionPane.showMessageDialog(view, "Navigating to Guests section."));
+            btnRooms.addActionListener(e -> {
+                new GuestManagementController(new GuestManagement());
+                view.dispose();
+            });
         }
         if (btnDiscounts != null) {
-            btnDiscounts.addActionListener(e -> JOptionPane.showMessageDialog(view, "Navigating to Bookings section."));
+            btnDiscounts.addActionListener(e -> {
+                new BookingController();
+                view.dispose();
+            });
         }
         if (btnStaffs != null) {
-            btnStaffs.addActionListener(e -> JOptionPane.showMessageDialog(view, "Navigating to Meal time section."));
+            btnStaffs.addActionListener(e -> {
+                new view.OrderFood().setVisible(true);
+            });
         }
         if (btnSystemSetting1 != null) {
             btnSystemSetting1.setContentAreaFilled(false); // Make Billing button transparent to match others

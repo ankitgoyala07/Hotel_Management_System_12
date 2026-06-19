@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class DBConnection {
     
-    private static final String URL = "jdbc:mysql://localhost:3306/shop?connectTimeout=2000&socketTimeout=2000";
+    private static final String URL = "jdbc:mysql://localhost:3306/hotel_management?connectTimeout=2000&socketTimeout=2000";
     private static final String USER = "root";
     private static final String PASSWORD = "1234"; 
     

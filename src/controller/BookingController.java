@@ -1,6 +1,6 @@
 package controller;
 
-import dao.BookingDAO;
+import dao.BookingManagementDao;
 import model.BookingModel;
 import view.BookingManagement;
 import javax.swing.table.DefaultTableModel;
@@ -13,11 +13,11 @@ import java.util.List;
  */
 public class BookingController {
     private final BookingManagement view;
-    private final BookingDAO dao;
+    private final BookingManagementDao dao;
 
     public BookingController() {
         this.view = new BookingManagement();
-        this.dao = new BookingDAO();
+        this.dao = new BookingManagementDao();
         initController();
     }
 
@@ -48,8 +48,24 @@ public class BookingController {
         // 3. Sidebar navigation
         if (view.getBtnDashboard() != null) {
             view.getBtnDashboard().addActionListener(e -> {
-                new admindashboardController();
+                new FrontdeskDeshboardControler();
                 view.dispose();
+            });
+        }
+        if (view.getBtnGuest() != null) {
+            view.getBtnGuest().addActionListener(e -> {
+                new GuestManagementController(new view.GuestManagement());
+                view.dispose();
+            });
+        }
+        if (view.getBtnBooking() != null) {
+            view.getBtnBooking().addActionListener(e -> {
+                loadBookings();
+            });
+        }
+        if (view.getBtnMealtime() != null) {
+            view.getBtnMealtime().addActionListener(e -> {
+                new view.OrderFood().setVisible(true);
             });
         }
         if (view.getBtnBilling() != null) {
@@ -60,8 +76,17 @@ public class BookingController {
         }
         if (view.getBtnLogout() != null) {
             view.getBtnLogout().addActionListener(e -> {
-                new LoginController();
-                view.dispose();
+                int option = javax.swing.JOptionPane.showConfirmDialog(
+                    view,
+                    "Are you sure you want to log out?",
+                    "Logout",
+                    javax.swing.JOptionPane.YES_NO_OPTION,
+                    javax.swing.JOptionPane.QUESTION_MESSAGE
+                );
+                if (option == javax.swing.JOptionPane.YES_OPTION) {
+                    new LoginController();
+                    view.dispose();
+                }
             });
         }
 
@@ -75,12 +100,12 @@ public class BookingController {
             search = view.getTxtSearch().getText().trim();
         }
 
-        String roomType = "All Types";
+        String roomType = "All";
         if (view.getComboRoomType() != null && view.getComboRoomType().getSelectedItem() != null) {
             roomType = view.getComboRoomType().getSelectedItem().toString();
         }
 
-        String status = "All Status";
+        String status = "All";
         if (view.getComboStatus() != null && view.getComboStatus().getSelectedItem() != null) {
             status = view.getComboStatus().getSelectedItem().toString();
         }

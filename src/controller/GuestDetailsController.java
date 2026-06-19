@@ -24,6 +24,27 @@ public class GuestDetailsController {
         this.view = view;
         initDatabase();
         bindListeners();
+        preFillRoomType();
+    }
+
+    private void preFillRoomType() {
+        if (view.getComboRoomType() != null) {
+            String rt = view.getRoomType();
+            if (rt == null || rt.trim().isEmpty()) {
+                rt = "Single Bed Room";
+            }
+            for (int i = 0; i < view.getComboRoomType().getItemCount(); i++) {
+                String item = view.getComboRoomType().getItemAt(i);
+                if (item.equalsIgnoreCase(rt) 
+                    || (rt.equalsIgnoreCase("Single bed") && item.equalsIgnoreCase("Single Bed Room"))
+                    || (rt.equalsIgnoreCase("Double bed") && item.equalsIgnoreCase("Double Bed Room"))
+                    || (rt.equalsIgnoreCase("Single") && item.equalsIgnoreCase("Single Bed Room"))
+                    || (rt.equalsIgnoreCase("Double") && item.equalsIgnoreCase("Double Bed Room"))) {
+                    view.getComboRoomType().setSelectedIndex(i);
+                    break;
+                }
+            }
+        }
     }
 
     private void initDatabase() {
@@ -91,7 +112,13 @@ public class GuestDetailsController {
         String phoneStr = view.getTxtPhoneNumber().getText().trim();
         String email = view.getTxtEmailAddress().getText().trim();
         String homeAddress = view.getTxtHomeAddress().getText().trim();
-        String roomType = view.getRoomType();
+        String roomType = "";
+        if (view.getComboRoomType() != null && view.getComboRoomType().getSelectedItem() != null) {
+            roomType = view.getComboRoomType().getSelectedItem().toString().trim();
+        }
+        if (roomType.isEmpty()) {
+            roomType = view.getRoomType();
+        }
         String dealCode = view.getTxtDiscountDeal().getText().trim();
 
         java.util.Date checkInUtil = view.getDateChooserCheckIn().getDate();
@@ -147,7 +174,7 @@ public class GuestDetailsController {
         if (success) {
             // Update room status in the database to Occupied
             dao.updateRoomStatus(roomNo, "Occupied");
-            JOptionPane.showMessageDialog(view, "Booking Confirmed Successfully! Assigned Room No: " + roomNo, "Success", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(view, "Booking Confirmed. Your room number is: " + roomNo, "Success", JOptionPane.INFORMATION_MESSAGE);
             // Navigate back to guest dashboard on success
             openDashboard();
         } else {

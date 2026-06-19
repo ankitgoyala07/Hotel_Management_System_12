@@ -27,11 +27,6 @@ public class GuestManagement extends javax.swing.JFrame {
     private void initComponents() {
 
         panelContent = new javax.swing.JPanel();
-        headerPanel = new javax.swing.JPanel();
-        lblPageTitle = new javax.swing.JLabel();
-        panelProfile = new javax.swing.JPanel();
-        lblRole = new javax.swing.JLabel();
-        lblUserIcon = new javax.swing.JLabel();
         tableCardPanel = new javax.swing.JPanel();
         txtSearch = new javax.swing.JTextField();
         btnAddGuest = new javax.swing.JButton();
@@ -52,6 +47,9 @@ public class GuestManagement extends javax.swing.JFrame {
         scrollPaneTable = new javax.swing.JScrollPane();
         tblGuests = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
+        jPanelHeader = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
+        lblRole = new javax.swing.JLabel();
         jPanelSidebar = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         Dashboard = new javax.swing.JButton();
@@ -63,6 +61,7 @@ public class GuestManagement extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hotel Management System - Guest Management");
+        setMinimumSize(new java.awt.Dimension(800, 530));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -70,44 +69,16 @@ public class GuestManagement extends javax.swing.JFrame {
         panelContent.setPreferredSize(new java.awt.Dimension(620, 500));
         panelContent.setLayout(null);
 
-        headerPanel.setBackground(new java.awt.Color(232, 240, 254));
-        headerPanel.setLayout(null);
-
-        lblPageTitle.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        lblPageTitle.setForeground(new java.awt.Color(32, 33, 36));
-        lblPageTitle.setText("Guest Management");
-        headerPanel.add(lblPageTitle);
-        lblPageTitle.setBounds(20, 10, 200, 30);
-
-        panelProfile.setOpaque(false);
-        panelProfile.setLayout(null);
-
-        lblRole.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lblRole.setForeground(new java.awt.Color(32, 33, 36));
-        lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRole.setText("Frontdesk");
-        panelProfile.add(lblRole);
-        lblRole.setBounds(10, 20, 140, 18);
-
-        headerPanel.add(panelProfile);
-        panelProfile.setBounds(380, 5, 160, 40);
-
-        lblUserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/user (1).png"))); // NOI18N
-        headerPanel.add(lblUserIcon);
-        lblUserIcon.setBounds(540, 10, 50, 30);
-
-        panelContent.add(headerPanel);
-        headerPanel.setBounds(20, 20, 560, 50);
-
-        tableCardPanel.setBackground(new java.awt.Color(232, 240, 254));
+        tableCardPanel.setBackground(new java.awt.Color(211, 228, 245));
         tableCardPanel.setLayout(null);
 
         txtSearch.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtSearch.setForeground(new java.awt.Color(160, 160, 160));
         txtSearch.setText("🔍  Search by name or rooms");
         txtSearch.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        txtSearch.addActionListener(this::txtSearchActionPerformed);
         tableCardPanel.add(txtSearch);
-        txtSearch.setBounds(10, 80, 410, 40);
+        txtSearch.setBounds(10, 80, 430, 40);
 
         btnAddGuest.setBackground(new java.awt.Color(26, 115, 232));
         btnAddGuest.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -116,7 +87,7 @@ public class GuestManagement extends javax.swing.JFrame {
         btnAddGuest.setBorderPainted(false);
         btnAddGuest.addActionListener(this::btnAddGuestActionPerformed);
         tableCardPanel.add(btnAddGuest);
-        btnAddGuest.setBounds(440, 80, 110, 40);
+        btnAddGuest.setBounds(470, 80, 110, 40);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
@@ -134,11 +105,11 @@ public class GuestManagement extends javax.swing.JFrame {
         lblTotalTitle.setForeground(new java.awt.Color(96, 96, 96));
         lblTotalTitle.setText("Total Guests");
         cardTotalGuests.add(lblTotalTitle);
-        lblTotalTitle.setBounds(10, 40, 105, 15);
+        lblTotalTitle.setBounds(10, 40, 70, 15);
 
         lblTotalValue.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         lblTotalValue.setForeground(new java.awt.Color(32, 33, 36));
-        lblTotalValue.setText("60");
+        lblTotalValue.setText("0");
         cardTotalGuests.add(lblTotalValue);
         lblTotalValue.setBounds(80, 30, 30, 25);
 
@@ -158,16 +129,16 @@ public class GuestManagement extends javax.swing.JFrame {
         lblCheckinTitle.setForeground(new java.awt.Color(96, 96, 96));
         lblCheckinTitle.setText("Check-in Today");
         cardCheckinToday.add(lblCheckinTitle);
-        lblCheckinTitle.setBounds(10, 40, 105, 15);
+        lblCheckinTitle.setBounds(10, 40, 80, 15);
 
         lblCheckinValue.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         lblCheckinValue.setForeground(new java.awt.Color(32, 33, 36));
-        lblCheckinValue.setText("12");
+        lblCheckinValue.setText("0");
         cardCheckinToday.add(lblCheckinValue);
         lblCheckinValue.setBounds(90, 30, 30, 25);
 
         jPanel1.add(cardCheckinToday);
-        cardCheckinToday.setBounds(220, 0, 125, 60);
+        cardCheckinToday.setBounds(240, 0, 125, 60);
 
         cardCheckoutToday.setBackground(new java.awt.Color(255, 255, 255));
         cardCheckoutToday.setLayout(null);
@@ -182,19 +153,19 @@ public class GuestManagement extends javax.swing.JFrame {
         lblCheckoutTitle.setForeground(new java.awt.Color(96, 96, 96));
         lblCheckoutTitle.setText("Check-out Today");
         cardCheckoutToday.add(lblCheckoutTitle);
-        lblCheckoutTitle.setBounds(10, 40, 105, 15);
+        lblCheckoutTitle.setBounds(10, 40, 80, 15);
 
         lblCheckoutValue.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         lblCheckoutValue.setForeground(new java.awt.Color(32, 33, 36));
-        lblCheckoutValue.setText("8");
+        lblCheckoutValue.setText("0");
         cardCheckoutToday.add(lblCheckoutValue);
-        lblCheckoutValue.setBounds(100, 30, 105, 25);
+        lblCheckoutValue.setBounds(100, 30, 30, 25);
 
         jPanel1.add(cardCheckoutToday);
-        cardCheckoutToday.setBounds(400, 0, 125, 60);
+        cardCheckoutToday.setBounds(430, 0, 125, 60);
 
         tableCardPanel.add(jPanel1);
-        jPanel1.setBounds(10, 10, 540, 60);
+        jPanel1.setBounds(10, 10, 570, 60);
 
         tblGuests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -231,14 +202,33 @@ public class GuestManagement extends javax.swing.JFrame {
         jScrollPane1.setViewportView(scrollPaneTable);
 
         tableCardPanel.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 130, 540, 250);
+        jScrollPane1.setBounds(10, 130, 570, 250);
 
         panelContent.add(tableCardPanel);
-        tableCardPanel.setBounds(20, 90, 560, 400);
+        tableCardPanel.setBounds(20, 90, 590, 400);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         panelContent.add(jSeparator1);
         jSeparator1.setBounds(0, 0, 10, 500);
+
+        jPanelHeader.setBackground(new java.awt.Color(211, 228, 245));
+        jPanelHeader.setLayout(null);
+
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(64, 64, 64));
+        lblTitle.setText("Guest Management");
+        jPanelHeader.add(lblTitle);
+        lblTitle.setBounds(10, 5, 180, 30);
+
+        lblRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblRole.setForeground(new java.awt.Color(64, 64, 64));
+        lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblRole.setText("Frontdesk");
+        jPanelHeader.add(lblRole);
+        lblRole.setBounds(420, 5, 100, 30);
+
+        panelContent.add(jPanelHeader);
+        jPanelHeader.setBounds(20, 15, 580, 40);
 
         getContentPane().add(panelContent);
         panelContent.setBounds(180, 0, 620, 500);
@@ -256,6 +246,7 @@ public class GuestManagement extends javax.swing.JFrame {
         Dashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Dashboard.setText("  Dashboard");
         Dashboard.setBorderPainted(false);
+        Dashboard.setContentAreaFilled(false);
         Dashboard.setFocusPainted(false);
         Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Dashboard.addActionListener(this::DashboardActionPerformed);
@@ -348,6 +339,10 @@ public class GuestManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LogoutActionPerformed
 
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -367,8 +362,8 @@ public class GuestManagement extends javax.swing.JFrame {
     private javax.swing.JPanel cardCheckinToday;
     private javax.swing.JPanel cardCheckoutToday;
     private javax.swing.JPanel cardTotalGuests;
-    private javax.swing.JPanel headerPanel;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelHeader;
     private javax.swing.JPanel jPanelSidebar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -379,17 +374,28 @@ public class GuestManagement extends javax.swing.JFrame {
     private javax.swing.JLabel lblCheckoutTitle;
     private javax.swing.JLabel lblCheckoutValue;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JLabel lblPageTitle;
     private javax.swing.JLabel lblRole;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblTotalIcon;
     private javax.swing.JLabel lblTotalTitle;
     private javax.swing.JLabel lblTotalValue;
-    private javax.swing.JLabel lblUserIcon;
     private javax.swing.JPanel panelContent;
-    private javax.swing.JPanel panelProfile;
     private javax.swing.JScrollPane scrollPaneTable;
     private javax.swing.JPanel tableCardPanel;
     private javax.swing.JTable tblGuests;
     private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JTable getTable() { return tblGuests; }
+    public javax.swing.JTextField getTxtSearch() { return txtSearch; }
+    public javax.swing.JButton getBtnDeleteGuest() { return btnAddGuest; }
+    public javax.swing.JButton getBtnDashboard() { return Dashboard; }
+    public javax.swing.JButton getBtnGuest() { return Guest; }
+    public javax.swing.JButton getBtnBooking() { return Booking; }
+    public javax.swing.JButton getBtnMealtime() { return Mealtime; }
+    public javax.swing.JButton getBtnBilling() { return Billing; }
+    public javax.swing.JButton getBtnLogout() { return Logout; }
+    public javax.swing.JLabel getLblTotalGuests() { return lblTotalValue; }
+    public javax.swing.JLabel getLblCheckinToday() { return lblCheckinValue; }
+    public javax.swing.JLabel getLblCheckoutToday() { return lblCheckoutValue; }
 }

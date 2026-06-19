@@ -123,6 +123,8 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         jCalendar1 = new com.toedter.calendar.JCalendar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFocusable(false);
+        setMinimumSize(new java.awt.Dimension(800, 530));
         getContentPane().setLayout(null);
 
         jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
@@ -211,7 +213,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblTitle.setForeground(new java.awt.Color(64, 64, 64));
-        lblTitle.setText("System setting");
+        lblTitle.setText("Frontdesk Dashboard");
         jPanelHeader.add(lblTitle);
         lblTitle.setBounds(10, 5, 180, 30);
 

@@ -42,7 +42,6 @@ public class Gust_Details extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
@@ -54,9 +53,12 @@ public class Gust_Details extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jComboBoxRoomType = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabelHeaderTitle = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jPanelSidebar = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
@@ -106,8 +108,6 @@ public class Gust_Details extends javax.swing.JFrame {
         jLabel7.setText("PHONE NUMBER");
         jPanel3.add(jLabel7);
         jLabel7.setBounds(280, 60, 220, 20);
-        jPanel3.add(jTextField6);
-        jTextField6.setBounds(280, 80, 220, 35);
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(75, 85, 99));
@@ -119,11 +119,11 @@ public class Gust_Details extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel13.setText("HOME ADDRESS");
+        jLabel13.setText("ROOM TYPE");
         jPanel3.add(jLabel13);
-        jLabel13.setBounds(40, 190, 460, 20);
+        jLabel13.setBounds(280, 190, 220, 20);
         jPanel3.add(jTextField7);
-        jTextField7.setBounds(40, 210, 460, 35);
+        jTextField7.setBounds(40, 210, 220, 35);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(75, 85, 99));
@@ -139,7 +139,7 @@ public class Gust_Details extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel10.setText("DISCOUNT DEAL");
+        jLabel10.setText("DISCOUNT DEAL (Optional)");
         jPanel3.add(jLabel10);
         jLabel10.setBounds(40, 320, 220, 20);
         jPanel3.add(jTextField8);
@@ -158,6 +158,20 @@ public class Gust_Details extends javax.swing.JFrame {
         jPanel3.add(jDateChooser2);
         jDateChooser2.setBounds(290, 280, 210, 30);
 
+        jTextField9.addActionListener(this::jTextField9ActionPerformed);
+        jPanel3.add(jTextField9);
+        jTextField9.setBounds(280, 80, 220, 35);
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel14.setText("HOME ADDRESS");
+        jPanel3.add(jLabel14);
+        jLabel14.setBounds(40, 190, 220, 20);
+
+        jComboBoxRoomType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single Bed", "Double Bed", "VIP" }));
+        jPanel3.add(jComboBoxRoomType);
+        jComboBoxRoomType.setBounds(280, 210, 220, 30);
+
         jPanel1.add(jPanel3);
         jPanel3.setBounds(20, 10, 540, 390);
 
@@ -167,18 +181,18 @@ public class Gust_Details extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(219, 234, 254));
         jPanel4.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel2.setText("Room Browsing");
-        jPanel4.add(jLabel2);
-        jLabel2.setBounds(15, 7, 200, 30);
-
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(75, 85, 99));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Guest");
         jPanel4.add(jLabel3);
         jLabel3.setBounds(460, 7, 70, 30);
+
+        jLabelHeaderTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelHeaderTitle.setForeground(new java.awt.Color(75, 75, 75));
+        jLabelHeaderTitle.setText("Room Browsing");
+        jPanel4.add(jLabelHeaderTitle);
+        jLabelHeaderTitle.setBounds(15, 12, 200, 20);
 
         jPanel6.add(jPanel4);
         jPanel4.setBounds(20, 15, 580, 45);
@@ -278,6 +292,10 @@ public class Gust_Details extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSystemSettingActionPerformed
 
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDiscounts;
     private javax.swing.JButton btnReports;
@@ -285,19 +303,21 @@ public class Gust_Details extends javax.swing.JFrame {
     private javax.swing.JButton btnStaffs;
     private javax.swing.JButton btnSystemSetting;
     private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> jComboBoxRoomType;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabelHeaderTitle;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -306,25 +326,26 @@ public class Gust_Details extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
 
-    public javax.swing.JButton getBtnDashboard() { return jButton1; }
-    public javax.swing.JButton getBtnRoomBrowsing() { return jButton2; }
-    public javax.swing.JButton getBtnOrderFood() { return jButton3; }
-    public javax.swing.JButton getBtnFeedback() { return jButton4; }
-    public javax.swing.JButton getBtnLogout() { return jButton5; }
+    public javax.swing.JButton getBtnDashboard() { return btnSystemSetting; }
+    public javax.swing.JButton getBtnRoomBrowsing() { return btnRooms; }
+    public javax.swing.JButton getBtnOrderFood() { return btnDiscounts; }
+    public javax.swing.JButton getBtnFeedback() { return btnStaffs; }
+    public javax.swing.JButton getBtnLogout() { return btnReports; }
     public javax.swing.JButton getBtnConfirmBooking() { return jButton6; }
 
     public javax.swing.JTextField getTxtFullName() { return jTextField1; }
-    public javax.swing.JTextField getTxtPhoneNumber() { return jTextField6; }
+    public javax.swing.JTextField getTxtPhoneNumber() { return jTextField9; }
     public javax.swing.JTextField getTxtEmailAddress() { return jTextField4; }
     public javax.swing.JTextField getTxtHomeAddress() { return jTextField7; }
+    public javax.swing.JComboBox<String> getComboRoomType() { return jComboBoxRoomType; }
     public javax.swing.JTextField getTxtDiscountDeal() { return jTextField8; }
 
-    public com.toedter.calendar.JDateChooser getDateChooserCheckIn() { return dateChooserCheckIn; }
-    public com.toedter.calendar.JDateChooser getDateChooserCheckOut() { return dateChooserCheckOut; }
+    public com.toedter.calendar.JDateChooser getDateChooserCheckIn() { return jDateChooser1; }
+    public com.toedter.calendar.JDateChooser getDateChooserCheckOut() { return jDateChooser2; }
 }

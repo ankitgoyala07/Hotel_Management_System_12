@@ -62,12 +62,134 @@ public class FrontdeskDeshboardDao {
         }
 
         String sql = "UPDATE rooms SET status = ? WHERE room_number = ?";
-        try (PreparedStatement pstm = conn.prepareStatement(sql)) {
-            pstm.setString(1, status);
-            pstm.setString(2, roomNumber);
-            return pstm.executeUpdate() > 0;
+        try {
+            conn.setAutoCommit(false);
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, status);
+                pstm.setString(2, roomNumber);
+                pstm.executeUpdate();
+            }
+
+            // If checking out, update guest_details and bookings status
+            if (status.equalsIgnoreCase("Available")) {
+                int roomNoInt = -1;
+                try {
+                    roomNoInt = Integer.parseInt(roomNumber.replace("#", "").trim());
+                } catch (NumberFormatException e) {
+                    // ignore
+                }
+                
+                // Get the guest_id of the guest currently checked in this room
+                int checkedInGuestId = -1;
+                String sqlGetCheckedIn = "SELECT guest_id FROM guest_details WHERE room_no = ? AND status = 'Checked In'";
+                try (PreparedStatement pstmGet = conn.prepareStatement(sqlGetCheckedIn)) {
+                    pstmGet.setInt(1, roomNoInt);
+                    try (ResultSet rs = pstmGet.executeQuery()) {
+                        if (rs.next()) {
+                            checkedInGuestId = rs.getInt("guest_id");
+                        }
+                    }
+                }
+
+                String sql2 = "UPDATE guest_details SET status = 'Checked Out' WHERE room_no = ? AND status = 'Checked In'";
+                try (PreparedStatement pstm2 = conn.prepareStatement(sql2)) {
+                    pstm2.setInt(1, roomNoInt);
+                    pstm2.executeUpdate();
+                }
+
+                // If a checked-in guest was found, also update their booking record status in bookings table
+                if (checkedInGuestId != -1) {
+                    String sql3 = "UPDATE bookings SET status = 'CheckedOut' WHERE guest_id = ? AND status = 'CheckedIn'";
+                    try (PreparedStatement pstm3 = conn.prepareStatement(sql3)) {
+                        pstm3.setInt(1, checkedInGuestId);
+                        pstm3.executeUpdate();
+                    }
+                }
+            }
+
+            conn.commit();
+            return true;
         } catch (Exception e) {
+            try {
+                conn.rollback();
+            } catch (Exception ex) {
+                // ignore
+            }
             System.out.println("Error updating room status: " + e.getMessage());
+        } finally {
+            try {
+                conn.setAutoCommit(true);
+            } catch (Exception ex) {
+                // ignore
+            }
+            mysql.closeConnection(conn);
+        }
+        return false;
+    }
+
+    /**
+     * Inserts a default walk-in guest when a room is booked directly from the dashboard.
+     */
+    public boolean insertDefaultGuestForRoom(String roomNumber, String roomType) {
+        Connection conn = mysql.Openconnection();
+        if (conn == null) {
+            return false;
+        }
+        
+        String sql = "INSERT INTO guest_details (full_name, phone_number, email_address, home_address, room_no, guest_no, room_type, check_in_date, check_out_date, discount_deal, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try (PreparedStatement ps = conn.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS)) {
+            int roomNo = -1;
+            try {
+                roomNo = Integer.parseInt(roomNumber.replace("#", "").trim());
+            } catch (NumberFormatException e) {
+                // ignore
+            }
+            
+            long now = System.currentTimeMillis();
+            java.sql.Date today = new java.sql.Date(now);
+            java.sql.Date tomorrow = new java.sql.Date(now + (24 * 60 * 60 * 1000)); // default to 1 day stay
+            
+            ps.setString(1, "Walk-in Guest (" + roomNumber + ")");
+            ps.setString(2, "N/A");
+            ps.setString(3, "walkin@hms.com");
+            ps.setString(4, "Walk-in");
+            ps.setInt(5, roomNo);
+            ps.setInt(6, 1);
+            ps.setString(7, roomType);
+            ps.setDate(8, today);
+            ps.setDate(9, tomorrow);
+            ps.setString(10, "None");
+            ps.setString(11, "Checked In");
+            
+            int affectedRows = ps.executeUpdate();
+            if (affectedRows > 0) {
+                int guestId = -1;
+                try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        guestId = generatedKeys.getInt(1);
+                    }
+                }
+                
+                // Also insert into bookings table using guest_id (foreign key reference to guest_details)
+                if (guestId != -1) {
+                    try {
+                        String insertBookingSql = "INSERT INTO bookings (guest_id, room_number, check_in_date, check_out_date, status) VALUES (?, ?, ?, ?, ?)";
+                        try (PreparedStatement psB = conn.prepareStatement(insertBookingSql)) {
+                            psB.setInt(1, guestId);
+                            psB.setString(2, roomNumber.replace("#", "").trim());
+                            psB.setDate(3, today);
+                            psB.setDate(4, tomorrow);
+                            psB.setString(5, "CheckedIn");
+                            psB.executeUpdate();
+                        }
+                    } catch (java.sql.SQLException ex) {
+                        System.out.println("Error inserting bookings record in walk-in: " + ex.getMessage());
+                    }
+                }
+                return true;
+            }
+        } catch (Exception e) {
+            System.out.println("Error inserting default guest: " + e.getMessage());
         } finally {
             mysql.closeConnection(conn);
         }

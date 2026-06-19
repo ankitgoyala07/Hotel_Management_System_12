@@ -125,21 +125,68 @@ public class BillingController {
         }
 
         // Sidebar Navigation
-        if (view.getBtnDashboard() != null) {
-            view.getBtnDashboard().addActionListener(e -> {
+        javax.swing.JButton btnDashboard = view.getBtnDashboard();
+        javax.swing.JButton btnLogout = view.getBtnLogout();
+        javax.swing.JButton btnGuest = getPrivateButton("Guest");
+        javax.swing.JButton btnBooking = getPrivateButton("Booking");
+        javax.swing.JButton btnMealtime = getPrivateButton("Mealtime");
+        javax.swing.JButton btnBilling = getPrivateButton("Billing");
+
+        if (btnDashboard != null) {
+            btnDashboard.addActionListener(e -> {
                 new FrontdeskDeshboardControler();
                 view.dispose();
             });
         }
-
-        if (view.getBtnLogout() != null) {
-            view.getBtnLogout().addActionListener(e -> {
-                new LoginController();
+        if (btnGuest != null) {
+            btnGuest.addActionListener(e -> {
+                new GuestManagementController(new view.GuestManagement());
                 view.dispose();
+            });
+        }
+        if (btnBooking != null) {
+            btnBooking.addActionListener(e -> {
+                new BookingController();
+                view.dispose();
+            });
+        }
+        if (btnMealtime != null) {
+            btnMealtime.addActionListener(e -> {
+                new view.OrderFood().setVisible(true);
+            });
+        }
+        if (btnBilling != null) {
+            btnBilling.addActionListener(e -> {
+                // Already on billing, do nothing
+            });
+        }
+        if (btnLogout != null) {
+            btnLogout.addActionListener(e -> {
+                int option = JOptionPane.showConfirmDialog(
+                    view,
+                    "Are you sure you want to log out?",
+                    "Logout",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE
+                );
+                if (option == JOptionPane.YES_OPTION) {
+                    new LoginController();
+                    view.dispose();
+                }
             });
         }
 
         // Show window
         view.setVisible(true);
+    }
+
+    private javax.swing.JButton getPrivateButton(String name) {
+        try {
+            java.lang.reflect.Field field = view.getClass().getDeclaredField(name);
+            field.setAccessible(true);
+            return (javax.swing.JButton) field.get(view);
+        } catch (Exception e) {
+            return null;
+        }
     }
 }
