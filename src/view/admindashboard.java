@@ -112,6 +112,7 @@ public class admindashboard extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Admin Dashboard");
+        setMinimumSize(new java.awt.Dimension(800, 535));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -366,6 +367,7 @@ public class admindashboard extends javax.swing.JFrame {
         Dashboard.setForeground(new java.awt.Color(37, 99, 235));
         Dashboard.setText("  Dashboard");
         Dashboard.setBorderPainted(false);
+        Dashboard.setFocusPainted(false);
         Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Dashboard.addActionListener(this::DashboardActionPerformed);
         jPanelSidebar.add(Dashboard);
@@ -374,6 +376,8 @@ public class admindashboard extends javax.swing.JFrame {
         Rooms.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Rooms.setText(" Rooms");
         Rooms.setBorderPainted(false);
+        Rooms.setContentAreaFilled(false);
+        Rooms.setFocusPainted(false);
         Rooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Rooms.addActionListener(this::RoomsActionPerformed);
         jPanelSidebar.add(Rooms);
@@ -382,6 +386,8 @@ public class admindashboard extends javax.swing.JFrame {
         Discount.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Discount.setText(" Discount & Offers");
         Discount.setBorderPainted(false);
+        Discount.setContentAreaFilled(false);
+        Discount.setFocusPainted(false);
         Discount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Discount.addActionListener(this::DiscountActionPerformed);
         jPanelSidebar.add(Discount);
@@ -390,6 +396,8 @@ public class admindashboard extends javax.swing.JFrame {
         Staffs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Staffs.setText(" Staffs");
         Staffs.setBorderPainted(false);
+        Staffs.setContentAreaFilled(false);
+        Staffs.setFocusPainted(false);
         Staffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Staffs.addActionListener(this::StaffsActionPerformed);
         jPanelSidebar.add(Staffs);
@@ -398,6 +406,8 @@ public class admindashboard extends javax.swing.JFrame {
         Sysetemsettings.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Sysetemsettings.setText(" System Settings");
         Sysetemsettings.setBorderPainted(false);
+        Sysetemsettings.setContentAreaFilled(false);
+        Sysetemsettings.setFocusPainted(false);
         Sysetemsettings.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Sysetemsettings.addActionListener(this::SysetemsettingsActionPerformed);
         jPanelSidebar.add(Sysetemsettings);
@@ -406,8 +416,9 @@ public class admindashboard extends javax.swing.JFrame {
         Reports.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Reports.setText(" Reports");
         Reports.setBorderPainted(false);
+        Reports.setContentAreaFilled(false);
+        Reports.setFocusPainted(false);
         Reports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Reports.setOpaque(true);
         Reports.addActionListener(this::ReportsActionPerformed);
         jPanelSidebar.add(Reports);
         Reports.setBounds(10, 280, 160, 35);
@@ -415,6 +426,8 @@ public class admindashboard extends javax.swing.JFrame {
         Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Logout.setText(" Logout");
         Logout.setBorderPainted(false);
+        Logout.setContentAreaFilled(false);
+        Logout.setFocusPainted(false);
         Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Logout.addActionListener(this::LogoutActionPerformed);
         jPanelSidebar.add(Logout);
@@ -533,6 +546,10 @@ public class admindashboard extends javax.swing.JFrame {
     public javax.swing.JButton getBtnLogout() { return Logout; }
     public javax.swing.JButton getBtnRooms() { return Rooms; }
     public javax.swing.JButton getBtnDiscount() { return Discount; }
+    public javax.swing.JButton getBtnDashboard() { return Dashboard; }
+    public javax.swing.JButton getBtnStaffs() { return Staffs; }
+    public javax.swing.JButton getBtnSystemSetting() { return Sysetemsettings; }
+    public javax.swing.JButton getBtnReports() { return Reports; }
     public javax.swing.JLabel getLblCheckIn() { return lblCheckIn; }
     public javax.swing.JLabel getLblCheckOut() { return lblCheckOut; }
     public javax.swing.JLabel getLblTotal() { return lblTotal; }

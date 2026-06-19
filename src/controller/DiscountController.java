@@ -1,29 +1,29 @@
 package controller;
 
-import dao.StaffManagementDao;
-import model.StaffManagementModel;
-import view.StaffManagement;
+import dao.DiscountDao;
+import model.DiscountModel;
+import view.Discount;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
 /**
- * Controller class to handle business logic for Staff Management view.
+ * Controller class to handle business logic for Discount and Offers view.
  * Manages database table loading and sidebar navigation.
  */
-public class StaffManagementController {
-    private final StaffManagement view;
-    private final StaffManagementDao dao;
+public class DiscountController {
+    private final Discount view;
+    private final DiscountDao dao;
 
-    public StaffManagementController() {
-        this.view = new StaffManagement();
-        this.dao = new StaffManagementDao();
+    public DiscountController() {
+        this.view = new Discount();
+        this.dao = new DiscountDao();
         initController();
     }
 
     private void initController() {
-        // Load staff from database
-        loadStaff();
+        // Load discounts from database
+        loadDiscounts();
 
         // Hook up sidebar navigation buttons
         if (view.getBtnDashboard() != null) {
@@ -40,13 +40,13 @@ public class StaffManagementController {
         }
         if (view.getBtnDiscount() != null) {
             view.getBtnDiscount().addActionListener(e -> {
-                new DiscountController();
-                view.dispose();
+                // Already on Discount
             });
         }
         if (view.getBtnStaffs() != null) {
             view.getBtnStaffs().addActionListener(e -> {
-                // Already on Staffs
+                new StaffManagementController();
+                view.dispose();
             });
         }
         if (view.getBtnSystemSetting() != null) {
@@ -75,17 +75,33 @@ public class StaffManagementController {
                 }
             });
         }
-        if (view.getBtnAddStaff() != null) {
-            view.getBtnAddStaff().addActionListener(e -> {
-                new AddStaffController();
+
+        // Hook up Add and Delete buttons
+        if (view.getBtnAddDiscount() != null) {
+            view.getBtnAddDiscount().addActionListener(e -> {
+                new AddDiscountController();
                 view.dispose();
             });
         }
 
-        if (view.getBtnAttendance() != null) {
-            view.getBtnAttendance().addActionListener(e -> {
-                new StaffAttendenceController();
-                view.dispose();
+        if (view.getBtnDeleteDiscount() != null) {
+            view.getBtnDeleteDiscount().addActionListener(e -> {
+                int selectedRow = view.getTable().getSelectedRow();
+                if (selectedRow == -1) {
+                    JOptionPane.showMessageDialog(view, "Please select a deal to delete.", "Delete Deal", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                String dealCode = view.getTable().getValueAt(selectedRow, 0).toString();
+                int confirm = JOptionPane.showConfirmDialog(view, "Are you sure you want to delete deal code: " + dealCode + "?", "Delete Deal", JOptionPane.YES_NO_OPTION);
+                if (confirm == JOptionPane.YES_OPTION) {
+                    boolean deleted = dao.deleteDiscount(dealCode);
+                    if (deleted) {
+                        JOptionPane.showMessageDialog(view, "Deal deleted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        loadDiscounts();
+                    } else {
+                        JOptionPane.showMessageDialog(view, "Failed to delete deal.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
             });
         }
 
@@ -93,20 +109,18 @@ public class StaffManagementController {
         view.setVisible(true);
     }
 
-    private void loadStaff() {
+    private void loadDiscounts() {
         if (view.getTable() != null) {
-            List<StaffManagementModel> list = dao.getAllStaff();
+            List<DiscountModel> list = dao.getAllDiscounts();
             DefaultTableModel model = (DefaultTableModel) view.getTable().getModel();
             model.setRowCount(0);
-            for (StaffManagementModel s : list) {
+            for (DiscountModel d : list) {
                 model.addRow(new Object[]{
-                    s.getStaffId(),
-                    s.getName(),
-                    s.getPhone(),
-                    s.getEmail(),
-                    s.getAddress(),
-                    s.getRole(),
-                    s.getShift()
+                    d.getDealCode(),
+                    d.getDealName(),
+                    d.getReservationsLeft(),
+                    d.getEndDate(),
+                    d.getStatus()
                 });
             }
         }

@@ -224,12 +224,12 @@ public class FrontdeskDeshboardControler {
 
     private void setupSidebar() throws Exception {
         // Retrieve private navigation buttons
-        JButton btnRooms = (JButton) getPrivateField("btnRooms"); // Guests
-        JButton btnDiscounts = (JButton) getPrivateField("btnDiscounts"); // Bookings
-        JButton btnStaffs = (JButton) getPrivateField("btnStaffs"); // Meal time
-        JButton btnSystemSetting1 = (JButton) getPrivateField("btnSystemSetting1"); // Billing
-        JButton btnSystemSetting = (JButton) getPrivateField("btnSystemSetting"); // Dashboard
-        JButton btnReports = (JButton) getPrivateField("btnReports"); // Logout
+        JButton btnRooms = (JButton) getPrivateField("Guest"); // Guests
+        JButton btnDiscounts = (JButton) getPrivateField("Booking"); // Bookings
+        JButton btnStaffs = (JButton) getPrivateField("Mealtime"); // Meal time
+        JButton btnSystemSetting1 = (JButton) getPrivateField("Billing"); // Billing
+        JButton btnSystemSetting = (JButton) getPrivateField("Dashboard"); // Dashboard
+        JButton btnReports = (JButton) getPrivateField("Logout"); // Logout
 
         // Wire up Logout action
         if (btnReports != null) {

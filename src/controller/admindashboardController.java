@@ -45,7 +45,7 @@ public class admindashboardController {
             view.getBtnLogout().addActionListener(e -> {
                 int option = JOptionPane.showConfirmDialog(
                     view,
-                    "Are you sure you want to log out?",
+                    "Are you sure want to logout?",
                     "Logout",
                     JOptionPane.YES_NO_OPTION,
                     JOptionPane.QUESTION_MESSAGE
@@ -58,6 +58,11 @@ public class admindashboardController {
         }
 
         // Set up navigation listeners
+        if (view.getBtnDashboard() != null) {
+            view.getBtnDashboard().addActionListener(e -> {
+                // Already on dashboard
+            });
+        }
         if (view.getBtnRooms() != null) {
             view.getBtnRooms().addActionListener(e -> {
                 new roommanagementController();
@@ -66,8 +71,25 @@ public class admindashboardController {
         }
         if (view.getBtnDiscount() != null) {
             view.getBtnDiscount().addActionListener(e -> {
-                new BookingController();
+                new DiscountController();
                 view.dispose();
+            });
+        }
+        if (view.getBtnStaffs() != null) {
+            view.getBtnStaffs().addActionListener(e -> {
+                new StaffManagementController();
+                view.dispose();
+            });
+        }
+        if (view.getBtnSystemSetting() != null) {
+            view.getBtnSystemSetting().addActionListener(e -> {
+                new systemController();
+                view.dispose();
+            });
+        }
+        if (view.getBtnReports() != null) {
+            view.getBtnReports().addActionListener(e -> {
+                // Do nothing
             });
         }
 

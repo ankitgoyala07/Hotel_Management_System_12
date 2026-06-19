@@ -85,7 +85,9 @@ public class GuestDashboardController {
     }
 
     private void openBookRoom() {
-        new BookRoom().setVisible(true);
+        BookRoom roomView = new BookRoom();
+        new BookRoomController(roomView);
+        roomView.setVisible(true);
         view.dispose();
     }
 
@@ -95,7 +97,9 @@ public class GuestDashboardController {
     }
 
     private void openFeedback() {
-        new Feedback().setVisible(true);
+        Feedback fbView = new Feedback();
+        new FeedbackController(fbView);
+        fbView.setVisible(true);
         view.dispose();
     }
 

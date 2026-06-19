@@ -110,7 +110,7 @@ public class BookRoomController {
     }
 
     private void openDashboard() {
-        new gest_dashbord().setVisible(true);
+        new GuestDashboardController(new gest_dashbord());
         view.dispose();
     }
 
@@ -120,7 +120,9 @@ public class BookRoomController {
     }
 
     private void openFeedback() {
-        new Feedback().setVisible(true);
+        Feedback fbView = new Feedback();
+        new FeedbackController(fbView);
+        fbView.setVisible(true);
         view.dispose();
     }
 
@@ -132,6 +134,7 @@ public class BookRoomController {
     private void openGuestDetails(String roomType) {
         Gust_Details details = new Gust_Details();
         details.setRoomType(roomType);
+        new GuestDetailsController(details);
         details.setVisible(true);
         view.dispose();
     }

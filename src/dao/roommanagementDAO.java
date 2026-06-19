@@ -20,8 +20,8 @@ public class roommanagementDAO {
         Connection conn = db.Openconnection();
 
         if (conn == null) {
-            System.out.println("Warning: Database connection failed. Returning mock rooms data.");
-            return getMockRooms();
+            System.out.println("Warning: Database connection failed.");
+            return roomsList;
         }
 
         try {
@@ -45,24 +45,7 @@ public class roommanagementDAO {
             db.closeConnection(conn);
         }
 
-        if (roomsList.isEmpty()) {
-            return getMockRooms();
-        }
-
         return roomsList;
-    }
-
-    private List<roommanagementModel> getMockRooms() {
-        List<roommanagementModel> mockList = new ArrayList<>();
-        mockList.add(new roommanagementModel("001", "Double", "Available", 120.00));
-        mockList.add(new roommanagementModel("002", "Single", "Booked", 80.00));
-        mockList.add(new roommanagementModel("003", "Suite", "Booked", 250.00));
-        mockList.add(new roommanagementModel("004", "Suite", "Reserved", 250.00));
-        mockList.add(new roommanagementModel("005", "Single", "Reserved", 80.00));
-        mockList.add(new roommanagementModel("006", "Double", "Waitlist", 120.00));
-        mockList.add(new roommanagementModel("007", "Double", "Reserved", 120.00));
-        mockList.add(new roommanagementModel("008", "Single", "Blocked", 80.00));
-        return mockList;
     }
 
     public boolean addRoom(roommanagementModel room) {

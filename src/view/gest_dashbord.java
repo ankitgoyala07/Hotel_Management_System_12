@@ -98,9 +98,9 @@ public class gest_dashbord extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(17, 24, 39));
-        jLabel8.setText("Welcome, Alexander.");
+        jLabel8.setText("Welcome");
         jPanelWhiteCard.add(jLabel8);
-        jLabel8.setBounds(10, 10, 290, 35);
+        jLabel8.setBounds(10, 10, 120, 35);
 
         jLabelStayTitle.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabelStayTitle.setForeground(new java.awt.Color(37, 99, 235));

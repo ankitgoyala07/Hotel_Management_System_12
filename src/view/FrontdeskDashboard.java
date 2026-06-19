@@ -140,6 +140,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         Dashboard.setForeground(new java.awt.Color(37, 99, 235));
         Dashboard.setText("  Dashboard");
         Dashboard.setBorderPainted(false);
+        Dashboard.setFocusPainted(false);
         Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Dashboard.addActionListener(this::DashboardActionPerformed);
         jPanelSidebar.add(Dashboard);
@@ -148,6 +149,8 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         Guest.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Guest.setText(" Guest");
         Guest.setBorderPainted(false);
+        Guest.setContentAreaFilled(false);
+        Guest.setFocusPainted(false);
         Guest.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Guest.addActionListener(this::GuestActionPerformed);
         jPanelSidebar.add(Guest);
@@ -156,6 +159,8 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         Booking.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Booking.setText(" Booking");
         Booking.setBorderPainted(false);
+        Booking.setContentAreaFilled(false);
+        Booking.setFocusPainted(false);
         Booking.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Booking.addActionListener(this::BookingActionPerformed);
         jPanelSidebar.add(Booking);
@@ -164,6 +169,8 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         Mealtime.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Mealtime.setText(" Mealtime");
         Mealtime.setBorderPainted(false);
+        Mealtime.setContentAreaFilled(false);
+        Mealtime.setFocusPainted(false);
         Mealtime.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Mealtime.addActionListener(this::MealtimeActionPerformed);
         jPanelSidebar.add(Mealtime);
@@ -172,6 +179,8 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         Billing.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Billing.setText(" Billing");
         Billing.setBorderPainted(false);
+        Billing.setContentAreaFilled(false);
+        Billing.setFocusPainted(false);
         Billing.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Billing.addActionListener(this::BillingActionPerformed);
         jPanelSidebar.add(Billing);
@@ -180,6 +189,8 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Logout.setText(" Logout");
         Logout.setBorderPainted(false);
+        Logout.setContentAreaFilled(false);
+        Logout.setFocusPainted(false);
         Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Logout.addActionListener(this::LogoutActionPerformed);
         jPanelSidebar.add(Logout);

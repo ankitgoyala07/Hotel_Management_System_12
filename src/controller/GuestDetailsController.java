@@ -54,12 +54,14 @@ public class GuestDetailsController {
     }
 
     private void openDashboard() {
-        new gest_dashbord().setVisible(true);
+        new GuestDashboardController(new gest_dashbord());
         view.dispose();
     }
 
     private void openRoomBrowsing() {
-        new BookRoom().setVisible(true);
+        BookRoom roomView = new BookRoom();
+        new BookRoomController(roomView);
+        roomView.setVisible(true);
         view.dispose();
     }
 
@@ -88,40 +90,64 @@ public class GuestDetailsController {
         String fullName = view.getTxtFullName().getText().trim();
         String phoneStr = view.getTxtPhoneNumber().getText().trim();
         String email = view.getTxtEmailAddress().getText().trim();
-        String roomType = (String) view.getComboRoomType().getSelectedItem();
-        String roomNoStr = view.getTxtRoomNo().getText().trim();
-        String guestNoStr = view.getTxtGuestNo().getText().trim();
+        String homeAddress = view.getTxtHomeAddress().getText().trim();
+        String roomType = view.getRoomType();
+        String dealCode = view.getTxtDiscountDeal().getText().trim();
 
         java.util.Date checkInUtil = view.getDateChooserCheckIn().getDate();
         java.util.Date checkOutUtil = view.getDateChooserCheckOut().getDate();
 
         // 2. Validate inputs
-        if (fullName.isEmpty() || phoneStr.isEmpty() || email.isEmpty() || roomNoStr.isEmpty() || guestNoStr.isEmpty() || checkInUtil == null || checkOutUtil == null) {
-            JOptionPane.showMessageDialog(view, "Please fill in all the fields.", "Validation Error", JOptionPane.WARNING_MESSAGE);
+        if (fullName.isEmpty() || phoneStr.isEmpty() || email.isEmpty() || homeAddress.isEmpty() || checkInUtil == null || checkOutUtil == null) {
+            JOptionPane.showMessageDialog(view, "Please fill in all the required fields (Full Name, Phone, Email, Home Address, Dates).", "Validation Error", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
-        int phone, roomNo, guestNo;
-        try {
-            phone = Integer.parseInt(phoneStr);
-            roomNo = Integer.parseInt(roomNoStr);
-            guestNo = Integer.parseInt(guestNoStr);
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(view, "Phone, Room No, and Guest No must be valid numbers.", "Validation Error", JOptionPane.ERROR_MESSAGE);
+        if (roomType == null || roomType.trim().isEmpty()) {
+            roomType = "Single Bed Room"; // Default fallback
+        }
+
+        // Dynamically assign an available room
+        int roomNo = dao.findAvailableRoomNo(roomType);
+        if (roomNo == -1) {
+            JOptionPane.showMessageDialog(view, "No available rooms of type '" + roomType + "' found in the database. Please browse other rooms.", "Rooms Full", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         Date checkInSql = new Date(checkInUtil.getTime());
         Date checkOutSql = new Date(checkOutUtil.getTime());
 
-        // 3. Create Model
-        GuestDetails guest = new GuestDetails(fullName, phone, email, roomNo, guestNo, roomType, checkInSql, checkOutSql);
+        // 3. Validate Deal Code if provided
+        if (!dealCode.isEmpty()) {
+            dao.DiscountDao discountDao = new dao.DiscountDao();
+            model.DiscountModel deal = discountDao.getDiscountByCode(dealCode);
+            if (deal == null) {
+                JOptionPane.showMessageDialog(view, "Invalid Deal Code! Booking aborted.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (!"ongoing".equalsIgnoreCase(deal.getStatus())) {
+                JOptionPane.showMessageDialog(view, "This deal is no longer active (Status: " + deal.getStatus() + "). Booking aborted.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            
+            // Decrement reservations in DB
+            boolean decremented = discountDao.decrementReservations(dealCode);
+            if (!decremented) {
+                JOptionPane.showMessageDialog(view, "Failed to apply deal code. Booking aborted.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
 
-        // 4. Save via DAO
+        // 4. Create Model (guest_no defaults to 1 since UI doesn't collect guest count)
+        GuestDetails guest = new GuestDetails(fullName, phoneStr, email, homeAddress, roomNo, 1, roomType, checkInSql, checkOutSql, dealCode);
+
+        // 5. Save via DAO
         boolean success = dao.insertGuest(guest);
 
         if (success) {
-            JOptionPane.showMessageDialog(view, "Booking Confirmed Successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            // Update room status in the database to Occupied
+            dao.updateRoomStatus(roomNo, "Occupied");
+            JOptionPane.showMessageDialog(view, "Booking Confirmed Successfully! Assigned Room No: " + roomNo, "Success", JOptionPane.INFORMATION_MESSAGE);
             // Navigate back to guest dashboard on success
             openDashboard();
         } else {

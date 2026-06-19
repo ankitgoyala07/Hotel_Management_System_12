@@ -72,6 +72,7 @@ public class Billing extends javax.swing.JFrame {
         lblGrandTotalTitle = new javax.swing.JLabel();
         lblGrandTotalValue = new javax.swing.JLabel();
         btnPrintInvoice = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
         jPanelSidebar = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         Dashboard = new javax.swing.JButton();
@@ -82,7 +83,6 @@ public class Billing extends javax.swing.JFrame {
         Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 500));
         getContentPane().setLayout(null);
 
         jPanelMain.setBackground(new java.awt.Color(255, 255, 255));
@@ -359,6 +359,10 @@ public class Billing extends javax.swing.JFrame {
         jPanelMain.add(jPanelInvoiceContainer);
         jPanelInvoiceContainer.setBounds(20, 75, 580, 405);
 
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanelMain.add(jSeparator1);
+        jSeparator1.setBounds(0, 0, 10, 500);
+
         getContentPane().add(jPanelMain);
         jPanelMain.setBounds(180, 0, 620, 500);
 
@@ -375,6 +379,8 @@ public class Billing extends javax.swing.JFrame {
         Dashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Dashboard.setText("  Dashboard");
         Dashboard.setBorderPainted(false);
+        Dashboard.setContentAreaFilled(false);
+        Dashboard.setFocusPainted(false);
         Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Dashboard.addActionListener(this::DashboardActionPerformed);
         jPanelSidebar.add(Dashboard);
@@ -383,6 +389,8 @@ public class Billing extends javax.swing.JFrame {
         Guest.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Guest.setText(" Guest");
         Guest.setBorderPainted(false);
+        Guest.setContentAreaFilled(false);
+        Guest.setFocusPainted(false);
         Guest.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Guest.addActionListener(this::GuestActionPerformed);
         jPanelSidebar.add(Guest);
@@ -391,6 +399,8 @@ public class Billing extends javax.swing.JFrame {
         Booking.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Booking.setText(" Booking");
         Booking.setBorderPainted(false);
+        Booking.setContentAreaFilled(false);
+        Booking.setFocusPainted(false);
         Booking.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Booking.addActionListener(this::BookingActionPerformed);
         jPanelSidebar.add(Booking);
@@ -399,6 +409,8 @@ public class Billing extends javax.swing.JFrame {
         Mealtime.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Mealtime.setText(" Mealtime");
         Mealtime.setBorderPainted(false);
+        Mealtime.setContentAreaFilled(false);
+        Mealtime.setFocusPainted(false);
         Mealtime.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Mealtime.addActionListener(this::MealtimeActionPerformed);
         jPanelSidebar.add(Mealtime);
@@ -409,6 +421,7 @@ public class Billing extends javax.swing.JFrame {
         Billing.setForeground(new java.awt.Color(37, 99, 235));
         Billing.setText(" Billing");
         Billing.setBorderPainted(false);
+        Billing.setFocusPainted(false);
         Billing.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Billing.addActionListener(this::BillingActionPerformed);
         jPanelSidebar.add(Billing);
@@ -417,6 +430,8 @@ public class Billing extends javax.swing.JFrame {
         Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Logout.setText(" Logout");
         Logout.setBorderPainted(false);
+        Logout.setContentAreaFilled(false);
+        Logout.setFocusPainted(false);
         Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Logout.addActionListener(this::LogoutActionPerformed);
         jPanelSidebar.add(Logout);
@@ -475,6 +490,7 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelInvoiceContainer;
     private javax.swing.JPanel jPanelMain;
     private javax.swing.JPanel jPanelSidebar;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparatorInvoice;
     private javax.swing.JSeparator jSeparatorInvoice2;
     private javax.swing.JLabel lblColAmount;

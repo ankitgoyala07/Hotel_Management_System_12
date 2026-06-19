@@ -51,6 +51,8 @@ public class StaffManagement extends javax.swing.JFrame {
         Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 535));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -146,6 +148,8 @@ public class StaffManagement extends javax.swing.JFrame {
         Dashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Dashboard.setText("  Dashboard");
         Dashboard.setBorderPainted(false);
+        Dashboard.setContentAreaFilled(false);
+        Dashboard.setFocusPainted(false);
         Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Dashboard.addActionListener(this::DashboardActionPerformed);
         jPanelSidebar.add(Dashboard);
@@ -154,6 +158,8 @@ public class StaffManagement extends javax.swing.JFrame {
         Rooms.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Rooms.setText(" Rooms");
         Rooms.setBorderPainted(false);
+        Rooms.setContentAreaFilled(false);
+        Rooms.setFocusPainted(false);
         Rooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Rooms.addActionListener(this::RoomsActionPerformed);
         jPanelSidebar.add(Rooms);
@@ -162,6 +168,8 @@ public class StaffManagement extends javax.swing.JFrame {
         Discount.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Discount.setText(" Discount & Offers");
         Discount.setBorderPainted(false);
+        Discount.setContentAreaFilled(false);
+        Discount.setFocusPainted(false);
         Discount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Discount.addActionListener(this::DiscountActionPerformed);
         jPanelSidebar.add(Discount);
@@ -172,7 +180,13 @@ public class StaffManagement extends javax.swing.JFrame {
         Staffs.setForeground(new java.awt.Color(37, 99, 235));
         Staffs.setText(" Staffs");
         Staffs.setBorderPainted(false);
+        Staffs.setFocusPainted(false);
         Staffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Staffs.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                StaffsMouseClicked(evt);
+            }
+        });
         Staffs.addActionListener(this::StaffsActionPerformed);
         jPanelSidebar.add(Staffs);
         Staffs.setBounds(10, 200, 160, 35);
@@ -180,6 +194,8 @@ public class StaffManagement extends javax.swing.JFrame {
         Sysetemsettings.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Sysetemsettings.setText(" System Settings");
         Sysetemsettings.setBorderPainted(false);
+        Sysetemsettings.setContentAreaFilled(false);
+        Sysetemsettings.setFocusPainted(false);
         Sysetemsettings.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Sysetemsettings.addActionListener(this::SysetemsettingsActionPerformed);
         jPanelSidebar.add(Sysetemsettings);
@@ -188,6 +204,8 @@ public class StaffManagement extends javax.swing.JFrame {
         Reports.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Reports.setText(" Reports");
         Reports.setBorderPainted(false);
+        Reports.setContentAreaFilled(false);
+        Reports.setFocusPainted(false);
         Reports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Reports.addActionListener(this::ReportsActionPerformed);
         jPanelSidebar.add(Reports);
@@ -196,6 +214,8 @@ public class StaffManagement extends javax.swing.JFrame {
         Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Logout.setText(" Logout");
         Logout.setBorderPainted(false);
+        Logout.setContentAreaFilled(false);
+        Logout.setFocusPainted(false);
         Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Logout.addActionListener(this::LogoutActionPerformed);
         jPanelSidebar.add(Logout);
@@ -247,6 +267,10 @@ public class StaffManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LogoutActionPerformed
 
+    private void StaffsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StaffsMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_StaffsMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -278,4 +302,15 @@ public class StaffManagement extends javax.swing.JFrame {
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblTitle;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JTable getTable() { return jTable2; }
+    public javax.swing.JButton getBtnDashboard() { return Dashboard; }
+    public javax.swing.JButton getBtnRooms() { return Rooms; }
+    public javax.swing.JButton getBtnDiscount() { return Discount; }
+    public javax.swing.JButton getBtnStaffs() { return Staffs; }
+    public javax.swing.JButton getBtnSystemSetting() { return Sysetemsettings; }
+    public javax.swing.JButton getBtnReports() { return Reports; }
+    public javax.swing.JButton getBtnLogout() { return Logout; }
+    public javax.swing.JButton getBtnAddStaff() { return jButton4; }
+    public javax.swing.JButton getBtnAttendance() { return jButton2; }
 }

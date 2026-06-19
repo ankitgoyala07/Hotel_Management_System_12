@@ -57,97 +57,111 @@ public class roommanagement extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Rooms Management");
+        setMinimumSize(new java.awt.Dimension(800, 535));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(0, 0, 0)));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(37, 99, 235));
         jLabel1.setText("    HMS");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, 130, 35));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(20, 15, 130, 35);
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton2.setForeground(new java.awt.Color(75, 85, 99));
-        jButton2.setText("    Dashboard");
+        jButton2.setText("  Dashboard");
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setFocusPainted(false);
         jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton2.addActionListener(this::jButton2ActionPerformed);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 70, 140, 32));
+        jPanel1.add(jButton2);
+        jButton2.setBounds(15, 70, 150, 32);
 
         jButton3.setBackground(new java.awt.Color(219, 234, 254));
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton3.setForeground(new java.awt.Color(37, 99, 235));
-        jButton3.setText("    Rooms");
+        jButton3.setText("  Rooms");
         jButton3.setBorderPainted(false);
         jButton3.setFocusPainted(false);
         jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
         jButton3.addActionListener(this::jButton3ActionPerformed);
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 110, 140, 32));
+        jPanel1.add(jButton3);
+        jButton3.setBounds(15, 110, 150, 32);
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(75, 85, 99));
-        jButton1.setText("    Discount & Offers");
+        jButton1.setText("  Discount & Offers");
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setFocusPainted(false);
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton1.addActionListener(this::jButton1ActionPerformed);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 150, 140, 32));
+        jPanel1.add(jButton1);
+        jButton1.setBounds(15, 150, 150, 32);
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton4.setForeground(new java.awt.Color(75, 85, 99));
-        jButton4.setText("    Staffs");
+        jButton4.setText("  Staffs");
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
         jButton4.setFocusPainted(false);
         jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton4.addActionListener(this::jButton4ActionPerformed);
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 190, 140, 32));
+        jPanel1.add(jButton4);
+        jButton4.setBounds(15, 190, 150, 32);
 
         jButton5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton5.setForeground(new java.awt.Color(75, 85, 99));
-        jButton5.setText("    System Setting");
+        jButton5.setText(" System Setting");
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
         jButton5.setFocusPainted(false);
         jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton5.addActionListener(this::jButton5ActionPerformed);
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 230, 140, 32));
+        jPanel1.add(jButton5);
+        jButton5.setBounds(15, 230, 150, 32);
 
         jButton6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton6.setForeground(new java.awt.Color(75, 85, 99));
-        jButton6.setText("    Reports");
+        jButton6.setText("  Reports");
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
         jButton6.setFocusPainted(false);
         jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton6.addActionListener(this::jButton6ActionPerformed);
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 270, 140, 32));
+        jPanel1.add(jButton6);
+        jButton6.setBounds(15, 270, 150, 32);
 
         jButton7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jButton7.setForeground(new java.awt.Color(75, 85, 99));
-        jButton7.setText("    Logout");
+        jButton7.setText("  Logout");
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
         jButton7.setFocusPainted(false);
         jButton7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jButton7.addActionListener(this::jButton7ActionPerformed);
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 310, 140, 32));
+        jPanel1.add(jButton7);
+        jButton7.setBounds(15, 310, 150, 32);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 170, 500));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 500));
 
-        jPanel2.setBackground(new java.awt.Color(249, 250, 251));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(229, 231, 235));
+        jPanel3.setBackground(new java.awt.Color(219, 234, 254));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -162,10 +176,10 @@ public class roommanagement extends javax.swing.JFrame {
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 600, 45));
 
-        jPanel4.setBackground(new java.awt.Color(209, 213, 219));
+        jPanel4.setBackground(new java.awt.Color(219, 234, 254));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBackground(new java.awt.Color(219, 234, 254));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButtonAllRooms.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
@@ -174,7 +188,8 @@ public class roommanagement extends javax.swing.JFrame {
         jButtonAllRooms.setBorderPainted(false);
         jButtonAllRooms.setContentAreaFilled(false);
         jButtonAllRooms.setFocusPainted(false);
-        jPanel5.add(jButtonAllRooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 105, 25));
+        jButtonAllRooms.addActionListener(this::jButtonAllRoomsActionPerformed);
+        jPanel5.add(jButtonAllRooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 110, 25));
 
         jButtonAvailableRooms.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jButtonAvailableRooms.setForeground(new java.awt.Color(37, 99, 235));
@@ -182,7 +197,7 @@ public class roommanagement extends javax.swing.JFrame {
         jButtonAvailableRooms.setBorderPainted(false);
         jButtonAvailableRooms.setContentAreaFilled(false);
         jButtonAvailableRooms.setFocusPainted(false);
-        jPanel5.add(jButtonAvailableRooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 15, 140, 25));
+        jPanel5.add(jButtonAvailableRooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 140, 25));
 
         jButtonBookedRooms.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jButtonBookedRooms.setForeground(new java.awt.Color(37, 99, 235));
@@ -190,7 +205,7 @@ public class roommanagement extends javax.swing.JFrame {
         jButtonBookedRooms.setBorderPainted(false);
         jButtonBookedRooms.setContentAreaFilled(false);
         jButtonBookedRooms.setFocusPainted(false);
-        jPanel5.add(jButtonBookedRooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 15, 100, 25));
+        jPanel5.add(jButtonBookedRooms, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 100, 25));
 
         jButton8.setBackground(new java.awt.Color(37, 99, 235));
         jButton8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -198,7 +213,7 @@ public class roommanagement extends javax.swing.JFrame {
         jButton8.setText("Add room");
         jButton8.setBorderPainted(false);
         jButton8.addActionListener(this::jButton8ActionPerformed);
-        jPanel5.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 12, 90, 30));
+        jPanel5.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 90, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -237,17 +252,24 @@ public class roommanagement extends javax.swing.JFrame {
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 60, 540, 310));
+        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 580, 310));
 
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 570, 385));
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 70, 600, 415));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 600, 380));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 630, 500));
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 500));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 620, 500));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
@@ -265,6 +287,10 @@ public class roommanagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -273,13 +299,13 @@ public class roommanagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton3MouseClicked
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void jButtonAllRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAllRoomsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_jButtonAllRoomsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -306,6 +332,7 @@ public class roommanagement extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 

@@ -44,6 +44,8 @@ public class login extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 540));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hotelpic.png"))); // NOI18N
@@ -51,6 +53,7 @@ public class login extends javax.swing.JFrame {
         jLabel9.setBounds(6, 6, 394, 488);
 
         jPanel1.setBackground(new java.awt.Color(240, 244, 253));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setLayout(null);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/hotel.png"))); // NOI18N

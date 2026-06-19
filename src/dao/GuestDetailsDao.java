@@ -22,13 +22,15 @@ public class GuestDetailsDao {
         String sql = "CREATE TABLE IF NOT EXISTS guest_details ("
                    + "guest_id INT AUTO_INCREMENT PRIMARY KEY, "
                    + "full_name VARCHAR(255) NOT NULL, "
-                   + "phone_number INT, "
+                   + "phone_number VARCHAR(50), "
                    + "email_address VARCHAR(255), "
+                   + "home_address VARCHAR(255), "
                    + "room_no INT, "
                    + "guest_no INT, "
                    + "room_type VARCHAR(255), "
                    + "check_in_date DATE, "
-                   + "check_out_date DATE"
+                   + "check_out_date DATE, "
+                   + "discount_deal VARCHAR(50)"
                    + ")";
         try (Statement st = conn.createStatement()) {
             st.executeUpdate(sql);
@@ -38,18 +40,70 @@ public class GuestDetailsDao {
         }
     }
 
+    // Find the first available room number matching a room type
+    public int findAvailableRoomNo(String roomType) {
+        // Normalize room type format from previous screen (e.g. "Single" vs "Single bed" / "Double" vs "Double bed")
+        String queryType = roomType;
+        if (roomType.equalsIgnoreCase("Single bed")) {
+            queryType = "Single";
+        } else if (roomType.equalsIgnoreCase("Double bed")) {
+            queryType = "Double";
+        } else if (roomType.equalsIgnoreCase("VIP")) {
+            queryType = "VIP";
+        }
+
+        String sql = "SELECT room_number FROM rooms WHERE room_type = ? AND status = 'Available' LIMIT 1";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, queryType);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    String roomNumStr = rs.getString("room_number");
+                    return Integer.parseInt(roomNumStr.replace("#", "").trim());
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error finding available room: " + e.getMessage());
+        }
+        return -1;
+    }
+
+    // Update room status in the rooms table
+    public boolean updateRoomStatus(int roomNo, String status) {
+        String sql = "UPDATE rooms SET status = ? WHERE room_number = ?";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, status);
+            ps.setString(2, String.format("%03d", roomNo)); // Format e.g. 1 -> "001", 101 -> "101"
+            return ps.executeUpdate() > 0;
+        } catch (Exception e) {
+            // Try updating with room number string directly (without formatting) if formatted fails
+            try {
+                String sql2 = "UPDATE rooms SET status = ? WHERE room_number = ?";
+                try (PreparedStatement ps2 = conn.prepareStatement(sql2)) {
+                    ps2.setString(1, status);
+                    ps2.setString(2, String.valueOf(roomNo));
+                    return ps2.executeUpdate() > 0;
+                }
+            } catch (Exception ex) {
+                System.out.println("Error updating room status: " + ex.getMessage());
+            }
+        }
+        return false;
+    }
+
     // Insert guest booking details
     public boolean insertGuest(GuestDetails guest) {
-        String sql = "INSERT INTO guest_details (full_name, phone_number, email_address, room_no, guest_no, room_type, check_in_date, check_out_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO guest_details (full_name, phone_number, email_address, home_address, room_no, guest_no, room_type, check_in_date, check_out_date, discount_deal) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, guest.getFULL_NAME());
-            ps.setInt(2, guest.getPHONE_NUMBER());
+            ps.setString(2, guest.getPHONE_NUMBER());
             ps.setString(3, guest.getEMAIL_ADDRESS());
-            ps.setInt(4, guest.getROOM_NO());
-            ps.setInt(5, guest.getGUEST_NO());
-            ps.setString(6, guest.getRoom_Type());
-            ps.setDate(7, guest.getCHECK_IN_DATE());
-            ps.setDate(8, guest.getCHECK_OUT_DATE());
+            ps.setString(4, guest.getHomeAddress());
+            ps.setInt(5, guest.getROOM_NO());
+            ps.setInt(6, guest.getGUEST_NO());
+            ps.setString(7, guest.getRoom_Type());
+            ps.setDate(8, guest.getCHECK_IN_DATE());
+            ps.setDate(9, guest.getCHECK_OUT_DATE());
+            ps.setString(10, guest.getDiscountDeal());
             
             int affectedRows = ps.executeUpdate();
             if (affectedRows > 0) {
@@ -69,17 +123,19 @@ public class GuestDetailsDao {
 
     // Update guest details
     public boolean updateGuest(GuestDetails guest) {
-        String sql = "UPDATE guest_details SET full_name=?, phone_number=?, email_address=?, room_no=?, guest_no=?, room_type=?, check_in_date=?, check_out_date=? WHERE guest_id=?";
+        String sql = "UPDATE guest_details SET full_name=?, phone_number=?, email_address=?, home_address=?, room_no=?, guest_no=?, room_type=?, check_in_date=?, check_out_date=?, discount_deal=? WHERE guest_id=?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, guest.getFULL_NAME());
-            ps.setInt(2, guest.getPHONE_NUMBER());
+            ps.setString(2, guest.getPHONE_NUMBER());
             ps.setString(3, guest.getEMAIL_ADDRESS());
-            ps.setInt(4, guest.getROOM_NO());
-            ps.setInt(5, guest.getGUEST_NO());
-            ps.setString(6, guest.getRoom_Type());
-            ps.setDate(7, guest.getCHECK_IN_DATE());
-            ps.setDate(8, guest.getCHECK_OUT_DATE());
-            ps.setInt(9, guest.getId());
+            ps.setString(4, guest.getHomeAddress());
+            ps.setInt(5, guest.getROOM_NO());
+            ps.setInt(6, guest.getGUEST_NO());
+            ps.setString(7, guest.getRoom_Type());
+            ps.setDate(8, guest.getCHECK_IN_DATE());
+            ps.setDate(9, guest.getCHECK_OUT_DATE());
+            ps.setString(10, guest.getDiscountDeal());
+            ps.setInt(11, guest.getId());
             
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -110,13 +166,15 @@ public class GuestDetailsDao {
                 GuestDetails guest = new GuestDetails(
                     rs.getInt("guest_id"),
                     rs.getString("full_name"),
-                    rs.getInt("phone_number"),
+                    rs.getString("phone_number"),
                     rs.getString("email_address"),
+                    rs.getString("home_address"),
                     rs.getInt("room_no"),
                     rs.getInt("guest_no"),
                     rs.getString("room_type"),
                     rs.getDate("check_in_date"),
-                    rs.getDate("check_out_date")
+                    rs.getDate("check_out_date"),
+                    rs.getString("discount_deal")
                 );
                 guests.add(guest);
             }
@@ -126,4 +184,3 @@ public class GuestDetailsDao {
         return guests;
     }
 }
-// git

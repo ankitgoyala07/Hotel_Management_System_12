@@ -60,16 +60,47 @@ public class roommanagementController {
                 view.dispose();
             });
         }
+        if (view.getBtnRooms() != null) {
+            view.getBtnRooms().addActionListener(e -> {
+                // Already on Rooms
+            });
+        }
         if (view.getBtnDiscount() != null) {
             view.getBtnDiscount().addActionListener(e -> {
-                new BookingController();
+                new DiscountController();
                 view.dispose();
+            });
+        }
+        if (view.getBtnStaffs() != null) {
+            view.getBtnStaffs().addActionListener(e -> {
+                new StaffManagementController();
+                view.dispose();
+            });
+        }
+        if (view.getBtnSystemSetting() != null) {
+            view.getBtnSystemSetting().addActionListener(e -> {
+                new systemController();
+                view.dispose();
+            });
+        }
+        if (view.getBtnReports() != null) {
+            view.getBtnReports().addActionListener(e -> {
+                // Do nothing
             });
         }
         if (view.getBtnLogout() != null) {
             view.getBtnLogout().addActionListener(e -> {
-                new LoginController();
-                view.dispose();
+                int option = JOptionPane.showConfirmDialog(
+                    view,
+                    "Are you sure want to logout?",
+                    "Logout",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE
+                );
+                if (option == JOptionPane.YES_OPTION) {
+                    new LoginController();
+                    view.dispose();
+                }
             });
         }
 

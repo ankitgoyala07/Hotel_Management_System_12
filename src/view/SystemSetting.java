@@ -75,6 +75,8 @@ public class SystemSetting extends javax.swing.JFrame {
         Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(810, 535));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanelMain.setBackground(new java.awt.Color(255, 255, 255));
@@ -260,6 +262,8 @@ public class SystemSetting extends javax.swing.JFrame {
         Dashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Dashboard.setText("  Dashboard");
         Dashboard.setBorderPainted(false);
+        Dashboard.setContentAreaFilled(false);
+        Dashboard.setFocusPainted(false);
         Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Dashboard.addActionListener(this::DashboardActionPerformed);
         jPanelSidebar.add(Dashboard);
@@ -268,6 +272,8 @@ public class SystemSetting extends javax.swing.JFrame {
         Rooms.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Rooms.setText(" Rooms");
         Rooms.setBorderPainted(false);
+        Rooms.setContentAreaFilled(false);
+        Rooms.setFocusPainted(false);
         Rooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Rooms.addActionListener(this::RoomsActionPerformed);
         jPanelSidebar.add(Rooms);
@@ -276,6 +282,8 @@ public class SystemSetting extends javax.swing.JFrame {
         Discount.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Discount.setText(" Discount & Offers");
         Discount.setBorderPainted(false);
+        Discount.setContentAreaFilled(false);
+        Discount.setFocusPainted(false);
         Discount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Discount.addActionListener(this::DiscountActionPerformed);
         jPanelSidebar.add(Discount);
@@ -284,6 +292,8 @@ public class SystemSetting extends javax.swing.JFrame {
         Staffs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Staffs.setText(" Staffs");
         Staffs.setBorderPainted(false);
+        Staffs.setContentAreaFilled(false);
+        Staffs.setFocusPainted(false);
         Staffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Staffs.addActionListener(this::StaffsActionPerformed);
         jPanelSidebar.add(Staffs);
@@ -294,7 +304,13 @@ public class SystemSetting extends javax.swing.JFrame {
         Sysetemsettings.setForeground(new java.awt.Color(37, 99, 235));
         Sysetemsettings.setText(" System Settings");
         Sysetemsettings.setBorderPainted(false);
+        Sysetemsettings.setFocusPainted(false);
         Sysetemsettings.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Sysetemsettings.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SysetemsettingsMouseClicked(evt);
+            }
+        });
         Sysetemsettings.addActionListener(this::SysetemsettingsActionPerformed);
         jPanelSidebar.add(Sysetemsettings);
         Sysetemsettings.setBounds(10, 240, 160, 35);
@@ -302,8 +318,9 @@ public class SystemSetting extends javax.swing.JFrame {
         Reports.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Reports.setText(" Reports");
         Reports.setBorderPainted(false);
+        Reports.setContentAreaFilled(false);
+        Reports.setFocusPainted(false);
         Reports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Reports.setOpaque(true);
         Reports.addActionListener(this::ReportsActionPerformed);
         jPanelSidebar.add(Reports);
         Reports.setBounds(10, 280, 160, 35);
@@ -311,6 +328,8 @@ public class SystemSetting extends javax.swing.JFrame {
         Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Logout.setText(" Logout");
         Logout.setBorderPainted(false);
+        Logout.setContentAreaFilled(false);
+        Logout.setFocusPainted(false);
         Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Logout.addActionListener(this::LogoutActionPerformed);
         jPanelSidebar.add(Logout);
@@ -382,6 +401,10 @@ public class SystemSetting extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LogoutActionPerformed
 
+    private void SysetemsettingsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SysetemsettingsMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SysetemsettingsMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -437,4 +460,23 @@ public class SystemSetting extends javax.swing.JFrame {
     private javax.swing.JTextArea txtQuickNote;
     private javax.swing.JTextField txtWebsite;
     // End of variables declaration//GEN-END:variables
+
+    public javax.swing.JTextField getTxtAddress() { return txtAddress; }
+    public javax.swing.JTextField getTxtHotelId() { return txtHotelId; }
+    public javax.swing.JTextField getTxtHotelName() { return txtHotelName; }
+    public javax.swing.JTextField getTxtOwner() { return txtOwner; }
+    public javax.swing.JTextField getTxtPanNumber() { return txtPanNumber; }
+    public javax.swing.JTextField getTxtPhone() { return txtPhone; }
+    public javax.swing.JTextArea getTxtQuickNote() { return txtQuickNote; }
+    public javax.swing.JTextField getTxtWebsite() { return txtWebsite; }
+
+    public javax.swing.JButton getBtnDashboard() { return Dashboard; }
+    public javax.swing.JButton getBtnRooms() { return Rooms; }
+    public javax.swing.JButton getBtnDiscount() { return Discount; }
+    public javax.swing.JButton getBtnStaffs() { return Staffs; }
+    public javax.swing.JButton getBtnSystemSetting() { return Sysetemsettings; }
+    public javax.swing.JButton getBtnReports() { return Reports; }
+    public javax.swing.JButton getBtnLogout() { return Logout; }
+    public javax.swing.JButton getBtnEdit() { return btnEdit; }
+    public javax.swing.JButton getBtnSave() { return btnSave; }
 }

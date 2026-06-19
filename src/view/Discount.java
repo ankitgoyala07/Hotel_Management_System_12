@@ -4,17 +4,9 @@
  */
 package view;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import javax.swing.BorderFactory;
-import javax.swing.SwingConstants;
-
 /**
  *
- * @author pratikjungsinghthakuri
+ * @author i3
  */
 public class Discount extends javax.swing.JFrame {
     
@@ -25,345 +17,349 @@ public class Discount extends javax.swing.JFrame {
      */
     public Discount() {
         initComponents();
-customInit();
-}
-private void customInit() {
-        // Table styling
-        jTableDeals.setRowHeight(45);
-        jTableDeals.setShowGrid(false);
-        jTableDeals.setShowHorizontalLines(true);
-        jTableDeals.setGridColor(new Color(241, 245, 249));
-        jTableDeals.setBackground(Color.WHITE);
-        jTableDeals.setSelectionBackground(new Color(248, 250, 252));
-        jTableDeals.setSelectionForeground(new Color(15, 23, 42));
-        
-        // Header styling
-        jTableDeals.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 13));
-        jTableDeals.getTableHeader().setBackground(new Color(248, 250, 252));
-        jTableDeals.getTableHeader().setForeground(new Color(100, 116, 139));
-        jTableDeals.getTableHeader().setOpaque(true);
-        jTableDeals.getTableHeader().setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(226, 232, 240)));
-
-        // Column widths
-        jTableDeals.getColumnModel().getColumn(0).setPreferredWidth(100);
-        jTableDeals.getColumnModel().getColumn(1).setPreferredWidth(180);
-        jTableDeals.getColumnModel().getColumn(2).setPreferredWidth(130);
-        jTableDeals.getColumnModel().getColumn(3).setPreferredWidth(100);
-        jTableDeals.getColumnModel().getColumn(4).setPreferredWidth(100);
-        jTableDeals.getColumnModel().getColumn(5).setPreferredWidth(30);
-
-        // Bold for Deal Code column
-        jTableDeals.getColumnModel().getColumn(0).setCellRenderer(new javax.swing.table.DefaultTableCellRenderer() {
-            @Override
-            public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-                javax.swing.JLabel label = (javax.swing.JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-                label.setFont(new Font("Segoe UI", Font.BOLD, 13));
-                label.setForeground(new Color(15, 23, 42));
-                return label;
-            }
-        });
-
-// Custom renderer for Status badges
-        jTableDeals.getColumnModel().getColumn(4).setCellRenderer(new StatusBadgeRenderer());
-
-        // Custom renderer for 3-dots action menu
-        jTableDeals.getColumnModel().getColumn(5).setCellRenderer(new javax.swing.table.DefaultTableCellRenderer() {
-            @Override
-            public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-                javax.swing.JLabel label = (javax.swing.JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-                label.setHorizontalAlignment(SwingConstants.CENTER);
-                label.setFont(new Font("Segoe UI", Font.BOLD, 16));
-                label.setForeground(new Color(148, 163, 184));
-                return label;
-            }
-        });
-
-// Set rounded border for Ongoing tab filter button
-        jButtonOngoing.setBorder(new javax.swing.border.LineBorder(new Color(26, 115, 232), 1, true));
-        
-        // Remove scroll pane borders
-        jScrollPaneTable.setBorder(BorderFactory.createEmptyBorder());
-        jScrollPaneTable.setViewportBorder(BorderFactory.createEmptyBorder());
-}
-
-private static class StatusBadgeRenderer extends javax.swing.table.DefaultTableCellRenderer {
-        @Override
-        public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-            javax.swing.JLabel label = (javax.swing.JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-            label.setHorizontalAlignment(SwingConstants.CENTER);
-            String val = (String) value;
-            label.setOpaque(false); // So we can draw our rounded background
-            
-            label.setText(val);
-            label.setFont(new Font("Segoe UI", Font.BOLD, 12));
-            
-            if ("Ongoing".equals(val)) {
-                label.setForeground(new Color(25, 118, 210));
-                label.setBackground(new Color(227, 242, 253));
-            } else if ("Full".equals(val)) {
-                label.setForeground(new Color(197, 34, 31));
-                label.setBackground(new Color(252, 232, 230));
-            } else if ("Inactive".equals(val)) {
-                label.setForeground(new Color(217, 119, 6));
-                label.setBackground(new Color(254, 243, 199));
-            } else if ("New".equals(val)) {
-                label.setForeground(new Color(19, 115, 51));
-                label.setBackground(new Color(230, 244, 234));
-            } else {
-                label.setOpaque(true);
-            }
-            return label;
-        }
-        
-        @Override
-        protected void paintComponent(Graphics g) {
-            Graphics2D g2d = (Graphics2D) g.create();
-            g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            g2d.setColor(getBackground());
-            int w = getWidth();
-            int h = getHeight();
-            int badgeW = 76;
-            int badgeH = 24;
-            int x = (w - badgeW) / 2;
-            int y = (h - badgeH) / 2;
-            g2d.fillRoundRect(x, y, badgeW, badgeH, 12, 12);
-            g2d.dispose();
-            super.paintComponent(g);
-        }
     }
-/**
+
+    /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
      * regenerated by the Form Editor.
      */
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-jPanelSidebar = new javax.swing.JPanel();
 
-jLabelLogo = new javax.swing.JLabel();
+        jPanelSidebar = new javax.swing.JPanel();
+        lblLogo = new javax.swing.JLabel();
+        Dashboard = new javax.swing.JButton();
+        Guest = new javax.swing.JButton();
+        Booking = new javax.swing.JButton();
+        Mealtime = new javax.swing.JButton();
+        Billing = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jPanelSidebar2 = new javax.swing.JPanel();
+        lblLogo2 = new javax.swing.JLabel();
+        Dashboard2 = new javax.swing.JButton();
+        Rooms = new javax.swing.JButton();
+        Discount = new javax.swing.JButton();
+        Staffs = new javax.swing.JButton();
+        Sysetemsettings = new javax.swing.JButton();
+        Reports = new javax.swing.JButton();
+        Logout2 = new javax.swing.JButton();
 
-jButtonDashboard = new javax.swing.JButton();
-        jButtonRooms = new javax.swing.JButton();
-
-jButtonDiscount = new javax.swing.JButton();
-
-jButtonStaffs = new javax.swing.JButton();
-
-jButtonSystemSetting = new javax.swing.JButton();
-        jButtonReports = new javax.swing.JButton();
-        jButtonLogout = new javax.swing.JButton();
-
-jPanelMain = new javax.swing.JPanel();
-
-jLabelMainTitle = new javax.swing.JLabel();
-
-jPanelManager = new javax.swing.JPanel();
-        jLabelManagerText = new javax.swing.JLabel();
-        jLabelManagerIcon = new javax.swing.JLabel();
-
-jPanelTableBg = new javax.swing.JPanel();
-
-jPanelTableCard = new javax.swing.JPanel();
-
-jButtonOngoing = new javax.swing.JButton();
-        jButtonAddDeal = new javax.swing.JButton();
-
-jScrollPaneTable = new javax.swing.JScrollPane();
-        jTableDeals = new javax.swing.JTable();
-setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 700));
-        getContentPane().setLayout(null);
-jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
         jPanelSidebar.setLayout(null);
 
-jLabelLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jLabelLogo.setForeground(new java.awt.Color(26, 115, 232));
-        jLabelLogo.setText("<html><font color='#1A73E8'><b>⚡ HMS</b></font></html>");
-        jPanelSidebar.add(jLabelLogo);
-        jLabelLogo.setBounds(24, 24, 170, 40);
+        lblLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblLogo.setForeground(new java.awt.Color(37, 99, 235));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setText("HMS");
+        jPanelSidebar.add(lblLogo);
+        lblLogo.setBounds(10, 30, 140, 30);
 
+        Dashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Dashboard.setText("  Dashboard");
+        Dashboard.setBorderPainted(false);
+        Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Dashboard.addActionListener(this::DashboardActionPerformed);
+        jPanelSidebar.add(Dashboard);
+        Dashboard.setBounds(10, 80, 160, 35);
 
-jButtonDashboard.setBackground(new java.awt.Color(255, 255, 255));
+        Guest.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Guest.setText(" Guest");
+        Guest.setBorderPainted(false);
+        Guest.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Guest.addActionListener(this::GuestActionPerformed);
+        jPanelSidebar.add(Guest);
+        Guest.setBounds(10, 120, 160, 35);
 
-jButtonDashboard.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButtonDashboard.setForeground(new java.awt.Color(95, 99, 104));
-        jButtonDashboard.setBorderPainted(false);
-        jButtonDashboard.setContentAreaFilled(false);
-        jButtonDashboard.setFocusPainted(false);
-        jButtonDashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-jButtonDashboard.setText("🏠  Dashboard");
-        jPanelSidebar.add(jButtonDashboard);
-        jButtonDashboard.setBounds(16, 100, 188, 40);
-jButtonRooms.setBackground(new java.awt.Color(255, 255, 255));
+        Booking.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Booking.setText(" Booking");
+        Booking.setBorderPainted(false);
+        Booking.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Booking.addActionListener(this::BookingActionPerformed);
+        jPanelSidebar.add(Booking);
+        Booking.setBounds(10, 160, 160, 35);
 
-jButtonRooms.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButtonRooms.setForeground(new java.awt.Color(95, 99, 104));
-        jButtonRooms.setBorderPainted(false);
-        jButtonRooms.setContentAreaFilled(false);
-        jButtonRooms.setFocusPainted(false);
-        jButtonRooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-jButtonRooms.setText("🔑  Rooms");
-        jPanelSidebar.add(jButtonRooms);
-        jButtonRooms.setBounds(16, 150, 188, 40);
+        Mealtime.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Mealtime.setText(" Mealtime");
+        Mealtime.setBorderPainted(false);
+        Mealtime.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Mealtime.addActionListener(this::MealtimeActionPerformed);
+        jPanelSidebar.add(Mealtime);
+        Mealtime.setBounds(10, 200, 160, 35);
 
+        Billing.setBackground(new java.awt.Color(211, 228, 245));
+        Billing.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Billing.setForeground(new java.awt.Color(37, 99, 235));
+        Billing.setText(" Billing");
+        Billing.setBorderPainted(false);
+        Billing.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Billing.addActionListener(this::BillingActionPerformed);
+        jPanelSidebar.add(Billing);
+        Billing.setBounds(10, 240, 160, 35);
 
-jButtonDiscount.setBackground(new java.awt.Color(232, 240, 254));
-        jButtonDiscount.setForeground(new java.awt.Color(26, 115, 232));
-        jButtonDiscount.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonDiscount.setBorderPainted(false);
-        jButtonDiscount.setFocusPainted(false);
-        jButtonDiscount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-jButtonDiscount.setText("🏷️  Discount & Offers");
-        jPanelSidebar.add(jButtonDiscount);
-        jButtonDiscount.setBounds(16, 200, 188, 40);
+        Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Logout.setText(" Logout");
+        Logout.setBorderPainted(false);
+        Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Logout.addActionListener(this::LogoutActionPerformed);
+        jPanelSidebar.add(Logout);
+        Logout.setBounds(10, 280, 160, 35);
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 535));
+        setResizable(false);
+        getContentPane().setLayout(null);
 
-jButtonStaffs.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
 
-jButtonStaffs.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButtonStaffs.setForeground(new java.awt.Color(95, 99, 104));
-        jButtonStaffs.setBorderPainted(false);
-        jButtonStaffs.setContentAreaFilled(false);
-        jButtonStaffs.setFocusPainted(false);
-        jButtonStaffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-jButtonStaffs.setText("👥  Staffs");
-        jPanelSidebar.add(jButtonStaffs);
-        jButtonStaffs.setBounds(16, 250, 188, 40);
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator1);
+        jSeparator1.setBounds(0, 0, 10, 500);
 
-jButtonSystemSetting.setBackground(new java.awt.Color(255, 255, 255));
-jButtonSystemSetting.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButtonSystemSetting.setForeground(new java.awt.Color(95, 99, 104));
-        jButtonSystemSetting.setBorderPainted(false);
-        jButtonSystemSetting.setContentAreaFilled(false);
-        jButtonSystemSetting.setFocusPainted(false);
-        jButtonSystemSetting.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-jButtonSystemSetting.setText("⚙️  System Setting");
-        jPanelSidebar.add(jButtonSystemSetting);
-        jButtonSystemSetting.setBounds(16, 300, 188, 40);
+        jPanel3.setBackground(new java.awt.Color(219, 234, 254));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButtonReports.setBackground(new java.awt.Color(255, 255, 255));
-jButtonReports.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButtonReports.setForeground(new java.awt.Color(95, 99, 104));
-        jButtonReports.setBorderPainted(false);
-        jButtonReports.setContentAreaFilled(false);
-        jButtonReports.setFocusPainted(false);
-        jButtonReports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-jButtonReports.setText("📊  Reports");
-        jPanelSidebar.add(jButtonReports);
-        jButtonReports.setBounds(16, 350, 188, 40);
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel2.setText("Discount and Offers");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 7, 220, 30));
 
-        jButtonLogout.setBackground(new java.awt.Color(255, 255, 255));
-jButtonLogout.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButtonLogout.setForeground(new java.awt.Color(95, 99, 104));
-        jButtonLogout.setBorderPainted(false);
-        jButtonLogout.setContentAreaFilled(false);
-        jButtonLogout.setFocusPainted(false);
-        jButtonLogout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-jButtonLogout.setText("🚪  Logout");
-        jPanelSidebar.add(jButtonLogout);
-        jButtonLogout.setBounds(16, 600, 188, 40);
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel3.setText("Manager");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 100, -1));
 
-getContentPane().add(jPanelSidebar);
-        jPanelSidebar.setBounds(0, 0, 220, 700);
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(20, 20, 590, 37);
 
-        jPanelMain.setBackground(new java.awt.Color(245, 246, 248));
-        jPanelMain.setLayout(null);
+        jPanel2.setBackground(new java.awt.Color(219, 234, 254));
+        jPanel2.setLayout(null);
 
-jLabelMainTitle.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabelMainTitle.setForeground(new java.awt.Color(32, 33, 36));
-        jLabelMainTitle.setText("Discount & Offers");
-        jPanelMain.add(jLabelMainTitle);
-        jLabelMainTitle.setBounds(30, 24, 300, 40);
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(null);
 
-jPanelManager.setBackground(new java.awt.Color(232, 232, 232));
-        jPanelManager.setLayout(null);
+        jButton8.setBackground(new java.awt.Color(255, 51, 51));
+        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setText("Delete ");
+        jButton8.setBorderPainted(false);
+        jButton8.addActionListener(this::jButton8ActionPerformed);
+        jPanel4.add(jButton8);
+        jButton8.setBounds(10, 10, 80, 23);
 
-        jLabelManagerText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelManagerText.setForeground(new java.awt.Color(51, 51, 51));
-        jLabelManagerText.setText("Manager");
-        jPanelManager.add(jLabelManagerText);
-        jLabelManagerText.setBounds(15, 5, 90, 30);
+        jButton9.setBackground(new java.awt.Color(37, 99, 235));
+        jButton9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton9.setForeground(new java.awt.Color(255, 255, 255));
+        jButton9.setText("Add ");
+        jButton9.setBorderPainted(false);
+        jButton9.addActionListener(this::jButton9ActionPerformed);
+        jPanel4.add(jButton9);
+        jButton9.setBounds(460, 10, 72, 23);
 
-        jLabelManagerIcon.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jLabelManagerIcon.setText("👤");
-        jPanelManager.add(jLabelManagerIcon);
-        jLabelManagerIcon.setBounds(120, 5, 30, 30);
+        jPanel2.add(jPanel4);
+        jPanel4.setBounds(10, 20, 560, 40);
 
-        jPanelMain.add(jPanelManager);
-        jPanelManager.setBounds(580, 24, 170, 40);
-
-jPanelTableBg.setBackground(new java.awt.Color(224, 224, 224));
-        jPanelTableBg.setLayout(null);
-
-jPanelTableCard.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelTableCard.setLayout(null);
-
-jButtonOngoing.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButtonOngoing.setForeground(new java.awt.Color(26, 115, 232));
-        jButtonOngoing.setText("Ongoing");
-        jButtonOngoing.setBorderPainted(true);
-        jButtonOngoing.setContentAreaFilled(false);
-        jButtonOngoing.setFocusPainted(false);
-        jPanelTableCard.add(jButtonOngoing);
-        jButtonOngoing.setBounds(20, 20, 100, 36);
-
-        jButtonAddDeal.setBackground(new java.awt.Color(26, 115, 232));
-        jButtonAddDeal.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonAddDeal.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAddDeal.setText("Add deal");
-        jButtonAddDeal.setBorderPainted(false);
-        jButtonAddDeal.setFocusPainted(false);
-        jPanelTableCard.add(jButtonAddDeal);
-        jButtonAddDeal.setBounds(550, 20, 110, 36);
-
-jTableDeals.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"#5644", "Family deal", "10", "21/3/23", "Ongoing", "⋮"},
-                {"#6112", "Christmas deal", "12", "25/3/23", "Full", "⋮"},
-                {"#6141", "Family deal", "15", "-", "Inactive", "⋮"},
-                {"#6535", "Black Friday", "15", "1/5/23", "New", "⋮"}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Deal code", "Deal name", "Reservations left", "End date", "Status", ""
+                "Deal Code", "Deal Name", "Reservation Left", "End Date", "Status"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
+        ));
+        jTable1.setShowHorizontalLines(true);
+        jScrollPane1.setViewportView(jTable1);
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 80, 560, 250);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(20, 100, 580, 350);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(180, 0, 620, 500);
+
+        jPanelSidebar2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSidebar2.setLayout(null);
+
+        lblLogo2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblLogo2.setForeground(new java.awt.Color(37, 99, 235));
+        lblLogo2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo2.setText("HMS");
+        jPanelSidebar2.add(lblLogo2);
+        lblLogo2.setBounds(10, 30, 140, 30);
+
+        Dashboard2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Dashboard2.setText("  Dashboard");
+        Dashboard2.setBorderPainted(false);
+        Dashboard2.setContentAreaFilled(false);
+        Dashboard2.setFocusPainted(false);
+        Dashboard2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Dashboard2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Dashboard2MouseClicked(evt);
             }
         });
-        jScrollPaneTable.setViewportView(jTableDeals);
+        Dashboard2.addActionListener(this::Dashboard2ActionPerformed);
+        jPanelSidebar2.add(Dashboard2);
+        Dashboard2.setBounds(10, 80, 160, 35);
 
-        jPanelTableCard.add(jScrollPaneTable);
-        jScrollPaneTable.setBounds(20, 70, 640, 420);
+        Rooms.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Rooms.setText(" Rooms");
+        Rooms.setBorderPainted(false);
+        Rooms.setContentAreaFilled(false);
+        Rooms.setFocusPainted(false);
+        Rooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Rooms.addActionListener(this::RoomsActionPerformed);
+        jPanelSidebar2.add(Rooms);
+        Rooms.setBounds(10, 120, 160, 35);
 
-jPanelTableBg.add(jPanelTableCard);
-        jPanelTableCard.setBounds(20, 20, 680, 510);
+        Discount.setBackground(new java.awt.Color(211, 228, 245));
+        Discount.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Discount.setForeground(new java.awt.Color(37, 99, 235));
+        Discount.setText(" Discount & Offers");
+        Discount.setBorderPainted(false);
+        Discount.setFocusPainted(false);
+        Discount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Discount.addActionListener(this::DiscountActionPerformed);
+        jPanelSidebar2.add(Discount);
+        Discount.setBounds(10, 160, 160, 35);
 
-jPanelMain.add(jPanelTableBg);
-        jPanelTableBg.setBounds(30, 90, 720, 550);
+        Staffs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Staffs.setText(" Staffs");
+        Staffs.setBorderPainted(false);
+        Staffs.setContentAreaFilled(false);
+        Staffs.setFocusPainted(false);
+        Staffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Staffs.addActionListener(this::StaffsActionPerformed);
+        jPanelSidebar2.add(Staffs);
+        Staffs.setBounds(10, 200, 160, 35);
 
-getContentPane().add(jPanelMain);
-        jPanelMain.setBounds(220, 0, 780, 700);
-pack();
-        setLocationRelativeTo(null);
-    }
+        Sysetemsettings.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Sysetemsettings.setText(" System Settings");
+        Sysetemsettings.setBorderPainted(false);
+        Sysetemsettings.setContentAreaFilled(false);
+        Sysetemsettings.setFocusPainted(false);
+        Sysetemsettings.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Sysetemsettings.addActionListener(this::SysetemsettingsActionPerformed);
+        jPanelSidebar2.add(Sysetemsettings);
+        Sysetemsettings.setBounds(10, 240, 160, 35);
+
+        Reports.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Reports.setText(" Reports");
+        Reports.setBorderPainted(false);
+        Reports.setContentAreaFilled(false);
+        Reports.setFocusPainted(false);
+        Reports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Reports.addActionListener(this::ReportsActionPerformed);
+        jPanelSidebar2.add(Reports);
+        Reports.setBounds(10, 280, 160, 35);
+
+        Logout2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Logout2.setText(" Logout");
+        Logout2.setBorderPainted(false);
+        Logout2.setContentAreaFilled(false);
+        Logout2.setFocusPainted(false);
+        Logout2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Logout2.addActionListener(this::Logout2ActionPerformed);
+        jPanelSidebar2.add(Logout2);
+        Logout2.setBounds(10, 320, 160, 35);
+
+        getContentPane().add(jPanelSidebar2);
+        jPanelSidebar2.setBounds(0, 0, 180, 500);
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void DashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashboardActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DashboardActionPerformed
+
+    private void GuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuestActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GuestActionPerformed
+
+    private void BookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BookingActionPerformed
+
+    private void MealtimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MealtimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MealtimeActionPerformed
+
+    private void BillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BillingActionPerformed
+
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LogoutActionPerformed
+
+    private void Dashboard2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Dashboard2MouseClicked
+
+    }//GEN-LAST:event_Dashboard2MouseClicked
+
+    private void Dashboard2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Dashboard2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Dashboard2ActionPerformed
+
+    private void RoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RoomsActionPerformed
+
+    private void DiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiscountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DiscountActionPerformed
+
+    private void StaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StaffsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_StaffsActionPerformed
+
+    private void SysetemsettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SysetemsettingsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SysetemsettingsActionPerformed
+
+    private void ReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReportsActionPerformed
+
+    private void Logout2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Logout2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Logout2ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -374,44 +370,51 @@ pack();
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
 
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Discount().setVisible(true));
     }
 
-    // Variables declaration - do not modify
-private javax.swing.JButton jButtonAddDeal;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Billing;
+    private javax.swing.JButton Booking;
+    private javax.swing.JButton Dashboard;
+    private javax.swing.JButton Dashboard2;
+    private javax.swing.JButton Discount;
+    private javax.swing.JButton Guest;
+    private javax.swing.JButton Logout;
+    private javax.swing.JButton Logout2;
+    private javax.swing.JButton Mealtime;
+    private javax.swing.JButton Reports;
+    private javax.swing.JButton Rooms;
+    private javax.swing.JButton Staffs;
+    private javax.swing.JButton Sysetemsettings;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelSidebar;
+    private javax.swing.JPanel jPanelSidebar2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblLogo2;
+    // End of variables declaration//GEN-END:variables
 
-private javax.swing.JButton jButtonDashboard;
-
-private javax.swing.JButton jButtonDiscount;
-    private javax.swing.JButton jButtonLogout;
-
-private javax.swing.JButton jButtonOngoing;
-
-private javax.swing.JButton jButtonRooms;
-    private javax.swing.JButton jButtonStaffs;
-
-private javax.swing.JButton jButtonSystemSetting;
-    private javax.swing.JButton jButtonReports;
-
-private javax.swing.JLabel jLabelLogo;
-
-private javax.swing.JLabel jLabelMainTitle;
-
-private javax.swing.JLabel jLabelManagerIcon;
-    private javax.swing.JLabel jLabelManagerText;
-
-private javax.swing.JPanel jPanelMain;
-
-private javax.swing.JPanel jPanelManager;
-
-private javax.swing.JPanel jPanelSidebar;
-
-private javax.swing.JPanel jPanelTableBg;
-
-private javax.swing.JPanel jPanelTableCard;
-
-private javax.swing.JScrollPane jScrollPaneTable;
-    private javax.swing.JTable jTableDeals;
-// End of variables declaration
+    public javax.swing.JTable getTable() { return jTable1; }
+    public javax.swing.JButton getBtnDashboard() { return Dashboard2; }
+    public javax.swing.JButton getBtnRooms() { return Rooms; }
+    public javax.swing.JButton getBtnDiscount() { return Discount; }
+    public javax.swing.JButton getBtnStaffs() { return Staffs; }
+    public javax.swing.JButton getBtnSystemSetting() { return Sysetemsettings; }
+    public javax.swing.JButton getBtnReports() { return Reports; }
+    public javax.swing.JButton getBtnLogout() { return Logout2; }
+    public javax.swing.JButton getBtnAddDiscount() { return jButton9; }
+    public javax.swing.JButton getBtnDeleteDiscount() { return jButton8; }
 }

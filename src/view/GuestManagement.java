@@ -26,14 +26,6 @@ public class GuestManagement extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelSidebar = new javax.swing.JPanel();
-        lblLogo = new javax.swing.JLabel();
-        lblNavDashboard = new javax.swing.JLabel();
-        lblNavGuests = new javax.swing.JLabel();
-        lblNavBookings = new javax.swing.JLabel();
-        lblNavMealTime = new javax.swing.JLabel();
-        lblNavBilling = new javax.swing.JLabel();
-        lblNavLogout = new javax.swing.JLabel();
         panelContent = new javax.swing.JPanel();
         headerPanel = new javax.swing.JPanel();
         lblPageTitle = new javax.swing.JLabel();
@@ -60,69 +52,22 @@ public class GuestManagement extends javax.swing.JFrame {
         scrollPaneTable = new javax.swing.JScrollPane();
         tblGuests = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
+        jPanelSidebar = new javax.swing.JPanel();
+        lblLogo = new javax.swing.JLabel();
+        Dashboard = new javax.swing.JButton();
+        Guest = new javax.swing.JButton();
+        Booking = new javax.swing.JButton();
+        Mealtime = new javax.swing.JButton();
+        Billing = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hotel Management System - Guest Management");
         setResizable(false);
         getContentPane().setLayout(null);
 
-        panelSidebar.setBackground(new java.awt.Color(255, 255, 255));
-        panelSidebar.setLayout(null);
-
-        lblLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        lblLogo.setForeground(new java.awt.Color(26, 115, 232));
-        lblLogo.setText("   HMS");
-        panelSidebar.add(lblLogo);
-        lblLogo.setBounds(20, 25, 160, 35);
-
-        lblNavDashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lblNavDashboard.setForeground(new java.awt.Color(96, 96, 96));
-        lblNavDashboard.setText(" Dashboard");
-        lblNavDashboard.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
-        panelSidebar.add(lblNavDashboard);
-        lblNavDashboard.setBounds(15, 80, 170, 35);
-
-        lblNavGuests.setBackground(new java.awt.Color(232, 240, 254));
-        lblNavGuests.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        lblNavGuests.setForeground(new java.awt.Color(26, 115, 232));
-        lblNavGuests.setText("   Guests");
-        lblNavGuests.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
-        lblNavGuests.setOpaque(true);
-        panelSidebar.add(lblNavGuests);
-        lblNavGuests.setBounds(15, 125, 170, 35);
-
-        lblNavBookings.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lblNavBookings.setForeground(new java.awt.Color(96, 96, 96));
-        lblNavBookings.setText("   Bookings");
-        lblNavBookings.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
-        panelSidebar.add(lblNavBookings);
-        lblNavBookings.setBounds(15, 170, 170, 35);
-
-        lblNavMealTime.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lblNavMealTime.setForeground(new java.awt.Color(96, 96, 96));
-        lblNavMealTime.setText("   Meal time");
-        lblNavMealTime.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
-        panelSidebar.add(lblNavMealTime);
-        lblNavMealTime.setBounds(15, 215, 170, 35);
-
-        lblNavBilling.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lblNavBilling.setForeground(new java.awt.Color(96, 96, 96));
-        lblNavBilling.setText("   Billing");
-        lblNavBilling.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
-        panelSidebar.add(lblNavBilling);
-        lblNavBilling.setBounds(15, 260, 170, 35);
-
-        lblNavLogout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lblNavLogout.setForeground(new java.awt.Color(96, 96, 96));
-        lblNavLogout.setText("  Logout");
-        lblNavLogout.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 15, 5, 15));
-        panelSidebar.add(lblNavLogout);
-        lblNavLogout.setBounds(15, 305, 170, 35);
-
-        getContentPane().add(panelSidebar);
-        panelSidebar.setBounds(0, 0, 200, 500);
-
         panelContent.setBackground(new java.awt.Color(255, 255, 255));
+        panelContent.setPreferredSize(new java.awt.Dimension(620, 500));
         panelContent.setLayout(null);
 
         headerPanel.setBackground(new java.awt.Color(232, 240, 254));
@@ -293,10 +238,83 @@ public class GuestManagement extends javax.swing.JFrame {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         panelContent.add(jSeparator1);
-        jSeparator1.setBounds(0, 0, 10, 640);
+        jSeparator1.setBounds(0, 0, 10, 500);
 
         getContentPane().add(panelContent);
-        panelContent.setBounds(200, 0, 670, 600);
+        panelContent.setBounds(180, 0, 620, 500);
+
+        jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSidebar.setLayout(null);
+
+        lblLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblLogo.setForeground(new java.awt.Color(37, 99, 235));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setText("HMS");
+        jPanelSidebar.add(lblLogo);
+        lblLogo.setBounds(10, 30, 140, 30);
+
+        Dashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Dashboard.setText("  Dashboard");
+        Dashboard.setBorderPainted(false);
+        Dashboard.setFocusPainted(false);
+        Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Dashboard.addActionListener(this::DashboardActionPerformed);
+        jPanelSidebar.add(Dashboard);
+        Dashboard.setBounds(10, 80, 160, 35);
+
+        Guest.setBackground(new java.awt.Color(211, 228, 245));
+        Guest.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Guest.setForeground(new java.awt.Color(37, 99, 235));
+        Guest.setText(" Guest");
+        Guest.setBorderPainted(false);
+        Guest.setFocusPainted(false);
+        Guest.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Guest.addActionListener(this::GuestActionPerformed);
+        jPanelSidebar.add(Guest);
+        Guest.setBounds(10, 120, 160, 35);
+
+        Booking.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Booking.setText(" Booking");
+        Booking.setBorderPainted(false);
+        Booking.setContentAreaFilled(false);
+        Booking.setFocusPainted(false);
+        Booking.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Booking.addActionListener(this::BookingActionPerformed);
+        jPanelSidebar.add(Booking);
+        Booking.setBounds(10, 160, 160, 35);
+
+        Mealtime.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Mealtime.setText(" Mealtime");
+        Mealtime.setBorderPainted(false);
+        Mealtime.setContentAreaFilled(false);
+        Mealtime.setFocusPainted(false);
+        Mealtime.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Mealtime.addActionListener(this::MealtimeActionPerformed);
+        jPanelSidebar.add(Mealtime);
+        Mealtime.setBounds(10, 200, 160, 35);
+
+        Billing.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Billing.setText(" Billing");
+        Billing.setBorderPainted(false);
+        Billing.setContentAreaFilled(false);
+        Billing.setFocusPainted(false);
+        Billing.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Billing.addActionListener(this::BillingActionPerformed);
+        jPanelSidebar.add(Billing);
+        Billing.setBounds(10, 240, 160, 35);
+
+        Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Logout.setText(" Logout");
+        Logout.setBorderPainted(false);
+        Logout.setContentAreaFilled(false);
+        Logout.setFocusPainted(false);
+        Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Logout.addActionListener(this::LogoutActionPerformed);
+        jPanelSidebar.add(Logout);
+        Logout.setBounds(10, 280, 160, 35);
+
+        getContentPane().add(jPanelSidebar);
+        jPanelSidebar.setBounds(0, 0, 180, 500);
 
         pack();
         setLocationRelativeTo(null);
@@ -305,6 +323,30 @@ public class GuestManagement extends javax.swing.JFrame {
     private void btnAddGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddGuestActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddGuestActionPerformed
+
+    private void DashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashboardActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DashboardActionPerformed
+
+    private void GuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuestActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GuestActionPerformed
+
+    private void BookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BookingActionPerformed
+
+    private void MealtimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MealtimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MealtimeActionPerformed
+
+    private void BillingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BillingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BillingActionPerformed
+
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,12 +357,19 @@ public class GuestManagement extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Billing;
+    private javax.swing.JButton Booking;
+    private javax.swing.JButton Dashboard;
+    private javax.swing.JButton Guest;
+    private javax.swing.JButton Logout;
+    private javax.swing.JButton Mealtime;
     private javax.swing.JButton btnAddGuest;
     private javax.swing.JPanel cardCheckinToday;
     private javax.swing.JPanel cardCheckoutToday;
     private javax.swing.JPanel cardTotalGuests;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelSidebar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblCheckinIcon;
@@ -330,12 +379,6 @@ public class GuestManagement extends javax.swing.JFrame {
     private javax.swing.JLabel lblCheckoutTitle;
     private javax.swing.JLabel lblCheckoutValue;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JLabel lblNavBilling;
-    private javax.swing.JLabel lblNavBookings;
-    private javax.swing.JLabel lblNavDashboard;
-    private javax.swing.JLabel lblNavGuests;
-    private javax.swing.JLabel lblNavLogout;
-    private javax.swing.JLabel lblNavMealTime;
     private javax.swing.JLabel lblPageTitle;
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblTotalIcon;
@@ -344,7 +387,6 @@ public class GuestManagement extends javax.swing.JFrame {
     private javax.swing.JLabel lblUserIcon;
     private javax.swing.JPanel panelContent;
     private javax.swing.JPanel panelProfile;
-    private javax.swing.JPanel panelSidebar;
     private javax.swing.JScrollPane scrollPaneTable;
     private javax.swing.JPanel tableCardPanel;
     private javax.swing.JTable tblGuests;

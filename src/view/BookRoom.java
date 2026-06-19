@@ -70,15 +70,14 @@ public class BookRoom extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jPanelSidebar = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
-        Dashboard = new javax.swing.JButton();
-        RoomBrowsing = new javax.swing.JButton();
-        Orderfood = new javax.swing.JButton();
-        Feedback = new javax.swing.JButton();
-        Logout = new javax.swing.JButton();
+        btnRooms = new javax.swing.JButton();
+        btnDiscounts = new javax.swing.JButton();
+        btnStaffs = new javax.swing.JButton();
+        btnReports = new javax.swing.JButton();
+        btnSystemSetting = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Room Browsing");
-        setResizable(true);
         getContentPane().setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -359,7 +358,7 @@ public class BookRoom extends javax.swing.JFrame {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel2.add(jSeparator1);
-        jSeparator1.setBounds(0, 0, 50, 500);
+        jSeparator1.setBounds(0, 0, 3, 500);
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(180, 0, 640, 500);
@@ -374,46 +373,56 @@ public class BookRoom extends javax.swing.JFrame {
         jPanelSidebar.add(lblLogo);
         lblLogo.setBounds(10, 30, 140, 30);
 
-        Dashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        Dashboard.setText("  Dashboard");
-        Dashboard.setBorderPainted(false);
-        Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Dashboard.addActionListener(this::DashboardActionPerformed);
-        jPanelSidebar.add(Dashboard);
-        Dashboard.setBounds(10, 80, 160, 35);
+        btnRooms.setBackground(new java.awt.Color(211, 228, 245));
+        btnRooms.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnRooms.setForeground(new java.awt.Color(37, 99, 235));
+        btnRooms.setText("  Room Browsing");
+        btnRooms.setBorderPainted(false);
+        btnRooms.setFocusPainted(false);
+        btnRooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnRooms.addActionListener(this::btnRoomsActionPerformed);
+        jPanelSidebar.add(btnRooms);
+        btnRooms.setBounds(10, 120, 160, 35);
 
-        RoomBrowsing.setBackground(new java.awt.Color(211, 228, 245));
-        RoomBrowsing.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        RoomBrowsing.setText(" Room Browsing");
-        RoomBrowsing.setBorderPainted(false);
-        RoomBrowsing.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        RoomBrowsing.addActionListener(this::RoomBrowsingActionPerformed);
-        jPanelSidebar.add(RoomBrowsing);
-        RoomBrowsing.setBounds(10, 120, 160, 35);
+        btnDiscounts.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnDiscounts.setText("  Order Food");
+        btnDiscounts.setBorderPainted(false);
+        btnDiscounts.setContentAreaFilled(false);
+        btnDiscounts.setFocusPainted(false);
+        btnDiscounts.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnDiscounts.addActionListener(this::btnDiscountsActionPerformed);
+        jPanelSidebar.add(btnDiscounts);
+        btnDiscounts.setBounds(10, 160, 160, 35);
 
-        Orderfood.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        Orderfood.setText(" Order Food");
-        Orderfood.setBorderPainted(false);
-        Orderfood.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Orderfood.addActionListener(this::OrderfoodActionPerformed);
-        jPanelSidebar.add(Orderfood);
-        Orderfood.setBounds(10, 170, 160, 35);
+        btnStaffs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnStaffs.setText("  Feedback");
+        btnStaffs.setBorderPainted(false);
+        btnStaffs.setContentAreaFilled(false);
+        btnStaffs.setFocusPainted(false);
+        btnStaffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnStaffs.addActionListener(this::btnStaffsActionPerformed);
+        jPanelSidebar.add(btnStaffs);
+        btnStaffs.setBounds(10, 200, 160, 35);
 
-        Feedback.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        Feedback.setText(" Feedback");
-        Feedback.setBorderPainted(false);
-        Feedback.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Feedback.addActionListener(this::FeedbackActionPerformed);
-        jPanelSidebar.add(Feedback);
-        Feedback.setBounds(10, 210, 160, 35);
+        btnReports.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnReports.setText("  Logout");
+        btnReports.setBorderPainted(false);
+        btnReports.setContentAreaFilled(false);
+        btnReports.setFocusPainted(false);
+        btnReports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnReports.addActionListener(this::btnReportsActionPerformed);
+        jPanelSidebar.add(btnReports);
+        btnReports.setBounds(10, 240, 160, 35);
 
-        Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        Logout.setText(" Logout");
-        Logout.setBorderPainted(false);
-        Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        Logout.addActionListener(this::LogoutActionPerformed);
-        jPanelSidebar.add(Logout);
-        Logout.setBounds(10, 250, 160, 35);
+        btnSystemSetting.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnSystemSetting.setText("  Dashboard");
+        btnSystemSetting.setBorderPainted(false);
+        btnSystemSetting.setContentAreaFilled(false);
+        btnSystemSetting.setFocusPainted(false);
+        btnSystemSetting.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnSystemSetting.addActionListener(this::btnSystemSettingActionPerformed);
+        jPanelSidebar.add(btnSystemSetting);
+        btnSystemSetting.setBounds(10, 80, 160, 35);
 
         getContentPane().add(jPanelSidebar);
         jPanelSidebar.setBounds(0, 0, 180, 500);
@@ -422,25 +431,25 @@ public class BookRoom extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void DashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashboardActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DashboardActionPerformed
+    private void btnRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomsActionPerformed
+        // Handled by Controller
+    }//GEN-LAST:event_btnRoomsActionPerformed
 
-    private void RoomBrowsingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomBrowsingActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RoomBrowsingActionPerformed
+    private void btnDiscountsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiscountsActionPerformed
+        // Handled in other navigation sections
+    }//GEN-LAST:event_btnDiscountsActionPerformed
 
-    private void OrderfoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderfoodActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_OrderfoodActionPerformed
+    private void btnStaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStaffsActionPerformed
+        // Handled by Controller
+    }//GEN-LAST:event_btnStaffsActionPerformed
 
-    private void FeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FeedbackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FeedbackActionPerformed
+    private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
+        // Handled in other navigation sections
+    }//GEN-LAST:event_btnReportsActionPerformed
 
-    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
+    private void btnSystemSettingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSystemSettingActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LogoutActionPerformed
+    }//GEN-LAST:event_btnSystemSettingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -451,11 +460,11 @@ public class BookRoom extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Dashboard;
-    private javax.swing.JButton Feedback;
-    private javax.swing.JButton Logout;
-    private javax.swing.JButton Orderfood;
-    private javax.swing.JButton RoomBrowsing;
+    private javax.swing.JButton btnDiscounts;
+    private javax.swing.JButton btnReports;
+    private javax.swing.JButton btnRooms;
+    private javax.swing.JButton btnStaffs;
+    private javax.swing.JButton btnSystemSetting;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
@@ -519,10 +528,10 @@ public class BookRoom extends javax.swing.JFrame {
     public javax.swing.JLabel getLblSingleBed() { return jLabel_single_bed; }
     public javax.swing.JTextArea getTxtSingleDesc() { return jTextArea_single_desc; }
 
-    public javax.swing.JButton getBtnDashboard() { return Dashboard; }
-    public javax.swing.JButton getBtnOrderFood() { return Orderfood; }
-    public javax.swing.JButton getBtnFeedback() { return Feedback; }
-    public javax.swing.JButton getBtnLogout() { return Logout; }
+    public javax.swing.JButton getBtnDashboard() { return btnSystemSetting; }
+    public javax.swing.JButton getBtnOrderFood() { return btnDiscounts; }
+    public javax.swing.JButton getBtnFeedback() { return btnStaffs; }
+    public javax.swing.JButton getBtnLogout() { return btnReports; }
 
     public javax.swing.JButton getBtnBookVip() { return jButton6; }
     public javax.swing.JButton getBtnBookDouble() { return jButton7; }

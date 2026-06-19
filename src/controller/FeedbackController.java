@@ -52,12 +52,14 @@ public class FeedbackController {
     }
 
     private void openDashboard() {
-        new gest_dashbord().setVisible(true);
+        new GuestDashboardController(new gest_dashbord());
         view.dispose();
     }
 
     private void openRoomBrowsing() {
-        new BookRoom().setVisible(true);
+        BookRoom roomView = new BookRoom();
+        new BookRoomController(roomView);
+        roomView.setVisible(true);
         view.dispose();
     }
 
@@ -67,7 +69,9 @@ public class FeedbackController {
     }
 
     private void refreshFeedback() {
-        new Feedback().setVisible(true);
+        Feedback fbView = new Feedback();
+        new FeedbackController(fbView);
+        fbView.setVisible(true);
         view.dispose();
     }
 
