@@ -14,6 +14,8 @@ import java.util.List;
 public class reportsController {
     private final reports view;
     private final ReportsDao dao;
+    private javax.swing.JTable jTableFeedback;
+    private javax.swing.JScrollPane jScrollPaneFeedback;
 
     public reportsController() {
         this.view = new reports();
@@ -22,6 +24,9 @@ public class reportsController {
     }
 
     private void initController() {
+        // Setup the feedback table programmatically in the view's feedback panel
+        setupFeedbackTable();
+
         // Load statistics and feedback reviews
         loadStats();
         loadFeedback();
@@ -84,6 +89,46 @@ public class reportsController {
         view.setVisible(true);
     }
 
+    private void setupFeedbackTable() {
+        if (view.getPanelFeedback() == null) {
+            return;
+        }
+
+        jScrollPaneFeedback = new javax.swing.JScrollPane();
+        jTableFeedback = new javax.swing.JTable();
+
+        jTableFeedback.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {},
+            new String [] {
+                "Service", "Clean", "Food", "Review"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            @Override
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+
+        jTableFeedback.setRowHeight(30);
+        jTableFeedback.setSelectionBackground(new java.awt.Color(211, 228, 245));
+        jScrollPaneFeedback.setViewportView(jTableFeedback);
+        
+        view.getPanelFeedback().add(jScrollPaneFeedback);
+        jScrollPaneFeedback.setBounds(10, 40, 270, 300);
+    }
+
     private void loadStats() {
         int totalBookings = dao.getTotalBookings();
         double attendance = dao.getOverallAttendancePercentage();
@@ -101,9 +146,9 @@ public class reportsController {
     }
 
     private void loadFeedback() {
-        if (view.getTblFeedback() != null) {
+        if (jTableFeedback != null) {
             List<FeedbackModel> list = dao.getAllFeedback();
-            DefaultTableModel model = (DefaultTableModel) view.getTblFeedback().getModel();
+            DefaultTableModel model = (DefaultTableModel) jTableFeedback.getModel();
             model.setRowCount(0);
             for (FeedbackModel fb : list) {
                 model.addRow(new Object[]{

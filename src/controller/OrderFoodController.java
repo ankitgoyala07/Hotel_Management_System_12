@@ -114,8 +114,17 @@ public class OrderFoodController {
     }
 
     private void logout() {
-        new LoginController();
-        view.dispose();
+        int option = JOptionPane.showConfirmDialog(
+            view,
+            "Are you sure want to logout?",
+            "Logout",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE
+        );
+        if (option == JOptionPane.YES_OPTION) {
+            new LoginController();
+            view.dispose();
+        }
     }
 
     // Menu Selection

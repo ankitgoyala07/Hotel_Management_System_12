@@ -17,7 +17,6 @@ public class reports extends javax.swing.JFrame {
      */
     public reports() {
         initComponents();
-        setupFeedbackTable();
     }
 
     /**
@@ -210,7 +209,7 @@ public class reports extends javax.swing.JFrame {
         jPanelHeader.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, -1, -1));
 
         jPanel4.add(jPanelHeader);
-        jPanelHeader.setBounds(20, 20, 560, 37);
+        jPanelHeader.setBounds(20, 20, 580, 37);
 
         jPanelContent.setBackground(new java.awt.Color(211, 228, 245));
         jPanelContent.setLayout(null);
@@ -514,7 +513,7 @@ public class reports extends javax.swing.JFrame {
         jLabel5.setBounds(80, 10, 150, 18);
 
         jPanelContent.add(jPanel11);
-        jPanel11.setBounds(240, 20, 340, 350);
+        jPanel11.setBounds(240, 20, 290, 350);
 
         jPanel4.add(jPanelContent);
         jPanelContent.setBounds(20, 90, 590, 390);
@@ -650,48 +649,10 @@ public class reports extends javax.swing.JFrame {
     private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
 
-    private javax.swing.JTable jTableFeedback;
-    private javax.swing.JScrollPane jScrollPaneFeedback;
-
-    private void setupFeedbackTable() {
-        jScrollPaneFeedback = new javax.swing.JScrollPane();
-        jTableFeedback = new javax.swing.JTable();
-
-        jTableFeedback.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {},
-            new String [] {
-                "Service", "Clean", "Food", "Review"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            @Override
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            @Override
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-
-        jTableFeedback.setRowHeight(30);
-        jTableFeedback.setSelectionBackground(new java.awt.Color(211, 228, 245));
-        jScrollPaneFeedback.setViewportView(jTableFeedback);
-        jPanel11.add(jScrollPaneFeedback);
-        jScrollPaneFeedback.setBounds(10, 40, 280, 300);
-    }
-
     public javax.swing.JLabel getLblTotalBookings() { return jLabel1; }
     public javax.swing.JLabel getLblStaffAttendance() { return jLabel11; }
     public javax.swing.JLabel getLblTotalOffers() { return jLabel13; }
-    public javax.swing.JTable getTblFeedback() { return jTableFeedback; }
+    public javax.swing.JPanel getPanelFeedback() { return jPanel11; }
 
     public javax.swing.JButton getBtnDashboard() { return Dashboard; }
     public javax.swing.JButton getBtnRooms() { return Rooms; }

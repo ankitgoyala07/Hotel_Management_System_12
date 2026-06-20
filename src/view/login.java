@@ -52,7 +52,7 @@ public class login extends javax.swing.JFrame {
         getContentPane().add(jLabel9);
         jLabel9.setBounds(6, 6, 394, 488);
 
-        jPanel1.setBackground(new java.awt.Color(240, 244, 253));
+        jPanel1.setBackground(new java.awt.Color(211, 228, 245));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setLayout(null);
 

@@ -299,13 +299,7 @@ public class AddDiscount extends javax.swing.JFrame {
     }//GEN-LAST:event_txtHotelName4ActionPerformed
 
     private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
-        txtHotelName.setText("");
-        txtHotelName2.setText("");
-        txtHotelName4.setText("");
-        txtHotelName6.setText("");
-        if (jDateChooser1 != null) {
-            jDateChooser1.setDate(null);
-        }
+
     }//GEN-LAST:event_ResetActionPerformed
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed

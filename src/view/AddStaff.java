@@ -206,6 +206,7 @@ public class AddStaff extends javax.swing.JFrame {
         Dashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Dashboard.setText("  Dashboard");
         Dashboard.setBorderPainted(false);
+        Dashboard.setContentAreaFilled(false);
         Dashboard.setFocusPainted(false);
         Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Dashboard.addActionListener(this::DashboardActionPerformed);
@@ -215,6 +216,7 @@ public class AddStaff extends javax.swing.JFrame {
         Rooms.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Rooms.setText(" Rooms");
         Rooms.setBorderPainted(false);
+        Rooms.setContentAreaFilled(false);
         Rooms.setFocusPainted(false);
         Rooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Rooms.addActionListener(this::RoomsActionPerformed);
@@ -224,6 +226,7 @@ public class AddStaff extends javax.swing.JFrame {
         Discount.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Discount.setText(" Discount & Offers");
         Discount.setBorderPainted(false);
+        Discount.setContentAreaFilled(false);
         Discount.setFocusPainted(false);
         Discount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Discount.addActionListener(this::DiscountActionPerformed);
@@ -244,6 +247,7 @@ public class AddStaff extends javax.swing.JFrame {
         Sysetemsettings.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Sysetemsettings.setText(" System Settings");
         Sysetemsettings.setBorderPainted(false);
+        Sysetemsettings.setContentAreaFilled(false);
         Sysetemsettings.setFocusPainted(false);
         Sysetemsettings.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Sysetemsettings.addActionListener(this::SysetemsettingsActionPerformed);
@@ -253,6 +257,7 @@ public class AddStaff extends javax.swing.JFrame {
         Reports.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Reports.setText(" Reports");
         Reports.setBorderPainted(false);
+        Reports.setContentAreaFilled(false);
         Reports.setFocusPainted(false);
         Reports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Reports.addActionListener(this::ReportsActionPerformed);
@@ -262,6 +267,7 @@ public class AddStaff extends javax.swing.JFrame {
         Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Logout.setText(" Logout");
         Logout.setBorderPainted(false);
+        Logout.setContentAreaFilled(false);
         Logout.setFocusPainted(false);
         Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Logout.addActionListener(this::LogoutActionPerformed);
@@ -296,12 +302,7 @@ public class AddStaff extends javax.swing.JFrame {
     }//GEN-LAST:event_txtHotelName5ActionPerformed
 
     private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
-        txtHotelName.setText("");
-        txtHotelName2.setText("");
-        txtHotelName3.setText("");
-        txtHotelName4.setText("");
-        txtHotelName5.setText("");
-        txtHotelName6.setText("");
+
     }//GEN-LAST:event_ResetActionPerformed
 
     private void txtHotelName6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelName6ActionPerformed
