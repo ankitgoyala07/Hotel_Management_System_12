@@ -51,7 +51,7 @@ public class StaffManagement extends javax.swing.JFrame {
         Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 535));
+        setMinimumSize(new java.awt.Dimension(810, 535));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -225,6 +225,7 @@ public class StaffManagement extends javax.swing.JFrame {
         jPanelSidebar.setBounds(0, 0, 180, 500);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -313,4 +314,5 @@ public class StaffManagement extends javax.swing.JFrame {
     public javax.swing.JButton getBtnLogout() { return Logout; }
     public javax.swing.JButton getBtnAddStaff() { return jButton4; }
     public javax.swing.JButton getBtnAttendance() { return jButton2; }
+    public javax.swing.JButton getBtnDelete() { return btnDelete; }
 }

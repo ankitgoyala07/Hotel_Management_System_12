@@ -339,6 +339,7 @@ public class SystemSetting extends javax.swing.JFrame {
         jPanelSidebar.setBounds(0, 0, 180, 500);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtHotelIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelIdActionPerformed

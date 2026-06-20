@@ -5,6 +5,7 @@
 package dao;
 
 import model.OrderFoodModel;
+import database.MySqlConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,8 +86,7 @@ public class OrderFoodDao {
     }
 
     /**
-     * Placeholder for saving an order to the database.
-     * To be implemented when database is connected.
+     * Saves a food order to the database.
      *
      * @param orderedItems List of items in the order
      * @param roomId       The room ID for delivery
@@ -94,14 +94,64 @@ public class OrderFoodDao {
      * @return true if save was successful
      */
     public boolean saveOrder(List<OrderFoodModel> orderedItems, String roomId, double total) {
-        // TODO: Implement database save when DB is ready
-        // For now, just return true as a placeholder
-        System.out.println("Order saved for Room: " + roomId + " | Total: $" + total);
-        for (OrderFoodModel item : orderedItems) {
-            System.out.println("  - " + item.getName()
-                    + " x" + item.getQuantity()
-                    + " = $" + item.getSubtotal());
+        createTableIfNotExists();
+        
+        MySqlConnection mysql = new MySqlConnection();
+        java.sql.Connection conn = mysql.Openconnection();
+        if (conn == null) {
+            return false;
         }
-        return true;
+        
+        String sql = "INSERT INTO food_orders (room_no, item_name, quantity, price) VALUES (?, ?, ?, ?)";
+        try {
+            conn.setAutoCommit(false);
+            int roomNo = Integer.parseInt(roomId.trim());
+            try (java.sql.PreparedStatement ps = conn.prepareStatement(sql)) {
+                for (OrderFoodModel item : orderedItems) {
+                    ps.setInt(1, roomNo);
+                    ps.setString(2, item.getName());
+                    ps.setInt(3, item.getQuantity());
+                    ps.setDouble(4, item.getPrice());
+                    ps.addBatch();
+                }
+                ps.executeBatch();
+            }
+            conn.commit();
+            System.out.println("Order saved in DB for Room: " + roomId + " | Total: $" + total);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error saving order to DB: " + e.getMessage());
+            try {
+                conn.rollback();
+            } catch (java.sql.SQLException ex) {
+                // Ignore
+            }
+            return false;
+        } finally {
+            mysql.closeConnection(conn);
+        }
+    }
+
+    private void createTableIfNotExists() {
+        MySqlConnection mysql = new MySqlConnection();
+        java.sql.Connection conn = mysql.Openconnection();
+        if (conn == null) return;
+        
+        String sql = "CREATE TABLE IF NOT EXISTS food_orders ("
+                   + "id INT AUTO_INCREMENT PRIMARY KEY, "
+                   + "room_no INT NOT NULL, "
+                   + "item_name VARCHAR(255) NOT NULL, "
+                   + "quantity INT NOT NULL, "
+                   + "price DOUBLE NOT NULL, "
+                   + "order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+                   + ")";
+        try (java.sql.Statement st = conn.createStatement()) {
+            st.executeUpdate(sql);
+            System.out.println("Table 'food_orders' verified/created successfully.");
+        } catch (java.sql.SQLException e) {
+            System.out.println("Error creating food_orders table: " + e.getMessage());
+        } finally {
+            mysql.closeConnection(conn);
+        }
     }
 }

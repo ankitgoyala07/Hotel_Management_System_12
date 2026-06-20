@@ -40,6 +40,7 @@ public class admindashboard extends javax.swing.JFrame {
         jPanelHeader = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jPanelContent = new javax.swing.JPanel();
         jPanelCard = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -57,7 +58,6 @@ public class admindashboard extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jPanelPriceSingle = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
@@ -68,26 +68,16 @@ public class admindashboard extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
         jLabel40 = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
-        jPanelRoomStatus = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
         jCalendar1 = new com.toedter.calendar.JCalendar();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jPanelSidebar = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
@@ -130,7 +120,12 @@ public class admindashboard extends javax.swing.JFrame {
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(75, 85, 99));
         jLabel25.setText("Manager");
-        jPanelHeader.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
+        jPanelHeader.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel5.setText("Room Prices");
+        jPanelHeader.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 150, 20));
 
         jPanelMain.add(jPanelHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 580, 45));
 
@@ -204,11 +199,6 @@ public class admindashboard extends javax.swing.JFrame {
 
         jPanelCard.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 520, 80));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel5.setText("Room Prices");
-        jPanelCard.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 105, 150, 20));
-
         jPanelPriceSingle.setBackground(new java.awt.Color(255, 255, 255));
         jPanelPriceSingle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 231, 235)));
         jPanelPriceSingle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -220,7 +210,7 @@ public class admindashboard extends javax.swing.JFrame {
 
         jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel38.setForeground(new java.awt.Color(37, 99, 235));
-        jLabel38.setText("$568/day");
+        jLabel38.setText("$200/day");
         jPanelPriceSingle.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 145, 25));
 
         jPanelCard.add(jPanelPriceSingle, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 130, 150, 70));
@@ -236,7 +226,7 @@ public class admindashboard extends javax.swing.JFrame {
 
         jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel39.setForeground(new java.awt.Color(37, 99, 235));
-        jLabel39.setText("$1,068/day");
+        jLabel39.setText("$350/day");
         jPanelPriceDouble.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 145, 25));
 
         jPanelCard.add(jPanelPriceDouble, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 160, 70));
@@ -252,103 +242,63 @@ public class admindashboard extends javax.swing.JFrame {
 
         jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(37, 99, 235));
-        jLabel40.setText("$2,568/day");
-        jPanelPriceVIP.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 160, 25));
+        jLabel40.setText("$600/day");
+        jPanelPriceVIP.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 100, 25));
 
         jPanelCard.add(jPanelPriceVIP, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 130, 160, 70));
 
         jLabel44.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel44.setText("Room status");
-        jPanelCard.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 210, 150, 20));
+        jLabel44.setText("Total cleaner");
+        jPanelCard.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 90, 20));
+        jPanelCard.add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(269, 230, 260, -1));
 
-        jPanelRoomStatus.setBackground(new java.awt.Color(255, 255, 255));
-        jPanelRoomStatus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 231, 235)));
-        jPanelRoomStatus.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("00");
+        jPanelCard.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, -1, 20));
 
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(107, 114, 128));
-        jLabel22.setText("OCCUPIED ROOMS");
-        jPanelRoomStatus.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 10, 160, 15));
+        jLabel45.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel45.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel45.setText("Total Staffs");
+        jPanelCard.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 90, 20));
 
-        jLabel8.setText("Occupied Room");
-        jLabel8.setForeground(new java.awt.Color(67, 75, 85));
-        jPanelRoomStatus.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 30, 90, 15));
+        jLabel46.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel46.setText("Total Frontdesk ");
+        jPanelCard.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 110, 20));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabel12.setText("104");
-        jPanelRoomStatus.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 50, 15));
+        jLabel47.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel47.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel47.setText("Total Helper");
+        jPanelCard.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 90, 20));
 
-        jLabel9.setText("Clean");
-        jLabel9.setForeground(new java.awt.Color(67, 75, 85));
-        jPanelRoomStatus.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 50, 90, 15));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("00");
+        jPanelCard.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, -1, 20));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabel13.setText("90");
-        jPanelRoomStatus.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 50, 15));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setText("00");
+        jPanelCard.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, -1, 20));
 
-        jLabel10.setText("Dirty");
-        jLabel10.setForeground(new java.awt.Color(67, 75, 85));
-        jPanelRoomStatus.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 70, 90, 15));
+        jLabel48.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel48.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel48.setText("Total Chef");
+        jPanelCard.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 70, 20));
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabel14.setText("4");
-        jPanelRoomStatus.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 50, 15));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setText("00");
+        jPanelCard.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, 20));
 
-        jLabel11.setText("Inspected");
-        jLabel11.setForeground(new java.awt.Color(67, 75, 85));
-        jPanelRoomStatus.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 90, 90, 15));
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabel15.setText("60");
-        jPanelRoomStatus.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 50, 15));
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(107, 114, 128));
-        jLabel16.setText("AVAILABLE ROOMS");
-        jPanelRoomStatus.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 10, 160, 15));
-
-        jLabel3.setText("Available Room");
-        jLabel3.setForeground(new java.awt.Color(67, 75, 85));
-        jPanelRoomStatus.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 30, 90, 15));
-
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabel21.setText("20");
-        jPanelRoomStatus.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 50, 15));
-
-        jLabel6.setText("Clean");
-        jLabel6.setForeground(new java.awt.Color(67, 75, 85));
-        jPanelRoomStatus.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 50, 90, 15));
-
-        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabel30.setText("30");
-        jPanelRoomStatus.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 50, 15));
-
-        jLabel7.setText("Dirty");
-        jLabel7.setForeground(new java.awt.Color(67, 75, 85));
-        jPanelRoomStatus.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 70, 90, 15));
-
-        jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabel33.setText("19");
-        jPanelRoomStatus.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 50, 15));
-
-        jLabel31.setText("Inspected");
-        jLabel31.setForeground(new java.awt.Color(67, 75, 85));
-        jPanelRoomStatus.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 90, 90, 15));
-
-        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabel34.setText("30");
-        jPanelRoomStatus.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 50, 15));
-
-        jPanelCard.add(jPanelRoomStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 235, 310, 135));
-        jPanelCard.add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setText("00");
+        jPanelCard.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, 20));
 
         jPanelContent.add(jPanelCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 550, 380));
 
         jPanelMain.add(jPanelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 75, 570, 410));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jPanelMain.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 20, 500));
+        jPanelMain.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 10, 500));
 
         getContentPane().add(jPanelMain, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 620, 500));
 
@@ -486,18 +436,10 @@ public class admindashboard extends javax.swing.JFrame {
     private javax.swing.JButton Staffs;
     private javax.swing.JButton Sysetemsettings;
     private com.toedter.calendar.JCalendar jCalendar1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -505,11 +447,7 @@ public class admindashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
@@ -518,11 +456,14 @@ public class admindashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanelCard;
@@ -532,7 +473,6 @@ public class admindashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelPriceDouble;
     private javax.swing.JPanel jPanelPriceSingle;
     private javax.swing.JPanel jPanelPriceVIP;
-    private javax.swing.JPanel jPanelRoomStatus;
     private javax.swing.JPanel jPanelSidebar;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblAvailable;
@@ -555,4 +495,9 @@ public class admindashboard extends javax.swing.JFrame {
     public javax.swing.JLabel getLblTotal() { return lblTotal; }
     public javax.swing.JLabel getLblAvailable() { return lblAvailable; }
     public javax.swing.JLabel getLblOccupied() { return lblOccupied; }
+    public javax.swing.JLabel getLblTotalStaffs() { return jLabel3; }
+    public javax.swing.JLabel getLblTotalFrontdesk() { return jLabel1; }
+    public javax.swing.JLabel getLblTotalChef() { return jLabel6; }
+    public javax.swing.JLabel getLblTotalHelper() { return jLabel7; }
+    public javax.swing.JLabel getLblTotalCleaner() { return jLabel8; }
 }

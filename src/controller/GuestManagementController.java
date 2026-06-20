@@ -62,7 +62,9 @@ public class GuestManagementController {
             view.dispose();
         });
         view.getBtnMealtime().addActionListener(e -> {
-            new view.OrderFood().setVisible(true);
+            stopTimer();
+            new view.MealTime().setVisible(true);
+            view.dispose();
         });
         view.getBtnBilling().addActionListener(e -> {
             stopTimer();
@@ -209,10 +211,8 @@ public class GuestManagementController {
                 String roomNo = selectedGuest.getRoom();
                 if (dao.deleteGuest(guestId)) {
                     JOptionPane.showMessageDialog(view, "Guest deleted and room released successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-                    // Stop timer and redirect to billing page
-                    stopTimer();
-                    new BillingController(roomNo);
-                    view.dispose();
+                    // Refresh table list
+                    loadGuests("");
                 } else {
                     JOptionPane.showMessageDialog(view, "Failed to delete guest.", "Error", JOptionPane.ERROR_MESSAGE);
                 }

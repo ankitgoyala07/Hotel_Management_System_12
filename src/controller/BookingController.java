@@ -1,15 +1,13 @@
 package controller;
 
 import dao.BookingManagementDao;
-import model.BookingModel;
+import model.BookingManagementModel;
 import view.BookingManagement;
-import javax.swing.table.DefaultTableModel;
-import java.text.SimpleDateFormat;
-import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
- * Controller class to handle business logic for Booking Management.
- * Manages search, filter drop-downs, table loading, and sidebar navigation.
+ * Controller class to handle business logic for Booking Management view.
+ * Handles room booking lookup by Room number input and fills guest info dynamically.
  */
 public class BookingController {
     private final BookingManagement view;
@@ -22,30 +20,63 @@ public class BookingController {
     }
 
     private void initController() {
-        // Load default bookings list
-        loadBookings();
+        // Clear guest detail fields initially
+        clearFields();
 
-        // 1. Hook up filters (Combo boxes)
-        if (view.getComboRoomType() != null) {
-            view.getComboRoomType().addActionListener(e -> loadBookings());
-        }
-        if (view.getComboStatus() != null) {
-            view.getComboStatus().addActionListener(e -> loadBookings());
-        }
+        // Make guest detail fields non-editable
+        if (view.getTxtFullName() != null) view.getTxtFullName().setEditable(false);
+        if (view.getTxtPhoneNumber() != null) view.getTxtPhoneNumber().setEditable(false);
+        if (view.getTxtEmailAddress() != null) view.getTxtEmailAddress().setEditable(false);
+        if (view.getTxtHomeAddress() != null) view.getTxtHomeAddress().setEditable(false);
+        if (view.getComboRoomType() != null) view.getComboRoomType().setEnabled(false);
+        if (view.getCheckInDateChooser() != null) view.getCheckInDateChooser().setEnabled(false);
+        if (view.getCheckOutDateChooser() != null) view.getCheckOutDateChooser().setEnabled(false);
+        if (view.getTxtDiscountDeal() != null) view.getTxtDiscountDeal().setEditable(false);
 
-        // 2. Hook up Search field
+        // Wire lookup action for the Search Room text field
         if (view.getTxtSearch() != null) {
-            view.getTxtSearch().addActionListener(e -> loadBookings());
-            // Add key release listener for instant search responsiveness
-            view.getTxtSearch().addKeyListener(new java.awt.event.KeyAdapter() {
-                @Override
-                public void keyReleased(java.awt.event.KeyEvent evt) {
-                    loadBookings();
+            view.getTxtSearch().addActionListener(e -> {
+                String searchVal = view.getTxtSearch().getText().trim();
+                if (searchVal.isEmpty()) {
+                    JOptionPane.showMessageDialog(view, "Please enter a Room ID/Number.", "Validation Error", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+
+                try {
+                    int roomNo = Integer.parseInt(searchVal);
+                    BookingManagementModel model = dao.getBookingDetails(roomNo);
+                    if (model != null) {
+                        view.getTxtFullName().setText(model.getFullName() != null ? model.getFullName() : "");
+                        view.getTxtPhoneNumber().setText(model.getPhoneNumber() != null ? model.getPhoneNumber() : "");
+                        view.getTxtEmailAddress().setText(model.getEmailAddress() != null ? model.getEmailAddress() : "");
+                        view.getTxtHomeAddress().setText(model.getHomeAddress() != null ? model.getHomeAddress() : "");
+                        
+                        // Select Room Type
+                        if (model.getRoomType() != null) {
+                            String type = model.getRoomType().trim();
+                            if (type.equalsIgnoreCase("Single") || type.equalsIgnoreCase("Single Bed") || type.equalsIgnoreCase("Single Bed Room")) {
+                                view.getComboRoomType().setSelectedItem("Single Bed");
+                            } else if (type.equalsIgnoreCase("Double") || type.equalsIgnoreCase("Double Bed") || type.equalsIgnoreCase("Double Bed Room")) {
+                                view.getComboRoomType().setSelectedItem("Double Bed");
+                            } else {
+                                view.getComboRoomType().setSelectedItem("VIP");
+                            }
+                        }
+                        
+                        view.getCheckInDateChooser().setDate(model.getCheckInDate());
+                        view.getCheckOutDateChooser().setDate(model.getCheckOutDate());
+                        view.getTxtDiscountDeal().setText(model.getDiscountDeal() != null ? model.getDiscountDeal() : "");
+                    } else {
+                        clearFields();
+                        JOptionPane.showMessageDialog(view, "Room is not booked", "Search Result", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(view, "Invalid Room ID/Number format.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             });
         }
 
-        // 3. Sidebar navigation
+        // Sidebar Navigation
         if (view.getBtnDashboard() != null) {
             view.getBtnDashboard().addActionListener(e -> {
                 new FrontdeskDeshboardControler();
@@ -60,12 +91,13 @@ public class BookingController {
         }
         if (view.getBtnBooking() != null) {
             view.getBtnBooking().addActionListener(e -> {
-                loadBookings();
+                // Already on booking management
             });
         }
         if (view.getBtnMealtime() != null) {
             view.getBtnMealtime().addActionListener(e -> {
-                new view.OrderFood().setVisible(true);
+                new MealTimeController();
+                view.dispose();
             });
         }
         if (view.getBtnBilling() != null) {
@@ -76,62 +108,32 @@ public class BookingController {
         }
         if (view.getBtnLogout() != null) {
             view.getBtnLogout().addActionListener(e -> {
-                int option = javax.swing.JOptionPane.showConfirmDialog(
+                int option = JOptionPane.showConfirmDialog(
                     view,
-                    "Are you sure you want to log out?",
+                    "Are you sure you want to logout?",
                     "Logout",
-                    javax.swing.JOptionPane.YES_NO_OPTION,
-                    javax.swing.JOptionPane.QUESTION_MESSAGE
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE
                 );
-                if (option == javax.swing.JOptionPane.YES_OPTION) {
+                if (option == JOptionPane.YES_OPTION) {
                     new LoginController();
                     view.dispose();
                 }
             });
         }
 
-        // Set view visible
+        // Make frame visible
         view.setVisible(true);
     }
 
-    private void loadBookings() {
-        String search = "";
-        if (view.getTxtSearch() != null) {
-            search = view.getTxtSearch().getText().trim();
-        }
-
-        String roomType = "All";
-        if (view.getComboRoomType() != null && view.getComboRoomType().getSelectedItem() != null) {
-            roomType = view.getComboRoomType().getSelectedItem().toString();
-        }
-
-        String status = "All";
-        if (view.getComboStatus() != null && view.getComboStatus().getSelectedItem() != null) {
-            status = view.getComboStatus().getSelectedItem().toString();
-        }
-
-        // Fetch filtered bookings from DAO (unlimited range for UI list representation)
-        List<BookingModel> list = dao.getBookings(search, roomType, status, 0, 100);
-
-        // Populate jTableBookings using getters
-        DefaultTableModel model = (DefaultTableModel) view.getTable().getModel();
-        model.setRowCount(0);
-
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy");
-        for (BookingModel b : list) {
-            String stayPeriod = "";
-            if (b.getCheckInDate() != null && b.getCheckOutDate() != null) {
-                stayPeriod = sdf.format(b.getCheckInDate()) + " - " + sdf.format(b.getCheckOutDate());
-            }
-
-            model.addRow(new Object[]{
-                b.getGuestName(),
-                b.getRoomNumber(),
-                b.getRoomType(),
-                stayPeriod,
-                b.getStatus(),
-                "$" + String.format("%.2f", b.getTotalAmount())
-            });
-        }
+    private void clearFields() {
+        if (view.getTxtFullName() != null) view.getTxtFullName().setText("");
+        if (view.getTxtPhoneNumber() != null) view.getTxtPhoneNumber().setText("");
+        if (view.getTxtEmailAddress() != null) view.getTxtEmailAddress().setText("");
+        if (view.getTxtHomeAddress() != null) view.getTxtHomeAddress().setText("");
+        if (view.getComboRoomType() != null) view.getComboRoomType().setSelectedIndex(0);
+        if (view.getCheckInDateChooser() != null) view.getCheckInDateChooser().setDate(null);
+        if (view.getCheckOutDateChooser() != null) view.getCheckOutDateChooser().setDate(null);
+        if (view.getTxtDiscountDeal() != null) view.getTxtDiscountDeal().setText("");
     }
 }

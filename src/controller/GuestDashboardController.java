@@ -43,31 +43,42 @@ public class GuestDashboardController {
     private void loadStayInfo() {
         if (dao == null) return;
         try {
-            List<GuestDashboardModel> guests = dao.getAllGuests();
-            GuestDashboardModel currentGuest;
-            if (guests.isEmpty()) {
-                // Seed a default mock guest if the table is empty to show correct info
-                currentGuest = new GuestDashboardModel(
-                    "Alexander", 
-                    "alexander@hms.com", 
-                    "VIP", 
-                    Date.valueOf("2026-06-11"), 
-                    Date.valueOf("2026-06-15"), 
-                    2, 
-                    3000.0
-                );
-                dao.insertGuest(currentGuest);
-            } else {
-                currentGuest = guests.get(0);
+            String username = LoginController.loggedInUsername;
+            GuestDashboardModel currentGuest = null;
+            
+            if (username != null) {
+                String[] details = dao.getUserDetails(username);
+                if (details != null) {
+                    String email = details[0];
+                    String phone = details[1];
+                    currentGuest = dao.getActiveBooking(email, phone);
+                }
             }
 
-            // Populate view labels dynamically from database model
-            view.getLblWelcome().setText("Welcome, " + currentGuest.getName() + " 👋");
-            view.getLblRoomType().setText("  " + currentGuest.getRoomType());
-            view.getLblCheckIn().setText(currentGuest.getCheckIn().toString());
-            view.getLblCheckOut().setText(currentGuest.getCheckOut().toString());
-            view.getLblGuests().setText(String.valueOf(currentGuest.getGuestsCount()));
-            view.getLblExpenses().setText("$ " + (int)currentGuest.getExpenses());
+            if (currentGuest != null) {
+                // Populate view labels dynamically from database model
+                view.getLblWelcome().setText("Welcome, " + currentGuest.getName() + " 👋");
+                
+                String[] parts = currentGuest.getRoomType().split(";");
+                String roomType = parts[0];
+                String roomNo = parts.length > 1 ? parts[1] : "00";
+                
+                view.getLblRoomType().setText("  " + roomType);
+                view.getLblRoomNoSub().setText("Room " + roomNo);
+                
+                view.getLblCheckIn().setText(currentGuest.getCheckIn().toString());
+                view.getLblCheckOut().setText(currentGuest.getCheckOut().toString());
+                view.getLblExpenses().setText("$ " + (int)currentGuest.getExpenses());
+            } else {
+                // Display 00 initially before booking the room
+                String welcomeName = (username != null) ? username : "Guest";
+                view.getLblWelcome().setText("Welcome, " + welcomeName + " 👋");
+                view.getLblRoomType().setText("  00");
+                view.getLblRoomNoSub().setText("Room 00");
+                view.getLblCheckIn().setText("00");
+                view.getLblCheckOut().setText("00");
+                view.getLblExpenses().setText("$ 00");
+            }
         } catch (Exception e) {
             System.out.println("Error loading stay info onto view: " + e.getMessage());
         }
@@ -104,7 +115,9 @@ public class GuestDashboardController {
     }
 
     private void openRoomService() {
-        new Roomservice().setVisible(true);
+        Roomservice roomServiceView = new Roomservice();
+        new RoomServiceController(roomServiceView);
+        roomServiceView.setVisible(true);
         view.dispose();
     }
 
@@ -114,8 +127,7 @@ public class GuestDashboardController {
     }
 
     private void refreshDashboard() {
-        gest_dashbord newView = new gest_dashbord();
-        newView.setVisible(true);
+        new GuestDashboardController(new gest_dashbord());
         view.dispose();
     }
 }

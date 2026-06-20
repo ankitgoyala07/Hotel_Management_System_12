@@ -12,6 +12,10 @@ import view.BookRoom;
 import view.Feedback;
 import view.login;
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import database.MySqlConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -175,6 +179,10 @@ public class OrderFoodController {
         }
         if (roomId.isEmpty() || roomId.equals("Enter room id")) {
             JOptionPane.showMessageDialog(view, "Please enter your Room ID for delivery!", "Room ID Required", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (!isValidRoomNo(roomId)) {
+            JOptionPane.showMessageDialog(view, "Invalid room number! You can only order food to your booked room.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         boolean success = placeOrder(roomId);
@@ -532,5 +540,56 @@ public class OrderFoodController {
 
         dialog.add(rootPanel);
         dialog.setVisible(true);
+    }
+
+    private boolean isValidRoomNo(String enteredRoomNoStr) {
+        String username = LoginController.loggedInUsername;
+        if (username == null) {
+            return false;
+        }
+
+        int enteredRoomNo;
+        try {
+            enteredRoomNo = Integer.parseInt(enteredRoomNoStr.trim());
+        } catch (NumberFormatException e) {
+            return false;
+        }
+
+        MySqlConnection mysql = new MySqlConnection();
+        try (Connection conn = mysql.Openconnection()) {
+            if (conn == null) return false;
+
+            // 1. Get email and phone from users table
+            String email = null;
+            String phone = null;
+            String userSql = "SELECT email, phone FROM users WHERE username = ?";
+            try (PreparedStatement ps = conn.prepareStatement(userSql)) {
+                ps.setString(1, username);
+                try (ResultSet rs = ps.executeQuery()) {
+                    if (rs.next()) {
+                        email = rs.getString("email");
+                        phone = rs.getString("phone");
+                    }
+                }
+            }
+
+            if (email != null || phone != null) {
+                // 2. Get room number from guest_details table
+                String guestSql = "SELECT room_no FROM guest_details WHERE email_address = ? OR phone_number = ? ORDER BY guest_id DESC LIMIT 1";
+                try (PreparedStatement ps = conn.prepareStatement(guestSql)) {
+                    ps.setString(1, email);
+                    ps.setString(2, phone);
+                    try (ResultSet rs = ps.executeQuery()) {
+                        if (rs.next()) {
+                            int bookedRoomNo = rs.getInt("room_no");
+                            return enteredRoomNo == bookedRoomNo;
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error validating room number in food order: " + e.getMessage());
+        }
+        return false;
     }
 }

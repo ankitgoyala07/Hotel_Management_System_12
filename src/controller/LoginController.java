@@ -14,6 +14,7 @@ import java.awt.event.FocusListener;
  * @author i3
  */
 public class LoginController {
+    public static String loggedInUsername = null;
     private final login view;
     private final loginDao dao = new loginDao();
 
@@ -114,6 +115,7 @@ public class LoginController {
         boolean success = dao.validateUser(credentials);
 
         if (success) {
+            loggedInUsername = username;
             String role = credentials.getRole();
             if (role != null) {
                 role = role.trim();

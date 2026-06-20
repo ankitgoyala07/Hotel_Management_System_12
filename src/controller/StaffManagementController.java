@@ -90,6 +90,27 @@ public class StaffManagementController {
             });
         }
 
+        if (view.getBtnDelete() != null) {
+            view.getBtnDelete().addActionListener(e -> {
+                int selectedRow = view.getTable().getSelectedRow();
+                if (selectedRow == -1) {
+                    JOptionPane.showMessageDialog(view, "Please select a staff member from the table to delete.", "Delete Staff", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                String staffId = view.getTable().getValueAt(selectedRow, 0).toString();
+                int confirm = JOptionPane.showConfirmDialog(view, "Are you sure you want to delete staff ID: " + staffId + "?", "Delete Staff", JOptionPane.YES_NO_OPTION);
+                if (confirm == JOptionPane.YES_OPTION) {
+                    boolean success = dao.deleteStaff(staffId);
+                    if (success) {
+                        JOptionPane.showMessageDialog(view, "Staff deleted successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                        loadStaff();
+                    } else {
+                        JOptionPane.showMessageDialog(view, "Failed to delete staff member.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            });
+        }
+
         // Display view
         view.setVisible(true);
     }

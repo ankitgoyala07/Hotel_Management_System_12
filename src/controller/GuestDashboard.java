@@ -86,7 +86,9 @@ public class GuestDashboard extends JFrame {
      * Action when "Feedback" button clicked
      */
     private void jButton4ActionPerformed(ActionEvent evt) {
-        new Feedback().setVisible(true);  // Open Guest Details / Feedback
+        Feedback fbView = new Feedback();
+        new FeedbackController(fbView);
+        fbView.setVisible(true);  // Open Guest Details / Feedback
         this.dispose();                       // Close current dashboard
     }
     

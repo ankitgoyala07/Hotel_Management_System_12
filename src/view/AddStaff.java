@@ -39,7 +39,6 @@ public class AddStaff extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         txtHotelName = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtHotelName1 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtHotelName2 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -52,6 +51,7 @@ public class AddStaff extends javax.swing.JFrame {
         btnSave = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         txtHotelName6 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jPanelSidebar = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
@@ -64,7 +64,7 @@ public class AddStaff extends javax.swing.JFrame {
         Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 535));
+        setMinimumSize(new java.awt.Dimension(810, 535));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -117,10 +117,6 @@ public class AddStaff extends javax.swing.JFrame {
         jLabel8.setText("Email");
         jPanel2.add(jLabel8);
         jLabel8.setBounds(300, 130, 70, 16);
-
-        txtHotelName1.addActionListener(this::txtHotelName1ActionPerformed);
-        jPanel2.add(txtHotelName1);
-        txtHotelName1.setBounds(300, 220, 260, 30);
 
         jLabel9.setFont(new java.awt.Font("Aparajita", 0, 18)); // NOI18N
         jLabel9.setText("Name");
@@ -182,6 +178,10 @@ public class AddStaff extends javax.swing.JFrame {
         txtHotelName6.addActionListener(this::txtHotelName6ActionPerformed);
         jPanel2.add(txtHotelName6);
         txtHotelName6.setBounds(10, 220, 260, 30);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Frontdesk Staff", "Cleaner", "Chef", "Helper" }));
+        jPanel2.add(jComboBox1);
+        jComboBox1.setBounds(300, 220, 260, 30);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(20, 80, 580, 400);
@@ -272,15 +272,12 @@ public class AddStaff extends javax.swing.JFrame {
         jPanelSidebar.setBounds(0, 0, 180, 500);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtHotelNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHotelNameActionPerformed
-
-    private void txtHotelName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtHotelName1ActionPerformed
 
     private void txtHotelName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHotelName2ActionPerformed
         // TODO add your handling code here:
@@ -300,7 +297,6 @@ public class AddStaff extends javax.swing.JFrame {
 
     private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
         txtHotelName.setText("");
-        txtHotelName1.setText("");
         txtHotelName2.setText("");
         txtHotelName3.setText("");
         txtHotelName4.setText("");
@@ -362,6 +358,7 @@ public class AddStaff extends javax.swing.JFrame {
     private javax.swing.JButton Staffs;
     private javax.swing.JButton Sysetemsettings;
     private javax.swing.JButton btnSave;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -381,7 +378,6 @@ public class AddStaff extends javax.swing.JFrame {
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtHotelName;
-    private javax.swing.JTextField txtHotelName1;
     private javax.swing.JTextField txtHotelName2;
     private javax.swing.JTextField txtHotelName3;
     private javax.swing.JTextField txtHotelName4;
@@ -394,7 +390,7 @@ public class AddStaff extends javax.swing.JFrame {
     public javax.swing.JTextField getTxtPhone() { return txtHotelName4; }
     public javax.swing.JTextField getTxtEmail() { return txtHotelName5; }
     public javax.swing.JTextField getTxtAddress() { return txtHotelName6; }
-    public javax.swing.JTextField getTxtRole() { return txtHotelName1; }
+    public javax.swing.JComboBox<String> getComboRole() { return jComboBox1; }
     public javax.swing.JTextField getTxtShift() { return txtHotelName3; }
     public javax.swing.JButton getBtnSave() { return btnSave; }
     public javax.swing.JButton getBtnReset() { return Reset; }

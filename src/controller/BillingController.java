@@ -7,7 +7,8 @@ import javax.swing.JOptionPane;
 
 /**
  * Controller class to handle all logic and actions for the Billing and Invoicing screen.
- * Uses public view getters to follow the clean architecture flow.
+ * Supports direct billing lookup by Room ID or Guest ID text inputs,
+ * and handles room checkout dynamically when the invoice is printed.
  */
 public class BillingController {
     private final Billing view;
@@ -17,7 +18,7 @@ public class BillingController {
      * Default constructor (opens default Room 101 bill)
      */
     public BillingController() {
-        this("101");
+        this("");
     }
 
     /**
@@ -31,96 +32,52 @@ public class BillingController {
     }
 
     private void initController(String roomNumber) {
-        // Retrieve billing details from the database
+        // Retrieve and populate initial billing details from the database
         BillingModel model = dao.getBillingForRoom(roomNumber);
+        loadBilling(model);
 
         // Populate header / role
         if (view.getLblRole() != null) {
             view.getLblRole().setText("Frontdesk Staff");
         }
 
-        // Populate Invoicing metadata labels
-        if (view.getLblGuestIdValue() != null) {
-            view.getLblGuestIdValue().setText(model.getGuestId());
-        }
-        if (view.getLblRoomIdValue() != null) {
-            view.getLblRoomIdValue().setText("Room " + model.getRoomId());
-        }
-        if (view.getLblStayPeriodValue() != null) {
-            view.getLblStayPeriodValue().setText(model.getStayPeriod());
-        }
-
-        // Populate row items
-        // Row 1: Room Charges
-        if (view.getLblRow1Qty() != null) {
-            view.getLblRow1Qty().setText(model.getNights() + " Nights");
-        }
-        if (view.getLblRow1Price() != null) {
-            view.getLblRow1Price().setText("$" + String.format("%.2f", model.getRoomRate()));
-        }
-        if (view.getLblRow1Amount() != null) {
-            view.getLblRow1Amount().setText("$" + String.format("%.2f", model.getStayAmount()));
+        // Add action listeners to JTextFields for searching on enter/action trigger
+        if (view.getTxtRoomNo() != null) {
+            view.getTxtRoomNo().addActionListener(e -> {
+                String rNo = view.getTxtRoomNo().getText().trim();
+                if (!rNo.isEmpty()) {
+                    BillingModel res = dao.getBillingForRoom(rNo);
+                    loadBilling(res);
+                }
+            });
         }
 
-        // Row 2: Room Service
-        if (view.getLblRow2Qty() != null) {
-            view.getLblRow2Qty().setText(model.getRoomService() > 0 ? "1" : "0");
-        }
-        if (view.getLblRow2Price() != null) {
-            view.getLblRow2Price().setText("$" + String.format("%.2f", model.getRoomService()));
-        }
-        if (view.getLblRow2Amount() != null) {
-            view.getLblRow2Amount().setText("$" + String.format("%.2f", model.getRoomService()));
-        }
-
-        // Row 3: Food Orders
-        if (view.getLblRow3Qty() != null) {
-            view.getLblRow3Qty().setText(model.getFoodOrders() > 0 ? "1" : "0");
-        }
-        if (view.getLblRow3Price() != null) {
-            view.getLblRow3Price().setText("$" + String.format("%.2f", model.getFoodOrders()));
-        }
-        if (view.getLblRow3Amount() != null) {
-            view.getLblRow3Amount().setText("$" + String.format("%.2f", model.getFoodOrders()));
+        if (view.getTxtGuestId() != null) {
+            view.getTxtGuestId().addActionListener(e -> {
+                String gId = view.getTxtGuestId().getText().trim();
+                if (!gId.isEmpty()) {
+                    BillingModel res = dao.getBillingForGuest(gId);
+                    loadBilling(res);
+                }
+            });
         }
 
-        // Row 4: Laundry
-        if (view.getLblRow4Qty() != null) {
-            view.getLblRow4Qty().setText(model.getLaundry() > 0 ? "1" : "0");
-        }
-        if (view.getLblRow4Price() != null) {
-            view.getLblRow4Price().setText("$" + String.format("%.2f", model.getLaundry()));
-        }
-        if (view.getLblRow4Amount() != null) {
-            view.getLblRow4Amount().setText("$" + String.format("%.2f", model.getLaundry()));
-        }
-
-        // Row 5: Mini Bar
-        if (view.getLblRow5Qty() != null) {
-            view.getLblRow5Qty().setText(model.getMiniBar() > 0 ? "1" : "0");
-        }
-        if (view.getLblRow5Price() != null) {
-            view.getLblRow5Price().setText("$" + String.format("%.2f", model.getMiniBar()));
-        }
-        if (view.getLblRow5Amount() != null) {
-            view.getLblRow5Amount().setText("$" + String.format("%.2f", model.getMiniBar()));
-        }
-
-        // Totals
-        if (view.getLblSubtotalValue() != null) {
-            view.getLblSubtotalValue().setText("$" + String.format("%.2f", model.getSubtotal()));
-        }
-        if (view.getLblTaxValue() != null) {
-            view.getLblTaxValue().setText("$" + String.format("%.2f", model.getTax()));
-        }
-        if (view.getLblGrandTotalValue() != null) {
-            view.getLblGrandTotalValue().setText("$" + String.format("%.2f", model.getGrandTotal()));
-        }
-
-        // Bind Action Listeners
+        // Action listener for Print Invoice (which checks out room)
         if (view.getBtnPrintInvoice() != null) {
             view.getBtnPrintInvoice().addActionListener(e -> {
-                JOptionPane.showMessageDialog(view, "Invoice printed successfully!", "Print", JOptionPane.INFORMATION_MESSAGE);
+                String roomNo = (view.getTxtRoomNo() != null) ? view.getTxtRoomNo().getText().trim() : "";
+                if (roomNo.isEmpty()) {
+                    JOptionPane.showMessageDialog(view, "Please enter a valid Room number first.", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+                boolean success = dao.checkoutRoom(roomNo);
+                if (success) {
+                    JOptionPane.showMessageDialog(view, "Invoice printed and Room " + roomNo + " checked out successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    // Refresh stats
+                    loadBilling(dao.getBillingForRoom(roomNo));
+                } else {
+                    JOptionPane.showMessageDialog(view, "Failed to complete checkout for Room " + roomNo + ". The room might not be checked in.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             });
         }
 
@@ -152,7 +109,8 @@ public class BillingController {
         }
         if (btnMealtime != null) {
             btnMealtime.addActionListener(e -> {
-                new view.OrderFood().setVisible(true);
+                new view.MealTime().setVisible(true);
+                view.dispose();
             });
         }
         if (btnBilling != null) {
@@ -178,6 +136,66 @@ public class BillingController {
 
         // Show window
         view.setVisible(true);
+    }
+
+    private void loadBilling(BillingModel model) {
+        if (model == null) return;
+
+        // Populate Invoicing metadata text fields
+        if (view.getTxtGuestId() != null) {
+            view.getTxtGuestId().setText(model.getGuestId());
+        }
+        if (view.getTxtRoomNo() != null) {
+            view.getTxtRoomNo().setText(model.getRoomId());
+        }
+        if (view.getLblStayPeriodValue() != null) {
+            view.getLblStayPeriodValue().setText(model.getStayPeriod());
+        }
+
+        // Populate row items
+        // Row 1: Room Charges
+        if (view.getLblRow1Desc() != null) {
+            view.getLblRow1Desc().setText("Room (" + model.getRoomType() + ")");
+        }
+        if (view.getLblRow1Qty() != null) {
+            view.getLblRow1Qty().setText(model.getNights() + " Days");
+        }
+        if (view.getLblRow1Amount() != null) {
+            view.getLblRow1Amount().setText("$" + String.format("%.2f", model.getStayAmount()));
+        }
+
+        // Row 2: Room Service
+        if (view.getLblRow2Desc() != null) {
+            view.getLblRow2Desc().setText("Room Service & Amenities");
+        }
+        if (view.getLblRow2Qty() != null) {
+            view.getLblRow2Qty().setText(model.getRoomService() > 0 ? "1" : "0");
+        }
+        if (view.getLblRow2Amount() != null) {
+            view.getLblRow2Amount().setText("$" + String.format("%.2f", model.getRoomService()));
+        }
+
+        // Row 3: Food Orders
+        if (view.getLblRow3Desc() != null) {
+            view.getLblRow3Desc().setText("Food orders");
+        }
+        if (view.getLblRow3Qty() != null) {
+            view.getLblRow3Qty().setText(model.getFoodOrders() > 0 ? "1" : "0");
+        }
+        if (view.getLblRow3Amount() != null) {
+            view.getLblRow3Amount().setText("$" + String.format("%.2f", model.getFoodOrders()));
+        }
+
+        // Totals
+        if (view.getLblSubtotalValue() != null) {
+            view.getLblSubtotalValue().setText("$" + String.format("%.2f", model.getSubtotal()));
+        }
+        if (view.getLblTaxValue() != null) {
+            view.getLblTaxValue().setText("$" + String.format("%.2f", model.getTax()));
+        }
+        if (view.getLblGrandTotalValue() != null) {
+            view.getLblGrandTotalValue().setText("$" + String.format("%.2f", model.getGrandTotal()));
+        }
     }
 
     private javax.swing.JButton getPrivateButton(String name) {

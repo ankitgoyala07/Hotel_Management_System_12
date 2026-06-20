@@ -158,6 +158,7 @@ public class Signup extends javax.swing.JFrame {
         jPanel1.setBounds(410, 10, 380, 480);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed

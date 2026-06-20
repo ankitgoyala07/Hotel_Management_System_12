@@ -39,6 +39,21 @@ public class admindashboardController {
         if (view.getLblOccupied() != null) {
             view.getLblOccupied().setText(String.valueOf(data.getOccupiedRooms()));
         }
+        if (view.getLblTotalStaffs() != null) {
+            view.getLblTotalStaffs().setText(String.valueOf(data.getTotalStaffs()));
+        }
+        if (view.getLblTotalFrontdesk() != null) {
+            view.getLblTotalFrontdesk().setText(String.valueOf(data.getFrontdeskStaff()));
+        }
+        if (view.getLblTotalChef() != null) {
+            view.getLblTotalChef().setText(String.valueOf(data.getChefStaff()));
+        }
+        if (view.getLblTotalHelper() != null) {
+            view.getLblTotalHelper().setText(String.valueOf(data.getHelperStaff()));
+        }
+        if (view.getLblTotalCleaner() != null) {
+            view.getLblTotalCleaner().setText(String.valueOf(data.getCleanerStaff()));
+        }
 
         // Set up Logout listener using view's public getter
         if (view.getBtnLogout() != null) {

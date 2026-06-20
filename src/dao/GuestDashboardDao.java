@@ -140,5 +140,105 @@ public class GuestDashboardDao {
             return false;
         }
     }
+
+    // Retrieve user email/phone from users table by username
+    public String[] getUserDetails(String username) {
+        String sql = "SELECT email, phone FROM users WHERE username = ?";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, username);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return new String[]{rs.getString("email"), rs.getString("phone")};
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error getting user details: " + e.getMessage());
+        }
+        return null;
+    }
+
+    // Retrieve active booking from guest_details table by email or phone
+    public GuestDashboardModel getActiveBooking(String email, String phone) {
+        String sql = "SELECT * FROM guest_details WHERE (email_address = ? OR phone_number = ?) ORDER BY guest_id DESC LIMIT 1";
+        try (PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, email);
+            ps.setString(2, phone);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    int id = rs.getInt("guest_id");
+                    String name = rs.getString("full_name");
+                    String userEmail = rs.getString("email_address");
+                    String roomType = rs.getString("room_type");
+                    int roomNo = rs.getInt("room_no");
+                    Date checkIn = rs.getDate("check_in_date");
+                    Date checkOut = rs.getDate("check_out_date");
+                    int guestNo = rs.getInt("guest_no");
+                    
+                    double expenses = getCalculatedExpenses(roomNo);
+                    
+                    return new GuestDashboardModel(
+                        id,
+                        name,
+                        userEmail,
+                        roomType + " (Room " + roomNo + ")",
+                        checkIn,
+                        checkOut,
+                        guestNo,
+                        expenses
+                    );
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error getting active booking: " + e.getMessage());
+        }
+        return null;
+    }
+
+    // Calculate total expenses dynamically based on food_orders and room_service
+    public double getCalculatedExpenses(int roomNo) {
+        double total = 0.0;
+        
+        // 1. Sum food orders
+        String foodSql = "SELECT SUM(price * quantity) FROM food_orders WHERE room_no = ?";
+        try (PreparedStatement ps = conn.prepareStatement(foodSql)) {
+            ps.setInt(1, roomNo);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    total += rs.getDouble(1);
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Note: Calculated food expenses check skipped or table not created: " + e.getMessage());
+        }
+        
+        // 2. Sum room services
+        String serviceSql = "SELECT service_type FROM room_service WHERE room_no = ?";
+        try (PreparedStatement ps = conn.prepareStatement(serviceSql)) {
+            ps.setInt(1, roomNo);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    String serviceType = rs.getString("service_type");
+                    if (serviceType != null) {
+                        serviceType = serviceType.trim();
+                        if (serviceType.equalsIgnoreCase("Room Cleaning")) {
+                            total += 5.00;
+                        } else if (serviceType.equalsIgnoreCase("Extra Blanket")) {
+                            total += 2.00;
+                        } else if (serviceType.equalsIgnoreCase("Laundry")) {
+                            total += 5.00;
+                        } else if (serviceType.equalsIgnoreCase("Gym AND Jumba")) {
+                            total += 10.00;
+                        } else if (serviceType.equalsIgnoreCase("Infinity Pool")) {
+                            total += 8.00;
+                        }
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Note: Calculated room service check skipped or table not created: " + e.getMessage());
+        }
+        
+        return total;
+    }
 }
 // git push

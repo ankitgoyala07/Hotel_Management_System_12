@@ -4,6 +4,8 @@
  */
 package view;
 
+import controller.FeedbackController;
+
 /**
  *
  * @author Dell
@@ -30,18 +32,12 @@ public class Feedback extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -51,7 +47,15 @@ public class Feedback extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
+        jPanelHeader = new javax.swing.JPanel();
+        jLabelHeaderTitle = new javax.swing.JLabel();
+        jLabelGuestRole = new javax.swing.JLabel();
         jPanelSidebar = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         Dashboard = new javax.swing.JButton();
@@ -61,29 +65,11 @@ public class Feedback extends javax.swing.JFrame {
         Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(810, 535));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
-
-        jPanel6.setBackground(new java.awt.Color(211, 228, 245));
-        jPanel6.setLayout(null);
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(15, 23, 42));
-        jLabel2.setText("Feedback");
-        jPanel6.add(jLabel2);
-        jLabel2.setBounds(20, 0, 160, 40);
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(100, 116, 139));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Guest");
-        jPanel6.add(jLabel3);
-        jLabel3.setBounds(510, 5, 70, 30);
-
-        jPanel1.add(jPanel6);
-        jPanel6.setBounds(20, 15, 580, 40);
 
         jPanel4.setBackground(new java.awt.Color(211, 228, 245));
         jPanel4.setBorder(new javax.swing.border.MatteBorder(null));
@@ -107,43 +93,29 @@ public class Feedback extends javax.swing.JFrame {
         jPanel4.add(jLabel6);
         jLabel6.setBounds(25, 70, 530, 30);
 
-        jLabel7.setText("<html><font color='#475569'><b>SERVICE</b></font><br/><font color='#0EA5E9' size='5'>★ ★ ★ ★</font><font color='#CBD5E1' size='5'>☆</font></html>");
-        jPanel4.add(jLabel7);
-        jLabel7.setBounds(25, 110, 110, 45);
-
-        jTextField4.setText("1-5");
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField4.setBorder(new javax.swing.border.MatteBorder(null));
         jTextField4.addActionListener(this::jTextField4ActionPerformed);
         jPanel4.add(jTextField4);
-        jTextField4.setBounds(140, 120, 35, 25);
+        jTextField4.setBounds(90, 130, 35, 25);
 
-        jLabel8.setText("<html><font color='#475569'><b>CLEANLINESS</b></font><br/><font color='#0EA5E9' size='5'>★ ★ ★ ★ ★</font></html>");
-        jPanel4.add(jLabel8);
-        jLabel8.setBounds(200, 110, 120, 45);
-
-        jTextField2.setText("1-5");
         jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField2.setBorder(new javax.swing.border.MatteBorder(null));
         jTextField2.addActionListener(this::jTextField2ActionPerformed);
         jPanel4.add(jTextField2);
-        jTextField2.setBounds(325, 120, 35, 25);
+        jTextField2.setBounds(220, 130, 35, 25);
 
-        jLabel9.setText("<html><font color='#475569'><b>FOOD</b></font><br/><font color='#0EA5E9' size='5'>★ ★ ★</font><font color='#CBD5E1' size='5'>☆ ☆</font></html>");
-        jPanel4.add(jLabel9);
-        jLabel9.setBounds(385, 110, 110, 45);
-
-        jTextField3.setText("1-5");
         jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField3.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextField3.addActionListener(this::jTextField3ActionPerformed);
         jPanel4.add(jTextField3);
-        jTextField3.setBounds(500, 120, 35, 25);
+        jTextField3.setBounds(480, 130, 35, 25);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(100, 116, 139));
-        jLabel10.setText("DETAILED REVIEW");
+        jLabel10.setText("EXPERIENCE");
         jPanel4.add(jLabel10);
-        jLabel10.setBounds(25, 175, 530, 20);
+        jLabel10.setBounds(410, 130, 70, 20);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -189,12 +161,61 @@ public class Feedback extends javax.swing.JFrame {
         jPanel4.add(jButton6);
         jButton6.setBounds(405, 320, 150, 35);
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(100, 116, 139));
+        jLabel14.setText("DETAILED REVIEW");
+        jPanel4.add(jLabel14);
+        jLabel14.setBounds(25, 175, 530, 20);
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(100, 116, 139));
+        jLabel15.setText("SERVICE");
+        jPanel4.add(jLabel15);
+        jLabel15.setBounds(30, 130, 100, 20);
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(100, 116, 139));
+        jLabel16.setText("CLEAN");
+        jPanel4.add(jLabel16);
+        jLabel16.setBounds(150, 130, 70, 15);
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(100, 116, 139));
+        jLabel17.setText("FOOD");
+        jPanel4.add(jLabel17);
+        jLabel17.setBounds(290, 130, 70, 20);
+
+        jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField5.setBorder(new javax.swing.border.MatteBorder(null));
+        jTextField5.addActionListener(this::jTextField5ActionPerformed);
+        jPanel4.add(jTextField5);
+        jTextField5.setBounds(350, 130, 35, 25);
+
         jPanel1.add(jPanel4);
         jPanel4.setBounds(20, 70, 580, 390);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator1);
         jSeparator1.setBounds(0, 0, 10, 500);
+
+        jPanelHeader.setBackground(new java.awt.Color(211, 228, 245));
+        jPanelHeader.setLayout(null);
+
+        jLabelHeaderTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelHeaderTitle.setForeground(new java.awt.Color(75, 75, 85));
+        jLabelHeaderTitle.setText("Feedback");
+        jPanelHeader.add(jLabelHeaderTitle);
+        jLabelHeaderTitle.setBounds(15, 12, 200, 20);
+
+        jLabelGuestRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelGuestRole.setForeground(new java.awt.Color(75, 75, 85));
+        jLabelGuestRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelGuestRole.setText("Guest");
+        jPanelHeader.add(jLabelGuestRole);
+        jLabelGuestRole.setBounds(480, 12, 60, 20);
+
+        jPanel1.add(jPanelHeader);
+        jPanelHeader.setBounds(20, 10, 580, 45);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(180, 0, 620, 500);
@@ -212,6 +233,8 @@ public class Feedback extends javax.swing.JFrame {
         Dashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Dashboard.setText("  Dashboard");
         Dashboard.setBorderPainted(false);
+        Dashboard.setContentAreaFilled(false);
+        Dashboard.setFocusPainted(false);
         Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Dashboard.addActionListener(this::DashboardActionPerformed);
         jPanelSidebar.add(Dashboard);
@@ -220,6 +243,8 @@ public class Feedback extends javax.swing.JFrame {
         RoomBrowsing.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         RoomBrowsing.setText(" Room Browsing");
         RoomBrowsing.setBorderPainted(false);
+        RoomBrowsing.setContentAreaFilled(false);
+        RoomBrowsing.setFocusPainted(false);
         RoomBrowsing.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         RoomBrowsing.addActionListener(this::RoomBrowsingActionPerformed);
         jPanelSidebar.add(RoomBrowsing);
@@ -228,6 +253,8 @@ public class Feedback extends javax.swing.JFrame {
         Orderfood.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Orderfood.setText(" Order Food");
         Orderfood.setBorderPainted(false);
+        Orderfood.setContentAreaFilled(false);
+        Orderfood.setFocusPainted(false);
         Orderfood.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Orderfood.addActionListener(this::OrderfoodActionPerformed);
         jPanelSidebar.add(Orderfood);
@@ -238,6 +265,7 @@ public class Feedback extends javax.swing.JFrame {
         Feedback.setForeground(new java.awt.Color(37, 99, 235));
         Feedback.setText(" Feedback");
         Feedback.setBorderPainted(false);
+        Feedback.setFocusPainted(false);
         Feedback.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Feedback.addActionListener(this::FeedbackActionPerformed);
         jPanelSidebar.add(Feedback);
@@ -246,6 +274,8 @@ public class Feedback extends javax.swing.JFrame {
         Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         Logout.setText(" Logout");
         Logout.setBorderPainted(false);
+        Logout.setContentAreaFilled(false);
+        Logout.setFocusPainted(false);
         Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         Logout.addActionListener(this::LogoutActionPerformed);
         jPanelSidebar.add(Logout);
@@ -255,6 +285,7 @@ public class Feedback extends javax.swing.JFrame {
         jPanelSidebar.setBounds(0, 0, 180, 500);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -289,13 +320,25 @@ public class Feedback extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_FeedbackActionPerformed
 
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Feedback().setVisible(true));
-    }
+     public static void main(String args[]) {
+         /* Create and display the form */
+         java.awt.EventQueue.invokeLater(() -> {
+             Feedback f = new Feedback();
+             new FeedbackController(f);
+             f.setVisible(true);
+         });
+     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Dashboard;
@@ -308,18 +351,19 @@ public class Feedback extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelGuestRole;
+    private javax.swing.JLabel jLabelHeaderTitle;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanelHeader;
     private javax.swing.JPanel jPanelSidebar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -327,6 +371,7 @@ public class Feedback extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
 

@@ -32,16 +32,11 @@ public class gest_dashbord extends javax.swing.JFrame {
         jPanelContainer = new javax.swing.JPanel();
         jPanelWhiteCard = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabelStayTitle = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabelRoomNoSub = new javax.swing.JLabel();
-        jLabelStayDates = new javax.swing.JLabel();
         jLabelCheckInTitle = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabelCheckOutTitle = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabelGuestsTitle = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
         jLabelAmenitiesTitle = new javax.swing.JLabel();
         jPanelPoolIcon = new javax.swing.JPanel();
         jLabelPoolSymbol = new javax.swing.JLabel();
@@ -56,6 +51,9 @@ public class gest_dashbord extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabelViewExpenses = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabelPool1 = new javax.swing.JLabel();
+        jLabelPool2 = new javax.swing.JLabel();
+        jLabelStayTitle1 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         jPanelSidebar = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
@@ -66,6 +64,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         btnSystemSetting = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(810, 535));
         getContentPane().setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -88,7 +87,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         jLabelGuestRole.setBounds(480, 12, 60, 20);
 
         jPanel2.add(jPanelHeader);
-        jPanelHeader.setBounds(10, 20, 600, 45);
+        jPanelHeader.setBounds(10, 10, 600, 45);
 
         jPanelContainer.setBackground(new java.awt.Color(211, 228, 245));
         jPanelContainer.setLayout(null);
@@ -102,28 +101,11 @@ public class gest_dashbord extends javax.swing.JFrame {
         jPanelWhiteCard.add(jLabel8);
         jLabel8.setBounds(10, 10, 120, 35);
 
-        jLabelStayTitle.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabelStayTitle.setForeground(new java.awt.Color(37, 99, 235));
-        jLabelStayTitle.setText("YOUR CURRENT STAY");
-        jPanelWhiteCard.add(jLabelStayTitle);
-        jLabelStayTitle.setBounds(20, 70, 200, 20);
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(17, 24, 39));
-        jLabel15.setText("  VIP");
+        jLabel15.setText(" 00");
         jPanelWhiteCard.add(jLabel15);
         jLabel15.setBounds(16, 90, 150, 25);
-
-        jLabelRoomNoSub.setForeground(new java.awt.Color(75, 85, 99));
-        jLabelRoomNoSub.setText("Room 80");
-        jPanelWhiteCard.add(jLabelRoomNoSub);
-        jLabelRoomNoSub.setBounds(20, 115, 150, 15);
-
-        jLabelStayDates.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jLabelStayDates.setForeground(new java.awt.Color(17, 24, 39));
-        jLabelStayDates.setText("Oct 24 — Oct 28");
-        jPanelWhiteCard.add(jLabelStayDates);
-        jLabelStayDates.setBounds(200, 90, 150, 25);
 
         jLabelCheckInTitle.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabelCheckInTitle.setForeground(new java.awt.Color(156, 163, 175));
@@ -133,7 +115,7 @@ public class gest_dashbord extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(17, 24, 39));
-        jLabel16.setText("3:00 PM");
+        jLabel16.setText("00");
         jPanelWhiteCard.add(jLabel16);
         jLabel16.setBounds(20, 165, 80, 20);
 
@@ -145,21 +127,9 @@ public class gest_dashbord extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(17, 24, 39));
-        jLabel17.setText("11:00 AM");
+        jLabel17.setText("00");
         jPanelWhiteCard.add(jLabel17);
         jLabel17.setBounds(110, 165, 80, 20);
-
-        jLabelGuestsTitle.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jLabelGuestsTitle.setForeground(new java.awt.Color(156, 163, 175));
-        jLabelGuestsTitle.setText("GUESTS");
-        jPanelWhiteCard.add(jLabelGuestsTitle);
-        jLabelGuestsTitle.setBounds(200, 150, 80, 15);
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(17, 24, 39));
-        jLabel18.setText("2 Adults");
-        jPanelWhiteCard.add(jLabel18);
-        jLabel18.setBounds(200, 165, 80, 20);
 
         jLabelAmenitiesTitle.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         jLabelAmenitiesTitle.setForeground(new java.awt.Color(37, 99, 235));
@@ -179,9 +149,9 @@ public class gest_dashbord extends javax.swing.JFrame {
         jPanelPoolIcon.setBounds(20, 235, 26, 26);
 
         jLabelPool.setForeground(new java.awt.Color(17, 24, 39));
-        jLabelPool.setText("Infinity Pool");
+        jLabelPool.setText("for free under booking");
         jPanelWhiteCard.add(jLabelPool);
-        jLabelPool.setBounds(55, 238, 150, 20);
+        jLabelPool.setBounds(170, 260, 150, 20);
 
         jPanelGymIcon.setBackground(new java.awt.Color(243, 244, 246));
         jPanelGymIcon.setLayout(null);
@@ -197,7 +167,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         jLabelGym.setForeground(new java.awt.Color(17, 24, 39));
         jLabelGym.setText("Fitness Center");
         jPanelWhiteCard.add(jLabelGym);
-        jLabelGym.setBounds(55, 273, 150, 20);
+        jLabelGym.setBounds(55, 273, 90, 20);
 
         jPanelSpaIcon.setBackground(new java.awt.Color(243, 244, 246));
         jPanelSpaIcon.setLayout(null);
@@ -211,9 +181,9 @@ public class gest_dashbord extends javax.swing.JFrame {
         jPanelSpaIcon.setBounds(20, 305, 26, 26);
 
         jLabelSpa.setForeground(new java.awt.Color(17, 24, 39));
-        jLabelSpa.setText("The Zen Spa");
+        jLabelSpa.setText("Laundry");
         jPanelWhiteCard.add(jLabelSpa);
-        jLabelSpa.setBounds(55, 308, 150, 20);
+        jLabelSpa.setBounds(55, 308, 80, 20);
 
         jButton5.setBackground(new java.awt.Color(17, 24, 39));
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
@@ -233,16 +203,32 @@ public class gest_dashbord extends javax.swing.JFrame {
         jLabelViewExpenses.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabelViewExpenses.setForeground(new java.awt.Color(37, 99, 235));
         jLabelViewExpenses.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelViewExpenses.setText("View Expenses");
+        jLabelViewExpenses.setText("View Extra Expenses");
         jPanelWhiteCard.add(jLabelViewExpenses);
-        jLabelViewExpenses.setBounds(350, 270, 200, 20);
+        jLabelViewExpenses.setBounds(370, 270, 170, 20);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(17, 24, 39));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel13.setText("$ 3000");
+        jLabel13.setText("$ 00");
         jPanelWhiteCard.add(jLabel13);
-        jLabel13.setBounds(350, 290, 200, 45);
+        jLabel13.setBounds(390, 290, 150, 45);
+
+        jLabelPool1.setForeground(new java.awt.Color(17, 24, 39));
+        jLabelPool1.setText("Infinity Pool");
+        jPanelWhiteCard.add(jLabelPool1);
+        jLabelPool1.setBounds(55, 238, 90, 20);
+
+        jLabelPool2.setForeground(new java.awt.Color(17, 24, 39));
+        jLabelPool2.setText("Lunch Breakfast and Dinner ");
+        jPanelWhiteCard.add(jLabelPool2);
+        jLabelPool2.setBounds(170, 240, 150, 20);
+
+        jLabelStayTitle1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabelStayTitle1.setForeground(new java.awt.Color(37, 99, 235));
+        jLabelStayTitle1.setText("YOUR CURRENT STAY");
+        jPanelWhiteCard.add(jLabelStayTitle1);
+        jLabelStayTitle1.setBounds(20, 70, 130, 20);
 
         jPanelContainer.add(jPanelWhiteCard);
         jPanelWhiteCard.setBounds(20, 20, 560, 360);
@@ -271,6 +257,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         btnRooms.setText("  Room Browsing");
         btnRooms.setBorderPainted(false);
         btnRooms.setContentAreaFilled(false);
+        btnRooms.setFocusPainted(false);
         btnRooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnRooms.addActionListener(this::btnRoomsActionPerformed);
         jPanelSidebar.add(btnRooms);
@@ -280,6 +267,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         btnDiscounts.setText("  Order Food");
         btnDiscounts.setBorderPainted(false);
         btnDiscounts.setContentAreaFilled(false);
+        btnDiscounts.setFocusPainted(false);
         btnDiscounts.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnDiscounts.addActionListener(this::btnDiscountsActionPerformed);
         jPanelSidebar.add(btnDiscounts);
@@ -289,6 +277,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         btnStaffs.setText("  Feedback");
         btnStaffs.setBorderPainted(false);
         btnStaffs.setContentAreaFilled(false);
+        btnStaffs.setFocusPainted(false);
         btnStaffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnStaffs.addActionListener(this::btnStaffsActionPerformed);
         jPanelSidebar.add(btnStaffs);
@@ -298,6 +287,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         btnReports.setText("  Logout");
         btnReports.setBorderPainted(false);
         btnReports.setContentAreaFilled(false);
+        btnReports.setFocusPainted(false);
         btnReports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnReports.addActionListener(this::btnReportsActionPerformed);
         jPanelSidebar.add(btnReports);
@@ -308,6 +298,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         btnSystemSetting.setForeground(new java.awt.Color(37, 99, 235));
         btnSystemSetting.setText("  Dashboard");
         btnSystemSetting.setBorderPainted(false);
+        btnSystemSetting.setFocusPainted(false);
         btnSystemSetting.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnSystemSetting.addActionListener(this::btnSystemSettingActionPerformed);
         jPanelSidebar.add(btnSystemSetting);
@@ -317,6 +308,7 @@ public class gest_dashbord extends javax.swing.JFrame {
         jPanelSidebar.setBounds(0, 0, 180, 500);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRoomsActionPerformed
@@ -360,23 +352,21 @@ public class gest_dashbord extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabelAmenitiesTitle;
     private javax.swing.JLabel jLabelCheckInTitle;
     private javax.swing.JLabel jLabelCheckOutTitle;
     private javax.swing.JLabel jLabelGuestRole;
-    private javax.swing.JLabel jLabelGuestsTitle;
     private javax.swing.JLabel jLabelGym;
     private javax.swing.JLabel jLabelGymSymbol;
     private javax.swing.JLabel jLabelHeaderTitle;
     private javax.swing.JLabel jLabelPool;
+    private javax.swing.JLabel jLabelPool1;
+    private javax.swing.JLabel jLabelPool2;
     private javax.swing.JLabel jLabelPoolSymbol;
-    private javax.swing.JLabel jLabelRoomNoSub;
     private javax.swing.JLabel jLabelSpa;
     private javax.swing.JLabel jLabelSpaSymbol;
-    private javax.swing.JLabel jLabelStayDates;
-    private javax.swing.JLabel jLabelStayTitle;
+    private javax.swing.JLabel jLabelStayTitle1;
     private javax.swing.JLabel jLabelViewExpenses;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelContainer;
@@ -394,8 +384,8 @@ public class gest_dashbord extends javax.swing.JFrame {
     public javax.swing.JLabel getLblRoomType() { return jLabel15; }
     public javax.swing.JLabel getLblCheckIn() { return jLabel16; }
     public javax.swing.JLabel getLblCheckOut() { return jLabel17; }
-    public javax.swing.JLabel getLblGuests() { return jLabel18; }
     public javax.swing.JLabel getLblExpenses() { return jLabel13; }
+    public javax.swing.JLabel getLblRoomNoSub() { return new javax.swing.JLabel(); }
     public javax.swing.JButton getBtnBookRoom() { return btnRooms; }
     public javax.swing.JButton getBtnOrderFoodSidebar() { return btnDiscounts; }
     public javax.swing.JButton getBtnOrderFoodCard() { return jButton5; }

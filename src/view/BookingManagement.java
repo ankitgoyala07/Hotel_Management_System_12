@@ -43,20 +43,30 @@ public class BookingManagement extends javax.swing.JFrame {
         jLabelTitle = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanelContent = new javax.swing.JPanel();
-        jLabelSearch = new javax.swing.JLabel();
-        jTextFieldSearch = new javax.swing.JTextField();
-        jLabelDateRange = new javax.swing.JLabel();
-        jLabelRoomType = new javax.swing.JLabel();
-        jLabelStatus = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jScrollPaneBookings = new javax.swing.JScrollPane();
-        jTableBookings = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
         jComboBoxRoomType = new javax.swing.JComboBox<>();
-        jComboBoxStatus = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(810, 535));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
@@ -152,79 +162,93 @@ public class BookingManagement extends javax.swing.JFrame {
         jPanelMain.add(jPanelHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 590, 45));
 
         jPanelContent.setBackground(new java.awt.Color(211, 228, 245));
-        jPanelContent.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelContent.setLayout(null);
 
-        jLabelSearch.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
-        jLabelSearch.setForeground(new java.awt.Color(75, 85, 99));
-        jLabelSearch.setText("SEARCH GUEST / ID");
-        jPanelContent.add(jLabelSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 120, 15));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(null);
+        jPanel3.add(jTextField1);
+        jTextField1.setBounds(40, 30, 220, 35);
 
-        jTextFieldSearch.setForeground(new java.awt.Color(156, 163, 169));
-        jTextFieldSearch.addActionListener(this::jTextFieldSearchActionPerformed);
-        jPanelContent.add(jTextFieldSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 120, 28));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel7.setText("PHONE NUMBER");
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(280, 10, 220, 20);
 
-        jLabelDateRange.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
-        jLabelDateRange.setForeground(new java.awt.Color(75, 85, 99));
-        jLabelDateRange.setText("DATE ");
-        jPanelContent.add(jLabelDateRange, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 140, 15));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel8.setText("EMAIL ADDRESS");
+        jPanel3.add(jLabel8);
+        jLabel8.setBounds(40, 80, 460, 20);
+        jPanel3.add(jTextField4);
+        jTextField4.setBounds(40, 100, 460, 35);
 
-        jLabelRoomType.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
-        jLabelRoomType.setForeground(new java.awt.Color(75, 85, 99));
-        jLabelRoomType.setText("ROOM TYPE");
-        jPanelContent.add(jLabelRoomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, 90, 15));
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel13.setText("ROOM TYPE");
+        jPanel3.add(jLabel13);
+        jLabel13.setBounds(280, 140, 220, 20);
+        jPanel3.add(jTextField7);
+        jTextField7.setBounds(40, 160, 220, 35);
 
-        jLabelStatus.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
-        jLabelStatus.setForeground(new java.awt.Color(75, 85, 99));
-        jLabelStatus.setText("STATUS");
-        jPanelContent.add(jLabelStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 80, 15));
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel11.setText("CHECK-IN DATE");
+        jPanel3.add(jLabel11);
+        jLabel11.setBounds(40, 210, 220, 20);
 
-        jTableBookings.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Guest Name", "Room", "Room Type", "Stay Duration", "Status"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel12.setText("CHECK-OUT DATE");
+        jPanel3.add(jLabel12);
+        jLabel12.setBounds(290, 210, 220, 20);
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel10.setText("DISCOUNT DEAL (Optional)");
+        jPanel3.add(jLabel10);
+        jLabel10.setBounds(40, 270, 220, 20);
+        jPanel3.add(jTextField8);
+        jTextField8.setBounds(40, 290, 220, 35);
+        jPanel3.add(jDateChooser1);
+        jDateChooser1.setBounds(40, 230, 200, 30);
+        jPanel3.add(jDateChooser2);
+        jDateChooser2.setBounds(290, 230, 210, 30);
 
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTableBookings.setGridColor(new java.awt.Color(229, 231, 235));
-        jTableBookings.setRowHeight(38);
-        jTableBookings.setSelectionBackground(new java.awt.Color(239, 246, 255));
-        jTableBookings.setSelectionForeground(new java.awt.Color(30, 64, 175));
-        jTableBookings.setShowHorizontalLines(true);
-        jTableBookings.getTableHeader().setReorderingAllowed(false);
-        jScrollPaneBookings.setViewportView(jTableBookings);
+        jTextField9.addActionListener(this::jTextField9ActionPerformed);
+        jPanel3.add(jTextField9);
+        jTextField9.setBounds(280, 30, 220, 35);
 
-        jScrollPane1.setViewportView(jScrollPaneBookings);
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel14.setText("HOME ADDRESS");
+        jPanel3.add(jLabel14);
+        jLabel14.setBounds(40, 140, 220, 20);
 
-        jPanelContent.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 570, 250));
-        jPanelContent.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 130, 30));
+        jComboBoxRoomType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single Bed", "Double Bed", "VIP" }));
+        jPanel3.add(jComboBoxRoomType);
+        jComboBoxRoomType.setBounds(280, 160, 220, 30);
 
-        jComboBoxRoomType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "Single Bed", "Double Bed", "VIP" }));
-        jComboBoxRoomType.addActionListener(this::jComboBoxRoomTypeActionPerformed);
-        jPanelContent.add(jComboBoxRoomType, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 130, 30));
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel9.setText("FULL NAME");
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(40, 10, 220, 20);
 
-        jComboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All", "CheckedIn", "CheckedOut" }));
-        jPanelContent.add(jComboBoxStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 40, 120, 30));
+        jPanelContent.add(jPanel3);
+        jPanel3.setBounds(20, 60, 540, 340);
 
-        jPanelMain.add(jPanelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 105, 590, 380));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel6.setText("Search Room/ID");
+        jPanelContent.add(jLabel6);
+        jLabel6.setBounds(20, 10, 90, 20);
+
+        jTextField2.addActionListener(this::jTextField2ActionPerformed);
+        jPanelContent.add(jTextField2);
+        jTextField2.setBounds(20, 30, 90, 22);
+
+        jPanelMain.add(jPanelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 75, 590, 410));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanelMain.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
@@ -233,6 +257,7 @@ public class BookingManagement extends javax.swing.JFrame {
         jPanelMain.setBounds(180, 0, 620, 500);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void DashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashboardActionPerformed
@@ -259,13 +284,13 @@ public class BookingManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LogoutActionPerformed
 
-    private void jTextFieldSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchActionPerformed
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSearchActionPerformed
+    }//GEN-LAST:event_jTextField9ActionPerformed
 
-    private void jComboBoxRoomTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRoomTypeActionPerformed
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxRoomTypeActionPerformed
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,31 +308,43 @@ public class BookingManagement extends javax.swing.JFrame {
     private javax.swing.JButton Logout;
     private javax.swing.JButton Mealtime;
     private javax.swing.JComboBox<String> jComboBoxRoomType;
-    private javax.swing.JComboBox<String> jComboBoxStatus;
     private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabelDateRange;
-    private javax.swing.JLabel jLabelRoomType;
-    private javax.swing.JLabel jLabelSearch;
-    private javax.swing.JLabel jLabelStatus;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelContent;
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JPanel jPanelMain;
     private javax.swing.JPanel jPanelSidebar;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPaneBookings;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTableBookings;
-    private javax.swing.JTextField jTextFieldSearch;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
 
-    public javax.swing.JTable getTable() { return jTableBookings; }
-    public javax.swing.JTextField getTxtSearch() { return jTextFieldSearch; }
-    public javax.swing.JComboBox getComboRoomType() { return jComboBoxRoomType; }
-    public javax.swing.JComboBox getComboStatus() { return jComboBoxStatus; }
-    public JDateChooser getTxtDate() { return jDateChooser1; }
+    public javax.swing.JTextField getTxtSearch() { return jTextField2; }
+    public javax.swing.JTextField getTxtFullName() { return jTextField1; }
+    public javax.swing.JTextField getTxtPhoneNumber() { return jTextField9; }
+    public javax.swing.JTextField getTxtEmailAddress() { return jTextField4; }
+    public javax.swing.JTextField getTxtHomeAddress() { return jTextField7; }
+    public javax.swing.JComboBox<String> getComboRoomType() { return jComboBoxRoomType; }
+    public com.toedter.calendar.JDateChooser getCheckInDateChooser() { return jDateChooser1; }
+    public com.toedter.calendar.JDateChooser getCheckOutDateChooser() { return jDateChooser2; }
+    public javax.swing.JTextField getTxtDiscountDeal() { return jTextField8; }
     public javax.swing.JButton getBtnDashboard() { return Dashboard; }
     public javax.swing.JButton getBtnGuest() { return Guest; }
     public javax.swing.JButton getBtnBooking() { return Booking; }

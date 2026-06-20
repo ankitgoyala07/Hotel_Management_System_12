@@ -30,40 +30,25 @@ public class Billing extends javax.swing.JFrame {
         jPanelHeader = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblRole = new javax.swing.JLabel();
-        lblUserIcon = new javax.swing.JLabel();
         jPanelInvoiceContainer = new javax.swing.JPanel();
         jPanelInvoiceCard = new javax.swing.JPanel();
         lblGuestIdTitle = new javax.swing.JLabel();
-        lblGuestIdValue = new javax.swing.JLabel();
         lblRoomIdTitle = new javax.swing.JLabel();
-        lblRoomIdValue = new javax.swing.JLabel();
         lblStayPeriodTitle = new javax.swing.JLabel();
         lblStayPeriodValue = new javax.swing.JLabel();
         jSeparatorInvoice = new javax.swing.JSeparator();
         lblColDesc = new javax.swing.JLabel();
         lblColQty = new javax.swing.JLabel();
-        lblColPrice = new javax.swing.JLabel();
         lblColAmount = new javax.swing.JLabel();
         lblRow1Desc = new javax.swing.JLabel();
         lblRow1Qty = new javax.swing.JLabel();
-        lblRow1Price = new javax.swing.JLabel();
         lblRow1Amount = new javax.swing.JLabel();
         lblRow2Desc = new javax.swing.JLabel();
         lblRow2Qty = new javax.swing.JLabel();
-        lblRow2Price = new javax.swing.JLabel();
         lblRow2Amount = new javax.swing.JLabel();
         lblRow3Desc = new javax.swing.JLabel();
         lblRow3Qty = new javax.swing.JLabel();
-        lblRow3Price = new javax.swing.JLabel();
         lblRow3Amount = new javax.swing.JLabel();
-        lblRow4Desc = new javax.swing.JLabel();
-        lblRow4Qty = new javax.swing.JLabel();
-        lblRow4Price = new javax.swing.JLabel();
-        lblRow4Amount = new javax.swing.JLabel();
-        lblRow5Desc = new javax.swing.JLabel();
-        lblRow5Qty = new javax.swing.JLabel();
-        lblRow5Price = new javax.swing.JLabel();
-        lblRow5Amount = new javax.swing.JLabel();
         lblSubtotalTitle = new javax.swing.JLabel();
         lblSubtotalValue = new javax.swing.JLabel();
         lblTaxTitle = new javax.swing.JLabel();
@@ -71,6 +56,8 @@ public class Billing extends javax.swing.JFrame {
         jSeparatorInvoice2 = new javax.swing.JSeparator();
         lblGrandTotalTitle = new javax.swing.JLabel();
         lblGrandTotalValue = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         btnPrintInvoice = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jPanelSidebar = new javax.swing.JPanel();
@@ -83,6 +70,8 @@ public class Billing extends javax.swing.JFrame {
         Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(800, 835));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanelMain.setBackground(new java.awt.Color(255, 255, 255));
@@ -104,10 +93,6 @@ public class Billing extends javax.swing.JFrame {
         jPanelHeader.add(lblRole);
         lblRole.setBounds(430, 10, 100, 25);
 
-        lblUserIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user (1).png"))); // NOI18N
-        jPanelHeader.add(lblUserIcon);
-        lblUserIcon.setBounds(540, 10, 25, 25);
-
         jPanelMain.add(jPanelHeader);
         jPanelHeader.setBounds(20, 15, 580, 45);
 
@@ -123,23 +108,11 @@ public class Billing extends javax.swing.JFrame {
         jPanelInvoiceCard.add(lblGuestIdTitle);
         lblGuestIdTitle.setBounds(20, 20, 100, 15);
 
-        lblGuestIdValue.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblGuestIdValue.setForeground(new java.awt.Color(15, 23, 42));
-        lblGuestIdValue.setText("001");
-        jPanelInvoiceCard.add(lblGuestIdValue);
-        lblGuestIdValue.setBounds(20, 35, 100, 20);
-
         lblRoomIdTitle.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         lblRoomIdTitle.setForeground(new java.awt.Color(100, 116, 139));
         lblRoomIdTitle.setText("ROOM ID");
         jPanelInvoiceCard.add(lblRoomIdTitle);
         lblRoomIdTitle.setBounds(170, 20, 100, 15);
-
-        lblRoomIdValue.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblRoomIdValue.setForeground(new java.awt.Color(15, 23, 42));
-        lblRoomIdValue.setText("001");
-        jPanelInvoiceCard.add(lblRoomIdValue);
-        lblRoomIdValue.setBounds(170, 35, 100, 20);
 
         lblStayPeriodTitle.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         lblStayPeriodTitle.setForeground(new java.awt.Color(100, 116, 139));
@@ -149,9 +122,9 @@ public class Billing extends javax.swing.JFrame {
 
         lblStayPeriodValue.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         lblStayPeriodValue.setForeground(new java.awt.Color(15, 23, 42));
-        lblStayPeriodValue.setText("Oct 14 - Oct 18 (4 Nights)");
+        lblStayPeriodValue.setText("Oct 14 - Oct 18 ");
         jPanelInvoiceCard.add(lblStayPeriodValue);
-        lblStayPeriodValue.setBounds(320, 35, 210, 20);
+        lblStayPeriodValue.setBounds(320, 35, 160, 20);
         jPanelInvoiceCard.add(jSeparatorInvoice);
         jSeparatorInvoice.setBounds(20, 65, 510, 5);
 
@@ -168,13 +141,6 @@ public class Billing extends javax.swing.JFrame {
         jPanelInvoiceCard.add(lblColQty);
         lblColQty.setBounds(250, 75, 90, 20);
 
-        lblColPrice.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        lblColPrice.setForeground(new java.awt.Color(15, 23, 42));
-        lblColPrice.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblColPrice.setText("UNIT PRICE");
-        jPanelInvoiceCard.add(lblColPrice);
-        lblColPrice.setBounds(350, 75, 90, 20);
-
         lblColAmount.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         lblColAmount.setForeground(new java.awt.Color(15, 23, 42));
         lblColAmount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -183,7 +149,7 @@ public class Billing extends javax.swing.JFrame {
         lblColAmount.setBounds(450, 75, 80, 20);
 
         lblRow1Desc.setForeground(new java.awt.Color(30, 41, 55));
-        lblRow1Desc.setText(" ");
+        lblRow1Desc.setText("Room ");
         jPanelInvoiceCard.add(lblRow1Desc);
         lblRow1Desc.setBounds(20, 100, 200, 20);
 
@@ -193,40 +159,28 @@ public class Billing extends javax.swing.JFrame {
         jPanelInvoiceCard.add(lblRow1Qty);
         lblRow1Qty.setBounds(250, 100, 90, 20);
 
-        lblRow1Price.setForeground(new java.awt.Color(30, 41, 55));
-        lblRow1Price.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow1Price.setText("$250.00");
-        jPanelInvoiceCard.add(lblRow1Price);
-        lblRow1Price.setBounds(350, 100, 90, 20);
-
         lblRow1Amount.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblRow1Amount.setForeground(new java.awt.Color(15, 23, 42));
         lblRow1Amount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow1Amount.setText("$1,000.00");
+        lblRow1Amount.setText("$00");
         jPanelInvoiceCard.add(lblRow1Amount);
         lblRow1Amount.setBounds(450, 100, 80, 20);
 
         lblRow2Desc.setForeground(new java.awt.Color(30, 41, 55));
-        lblRow2Desc.setText("Room Service (Oct 15 - Dinner)");
+        lblRow2Desc.setText("Room Service & Amentities");
         jPanelInvoiceCard.add(lblRow2Desc);
         lblRow2Desc.setBounds(20, 125, 200, 20);
 
         lblRow2Qty.setForeground(new java.awt.Color(30, 41, 55));
         lblRow2Qty.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow2Qty.setText("1");
+        lblRow2Qty.setText("00");
         jPanelInvoiceCard.add(lblRow2Qty);
         lblRow2Qty.setBounds(250, 125, 90, 20);
-
-        lblRow2Price.setForeground(new java.awt.Color(30, 41, 55));
-        lblRow2Price.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow2Price.setText("$65.50");
-        jPanelInvoiceCard.add(lblRow2Price);
-        lblRow2Price.setBounds(350, 125, 90, 20);
 
         lblRow2Amount.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblRow2Amount.setForeground(new java.awt.Color(15, 23, 42));
         lblRow2Amount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow2Amount.setText("$65.50");
+        lblRow2Amount.setText("$00");
         jPanelInvoiceCard.add(lblRow2Amount);
         lblRow2Amount.setBounds(450, 125, 80, 20);
 
@@ -237,70 +191,16 @@ public class Billing extends javax.swing.JFrame {
 
         lblRow3Qty.setForeground(new java.awt.Color(30, 41, 55));
         lblRow3Qty.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow3Qty.setText("1");
+        lblRow3Qty.setText("00");
         jPanelInvoiceCard.add(lblRow3Qty);
         lblRow3Qty.setBounds(250, 150, 90, 20);
-
-        lblRow3Price.setForeground(new java.awt.Color(30, 41, 55));
-        lblRow3Price.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow3Price.setText("$145.00");
-        jPanelInvoiceCard.add(lblRow3Price);
-        lblRow3Price.setBounds(350, 150, 90, 20);
 
         lblRow3Amount.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblRow3Amount.setForeground(new java.awt.Color(15, 23, 42));
         lblRow3Amount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow3Amount.setText("$145.00");
+        lblRow3Amount.setText("$00");
         jPanelInvoiceCard.add(lblRow3Amount);
         lblRow3Amount.setBounds(450, 150, 80, 20);
-
-        lblRow4Desc.setForeground(new java.awt.Color(30, 41, 55));
-        lblRow4Desc.setText("Laundry Service");
-        jPanelInvoiceCard.add(lblRow4Desc);
-        lblRow4Desc.setBounds(20, 175, 200, 20);
-
-        lblRow4Qty.setForeground(new java.awt.Color(30, 41, 55));
-        lblRow4Qty.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow4Qty.setText("3 Items");
-        jPanelInvoiceCard.add(lblRow4Qty);
-        lblRow4Qty.setBounds(250, 175, 90, 20);
-
-        lblRow4Price.setForeground(new java.awt.Color(30, 41, 55));
-        lblRow4Price.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow4Price.setText("$12.00");
-        jPanelInvoiceCard.add(lblRow4Price);
-        lblRow4Price.setBounds(350, 175, 90, 20);
-
-        lblRow4Amount.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblRow4Amount.setForeground(new java.awt.Color(15, 23, 42));
-        lblRow4Amount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow4Amount.setText("$36.00");
-        jPanelInvoiceCard.add(lblRow4Amount);
-        lblRow4Amount.setBounds(450, 175, 80, 20);
-
-        lblRow5Desc.setForeground(new java.awt.Color(30, 41, 55));
-        lblRow5Desc.setText("Mini Bar Consumption");
-        jPanelInvoiceCard.add(lblRow5Desc);
-        lblRow5Desc.setBounds(20, 200, 200, 20);
-
-        lblRow5Qty.setForeground(new java.awt.Color(30, 41, 55));
-        lblRow5Qty.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow5Qty.setText("—");
-        jPanelInvoiceCard.add(lblRow5Qty);
-        lblRow5Qty.setBounds(250, 200, 90, 20);
-
-        lblRow5Price.setForeground(new java.awt.Color(30, 41, 55));
-        lblRow5Price.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow5Price.setText("—");
-        jPanelInvoiceCard.add(lblRow5Price);
-        lblRow5Price.setBounds(350, 200, 90, 20);
-
-        lblRow5Amount.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblRow5Amount.setForeground(new java.awt.Color(15, 23, 42));
-        lblRow5Amount.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblRow5Amount.setText("$22.00");
-        jPanelInvoiceCard.add(lblRow5Amount);
-        lblRow5Amount.setBounds(450, 200, 80, 20);
 
         lblSubtotalTitle.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblSubtotalTitle.setForeground(new java.awt.Color(100, 116, 139));
@@ -312,7 +212,7 @@ public class Billing extends javax.swing.JFrame {
         lblSubtotalValue.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblSubtotalValue.setForeground(new java.awt.Color(15, 23, 42));
         lblSubtotalValue.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblSubtotalValue.setText("$1,268.50");
+        lblSubtotalValue.setText("$00");
         jPanelInvoiceCard.add(lblSubtotalValue);
         lblSubtotalValue.setBounds(450, 235, 80, 15);
 
@@ -326,7 +226,7 @@ public class Billing extends javax.swing.JFrame {
         lblTaxValue.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblTaxValue.setForeground(new java.awt.Color(15, 23, 42));
         lblTaxValue.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblTaxValue.setText("$101.48");
+        lblTaxValue.setText("$00");
         jPanelInvoiceCard.add(lblTaxValue);
         lblTaxValue.setBounds(450, 255, 80, 15);
         jPanelInvoiceCard.add(jSeparatorInvoice2);
@@ -342,9 +242,17 @@ public class Billing extends javax.swing.JFrame {
         lblGrandTotalValue.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblGrandTotalValue.setForeground(new java.awt.Color(15, 23, 42));
         lblGrandTotalValue.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblGrandTotalValue.setText("$1,369.98");
+        lblGrandTotalValue.setText("$00");
         jPanelInvoiceCard.add(lblGrandTotalValue);
         lblGrandTotalValue.setBounds(430, 285, 100, 25);
+
+        jTextField1.addActionListener(this::jTextField1ActionPerformed);
+        jPanelInvoiceCard.add(jTextField1);
+        jTextField1.setBounds(170, 40, 100, 22);
+
+        jTextField2.addActionListener(this::jTextField2ActionPerformed);
+        jPanelInvoiceCard.add(jTextField2);
+        jTextField2.setBounds(20, 40, 100, 22);
 
         jPanelInvoiceContainer.add(jPanelInvoiceCard);
         jPanelInvoiceCard.setBounds(15, 15, 550, 330);
@@ -352,7 +260,7 @@ public class Billing extends javax.swing.JFrame {
         btnPrintInvoice.setBackground(new java.awt.Color(37, 99, 235));
         btnPrintInvoice.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         btnPrintInvoice.setForeground(new java.awt.Color(255, 255, 255));
-        btnPrintInvoice.setText("🖨️ Print Invoice");
+        btnPrintInvoice.setText("Print Invoice");
         jPanelInvoiceContainer.add(btnPrintInvoice);
         btnPrintInvoice.setBounds(435, 360, 130, 30);
 
@@ -441,6 +349,7 @@ public class Billing extends javax.swing.JFrame {
         jPanelSidebar.setBounds(0, 0, 180, 500);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void DashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashboardActionPerformed
@@ -466,6 +375,14 @@ public class Billing extends javax.swing.JFrame {
     private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LogoutActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
 
 
@@ -493,38 +410,26 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparatorInvoice;
     private javax.swing.JSeparator jSeparatorInvoice2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblColAmount;
     private javax.swing.JLabel lblColDesc;
-    private javax.swing.JLabel lblColPrice;
     private javax.swing.JLabel lblColQty;
     private javax.swing.JLabel lblGrandTotalTitle;
     private javax.swing.JLabel lblGrandTotalValue;
     private javax.swing.JLabel lblGuestIdTitle;
-    private javax.swing.JLabel lblGuestIdValue;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblRoomIdTitle;
-    private javax.swing.JLabel lblRoomIdValue;
     private javax.swing.JLabel lblRow1Amount;
     private javax.swing.JLabel lblRow1Desc;
-    private javax.swing.JLabel lblRow1Price;
     private javax.swing.JLabel lblRow1Qty;
     private javax.swing.JLabel lblRow2Amount;
     private javax.swing.JLabel lblRow2Desc;
-    private javax.swing.JLabel lblRow2Price;
     private javax.swing.JLabel lblRow2Qty;
     private javax.swing.JLabel lblRow3Amount;
     private javax.swing.JLabel lblRow3Desc;
-    private javax.swing.JLabel lblRow3Price;
     private javax.swing.JLabel lblRow3Qty;
-    private javax.swing.JLabel lblRow4Amount;
-    private javax.swing.JLabel lblRow4Desc;
-    private javax.swing.JLabel lblRow4Price;
-    private javax.swing.JLabel lblRow4Qty;
-    private javax.swing.JLabel lblRow5Amount;
-    private javax.swing.JLabel lblRow5Desc;
-    private javax.swing.JLabel lblRow5Price;
-    private javax.swing.JLabel lblRow5Qty;
     private javax.swing.JLabel lblStayPeriodTitle;
     private javax.swing.JLabel lblStayPeriodValue;
     private javax.swing.JLabel lblSubtotalTitle;
@@ -532,31 +437,29 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JLabel lblTaxTitle;
     private javax.swing.JLabel lblTaxValue;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JLabel lblUserIcon;
     // End of variables declaration//GEN-END:variables
 
     public javax.swing.JLabel getLblRole() { return lblRole; }
-    public javax.swing.JLabel getLblGuestIdValue() { return lblGuestIdValue; }
-    public javax.swing.JLabel getLblRoomIdValue() { return lblRoomIdValue; }
+    public javax.swing.JTextField getTxtGuestId() { return jTextField2; }
+    public javax.swing.JTextField getTxtRoomNo() { return jTextField1; }
     public javax.swing.JLabel getLblStayPeriodValue() { return lblStayPeriodValue; }
+    
+    public javax.swing.JLabel getLblRow1Desc() { return lblRow1Desc; }
     public javax.swing.JLabel getLblRow1Qty() { return lblRow1Qty; }
-    public javax.swing.JLabel getLblRow1Price() { return lblRow1Price; }
     public javax.swing.JLabel getLblRow1Amount() { return lblRow1Amount; }
+    
+    public javax.swing.JLabel getLblRow2Desc() { return lblRow2Desc; }
     public javax.swing.JLabel getLblRow2Qty() { return lblRow2Qty; }
-    public javax.swing.JLabel getLblRow2Price() { return lblRow2Price; }
     public javax.swing.JLabel getLblRow2Amount() { return lblRow2Amount; }
+    
+    public javax.swing.JLabel getLblRow3Desc() { return lblRow3Desc; }
     public javax.swing.JLabel getLblRow3Qty() { return lblRow3Qty; }
-    public javax.swing.JLabel getLblRow3Price() { return lblRow3Price; }
     public javax.swing.JLabel getLblRow3Amount() { return lblRow3Amount; }
-    public javax.swing.JLabel getLblRow4Qty() { return lblRow4Qty; }
-    public javax.swing.JLabel getLblRow4Price() { return lblRow4Price; }
-    public javax.swing.JLabel getLblRow4Amount() { return lblRow4Amount; }
-    public javax.swing.JLabel getLblRow5Qty() { return lblRow5Qty; }
-    public javax.swing.JLabel getLblRow5Price() { return lblRow5Price; }
-    public javax.swing.JLabel getLblRow5Amount() { return lblRow5Amount; }
+    
     public javax.swing.JLabel getLblSubtotalValue() { return lblSubtotalValue; }
     public javax.swing.JLabel getLblTaxValue() { return lblTaxValue; }
     public javax.swing.JLabel getLblGrandTotalValue() { return lblGrandTotalValue; }
+    
     public javax.swing.JButton getBtnDashboard() { return Dashboard; }
     public javax.swing.JButton getBtnLogout() { return Logout; }
     public javax.swing.JButton getBtnPrintInvoice() { return btnPrintInvoice; }

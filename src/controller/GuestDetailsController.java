@@ -92,7 +92,9 @@ public class GuestDetailsController {
     }
 
     private void openFeedback() {
-        new Feedback().setVisible(true);
+        Feedback fbView = new Feedback();
+        new FeedbackController(fbView);
+        fbView.setVisible(true);
         view.dispose();
     }
 

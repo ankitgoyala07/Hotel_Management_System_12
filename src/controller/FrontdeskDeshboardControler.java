@@ -265,7 +265,8 @@ public class FrontdeskDeshboardControler {
         }
         if (btnStaffs != null) {
             btnStaffs.addActionListener(e -> {
-                new view.OrderFood().setVisible(true);
+                new view.MealTime().setVisible(true);
+                view.dispose();
             });
         }
         if (btnSystemSetting1 != null) {

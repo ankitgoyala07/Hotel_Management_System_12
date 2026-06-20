@@ -17,6 +17,7 @@ public class reports extends javax.swing.JFrame {
      */
     public reports() {
         initComponents();
+        setupFeedbackTable();
     }
 
     /**
@@ -28,411 +29,530 @@ public class reports extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelSidebar = new javax.swing.JPanel();
+        lblLogo = new javax.swing.JLabel();
+        Dashboard = new javax.swing.JButton();
+        Rooms = new javax.swing.JButton();
+        Discount = new javax.swing.JButton();
+        Staffs = new javax.swing.JButton();
+        Sysetemsettings = new javax.swing.JButton();
+        Reports = new javax.swing.JButton();
+        Logout = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jPanelHeader = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jPanelContent = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel_reports_title = new javax.swing.JLabel();
-        jPanel_user = new javax.swing.JPanel();
-        jLabel_user_name = new javax.swing.JLabel();
-        jLabel_user_icon = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jPanel_floor = new javax.swing.JPanel();
-        jLabel_floor_title = new javax.swing.JLabel();
-        jLabel_floor_chart = new javax.swing.JLabel();
-        jLabel_floor_legend1 = new javax.swing.JLabel();
-        jLabel_floor_legend2 = new javax.swing.JLabel();
-        jPanel_revenue = new javax.swing.JPanel();
-        jLabel_rev_title = new javax.swing.JLabel();
-        jLabel_rev_sub = new javax.swing.JLabel();
-        jLabel_rev_value = new javax.swing.JLabel();
-        jPanel_testimonials = new javax.swing.JPanel();
-        jLabel_test_title = new javax.swing.JLabel();
-        jLabel_test1_avatar = new javax.swing.JLabel();
-        jLabel_test1_name = new javax.swing.JLabel();
-        jLabel_test1_sub = new javax.swing.JLabel();
-        jLabel_test1_stars = new javax.swing.JLabel();
-        jLabel_test1_text = new javax.swing.JLabel();
-        jLabel_test2_avatar = new javax.swing.JLabel();
-        jLabel_test2_name = new javax.swing.JLabel();
-        jLabel_test2_sub = new javax.swing.JLabel();
-        jLabel_test2_stars = new javax.swing.JLabel();
-        jLabel_test2_text = new javax.swing.JLabel();
-        jButton_view_reviews = new javax.swing.JButton();
-        jPanel_occupancy = new javax.swing.JPanel();
-        jLabel_occ_title = new javax.swing.JLabel();
-        jButton_occ_monthly = new javax.swing.JButton();
-        jLabel_occ_chart = new javax.swing.JLabel();
-        jPanel_checkin = new javax.swing.JPanel();
-        jLabel_ci_title = new javax.swing.JLabel();
-        jLabel_ci_value = new javax.swing.JLabel();
-        jPanel_checkout = new javax.swing.JPanel();
-        jLabel_co_title = new javax.swing.JLabel();
-        jLabel_co_value = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jPanel19 = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jPanel20 = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(810, 535));
         setPreferredSize(new java.awt.Dimension(930, 650));
+        setResizable(false);
         getContentPane().setLayout(null);
+
+        jPanelSidebar.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelSidebar.setLayout(null);
+
+        lblLogo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        lblLogo.setForeground(new java.awt.Color(37, 99, 235));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogo.setText("HMS");
+        jPanelSidebar.add(lblLogo);
+        lblLogo.setBounds(10, 30, 140, 30);
+
+        Dashboard.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Dashboard.setForeground(new java.awt.Color(37, 99, 235));
+        Dashboard.setText("  Dashboard");
+        Dashboard.setBorderPainted(false);
+        Dashboard.setContentAreaFilled(false);
+        Dashboard.setFocusPainted(false);
+        Dashboard.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Dashboard.addActionListener(this::DashboardActionPerformed);
+        jPanelSidebar.add(Dashboard);
+        Dashboard.setBounds(10, 80, 160, 35);
+
+        Rooms.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Rooms.setText(" Rooms");
+        Rooms.setBorderPainted(false);
+        Rooms.setContentAreaFilled(false);
+        Rooms.setFocusPainted(false);
+        Rooms.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Rooms.addActionListener(this::RoomsActionPerformed);
+        jPanelSidebar.add(Rooms);
+        Rooms.setBounds(10, 120, 160, 35);
+
+        Discount.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Discount.setText(" Discount & Offers");
+        Discount.setBorderPainted(false);
+        Discount.setContentAreaFilled(false);
+        Discount.setFocusPainted(false);
+        Discount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Discount.addActionListener(this::DiscountActionPerformed);
+        jPanelSidebar.add(Discount);
+        Discount.setBounds(10, 160, 160, 35);
+
+        Staffs.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Staffs.setText(" Staffs");
+        Staffs.setBorderPainted(false);
+        Staffs.setContentAreaFilled(false);
+        Staffs.setFocusPainted(false);
+        Staffs.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Staffs.addActionListener(this::StaffsActionPerformed);
+        jPanelSidebar.add(Staffs);
+        Staffs.setBounds(10, 200, 160, 35);
+
+        Sysetemsettings.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Sysetemsettings.setText(" System Settings");
+        Sysetemsettings.setBorderPainted(false);
+        Sysetemsettings.setContentAreaFilled(false);
+        Sysetemsettings.setFocusPainted(false);
+        Sysetemsettings.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Sysetemsettings.addActionListener(this::SysetemsettingsActionPerformed);
+        jPanelSidebar.add(Sysetemsettings);
+        Sysetemsettings.setBounds(10, 240, 160, 35);
+
+        Reports.setBackground(new java.awt.Color(211, 228, 245));
+        Reports.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Reports.setForeground(new java.awt.Color(37, 99, 235));
+        Reports.setText(" Reports");
+        Reports.setBorderPainted(false);
+        Reports.setFocusPainted(false);
+        Reports.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Reports.addActionListener(this::ReportsActionPerformed);
+        jPanelSidebar.add(Reports);
+        Reports.setBounds(10, 280, 160, 35);
+
+        Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        Logout.setText(" Logout");
+        Logout.setBorderPainted(false);
+        Logout.setContentAreaFilled(false);
+        Logout.setFocusPainted(false);
+        Logout.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Logout.addActionListener(this::LogoutActionPerformed);
+        jPanelSidebar.add(Logout);
+        Logout.setBounds(10, 320, 160, 35);
+
+        getContentPane().add(jPanelSidebar);
+        jPanelSidebar.setBounds(0, 0, 180, 500);
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(null);
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel4.add(jSeparator1);
+        jSeparator1.setBounds(0, 0, 3, 500);
+
+        jPanelHeader.setBackground(new java.awt.Color(211, 228, 245));
+        jPanelHeader.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel2.setText("Repots");
+        jPanelHeader.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 7, 220, 30));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel25.setText("Manager");
+        jPanelHeader.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, -1, -1));
+
+        jPanel4.add(jPanelHeader);
+        jPanelHeader.setBounds(20, 20, 560, 37);
+
+        jPanelContent.setBackground(new java.awt.Color(211, 228, 245));
+        jPanelContent.setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 51, 204));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/hms_logo.png"))); // NOI18N
-        jLabel1.setText(" HMS");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("00");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(24, 20, 150, 40);
+        jLabel1.setBounds(50, 30, 60, 40);
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(140, 140, 140));
-        jButton1.setText("Dashboard");
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setFocusPainted(false);
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/dashboard_icon.png"))); // NOI18N
-        jButton1.addActionListener(this::jButton1ActionPerformed);
-        jPanel1.add(jButton1);
-        jButton1.setBounds(15, 90, 170, 40);
-
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(140, 140, 140));
-        jButton2.setText("Rooms");
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setFocusPainted(false);
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/rooms_icon.png"))); // NOI18N
-        jButton2.addActionListener(this::jButton2ActionPerformed);
-        jPanel1.add(jButton2);
-        jButton2.setBounds(15, 140, 170, 40);
-
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(140, 140, 140));
-        jButton3.setText("Discount & Offers");
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setFocusPainted(false);
-        jButton3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/discount_icon.png"))); // NOI18N
-        jButton3.addActionListener(this::jButton3ActionPerformed);
-        jPanel1.add(jButton3);
-        jButton3.setBounds(15, 190, 170, 40);
-
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(140, 140, 140));
-        jButton4.setText("Staffs");
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setFocusPainted(false);
-        jButton4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/staffs_icon.png"))); // NOI18N
-        jButton4.addActionListener(this::jButton4ActionPerformed);
-        jPanel1.add(jButton4);
-        jButton4.setBounds(15, 240, 170, 40);
-
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(140, 140, 140));
-        jButton5.setText("System Setting");
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.setFocusPainted(false);
-        jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/settings_icon.png"))); // NOI18N
-        jButton5.addActionListener(this::jButton5ActionPerformed);
-        jPanel1.add(jButton5);
-        jButton5.setBounds(15, 290, 170, 40);
-
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(0, 102, 255));
-        jButton6.setBackground(new java.awt.Color(224, 238, 255));
-        jButton6.setText("Reports");
-        jButton6.setBorderPainted(false);
-        jButton6.setFocusPainted(false);
-        jButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/reports_icon_active.png"))); // NOI18N
-        jButton6.addActionListener(this::jButton6ActionPerformed);
-        jPanel1.add(jButton6);
-        jButton6.setBounds(15, 340, 170, 40);
-
-        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(140, 140, 140));
-        jButton7.setText("Logout");
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setFocusPainted(false);
-        jButton7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/logout_icon.png"))); // NOI18N
-        jButton7.addActionListener(this::jButton7ActionPerformed);
-        jPanel1.add(jButton7);
-        jButton7.setBounds(15, 390, 170, 40);
-
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 200, 650);
-
-        jPanel2.setBackground(new java.awt.Color(245, 246, 248));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
 
-        jLabel_reports_title.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        jLabel_reports_title.setForeground(new java.awt.Color(80, 80, 80));
-        jLabel_reports_title.setText("Reports");
-        jPanel2.add(jLabel_reports_title);
-        jLabel_reports_title.setBounds(30, 20, 150, 30);
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel6.setText("Total Booking ");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(20, 10, 100, 18);
 
-        jPanel_user.setBackground(new java.awt.Color(225, 225, 225));
-        jPanel_user.setLayout(null);
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setText("00");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(50, 30, 60, 40);
 
-        jLabel_user_name.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_user_name.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel_user_name.setText("Manager");
-        jLabel_user_name.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel_user.add(jLabel_user_name);
-        jLabel_user_name.setBounds(15, 0, 110, 36);
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 0, 0, 0);
 
-        jLabel_user_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/manager_icon.png"))); // NOI18N
-        jPanel_user.add(jLabel_user_icon);
-        jLabel_user_icon.setBounds(140, 8, 20, 20);
-
-        jPanel2.add(jPanel_user);
-        jPanel_user.setBounds(510, 20, 180, 36);
-
-        jPanel3.setBackground(new java.awt.Color(220, 220, 220));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(null);
 
-        jPanel_floor.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel_floor.setLayout(null);
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel7.setText("Total Booking ");
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(20, 10, 100, 18);
 
-        jLabel_floor_title.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_floor_title.setText("Floor status");
-        jPanel_floor.add(jLabel_floor_title);
-        jLabel_floor_title.setBounds(20, 12, 120, 20);
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setText("00");
+        jPanel3.add(jLabel4);
+        jLabel4.setBounds(50, 30, 60, 40);
 
-        jLabel_floor_chart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/floor_status.png"))); // NOI18N
-        jPanel_floor.add(jLabel_floor_chart);
-        jLabel_floor_chart.setBounds(20, 32, 180, 100);
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setLayout(null);
 
-        jLabel_floor_legend1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel_floor_legend1.setForeground(new java.awt.Color(54, 137, 245));
-        jLabel_floor_legend1.setText("● Completed");
-        jPanel_floor.add(jLabel_floor_legend1);
-        jLabel_floor_legend1.setBounds(220, 50, 120, 20);
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel8.setText("Total Booking ");
+        jPanel5.add(jLabel8);
+        jLabel8.setBounds(20, 10, 100, 18);
 
-        jLabel_floor_legend2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel_floor_legend2.setForeground(new java.awt.Color(150, 150, 150));
-        jLabel_floor_legend2.setText("● Yet to Complete");
-        jPanel_floor.add(jLabel_floor_legend2);
-        jLabel_floor_legend2.setBounds(220, 75, 140, 20);
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel9.setText("00");
+        jPanel5.add(jLabel9);
+        jLabel9.setBounds(50, 30, 60, 40);
 
-        jPanel3.add(jPanel_floor);
-        jPanel_floor.setBounds(20, 20, 380, 140);
+        jPanel3.add(jPanel5);
+        jPanel5.setBounds(0, 0, 0, 0);
 
-        jPanel_revenue.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel_revenue.setLayout(null);
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(0, 0, 0, 0);
 
-        jLabel_rev_title.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jLabel_rev_title.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel_rev_title.setText("Total revenue");
-        jPanel_revenue.add(jLabel_rev_title);
-        jLabel_rev_title.setBounds(20, 15, 150, 20);
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel20.setText("Total Booking ");
+        jPanel1.add(jLabel20);
+        jLabel20.setBounds(20, 8, 100, 20);
 
-        jLabel_rev_sub.setForeground(new java.awt.Color(120, 120, 120));
-        jLabel_rev_sub.setText("october");
-        jPanel_revenue.add(jLabel_rev_sub);
-        jLabel_rev_sub.setBounds(45, 42, 80, 20);
+        jPanelContent.add(jPanel1);
+        jPanel1.setBounds(20, 20, 170, 80);
 
-        jLabel_rev_value.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
-        jLabel_rev_value.setForeground(new java.awt.Color(0, 102, 255));
-        jLabel_rev_value.setText("$15000");
-        jLabel_rev_value.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel_revenue.add(jLabel_rev_value);
-        jLabel_rev_value.setBounds(220, 35, 140, 45);
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel6.setLayout(null);
 
-        jPanel3.add(jPanel_revenue);
-        jPanel_revenue.setBounds(20, 175, 380, 115);
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel10.setText("Staff Attendance");
+        jPanel6.add(jLabel10);
+        jLabel10.setBounds(20, 10, 120, 18);
 
-        jPanel_testimonials.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel_testimonials.setLayout(null);
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel11.setText("00");
+        jPanel6.add(jLabel11);
+        jLabel11.setBounds(50, 30, 60, 40);
 
-        jLabel_test_title.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabel_test_title.setForeground(new java.awt.Color(120, 120, 120));
-        jLabel_test_title.setText("RECENT TESTIMONIALS");
-        jPanel_testimonials.add(jLabel_test_title);
-        jLabel_test_title.setBounds(15, 12, 190, 20);
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel14.setLayout(null);
 
-        jLabel_test1_avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/sarah_jenkins.png"))); // NOI18N
-        jPanel_testimonials.add(jLabel_test1_avatar);
-        jLabel_test1_avatar.setBounds(15, 42, 32, 32);
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel27.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel27.setText("Staff Attendance");
+        jPanel14.add(jLabel27);
+        jLabel27.setBounds(20, 10, 120, 18);
 
-        jLabel_test1_name.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabel_test1_name.setText("Sarah Jenkins");
-        jPanel_testimonials.add(jLabel_test1_name);
-        jLabel_test1_name.setBounds(55, 40, 100, 18);
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel28.setText("00");
+        jPanel14.add(jLabel28);
+        jLabel28.setBounds(50, 30, 60, 40);
 
-        jLabel_test1_sub.setFont(new java.awt.Font("Segoe UI", 0, 9)); // NOI18N
-        jLabel_test1_sub.setForeground(new java.awt.Color(140, 140, 140));
-        jLabel_test1_sub.setText("Stayed Sept 2023");
-        jPanel_testimonials.add(jLabel_test1_sub);
-        jLabel_test1_sub.setBounds(55, 55, 90, 15);
+        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel15.setLayout(null);
 
-        jLabel_test1_stars.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/stars_5.png"))); // NOI18N
-        jPanel_testimonials.add(jLabel_test1_stars);
-        jLabel_test1_stars.setBounds(155, 43, 60, 12);
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel29.setText("Total Booking ");
+        jPanel15.add(jLabel29);
+        jLabel29.setBounds(20, 10, 100, 18);
 
-        jLabel_test1_text.setFont(new java.awt.Font("Segoe UI", 0, 9)); // NOI18N
-        jLabel_test1_text.setForeground(new java.awt.Color(80, 80, 80));
-        jLabel_test1_text.setText("<html><i>\"The concierge service was impeccable. They arranged a last-minute dinner reservation that made our anniversary truly special.\"</i></html>");
-        jPanel_testimonials.add(jLabel_test1_text);
-        jLabel_test1_text.setBounds(15, 78, 195, 45);
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel30.setText("00");
+        jPanel15.add(jLabel30);
+        jLabel30.setBounds(50, 30, 60, 40);
 
-        jLabel_test2_avatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/marcus_thorne.png"))); // NOI18N
-        jPanel_testimonials.add(jLabel_test2_avatar);
-        jLabel_test2_avatar.setBounds(15, 132, 32, 32);
+        jPanel14.add(jPanel15);
+        jPanel15.setBounds(0, 0, 0, 0);
 
-        jLabel_test2_name.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
-        jLabel_test2_name.setText("Marcus Thorne");
-        jPanel_testimonials.add(jLabel_test2_name);
-        jLabel_test2_name.setBounds(55, 130, 100, 18);
+        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel16.setLayout(null);
 
-        jLabel_test2_sub.setFont(new java.awt.Font("Segoe UI", 0, 9)); // NOI18N
-        jLabel_test2_sub.setForeground(new java.awt.Color(140, 140, 140));
-        jLabel_test2_sub.setText("Stayed Oct 2023");
-        jPanel_testimonials.add(jLabel_test2_sub);
-        jLabel_test2_sub.setBounds(55, 145, 90, 15);
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel31.setText("Total Booking ");
+        jPanel16.add(jLabel31);
+        jLabel31.setBounds(20, 10, 100, 18);
 
-        jLabel_test2_stars.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/stars_4.png"))); // NOI18N
-        jPanel_testimonials.add(jLabel_test2_stars);
-        jLabel_test2_stars.setBounds(155, 133, 60, 12);
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel32.setText("00");
+        jPanel16.add(jLabel32);
+        jLabel32.setBounds(50, 30, 60, 40);
 
-        jLabel_test2_text.setFont(new java.awt.Font("Segoe UI", 0, 9)); // NOI18N
-        jLabel_test2_text.setForeground(new java.awt.Color(80, 80, 80));
-        jLabel_test2_text.setText("<html><i>\"Immaculate rooms and very fast room service. The breakfast buffet was a highlight &mdash; superb selection of fresh ingredients.\"</i></html>");
-        jPanel_testimonials.add(jLabel_test2_text);
-        jLabel_test2_text.setBounds(15, 168, 195, 45);
+        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel17.setLayout(null);
 
-        jButton_view_reviews.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jButton_view_reviews.setForeground(new java.awt.Color(80, 80, 80));
-        jButton_view_reviews.setText("VIEW ALL REVIEWS");
-        jButton_view_reviews.setFocusPainted(false);
-        jButton_view_reviews.addActionListener(this::jButton_view_reviewsActionPerformed);
-        jPanel_testimonials.add(jButton_view_reviews);
-        jButton_view_reviews.setBounds(20, 225, 185, 30);
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel33.setText("Total Booking ");
+        jPanel17.add(jLabel33);
+        jLabel33.setBounds(20, 10, 100, 18);
 
-        jPanel3.add(jPanel_testimonials);
-        jPanel_testimonials.setBounds(415, 20, 225, 270);
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel34.setText("00");
+        jPanel17.add(jLabel34);
+        jLabel34.setBounds(50, 30, 60, 40);
 
-        jPanel_occupancy.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel_occupancy.setLayout(null);
+        jPanel16.add(jPanel17);
+        jPanel17.setBounds(0, 0, 0, 0);
 
-        jLabel_occ_title.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_occ_title.setText("Occupancy Statistics");
-        jPanel_occupancy.add(jLabel_occ_title);
-        jLabel_occ_title.setBounds(20, 12, 150, 20);
+        jPanel14.add(jPanel16);
+        jPanel16.setBounds(0, 0, 0, 0);
 
-        jButton_occ_monthly.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jButton_occ_monthly.setText("Monthly");
-        jButton_occ_monthly.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/calendar_icon.png"))); // NOI18N
-        jButton_occ_monthly.setFocusPainted(false);
-        jButton_occ_monthly.addActionListener(this::jButton_occ_monthlyActionPerformed);
-        jPanel_occupancy.add(jButton_occ_monthly);
-        jButton_occ_monthly.setBounds(265, 10, 95, 24);
+        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel18.setLayout(null);
 
-        jLabel_occ_chart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/occupancy_chart.png"))); // NOI18N
-        jPanel_occupancy.add(jLabel_occ_chart);
-        jLabel_occ_chart.setBounds(10, 42, 360, 150);
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel35.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel35.setText("Staff Attendance");
+        jPanel18.add(jLabel35);
+        jLabel35.setBounds(20, 10, 120, 18);
 
-        jPanel3.add(jPanel_occupancy);
-        jPanel_occupancy.setBounds(20, 305, 380, 205);
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel36.setText("00");
+        jPanel18.add(jLabel36);
+        jLabel36.setBounds(50, 30, 60, 40);
 
-        jPanel_checkin.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel_checkin.setLayout(null);
+        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel19.setLayout(null);
 
-        jLabel_ci_title.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_ci_title.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel_ci_title.setText("Total check in");
-        jPanel_checkin.add(jLabel_ci_title);
-        jLabel_ci_title.setBounds(15, 12, 150, 20);
+        jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel37.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel37.setText("Total Booking ");
+        jPanel19.add(jLabel37);
+        jLabel37.setBounds(20, 10, 100, 18);
 
-        jLabel_ci_value.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
-        jLabel_ci_value.setForeground(new java.awt.Color(0, 102, 255));
-        jLabel_ci_value.setText("259");
-        jLabel_ci_value.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel_checkin.add(jLabel_ci_value);
-        jLabel_ci_value.setBounds(15, 35, 195, 45);
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel38.setText("00");
+        jPanel19.add(jLabel38);
+        jLabel38.setBounds(50, 30, 60, 40);
 
-        jPanel3.add(jPanel_checkin);
-        jPanel_checkin.setBounds(415, 305, 225, 95);
+        jPanel18.add(jPanel19);
+        jPanel19.setBounds(0, 0, 0, 0);
 
-        jPanel_checkout.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel_checkout.setLayout(null);
+        jPanel20.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel20.setLayout(null);
 
-        jLabel_co_title.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel_co_title.setForeground(new java.awt.Color(60, 60, 60));
-        jLabel_co_title.setText("Total check out");
-        jPanel_checkout.add(jLabel_co_title);
-        jLabel_co_title.setBounds(15, 12, 150, 20);
+        jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel39.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel39.setText("Total Booking ");
+        jPanel20.add(jLabel39);
+        jLabel39.setBounds(20, 10, 100, 18);
 
-        jLabel_co_value.setFont(new java.awt.Font("Segoe UI", 1, 32)); // NOI18N
-        jLabel_co_value.setForeground(new java.awt.Color(0, 102, 255));
-        jLabel_co_value.setText("250");
-        jLabel_co_value.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel_checkout.add(jLabel_co_value);
-        jLabel_co_value.setBounds(15, 35, 195, 45);
+        jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel40.setText("00");
+        jPanel20.add(jLabel40);
+        jLabel40.setBounds(50, 30, 60, 40);
 
-        jPanel3.add(jPanel_checkout);
-        jPanel_checkout.setBounds(415, 415, 225, 95);
+        jPanel21.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel21.setLayout(null);
 
-        jPanel2.add(jPanel3);
-        jPanel3.setBounds(30, 70, 660, 530);
+        jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel41.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel41.setText("Total Booking ");
+        jPanel21.add(jLabel41);
+        jLabel41.setBounds(20, 10, 100, 18);
 
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(200, 0, 720, 650);
+        jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel42.setText("00");
+        jPanel21.add(jLabel42);
+        jLabel42.setBounds(50, 30, 60, 40);
+
+        jPanel20.add(jPanel21);
+        jPanel21.setBounds(0, 0, 0, 0);
+
+        jPanel18.add(jPanel20);
+        jPanel20.setBounds(0, 0, 0, 0);
+
+        jPanel14.add(jPanel18);
+        jPanel18.setBounds(20, 110, 170, 80);
+
+        jPanel6.add(jPanel14);
+        jPanel14.setBounds(20, 110, 170, 80);
+
+        jPanelContent.add(jPanel6);
+        jPanel6.setBounds(20, 160, 170, 80);
+
+        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel7.setLayout(null);
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel12.setText("Total Offers");
+        jPanel7.add(jLabel12);
+        jLabel12.setBounds(20, 10, 100, 18);
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel13.setText("00");
+        jPanel7.add(jLabel13);
+        jLabel13.setBounds(50, 30, 60, 40);
+
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel8.setLayout(null);
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel14.setText("Total Booking ");
+        jPanel8.add(jLabel14);
+        jLabel14.setBounds(20, 10, 100, 18);
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel15.setText("00");
+        jPanel8.add(jLabel15);
+        jLabel15.setBounds(50, 30, 60, 40);
+
+        jPanel7.add(jPanel8);
+        jPanel8.setBounds(0, 0, 0, 0);
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setLayout(null);
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel16.setText("Total Booking ");
+        jPanel9.add(jLabel16);
+        jLabel16.setBounds(20, 10, 100, 18);
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel17.setText("00");
+        jPanel9.add(jLabel17);
+        jLabel17.setBounds(50, 30, 60, 40);
+
+        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel10.setLayout(null);
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel18.setText("Total Booking ");
+        jPanel10.add(jLabel18);
+        jLabel18.setBounds(20, 10, 100, 18);
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel19.setText("00");
+        jPanel10.add(jLabel19);
+        jLabel19.setBounds(50, 30, 60, 40);
+
+        jPanel9.add(jPanel10);
+        jPanel10.setBounds(0, 0, 0, 0);
+
+        jPanel7.add(jPanel9);
+        jPanel9.setBounds(0, 0, 0, 0);
+
+        jPanelContent.add(jPanel7);
+        jPanel7.setBounds(20, 290, 170, 80);
+
+        jPanel11.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel11.setLayout(null);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(75, 85, 99));
+        jLabel5.setText("Feedback and Review");
+        jPanel11.add(jLabel5);
+        jLabel5.setBounds(80, 10, 150, 18);
+
+        jPanelContent.add(jPanel11);
+        jPanel11.setBounds(240, 20, 340, 350);
+
+        jPanel4.add(jPanelContent);
+        jPanelContent.setBounds(20, 90, 590, 390);
+
+        getContentPane().add(jPanel4);
+        jPanel4.setBounds(180, 0, 620, 500);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void DashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashboardActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_DashboardActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void RoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_RoomsActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void DiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiscountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_DiscountActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void StaffsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StaffsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_StaffsActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void SysetemsettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SysetemsettingsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_SysetemsettingsActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void ReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_ReportsActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton_view_reviewsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_view_reviewsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_view_reviewsActionPerformed
-
-    private void jButton_occ_monthlyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_occ_monthlyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton_occ_monthlyActionPerformed
+    }//GEN-LAST:event_LogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -460,61 +580,124 @@ public class reports extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton_occ_monthly;
-    private javax.swing.JButton jButton_view_reviews;
+    private javax.swing.JButton Dashboard;
+    private javax.swing.JButton Discount;
+    private javax.swing.JButton Logout;
+    private javax.swing.JButton Reports;
+    private javax.swing.JButton Rooms;
+    private javax.swing.JButton Staffs;
+    private javax.swing.JButton Sysetemsettings;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel_ci_title;
-    private javax.swing.JLabel jLabel_ci_value;
-    private javax.swing.JLabel jLabel_co_title;
-    private javax.swing.JLabel jLabel_co_value;
-    private javax.swing.JLabel jLabel_floor_chart;
-    private javax.swing.JLabel jLabel_floor_legend1;
-    private javax.swing.JLabel jLabel_floor_legend2;
-    private javax.swing.JLabel jLabel_floor_title;
-    private javax.swing.JLabel jLabel_occ_chart;
-    private javax.swing.JLabel jLabel_occ_title;
-    private javax.swing.JLabel jLabel_reports_title;
-    private javax.swing.JLabel jLabel_rev_sub;
-    private javax.swing.JLabel jLabel_rev_title;
-    private javax.swing.JLabel jLabel_rev_value;
-    private javax.swing.JLabel jLabel_test1_avatar;
-    private javax.swing.JLabel jLabel_test1_name;
-    private javax.swing.JLabel jLabel_test1_stars;
-    private javax.swing.JLabel jLabel_test1_sub;
-    private javax.swing.JLabel jLabel_test1_text;
-    private javax.swing.JLabel jLabel_test2_avatar;
-    private javax.swing.JLabel jLabel_test2_name;
-    private javax.swing.JLabel jLabel_test2_stars;
-    private javax.swing.JLabel jLabel_test2_sub;
-    private javax.swing.JLabel jLabel_test2_text;
-    private javax.swing.JLabel jLabel_test_title;
-    private javax.swing.JLabel jLabel_user_icon;
-    private javax.swing.JLabel jLabel_user_name;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel_checkin;
-    private javax.swing.JPanel jPanel_checkout;
-    private javax.swing.JPanel jPanel_floor;
-    private javax.swing.JPanel jPanel_occupancy;
-    private javax.swing.JPanel jPanel_revenue;
-    private javax.swing.JPanel jPanel_testimonials;
-    private javax.swing.JPanel jPanel_user;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanelContent;
+    private javax.swing.JPanel jPanelHeader;
+    private javax.swing.JPanel jPanelSidebar;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
 
-    public javax.swing.JButton getBtnDashboard() { return jButton1; }
-    public javax.swing.JButton getBtnRooms() { return jButton2; }
-    public javax.swing.JButton getBtnDiscount() { return jButton3; }
-    public javax.swing.JButton getBtnStaffs() { return jButton4; }
-    public javax.swing.JButton getBtnSystemSetting() { return jButton5; }
-    public javax.swing.JButton getBtnReports() { return jButton6; }
-    public javax.swing.JButton getBtnLogout() { return jButton7; }
-}
+    private javax.swing.JTable jTableFeedback;
+    private javax.swing.JScrollPane jScrollPaneFeedback;
 
+    private void setupFeedbackTable() {
+        jScrollPaneFeedback = new javax.swing.JScrollPane();
+        jTableFeedback = new javax.swing.JTable();
+
+        jTableFeedback.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {},
+            new String [] {
+                "Service", "Clean", "Food", "Review"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            @Override
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+
+        jTableFeedback.setRowHeight(30);
+        jTableFeedback.setSelectionBackground(new java.awt.Color(211, 228, 245));
+        jScrollPaneFeedback.setViewportView(jTableFeedback);
+        jPanel11.add(jScrollPaneFeedback);
+        jScrollPaneFeedback.setBounds(10, 40, 280, 300);
+    }
+
+    public javax.swing.JLabel getLblTotalBookings() { return jLabel1; }
+    public javax.swing.JLabel getLblStaffAttendance() { return jLabel11; }
+    public javax.swing.JLabel getLblTotalOffers() { return jLabel13; }
+    public javax.swing.JTable getTblFeedback() { return jTableFeedback; }
+
+    public javax.swing.JButton getBtnDashboard() { return Dashboard; }
+    public javax.swing.JButton getBtnRooms() { return Rooms; }
+    public javax.swing.JButton getBtnDiscount() { return Discount; }
+    public javax.swing.JButton getBtnStaffs() { return Staffs; }
+    public javax.swing.JButton getBtnSystemSetting() { return Sysetemsettings; }
+    public javax.swing.JButton getBtnReports() { return Reports; }
+    public javax.swing.JButton getBtnLogout() { return Logout; }
+}

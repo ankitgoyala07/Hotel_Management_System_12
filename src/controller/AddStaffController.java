@@ -27,7 +27,9 @@ public class AddStaffController {
                 view.getTxtPhone().setText("");
                 view.getTxtEmail().setText("");
                 view.getTxtAddress().setText("");
-                view.getTxtRole().setText("");
+                if (view.getComboRole() != null) {
+                    view.getComboRole().setSelectedIndex(0);
+                }
                 view.getTxtShift().setText("");
             });
         }
@@ -40,7 +42,9 @@ public class AddStaffController {
                 String phone = view.getTxtPhone().getText().trim();
                 String email = view.getTxtEmail().getText().trim();
                 String address = view.getTxtAddress().getText().trim();
-                String role = view.getTxtRole().getText().trim();
+                String role = (view.getComboRole() != null && view.getComboRole().getSelectedItem() != null) 
+                             ? view.getComboRole().getSelectedItem().toString().trim() 
+                             : "";
                 String shift = view.getTxtShift().getText().trim();
 
                 if (staffId.isEmpty() || name.isEmpty() || phone.isEmpty() || email.isEmpty() ||

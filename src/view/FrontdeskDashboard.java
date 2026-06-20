@@ -822,7 +822,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         jPanel2.add(jLabel75);
         jLabel75.setBounds(260, 140, 130, 20);
         jPanel2.add(jCalendar1);
-        jCalendar1.setBounds(400, 290, 170, 120);
+        jCalendar1.setBounds(400, 300, 170, 120);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(20, 70, 580, 420);
@@ -831,6 +831,7 @@ public class FrontdeskDashboard extends javax.swing.JFrame {
         jPanel1.setBounds(180, 0, 620, 500);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutActionPerformed

@@ -50,7 +50,7 @@ public class StaffAttendence extends javax.swing.JFrame {
         Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 535));
+        setMinimumSize(new java.awt.Dimension(810, 535));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -209,6 +209,7 @@ public class StaffAttendence extends javax.swing.JFrame {
         jPanelSidebar.setBounds(0, 0, 180, 500);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void DashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashboardActionPerformed

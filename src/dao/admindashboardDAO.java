@@ -21,6 +21,11 @@ public class admindashboardDAO {
         int totalRooms = 0;
         int availableRooms = 0;
         int occupiedRooms = 0;
+        int totalStaffs = 0;
+        int frontdeskStaff = 0;
+        int chefStaff = 0;
+        int helperStaff = 0;
+        int cleanerStaff = 0;
 
         if (conn != null) {
             try {
@@ -61,6 +66,41 @@ public class admindashboardDAO {
                     }
                 }
 
+                // totalStaffs
+                try (ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM staff")) {
+                    if (rs.next()) {
+                        totalStaffs = rs.getInt(1);
+                    }
+                }
+
+                // frontdeskStaff
+                try (ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM staff WHERE role IN ('Frontdesh Staff', 'Frontdesk Staff')")) {
+                    if (rs.next()) {
+                        frontdeskStaff = rs.getInt(1);
+                    }
+                }
+
+                // chefStaff
+                try (ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM staff WHERE role = 'Chef'")) {
+                    if (rs.next()) {
+                        chefStaff = rs.getInt(1);
+                    }
+                }
+
+                // helperStaff
+                try (ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM staff WHERE role = 'Helper'")) {
+                    if (rs.next()) {
+                        helperStaff = rs.getInt(1);
+                    }
+                }
+
+                // cleanerStaff
+                try (ResultSet rs = stmt.executeQuery("SELECT COUNT(*) FROM staff WHERE role = 'Cleaner'")) {
+                    if (rs.next()) {
+                        cleanerStaff = rs.getInt(1);
+                    }
+                }
+
                 stmt.close();
             } catch (Exception e) {
                 System.out.println("Error fetching dashboard statistics: " + e.getMessage());
@@ -69,14 +109,14 @@ public class admindashboardDAO {
             }
         } else {
             System.out.println("Warning: Database connection failed. Returning default/mock dashboard statistics.");
-            return new admindashboardModel(4, 2, 60, 25, 35);
+            return new admindashboardModel(4, 2, 60, 25, 35, 12, 3, 3, 3, 3);
         }
 
         // If database returned 0 rooms (empty rooms database), provide a sensible default
         if (totalRooms == 0) {
-            return new admindashboardModel(4, 2, 60, 25, 35);
+            return new admindashboardModel(4, 2, 60, 25, 35, totalStaffs, frontdeskStaff, chefStaff, helperStaff, cleanerStaff);
         }
 
-        return new admindashboardModel(todayCheckIn, todayCheckOut, totalRooms, availableRooms, occupiedRooms);
+        return new admindashboardModel(todayCheckIn, todayCheckOut, totalRooms, availableRooms, occupiedRooms, totalStaffs, frontdeskStaff, chefStaff, helperStaff, cleanerStaff);
     }
 }

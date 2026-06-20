@@ -88,6 +88,8 @@ public class OrderFood extends javax.swing.JFrame {
         jLabelItem7Desc = new javax.swing.JLabel();
         jLabelItem7Price = new javax.swing.JLabel();
         jButtonAdd7 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jPanelOrder = new javax.swing.JPanel();
         jLabelYourOrder = new javax.swing.JLabel();
         jLabelOrderBadge = new javax.swing.JLabel();
@@ -107,10 +109,13 @@ public class OrderFood extends javax.swing.JFrame {
         jLabelTotalValue = new javax.swing.JLabel();
         jButtonComplete = new javax.swing.JButton();
         jButtonItem2Remove1 = new javax.swing.JButton();
+        jPanelHeader = new javax.swing.JPanel();
+        jLabelHeaderTitle = new javax.swing.JLabel();
+        jLabelGuestRole = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Food Ordering");
-        setMinimumSize(new java.awt.Dimension(800, 500));
+        setMinimumSize(new java.awt.Dimension(810, 535));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -218,18 +223,16 @@ public class OrderFood extends javax.swing.JFrame {
         jLabelGuestServices.setBounds(15, 10, 120, 20);
 
         jTextFieldRoomId.setForeground(new java.awt.Color(160, 165, 180));
-        jTextFieldRoomId.setText("Enter room id");
         jPanelMenu.add(jTextFieldRoomId);
-        jTextFieldRoomId.setBounds(150, 8, 100, 24);
+        jTextFieldRoomId.setBounds(150, 20, 100, 24);
 
         jTextFieldSearch.setForeground(new java.awt.Color(160, 165, 180));
-        jTextFieldSearch.setText("Search menu...");
         jPanelMenu.add(jTextFieldSearch);
-        jTextFieldSearch.setBounds(260, 8, 120, 24);
+        jTextFieldSearch.setBounds(260, 20, 120, 24);
 
         jLabelMenuTitle.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         jLabelMenuTitle.setForeground(new java.awt.Color(25, 30, 50));
-        jLabelMenuTitle.setText("Room Service Menu");
+        jLabelMenuTitle.setText("Food Menu");
         jPanelMenu.add(jLabelMenuTitle);
         jLabelMenuTitle.setBounds(15, 40, 250, 25);
 
@@ -489,6 +492,14 @@ public class OrderFood extends javax.swing.JFrame {
         jPanelMenu.add(jPanelItem7);
         jPanelItem7.setBounds(200, 348, 180, 50);
 
+        jLabel1.setText("Room no.");
+        jPanelMenu.add(jLabel1);
+        jLabel1.setBounds(150, 0, 70, 20);
+
+        jLabel2.setText("Search menu");
+        jPanelMenu.add(jLabel2);
+        jLabel2.setBounds(260, 0, 70, 20);
+
         jPanelCard.add(jPanelMenu);
         jPanelMenu.setBounds(10, 10, 390, 400);
 
@@ -605,10 +616,29 @@ public class OrderFood extends javax.swing.JFrame {
         jButtonItem2Remove1.setBounds(100, 70, 65, 18);
 
         jPanelCard.add(jPanelOrder);
-        jPanelOrder.setBounds(410, 0, 180, 430);
+        jPanelOrder.setBounds(410, 0, 180, 410);
 
         jPanel1.add(jPanelCard);
-        jPanelCard.setBounds(10, 60, 590, 430);
+        jPanelCard.setBounds(10, 70, 590, 420);
+
+        jPanelHeader.setBackground(new java.awt.Color(211, 228, 245));
+        jPanelHeader.setLayout(null);
+
+        jLabelHeaderTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelHeaderTitle.setForeground(new java.awt.Color(75, 75, 85));
+        jLabelHeaderTitle.setText("Order Food");
+        jPanelHeader.add(jLabelHeaderTitle);
+        jLabelHeaderTitle.setBounds(15, 12, 200, 20);
+
+        jLabelGuestRole.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelGuestRole.setForeground(new java.awt.Color(75, 75, 85));
+        jLabelGuestRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelGuestRole.setText("Guest");
+        jPanelHeader.add(jLabelGuestRole);
+        jLabelGuestRole.setBounds(480, 12, 60, 20);
+
+        jPanel1.add(jPanelHeader);
+        jPanelHeader.setBounds(10, 10, 590, 45);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(180, 0, 620, 500);
@@ -775,10 +805,14 @@ public class OrderFood extends javax.swing.JFrame {
     private javax.swing.JButton jButtonLogout;
     private javax.swing.JButton jButtonOrderFood;
     private javax.swing.JButton jButtonRoomBrowse;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelBeverages;
     private javax.swing.JLabel jLabelBreakfast;
+    private javax.swing.JLabel jLabelGuestRole;
     private javax.swing.JLabel jLabelGuestServices;
     private javax.swing.JLabel jLabelHMS;
+    private javax.swing.JLabel jLabelHeaderTitle;
     private javax.swing.JLabel jLabelItem1Desc;
     private javax.swing.JLabel jLabelItem1Name;
     private javax.swing.JLabel jLabelItem1Price;
@@ -815,6 +849,7 @@ public class OrderFood extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelYourOrder;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelCard;
+    private javax.swing.JPanel jPanelHeader;
     private javax.swing.JPanel jPanelItem1;
     private javax.swing.JPanel jPanelItem2;
     private javax.swing.JPanel jPanelItem3;

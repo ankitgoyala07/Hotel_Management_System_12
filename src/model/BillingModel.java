@@ -2,8 +2,7 @@ package model;
 
 /**
  * Model class representing billing and invoice data.
- *
- * @author i3
+ * Simplified to support: Room charges, Room Service & Amenities, and Food Orders.
  */
 public class BillingModel {
     private String guestId;
@@ -13,24 +12,21 @@ public class BillingModel {
     private double roomRate;
     private double roomService;
     private double foodOrders;
-    private double laundry;
-    private double miniBar;
+    private String roomType;
 
     public BillingModel() {
-        // Default constructor with standard reference values
         this.guestId = "001";
-        this.roomId = "001";
+        this.roomId = "101";
         this.stayPeriod = "Oct 14 - Oct 18 (4 Nights)";
         this.nights = 4;
-        this.roomRate = 250.00;
-        this.roomService = 65.50;
-        this.foodOrders = 145.00;
-        this.laundry = 36.00;
-        this.miniBar = 22.00;
+        this.roomRate = 80.00;
+        this.roomService = 0.0;
+        this.foodOrders = 0.0;
+        this.roomType = "Single";
     }
 
     public BillingModel(String guestId, String roomId, String stayPeriod, int nights, double roomRate,
-                        double roomService, double foodOrders, double laundry, double miniBar) {
+                        double roomService, double foodOrders, String roomType) {
         this.guestId = guestId;
         this.roomId = roomId;
         this.stayPeriod = stayPeriod;
@@ -38,11 +34,9 @@ public class BillingModel {
         this.roomRate = roomRate;
         this.roomService = roomService;
         this.foodOrders = foodOrders;
-        this.laundry = laundry;
-        this.miniBar = miniBar;
+        this.roomType = roomType;
     }
 
-    // Getters and Setters
     public String getGuestId() { return guestId; }
     public void setGuestId(String guestId) { this.guestId = guestId; }
 
@@ -64,19 +58,15 @@ public class BillingModel {
     public double getFoodOrders() { return foodOrders; }
     public void setFoodOrders(double foodOrders) { this.foodOrders = foodOrders; }
 
-    public double getLaundry() { return laundry; }
-    public void setLaundry(double laundry) { this.laundry = laundry; }
+    public String getRoomType() { return roomType; }
+    public void setRoomType(String roomType) { this.roomType = roomType; }
 
-    public double getMiniBar() { return miniBar; }
-    public void setMiniBar(double miniBar) { this.miniBar = miniBar; }
-
-    // Computed totals
     public double getStayAmount() {
         return nights * roomRate;
     }
 
     public double getSubtotal() {
-        return getStayAmount() + roomService + foodOrders + laundry + miniBar;
+        return getStayAmount() + roomService + foodOrders;
     }
 
     public double getTax() {

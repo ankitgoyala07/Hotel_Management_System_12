@@ -59,6 +59,8 @@ public class AddDiscount extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(810, 535));
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanelSidebar2.setBackground(new java.awt.Color(255, 255, 255));
@@ -249,6 +251,7 @@ public class AddDiscount extends javax.swing.JFrame {
         jPanel1.setBounds(180, 0, 620, 500);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Dashboard2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Dashboard2MouseClicked
