@@ -178,27 +178,19 @@ public class FrontdeskDeshboardControler {
         } else {
             int option = JOptionPane.showConfirmDialog(
                 view,
-                "Do you want to check out of Room " + room.getRoomNumber() + "?",
-                "Checkout Room",
+                "Do you want to proceed to Billing / Checkout for Room " + room.getRoomNumber() + "?",
+                "Proceed to Billing",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE
             );
             if (option == JOptionPane.YES_OPTION) {
-                if (dao.updateRoomStatus(room.getRoomNumber(), "Available")) {
-                    room.setStatus("Available");
-                    updateLabelVisuals(label, "Available");
-                    updateOverviewStats();
-                    JOptionPane.showMessageDialog(view, "Room " + room.getRoomNumber() + " checked out successfully!");
-                    
-                    // Redirect to Billing Section
-                    try {
-                        new BillingController(room.getRoomNumber());
-                        view.dispose();
-                    } catch (Exception ex) {
-                        System.out.println("Error redirecting to billing: " + ex.getMessage());
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(view, "Failed to check out room.", "Error", JOptionPane.ERROR_MESSAGE);
+                // Redirect to Billing Section
+                try {
+                    BillingController billingController = new BillingController(room.getRoomNumber());
+                    view.dispose();
+                } catch (Exception ex) {
+                    System.out.println("Error redirecting to billing: " + ex.getMessage());
+                    JOptionPane.showMessageDialog(view, "Failed to open billing screen.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         }

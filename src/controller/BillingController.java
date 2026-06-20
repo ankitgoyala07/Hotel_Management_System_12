@@ -67,12 +67,12 @@ public class BillingController {
             view.getBtnPrintInvoice().addActionListener(e -> {
                 String roomNo = (view.getTxtRoomNo() != null) ? view.getTxtRoomNo().getText().trim() : "";
                 if (roomNo.isEmpty()) {
-                    JOptionPane.showMessageDialog(view, "Please enter a valid Room number first.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(view, "Please enter a valid Room number.", "Error", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
                 boolean success = dao.checkoutRoom(roomNo);
                 if (success) {
-                    JOptionPane.showMessageDialog(view, "Invoice printed and Room " + roomNo + " checked out successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(view, "Invoice printed sucessfully. Room " + roomNo + " checked out successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
                     // Refresh stats
                     loadBilling(dao.getBillingForRoom(roomNo));
                 } else {

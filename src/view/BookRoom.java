@@ -122,7 +122,7 @@ public class BookRoom extends javax.swing.JFrame {
         jPanelCol1.setBackground(new java.awt.Color(255, 255, 255));
         jPanelCol1.setLayout(null);
 
-        jLabelVipImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/vip.jpg"))); // NOI18N
+        jLabelVipImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/vip.jpg"))); // NOI18N
         jPanelCol1.add(jLabelVipImage);
         jLabelVipImage.setBounds(10, 10, 180, 130);
 
@@ -146,7 +146,7 @@ public class BookRoom extends javax.swing.JFrame {
         jPanelCol1.add(jLabelVipPerNight);
         jLabelVipPerNight.setBounds(130, 160, 65, 12);
 
-        jLabelVipAreaIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/icon_area.png"))); // NOI18N
+        jLabelVipAreaIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_area.png"))); // NOI18N
         jPanelCol1.add(jLabelVipAreaIcon);
         jLabelVipAreaIcon.setBounds(10, 170, 14, 14);
 
@@ -156,7 +156,7 @@ public class BookRoom extends javax.swing.JFrame {
         jPanelCol1.add(jLabel_vip_size);
         jLabel_vip_size.setBounds(30, 170, 40, 14);
 
-        jLabelVipBedIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/icon_bed.png"))); // NOI18N
+        jLabelVipBedIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_bed.png"))); // NOI18N
         jPanelCol1.add(jLabelVipBedIcon);
         jLabelVipBedIcon.setBounds(70, 170, 14, 14);
 
@@ -200,7 +200,7 @@ public class BookRoom extends javax.swing.JFrame {
         jPanelCol2.setBackground(new java.awt.Color(255, 255, 255));
         jPanelCol2.setLayout(null);
 
-        jLabelDoubleImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/doble.jpg"))); // NOI18N
+        jLabelDoubleImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/doble.jpg"))); // NOI18N
         jPanelCol2.add(jLabelDoubleImage);
         jLabelDoubleImage.setBounds(5, 10, 180, 130);
 
@@ -224,7 +224,7 @@ public class BookRoom extends javax.swing.JFrame {
         jPanelCol2.add(jLabelDoublePerNight);
         jLabelDoublePerNight.setBounds(120, 160, 55, 12);
 
-        jLabelDoubleAreaIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/icon_area.png"))); // NOI18N
+        jLabelDoubleAreaIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_area.png"))); // NOI18N
         jPanelCol2.add(jLabelDoubleAreaIcon);
         jLabelDoubleAreaIcon.setBounds(10, 170, 14, 14);
 
@@ -234,7 +234,7 @@ public class BookRoom extends javax.swing.JFrame {
         jPanelCol2.add(jLabel_double_size);
         jLabel_double_size.setBounds(20, 170, 40, 14);
 
-        jLabelDoubleBedIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/icon_bed.png"))); // NOI18N
+        jLabelDoubleBedIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_bed.png"))); // NOI18N
         jPanelCol2.add(jLabelDoubleBedIcon);
         jLabelDoubleBedIcon.setBounds(70, 170, 14, 14);
 
@@ -278,7 +278,7 @@ public class BookRoom extends javax.swing.JFrame {
         jPanelCol3.setBackground(new java.awt.Color(255, 255, 255));
         jPanelCol3.setLayout(null);
 
-        jLabelSingleImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/singal.jpg"))); // NOI18N
+        jLabelSingleImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/singal.jpg"))); // NOI18N
         jPanelCol3.add(jLabelSingleImage);
         jLabelSingleImage.setBounds(5, 10, 180, 120);
 
@@ -302,7 +302,7 @@ public class BookRoom extends javax.swing.JFrame {
         jPanelCol3.add(jLabelSinglePerNight);
         jLabelSinglePerNight.setBounds(110, 160, 55, 12);
 
-        jLabelSingleAreaIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/icon_area.png"))); // NOI18N
+        jLabelSingleAreaIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_area.png"))); // NOI18N
         jPanelCol3.add(jLabelSingleAreaIcon);
         jLabelSingleAreaIcon.setBounds(10, 170, 14, 14);
 
@@ -312,7 +312,7 @@ public class BookRoom extends javax.swing.JFrame {
         jPanelCol3.add(jLabel_single_size);
         jLabel_single_size.setBounds(20, 170, 40, 14);
 
-        jLabelSingleBedIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iamges/icon_bed.png"))); // NOI18N
+        jLabelSingleBedIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon_bed.png"))); // NOI18N
         jPanelCol3.add(jLabelSingleBedIcon);
         jLabelSingleBedIcon.setBounds(70, 170, 14, 14);
 

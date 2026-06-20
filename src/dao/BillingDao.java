@@ -306,6 +306,24 @@ public class BillingDao {
                 }
             }
 
+            // 5. Delete food orders for this room
+            if (roomNum != -1) {
+                String deleteFoodSql = "DELETE FROM food_orders WHERE room_no = ?";
+                try (PreparedStatement pstm = conn.prepareStatement(deleteFoodSql)) {
+                    pstm.setInt(1, roomNum);
+                    pstm.executeUpdate();
+                }
+            }
+
+            // 6. Delete room service requests for this room
+            if (roomNum != -1) {
+                String deleteServiceSql = "DELETE FROM room_service WHERE room_no = ?";
+                try (PreparedStatement pstm = conn.prepareStatement(deleteServiceSql)) {
+                    pstm.setInt(1, roomNum);
+                    pstm.executeUpdate();
+                }
+            }
+
             conn.commit();
             return true;
         } catch (Exception e) {

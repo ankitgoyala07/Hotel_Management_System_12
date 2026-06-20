@@ -55,51 +55,14 @@ public class reports extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jPanel15 = new javax.swing.JPanel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jPanel16 = new javax.swing.JPanel();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jPanel17 = new javax.swing.JPanel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jPanel18 = new javax.swing.JPanel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jPanel19 = new javax.swing.JPanel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jPanel20 = new javax.swing.JPanel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jPanel21 = new javax.swing.JPanel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(810, 535));
-        setPreferredSize(new java.awt.Dimension(930, 650));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -227,7 +190,7 @@ public class reports extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel6.setText("Total Booking ");
+        jLabel6.setText("Staff Attendance");
         jPanel2.add(jLabel6);
         jLabel6.setBounds(20, 10, 100, 18);
 
@@ -244,7 +207,7 @@ public class reports extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel7.setText("Total Booking ");
+        jLabel7.setText("Total Offers");
         jPanel3.add(jLabel7);
         jLabel7.setBounds(20, 10, 100, 18);
 
@@ -280,228 +243,7 @@ public class reports extends javax.swing.JFrame {
         jLabel20.setBounds(20, 8, 100, 20);
 
         jPanelContent.add(jPanel1);
-        jPanel1.setBounds(20, 20, 170, 80);
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setLayout(null);
-
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel10.setText("Staff Attendance");
-        jPanel6.add(jLabel10);
-        jLabel10.setBounds(20, 10, 120, 18);
-
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel11.setText("00");
-        jPanel6.add(jLabel11);
-        jLabel11.setBounds(50, 30, 60, 40);
-
-        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel14.setLayout(null);
-
-        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel27.setText("Staff Attendance");
-        jPanel14.add(jLabel27);
-        jLabel27.setBounds(20, 10, 120, 18);
-
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel28.setText("00");
-        jPanel14.add(jLabel28);
-        jLabel28.setBounds(50, 30, 60, 40);
-
-        jPanel15.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel15.setLayout(null);
-
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel29.setText("Total Booking ");
-        jPanel15.add(jLabel29);
-        jLabel29.setBounds(20, 10, 100, 18);
-
-        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel30.setText("00");
-        jPanel15.add(jLabel30);
-        jLabel30.setBounds(50, 30, 60, 40);
-
-        jPanel14.add(jPanel15);
-        jPanel15.setBounds(0, 0, 0, 0);
-
-        jPanel16.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel16.setLayout(null);
-
-        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel31.setText("Total Booking ");
-        jPanel16.add(jLabel31);
-        jLabel31.setBounds(20, 10, 100, 18);
-
-        jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel32.setText("00");
-        jPanel16.add(jLabel32);
-        jLabel32.setBounds(50, 30, 60, 40);
-
-        jPanel17.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel17.setLayout(null);
-
-        jLabel33.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel33.setText("Total Booking ");
-        jPanel17.add(jLabel33);
-        jLabel33.setBounds(20, 10, 100, 18);
-
-        jLabel34.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel34.setText("00");
-        jPanel17.add(jLabel34);
-        jLabel34.setBounds(50, 30, 60, 40);
-
-        jPanel16.add(jPanel17);
-        jPanel17.setBounds(0, 0, 0, 0);
-
-        jPanel14.add(jPanel16);
-        jPanel16.setBounds(0, 0, 0, 0);
-
-        jPanel18.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel18.setLayout(null);
-
-        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel35.setText("Staff Attendance");
-        jPanel18.add(jLabel35);
-        jLabel35.setBounds(20, 10, 120, 18);
-
-        jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel36.setText("00");
-        jPanel18.add(jLabel36);
-        jLabel36.setBounds(50, 30, 60, 40);
-
-        jPanel19.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel19.setLayout(null);
-
-        jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel37.setText("Total Booking ");
-        jPanel19.add(jLabel37);
-        jLabel37.setBounds(20, 10, 100, 18);
-
-        jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel38.setText("00");
-        jPanel19.add(jLabel38);
-        jLabel38.setBounds(50, 30, 60, 40);
-
-        jPanel18.add(jPanel19);
-        jPanel19.setBounds(0, 0, 0, 0);
-
-        jPanel20.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel20.setLayout(null);
-
-        jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel39.setText("Total Booking ");
-        jPanel20.add(jLabel39);
-        jLabel39.setBounds(20, 10, 100, 18);
-
-        jLabel40.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel40.setText("00");
-        jPanel20.add(jLabel40);
-        jLabel40.setBounds(50, 30, 60, 40);
-
-        jPanel21.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel21.setLayout(null);
-
-        jLabel41.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel41.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel41.setText("Total Booking ");
-        jPanel21.add(jLabel41);
-        jLabel41.setBounds(20, 10, 100, 18);
-
-        jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel42.setText("00");
-        jPanel21.add(jLabel42);
-        jLabel42.setBounds(50, 30, 60, 40);
-
-        jPanel20.add(jPanel21);
-        jPanel21.setBounds(0, 0, 0, 0);
-
-        jPanel18.add(jPanel20);
-        jPanel20.setBounds(0, 0, 0, 0);
-
-        jPanel14.add(jPanel18);
-        jPanel18.setBounds(20, 110, 170, 80);
-
-        jPanel6.add(jPanel14);
-        jPanel14.setBounds(20, 110, 170, 80);
-
-        jPanelContent.add(jPanel6);
-        jPanel6.setBounds(20, 160, 170, 80);
-
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel7.setLayout(null);
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel12.setText("Total Offers");
-        jPanel7.add(jLabel12);
-        jLabel12.setBounds(20, 10, 100, 18);
-
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel13.setText("00");
-        jPanel7.add(jLabel13);
-        jLabel13.setBounds(50, 30, 60, 40);
-
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.setLayout(null);
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel14.setText("Total Booking ");
-        jPanel8.add(jLabel14);
-        jLabel14.setBounds(20, 10, 100, 18);
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel15.setText("00");
-        jPanel8.add(jLabel15);
-        jLabel15.setBounds(50, 30, 60, 40);
-
-        jPanel7.add(jPanel8);
-        jPanel8.setBounds(0, 0, 0, 0);
-
-        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel9.setLayout(null);
-
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel16.setText("Total Booking ");
-        jPanel9.add(jLabel16);
-        jLabel16.setBounds(20, 10, 100, 18);
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel17.setText("00");
-        jPanel9.add(jLabel17);
-        jLabel17.setBounds(50, 30, 60, 40);
-
-        jPanel10.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel10.setLayout(null);
-
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(75, 85, 99));
-        jLabel18.setText("Total Booking ");
-        jPanel10.add(jLabel18);
-        jLabel18.setBounds(20, 10, 100, 18);
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel19.setText("00");
-        jPanel10.add(jLabel19);
-        jLabel19.setBounds(50, 30, 60, 40);
-
-        jPanel9.add(jPanel10);
-        jPanel10.setBounds(0, 0, 0, 0);
-
-        jPanel7.add(jPanel9);
-        jPanel9.setBounds(0, 0, 0, 0);
-
-        jPanelContent.add(jPanel7);
-        jPanel7.setBounds(20, 290, 170, 80);
+        jPanel1.setBounds(20, 20, 170, 70);
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
         jPanel11.setLayout(null);
@@ -513,7 +255,19 @@ public class reports extends javax.swing.JFrame {
         jLabel5.setBounds(80, 10, 150, 18);
 
         jPanelContent.add(jPanel11);
-        jPanel11.setBounds(240, 20, 290, 350);
+        jPanel11.setBounds(290, 20, 290, 350);
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/occupancy_chart.png"))); // NOI18N
+        jPanelContent.add(jLabel21);
+        jLabel21.setBounds(20, 230, 250, 140);
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/floor_status.png"))); // NOI18N
+        jPanelContent.add(jLabel22);
+        jLabel22.setBounds(20, 80, 190, 130);
+
+        jLabel10.setText("Floor Status");
+        jPanelContent.add(jLabel10);
+        jLabel10.setBounds(80, 200, 70, 16);
 
         jPanel4.add(jPanelContent);
         jPanelContent.setBounds(20, 90, 590, 390);
@@ -588,60 +342,24 @@ public class reports extends javax.swing.JFrame {
     private javax.swing.JButton Sysetemsettings;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JPanel jPanelContent;
     private javax.swing.JPanel jPanelHeader;
     private javax.swing.JPanel jPanelSidebar;
@@ -650,8 +368,8 @@ public class reports extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public javax.swing.JLabel getLblTotalBookings() { return jLabel1; }
-    public javax.swing.JLabel getLblStaffAttendance() { return jLabel11; }
-    public javax.swing.JLabel getLblTotalOffers() { return jLabel13; }
+    public javax.swing.JLabel getLblStaffAttendance() { return jLabel3; }
+    public javax.swing.JLabel getLblTotalOffers() { return jLabel4; }
     public javax.swing.JPanel getPanelFeedback() { return jPanel11; }
 
     public javax.swing.JButton getBtnDashboard() { return Dashboard; }

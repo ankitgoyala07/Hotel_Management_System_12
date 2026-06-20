@@ -199,7 +199,7 @@ public class GuestManagementController {
         GuestManagementModel selectedGuest = currentGuestList.get(selectedRow);
         int option = JOptionPane.showConfirmDialog(
             view,
-            "Are you sure you want to delete guest: " + selectedGuest.getName() + "?\nThis will also change room " + selectedGuest.getRoom() + " status back to Available.",
+            "Are you sure you want to delete guest: " + selectedGuest.getName() + "?",
             "Delete Guest",
             JOptionPane.YES_NO_OPTION,
             JOptionPane.WARNING_MESSAGE

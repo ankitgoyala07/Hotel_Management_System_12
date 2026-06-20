@@ -96,7 +96,7 @@ public class BookingController {
         }
         if (view.getBtnMealtime() != null) {
             view.getBtnMealtime().addActionListener(e -> {
-                new MealTimeController();
+                new view.MealTime().setVisible(true);
                 view.dispose();
             });
         }

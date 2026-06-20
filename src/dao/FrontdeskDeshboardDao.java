@@ -105,6 +105,24 @@ public class FrontdeskDeshboardDao {
                         pstm3.executeUpdate();
                     }
                 }
+
+                // Delete food orders for this room
+                if (roomNoInt != -1) {
+                    String deleteFoodSql = "DELETE FROM food_orders WHERE room_no = ?";
+                    try (PreparedStatement pstm = conn.prepareStatement(deleteFoodSql)) {
+                        pstm.setInt(1, roomNoInt);
+                        pstm.executeUpdate();
+                    }
+                }
+
+                // Delete room service requests for this room
+                if (roomNoInt != -1) {
+                    String deleteServiceSql = "DELETE FROM room_service WHERE room_no = ?";
+                    try (PreparedStatement pstm = conn.prepareStatement(deleteServiceSql)) {
+                        pstm.setInt(1, roomNoInt);
+                        pstm.executeUpdate();
+                    }
+                }
             }
 
             conn.commit();

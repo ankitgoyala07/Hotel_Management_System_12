@@ -162,7 +162,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelVipImage">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/iamges/vip.jpg"/>
+                      <Image iconType="3" name="/images/vip.jpg"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -224,7 +224,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelVipAreaIcon">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/iamges/icon_area.png"/>
+                      <Image iconType="3" name="/images/icon_area.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -252,7 +252,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelVipBedIcon">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/iamges/icon_bed.png"/>
+                      <Image iconType="3" name="/images/icon_bed.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -362,7 +362,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelDoubleImage">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/iamges/doble.jpg"/>
+                      <Image iconType="3" name="/images/doble.jpg"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -424,7 +424,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelDoubleAreaIcon">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/iamges/icon_area.png"/>
+                      <Image iconType="3" name="/images/icon_area.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -452,7 +452,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelDoubleBedIcon">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/iamges/icon_bed.png"/>
+                      <Image iconType="3" name="/images/icon_bed.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -562,7 +562,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelSingleImage">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/iamges/singal.jpg"/>
+                      <Image iconType="3" name="/images/singal.jpg"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -624,7 +624,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelSingleAreaIcon">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/iamges/icon_area.png"/>
+                      <Image iconType="3" name="/images/icon_area.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -652,7 +652,7 @@
                 <Component class="javax.swing.JLabel" name="jLabelSingleBedIcon">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/iamges/icon_bed.png"/>
+                      <Image iconType="3" name="/images/icon_bed.png"/>
                     </Property>
                   </Properties>
                   <Constraints>

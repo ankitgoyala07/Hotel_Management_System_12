@@ -94,7 +94,7 @@ public class MealTime extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jScrollPaneTable);
 
         jPanelCard.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 30, 540, 230);
+        jScrollPane1.setBounds(20, 70, 540, 150);
 
         jButtonEdit1.setBackground(new java.awt.Color(26, 115, 232));
         jButtonEdit1.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N

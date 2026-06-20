@@ -70,7 +70,7 @@ public class Billing extends javax.swing.JFrame {
         Logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 835));
+        setMinimumSize(new java.awt.Dimension(810, 535));
         setResizable(false);
         getContentPane().setLayout(null);
 

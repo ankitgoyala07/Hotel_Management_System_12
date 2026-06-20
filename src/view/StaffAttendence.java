@@ -32,7 +32,6 @@ public class StaffAttendence extends javax.swing.JFrame {
         jPanelHeader = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblRole = new javax.swing.JLabel();
-        lblAvatar = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
@@ -71,11 +70,7 @@ public class StaffAttendence extends javax.swing.JFrame {
         lblRole.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblRole.setText("Manager");
         jPanelHeader.add(lblRole);
-        lblRole.setBounds(420, 10, 100, 30);
-
-        lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user (1).png"))); // NOI18N
-        jPanelHeader.add(lblAvatar);
-        lblAvatar.setBounds(530, 0, 40, 40);
+        lblRole.setBounds(450, 10, 100, 30);
 
         jPanel1.add(jPanelHeader);
         jPanelHeader.setBounds(20, 15, 580, 40);
@@ -271,7 +266,6 @@ public class StaffAttendence extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTable jTable2;
-    private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblTitle;
