@@ -1,0 +1,81 @@
+"S.N.","Feature Name","User Story","Acceptance Criteria"
+"2","Secure Registration & Login","As a user, I want to register and log in with role selection so that I can access role-based features securely.","• The system allows users to select a role (Admin, Staff, Customer) during registration.
+• User passwords are stored securely.
+• The system validates required fields.
+• Users only get access features permitted to their assigned role."
+"3","Dashboard Overview","As a manager, I want to view a dashboard overview so that I can quickly monitor hotel operations such as bookings, room status, and revenue.","• The dashboard displays summarized data such as total bookings, available rooms, and revenue.
+• The dashboard reflects all the updates.
+• The system displays a different dashboard based on user roles.
+• Dashboard loads quickly and is accessible immediately after login."
+"4","Booking Management","As a manager, I want to manage room bookings so that I can reserve, update, or cancel rooms efficiently.","• The manager can view all room bookings (confirmed, pending, and cancelled) in a centralized dashboard.
+• The system allows the manager to add, update, or remove room availability.
+• Error messages will be displayed for invalid booking operations.
+• The manager can cancel bookings due to operational reasons."
+"5","System Setting and control","As a manager, I want to manage system settings so that I can update hotel information, currency and pricing all together.","• The manager can update hotel details such as name, address, email and contacts.
+• The manager can select and update the currency symbol used across the system for pricing and invoices.
+• The manager can update room service pricing, and changes are immediately reflected in billing and invoices.
+• The manager can set and modify tax rates and ensure they are applied to billing operations."
+"6","Room Management","As a manager, I want to add, update, and delete room details so that room inventory is maintained.","• Admin can create rooms with numbers, type, price.
+• Admin can update room details.
+• Admin can delete rooms.
+• Changes can reflect in real-time."
+"7","Search guest(by id)","As a frontdesk staff, I want to search for guest details so that I can quickly access their booking information.","• Frontdesk can search by name or id.
+• System returns matching results.
+• Guest details are displayed clearly.
+• Search works quickly."
+"8","Room Status Checking","As frontdesk staff, I want to check room status so that I know which rooms are available, occupied, or under maintenance.","• The system shows the room availability status.
+• Rooms will be categorized by available, occupied or under maintenance.
+• Status updates in real-time in the system.
+• Staff can view the room status dashboard."
+"9","Staff Management","As a manager, I want to manage staff accounts so that roles and responsibilities are controlled.","• The manager can create new staff accounts with required details.
+• The manager can assign and update roles for each staff member.
+• The manager can view a list of all staff along with their roles.
+• The manager can deactivate or remove staff accounts when required."
+"10","Manage Customer Accounts","As a hotel manager, I want to manage customer accounts so that I can view, update, and control guest profiles and their associated information efficiently.","• The manager can view guest accounts by name or ID.
+• The manager can update customer profile details such as contact information and preferences.
+• The manager can deactivate or delete a customer account.
+• All changes are saved in real-time and access is restricted to authorized roles only."
+"11","View Reports","As a hotel manager, I want to view operational reports so that I can track revenue, occupancy, and bookings to make informed decisions.","• The manager can access categorized reports (Revenue, Occupancy, Bookings) from the dashboard.
+• Reports can be filtered by date range (daily, weekly, monthly, or custom).
+• Each report displays accurate, up-to-date data in a clear and readable format.
+• The manager can export or print reports in PDF format."
+"12","Discount & Offer Management","As a hotel manager, I want to create and manage discounts and offers so that I can apply promotional pricing and attract more guests.","• The manager can create a discount with a name, type (percentage or fixed), value, and validity period.
+• The manager can assign a unique promo code applicable during booking or checkout.
+• The system automatically deducts the correct amount when a valid code is applied.
+• Expired or invalid codes are rejected with a clear error message."
+"13","Billing & Invoicing","As a hotel manager, I want to generate and manage invoices so that I can accurately bill guests for all services and maintain clear payment records.","• The system automatically generates an invoice at checkout with a full breakdown of all charges.
+• Taxes and discounts are calculated and displayed as separate line items on the invoice.
+• The manager can add, edit, or remove charges before finalizing the invoice.
+• Finalized invoices can be downloaded as PDF and are stored in invoice history."
+"14","Room Service Request","As a guest, I want to request room service through the system so that I can request for cleaning the room when I want.","• The guest can submit a room service request for cleaning through the system.
+• The system records the request with room number, date, and time.
+• The guest receives confirmation after successfully submitting the request.
+• The request is visible to staff for processing and status updates (e.g., pending, completed)."
+"15","Room Service & Housekeeping Tracker","As a hotel manager, I want to track room service and housekeeping requests so that I can manage tasks efficiently and avoid delays.","• The staff dashboard displays all pending service or housekeeping requests.
+• Requests show guest details, room number, and task type.
+• Staff can update status (e.g., accepted, in-progress, completed).
+• System logs timestamps for request creation and completion."
+"16","Order Requests","As a guest, I want to place different types of orders (food, drinks, amenities) so that I can enjoy hotel services conveniently.","• Guests can browse categorized items (food, drinks, amenities).
+• Orders can be customized (e.g., add-ons, portion size).
+• The system calculates total cost before confirmation.
+• Guests receive digital confirmation of the order."
+"17","View Expenses","As a guest, I want to view my expenses during my stay so that I can monitor my spending and prepare for checkout.","• Guests can view a detailed list of all charges (room, food, services).
+• Expenses are updated in real-time after each transaction.
+• The system shows breakdown by category (room, dining, housekeeping, extras).
+• Guests can download or request a digital copy of expenses."
+"18","Staff Attendance & Shift Monitoring","As a manager, I want to track staff attendance and shifts so that I can manage employee working hours efficiently.","• Staff can easily check in and check out without confusion.
+• The system clearly shows who is present, absent, or late.
+• Shift timings are visible so staff know when to work.
+• The manager can quickly review attendance history anytime."
+"19","Meal Time Management","As a manager, I want to manage breakfast, lunch, and dinner timings so that services run smoothly without overcrowding.","• Meal timings are clearly set and easy to understand.
+• Guests and staff can see when each service starts and ends.
+• The system helps avoid too many people coming at once.
+• Staff get reminders so they can prepare on time."
+"20","Room Browsing","As a customer, I want to browse available rooms so that I can choose a suitable room before booking.","• Rooms are displayed in a simple and easy-to-browse way.
+• Important details like price, type, and features are clearly shown.
+• Availability is updated so users don’t see already booked rooms.
+• Images help users understand what the room looks like."
+"21","Feedback & Reviews","As a guest, I want to give feedback and reviews so that I can share my experience and help improve services.","• Guests can easily leave a rating after their stay.
+• Writing a review feels simple and quick.
+• Feedback is stored so management can review it later.
+• Admin can see common issues and improve services."

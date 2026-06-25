@@ -159,7 +159,7 @@ public class BookingManagement extends javax.swing.JFrame {
         jLabel1.setText("FrontDesk");
         jPanelHeader.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 80, -1));
 
-        jPanelMain.add(jPanelHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 590, 45));
+        jPanelMain.add(jPanelHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 580, 45));
 
         jPanelContent.setBackground(new java.awt.Color(211, 228, 245));
         jPanelContent.setLayout(null);
@@ -248,7 +248,7 @@ public class BookingManagement extends javax.swing.JFrame {
         jPanelContent.add(jTextField2);
         jTextField2.setBounds(20, 30, 90, 22);
 
-        jPanelMain.add(jPanelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 75, 590, 410));
+        jPanelMain.add(jPanelContent, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 75, 580, 410));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanelMain.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));

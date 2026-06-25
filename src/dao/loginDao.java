@@ -14,12 +14,6 @@ import java.sql.ResultSet;
 public class loginDao {
     private final MySqlConnection mysql = new MySqlConnection();
 
-    /**
-     * Validates a user's credentials against the database and sets their role.
-     *
-     * @param user the loginModel containing credentials
-     * @return true if credentials are valid, false otherwise
-     */
     public boolean validateUser(loginModel user) {
         Connection conn = mysql.Openconnection();
         if (conn == null) {

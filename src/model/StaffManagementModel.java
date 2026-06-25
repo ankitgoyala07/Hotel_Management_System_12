@@ -1,10 +1,5 @@
 package model;
 
-/**
- * Model class holding staff details.
- *
- * @author i3
- */
 public class StaffManagementModel {
     private String staffId;
     private String name;

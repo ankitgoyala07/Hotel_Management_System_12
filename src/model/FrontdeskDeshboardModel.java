@@ -1,11 +1,5 @@
 package model;
 
-/**
- * Model class representing a room in the hotel management system.
- * Holds room number, type, and occupancy status.
- *
- * @author i3
- */
 public class FrontdeskDeshboardModel {
     private String roomNumber;
     private String roomType;

@@ -78,7 +78,7 @@ public class BookRoom extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Room Browsing");
-        setMinimumSize(new java.awt.Dimension(810, 535));
+        setMinimumSize(new java.awt.Dimension(810, 555));
         setResizable(false);
         getContentPane().setLayout(null);
 

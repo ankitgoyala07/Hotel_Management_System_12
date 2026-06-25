@@ -1,0 +1,17 @@
+"S.N.","Feature Name","User Story","Acceptance Criteria"
+"1","Patient Registration","As a Patient, I want to register and create my profile so that I can access the system and book appointments easily.","• System allows patient to enter username, password, full name, contact number, age, gender, and address.
+• A unique Patient ID is generated automatically for each new patient.
+• If required fields are empty, the system shows an error message.
+• A success message is shown after registration is completed."
+"2","Patient Login","As a Patient, I want to log in securely with my credentials so that I can access my personalized role-based dashboard.","• System validates the username and password combination correctly.
+• After login, the patient sees their personal dashboard only.
+• Dashboard displays patient name and relevant menu options.
+• Patient is redirected to Patient Dashboard only — not other role panels."
+"3","Forgot Password","As a User, I want to reset my password using security questions so that I can regain access to my account if I forget my password.","• User can access 'Forgot Password' link from the login page.
+• System verifies identity via phone number or patient ID.
+• User must correctly answer at least 3 security questions.
+• If answers are correct, user can set a new password."
+"4","Book Appointment","As a Patient, I want to book an appointment with a doctor so that I can schedule my consultation in advance.","• Patient can view list of available doctors and departments.
+• Patient can select doctor, date and preferred time.
+• System checks availability before confirming booking.
+• Booking confirmation is shown and saved in the database."

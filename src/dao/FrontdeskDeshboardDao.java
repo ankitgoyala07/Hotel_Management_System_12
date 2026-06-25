@@ -154,7 +154,8 @@ public class FrontdeskDeshboardDao {
             return false;
         }
         
-        String sql = "INSERT INTO guest_details (full_name, phone_number, email_address, home_address, room_no, guest_no, room_type, check_in_date, check_out_date, discount_deal, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO guest_details (full_name, phone_number, email_address, home_address, room_no, guest_no, room_type, "
+                + "check_in_date, check_out_date, discount_deal, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = conn.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS)) {
             int roomNo = -1;
             try {
@@ -242,11 +243,6 @@ public class FrontdeskDeshboardDao {
         return 0;
     }
 
-    /**
-     * Retrieves the total count of rooms.
-     *
-     * @return total number of rooms
-     */
     public int getTotalRoomsCount() {
         Connection conn = mysql.Openconnection();
         if (conn == null) {

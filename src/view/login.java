@@ -44,6 +44,7 @@ public class login extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(800, 540));
         setResizable(false);
         getContentPane().setLayout(null);
@@ -128,7 +129,7 @@ public class login extends javax.swing.JFrame {
         jTextField1.setBounds(30, 180, 320, 35);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(410, 10, 380, 480);
+        jPanel1.setBounds(410, 10, 370, 480);
 
         pack();
         setLocationRelativeTo(null);

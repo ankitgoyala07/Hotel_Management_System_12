@@ -13,11 +13,7 @@ public class BillingDao {
     private final MySqlConnection mysql = new MySqlConnection();
 
     /**
-     * Retrieves dynamic billing information based on a room number.
-     * Queries guest stay dates, room type, and active orders to compute the total invoice.
-     *
-     * @param roomNumber the identifier of the room to calculate the bill for
-     * @return BillingModel initialized with database values or fallbacks
+     * Retrieves billing details for a given room number.
      */
     public BillingModel getBillingForRoom(String roomNumber) {
         Connection conn = mysql.Openconnection();
